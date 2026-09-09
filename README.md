@@ -74,4 +74,4 @@ python -m http.server 8000 --directory _site
 - [Web 演示与 GitHub Pages 部署](docs/deployment.md)
 - [项目元数据清单](registry/projects.json)
 
-当前已准备静态网站生成与手动发布流程；是否上线以仓库 Pages 设置和实际部署结果为准。上游项目的代码与素材应注明来源及原有许可。
+GitHub Pages 已启用并完成发布：[访问在线研究室](https://yydshly.github.io/0909_codex_project/)。资料推送只触发检查，网页更新还需运行手动发布流程，详见部署指南。上游项目的代码与素材应注明来源及原有许可。

@@ -46,7 +46,15 @@ Playwright 需在 Node 模块路径中可用；本机使用桌面应用提供的
 
 ## 未验证的上游事项
 
-未安装上游、未调用模型、未执行实际网站克隆，未进行还原率、成本、耗时或不同模型质量对照。Git 提交与推送用于资料归档；清单中的 Pages 链接仍是预期发布路径，需单独部署才能上线。
+未安装上游、未调用模型、未执行实际网站克隆，未进行还原率、成本、耗时或不同模型质量对照。以下部署结果仅证明本研究网页上线，不代表上游克隆功能经过实测。
+
+## GitHub Pages 部署
+
+- 2026-09-09 启用仓库 GitHub Pages，发布来源为 GitHub Actions。
+- [首次发布任务](https://github.com/yydshly/0909_codex_project/actions/runs/34311582181) 构建与部署成功，对应源码 `3ca7cb1`。
+- [总览](https://yydshly.github.io/0909_codex_project/)与[项目网页](https://yydshly.github.io/0909_codex_project/projects/002-ai-website-cloner-template/)已上线。
+- 线上项目页面返回 HTTP 200，已核对“输入 URL”“前端工程”和输入输出条来自目标修订版本。
+- 后续资料修订仍需运行手动发布流程，普通推送只触发检查。
 
 ## 核心目标修订
 

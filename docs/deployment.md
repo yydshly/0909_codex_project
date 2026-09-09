@@ -1,5 +1,11 @@
 # Web 演示与部署
 
+## 当前上线状态
+
+GitHub Pages 已于 2026-09-09 启用，发布来源为 GitHub Actions。[访问总览](https://yydshly.github.io/0909_codex_project/) · [访问 002 网页复刻研究](https://yydshly.github.io/0909_codex_project/projects/002-ai-website-cloner-template/)。[首次部署任务](https://github.com/yydshly/0909_codex_project/actions/runs/34311582181)已成功。
+
+资料推送与站点上线是独立步骤。当前继续采用手动发布；修改网页并推送后，需要执行下述发布流程。
+
 ## 一个总览，多个项目路径
 
 本仓库使用一个 GitHub Pages 站点，通过子路径容纳多个静态演示。预期发布地址：

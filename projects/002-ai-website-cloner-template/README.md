@@ -12,6 +12,8 @@
 
 [← 总索引](../../README.md) · [配套网页源文件](web/index.html) · [完整技术说明](notes/technical-understanding.md) · [来源与边界](notes/sources.md) · [归档验收](notes/verification.md)
 
+**在线网页：** [URL 驱动的 AI 网页复刻](https://yydshly.github.io/0909_codex_project/projects/002-ai-website-cloner-template/)，已于 2026-09-09 部署到 GitHub Pages 并验证可访问。
+
 ## 核心能力：从 URL 到网页复刻
 
 **输入目标 URL → 浏览器观察与采集 → 分析外观及交互 → 生成组件和页面 → 对照验证 → 交付前端工程。**
@@ -82,4 +84,4 @@ python -m http.server 8000 --directory _site
 
 访问 `http://localhost:8000/projects/002-ai-website-cloner-template/`，也可直接打开 `web/index.html`。网页是研究说明，步骤切换仅展示原创示例，不连接模型、不执行克隆。SVG/PNG 与 Markdown 均可下载。
 
-Web 清单中的 Pages URL 是发布目标，不是上线证明；本次验证见 [归档验收](notes/verification.md)。
+GitHub Pages 已上线，支持直接在线阅读和下载。资料推送与网页部署是两个步骤；后续网页更新需运行发布流程。本次记录见 [归档验收](notes/verification.md)。
