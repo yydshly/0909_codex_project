@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1840" viewBox="0 0 1440 1840" role="img" aria-labelledby="title desc">
+<title id="title">URL 驱动的网页复刻：从目标地址到可运行的 Next.js 前端工程</title>
+<desc id="desc">核心目标是输入 URL，复刻网页布局、样式、素材、响应式和可观察交互，输出前端工程。模型、工具与流程组织采集、分析、规格、实现和验证。共享证据保持一致，后台业务仍有边界。虚线框为额外工程建议。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#236c62" stroke-width="1.5"/></marker><marker id="orange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#a94528" stroke-width="1.5"/></marker></defs>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC",sans-serif;fill:#182e39}.tiny{font-size:17px;fill:#596b70}.body{font-size:21px;fill:#52676a}.head{font-size:27px;font-weight:700}.label{font-size:18px;fill:#236c62;font-weight:700;letter-spacing:1px}.line{fill:none;stroke:#236c62;stroke-width:2.5;marker-end:url(#arrow)}.feedback{fill:none;stroke:#a94528;stroke-width:2.5;marker-end:url(#orange)}</style>
+<rect width="1440" height="1840" fill="#f6f3ec"/>
+
+<text x="56" y="47" class="label">研究室 / 002     ·     AI WEBSITE CLONER TEMPLATE</text>
+<text x="56" y="108" style="font-size:43px;font-weight:700">输入 URL，复刻为可运行的前端工程。</text>
+<text x="56" y="151" class="body">目标：还原网页外观与可观察交互。方法：模型 + 工具 + 规格与验证流程。</text>
+<text x="1120" y="47" class="tiny">研究归档 2026.09.09</text>
+<rect x="56" y="187" width="416" height="151" rx="10" fill="#e8eee5" stroke="#c9d4ca" stroke-width="1.5"/>
+<text x="79" y="219" class="label">能力来源 01</text>
+<text x="79" y="260" class="head">大模型</text>
+<text x="79" y="291" class="body">理解截图与结构</text>
+<text x="79" y="319" class="body">归纳规则 · 生成代码 · 分析偏差</text>
+<rect x="512" y="187" width="416" height="151" rx="10" fill="#e8eee5" stroke="#c9d4ca" stroke-width="1.5"/>
+<text x="535" y="219" class="label">能力来源 02</text>
+<text x="535" y="260" class="head">代理与工具环境</text>
+<text x="535" y="291" class="body">浏览器采集与操作</text>
+<text x="535" y="319" class="body">文件编辑 · 终端运行 · 截图</text>
+<rect x="968" y="187" width="416" height="151" rx="10" fill="#e8eee5" stroke="#c9d4ca" stroke-width="1.5"/>
+<text x="991" y="219" class="label">能力来源 03</text>
+<text x="991" y="260" class="head">本仓库的增量</text>
+<text x="991" y="291" class="body">Skill / 检查规范 / 项目模板</text>
+<text x="991" y="319" class="body">任务拆分 · 输出约定 · 验收要求</text>
+<text x="56" y="385" class="label">起点：一个或多个目标 URL  /  打开网页，采集以下证据</text>
+<rect x="56" y="406" width="416" height="118" rx="10" fill="#fffefa" stroke="#c9d4ca" stroke-width="1.5"/>
+<text x="79" y="443" class="head">截图</text>
+<text x="79" y="475" class="body">最终外观与区域关系</text>
+<text x="79" y="502" class="body">缺少隐藏状态和精确规则</text>
+<rect x="512" y="406" width="416" height="118" rx="10" fill="#fffefa" stroke="#c9d4ca" stroke-width="1.5"/>
+<text x="535" y="443" class="head">DOM / CSS / 素材</text>
+<text x="535" y="475" class="body">结构、样式、尺寸、文本与资源</text>
+<text x="535" y="502" class="body">不等于原始组件工程</text>
+<rect x="968" y="406" width="416" height="118" rx="10" fill="#fffefa" stroke="#c9d4ca" stroke-width="1.5"/>
+<text x="991" y="443" class="head">操作记录</text>
+<text x="991" y="475" class="body">点击、悬停、滚动、调整宽度</text>
+<text x="991" y="502" class="body">未观察到的行为仍然未知</text>
+<path d="M720 525 V557" class="line"/>
+<text x="56" y="574" class="label">主代理组织的处理循环  /  模型决定动作 → 工具执行 → 返回证据</text>
+<rect x="56" y="599" width="416" height="163" rx="10" fill="#fffefa" stroke="#c9d4ca" stroke-width="1.5"/>
+<text x="80" y="632" class="label">01</text>
+<text x="128" y="635" class="head">观察页面</text>
+<text x="80" y="684" class="body">固定页面与环境，识别区域</text>
+<text x="80" y="716" class="body">滚动加载；保存参考截图</text>
+<text x="80" y="740" class="tiny">产物：页面拓扑与截图</text>
+<rect x="512" y="599" width="416" height="163" rx="10" fill="#fffefa" stroke="#c9d4ca" stroke-width="1.5"/>
+<text x="536" y="632" class="label">02</text>
+<text x="584" y="635" class="head">提取事实</text>
+<text x="536" y="684" class="body">读取结构、样式、尺寸和素材</text>
+<text x="536" y="716" class="body">多视口、多状态；标记遗漏</text>
+<text x="536" y="740" class="tiny">产物：原始数据与资源</text>
+<rect x="968" y="599" width="416" height="163" rx="10" fill="#fffefa" stroke="#c9d4ca" stroke-width="1.5"/>
+<text x="992" y="632" class="label">03</text>
+<text x="1040" y="635" class="head">归纳与推断</text>
+<text x="992" y="684" class="body">识别重复规范、布局和交互</text>
+<text x="992" y="716" class="body">区分读取 / 确认 / 推断 / 未知</text>
+<text x="992" y="740" class="tiny">产物：规则和状态关系</text>
+<rect x="968" y="821" width="416" height="163" rx="10" fill="#fffefa" stroke="#c9d4ca" stroke-width="1.5"/>
+<text x="992" y="854" class="label">04</text>
+<text x="1040" y="857" class="head">写入组件规格</text>
+<text x="992" y="906" class="body">结构、输入、行为、素材与样式</text>
+<text x="992" y="938" class="body">共享主题、接口及验收条件</text>
+<text x="992" y="962" class="tiny">产物：可阅读的实现依据</text>
+<rect x="512" y="821" width="416" height="163" rx="10" fill="#fffefa" stroke="#c9d4ca" stroke-width="1.5"/>
+<text x="536" y="854" class="label">05</text>
+<text x="584" y="857" class="head">拆分与实现</text>
+<text x="536" y="906" class="body">公共基础先行，独立任务并行</text>
+<text x="536" y="938" class="body">按职责分工，再组装页面</text>
+<text x="536" y="962" class="tiny">产物：Next.js 组件与路由</text>
+<rect x="56" y="821" width="416" height="163" rx="10" fill="#e4ede0" stroke="#c9d4ca" stroke-width="1.5"/>
+<text x="80" y="854" class="label">06</text>
+<text x="128" y="857" class="head">对照与修复</text>
+<text x="80" y="906" class="body">构建 + 视觉 + 交互检查</text>
+<text x="80" y="938" class="body">定位差异，修采集 / 规格 / 代码</text>
+<text x="80" y="962" class="tiny">产物：验收结果与已知缺口</text>
+<path d="M472 680 H506" class="line"/>
+<path d="M928 680 H962" class="line"/>
+<path d="M1176 762 V815" class="line"/>
+<path d="M968 904 H934" class="line"/>
+<path d="M512 904 H478" class="line"/>
+<path d="M56 904 H28 V680 H50" class="feedback"/>
+<text transform="translate(20 850) rotate(-90)" class="tiny" style="fill:#a94528">差异反馈</text>
+<text x="996" y="799" class="tiny">分析结果写入规格</text>
+<rect x="56" y="1020" width="1328" height="106" rx="10" fill="#e4ede0" stroke="#aec3b1" stroke-width="1.5"/>
+<text x="82" y="1062" class="head">验证后交付：可运行、可修改的 Next.js 前端工程</text>
+<text x="82" y="1100" class="body">页面 + 组件 + 路由 + 素材；复刻布局、样式、响应式与已观察到的交互。</text>
+<path d="M264 985 V1014" class="line"/>
+<g transform="translate(0 130)">
+<rect x="56" y="1020" width="1328" height="130" rx="10" fill="#182e39" stroke="#182e39" stroke-width="1.5"/>
+<text x="82" y="1059" class="head" style="fill:#f3f4e9">贯穿全过程的共享依据</text>
+<text x="82" y="1097" class="body" style="fill:#d8e4dc">真实素材 + 参考截图 + 组件规格 + 状态记录 + 输出路径</text>
+<text x="82" y="1128" class="body" style="fill:#b9cbc6">事实有来源；推断有标记；未覆盖项保留。生成与验收始终对照同一份依据。</text>
+<text x="56" y="1195" class="label">怎样保持实现一致  /  并行只加速，不自动保证正确</text>
+<rect x="56" y="1216" width="1328" height="128" rx="10" fill="#fffefa" stroke="#c9d4ca" stroke-width="1.5"/>
+<text x="80" y="1258" class="head">视觉与素材</text>
+<text x="80" y="1294" class="tiny">同一字体、主题、容器和资源</text>
+<text x="520" y="1258" class="head">接口与状态</text>
+<text x="520" y="1294" class="tiny">明确输入、事件、布局与状态归属</text>
+<text x="968" y="1258" class="head">修改与验收</text>
+<text x="968" y="1294" class="tiny">公共文件集中维护，固定条件对照</text>
+<text x="80" y="1325" class="tiny">流程约定需要实际执行；独立工作目录不能自动解决语义和接口冲突。</text>
+<rect x="56" y="1372" width="1328" height="110" rx="10" fill="#f1e8db" stroke="#d5c3a9" stroke-width="1.5"/>
+<text x="80" y="1412" class="head" style="fill:#8b492d">能力边界</text>
+<text x="278" y="1410" class="body" style="fill:#8b492d">构建通过 ≠ 视觉一致 ≠ 行为完整 ≠ 后端业务相同</text>
+<text x="80" y="1450" class="tiny">不能保证穷尽隐藏状态；Canvas / iframe 等需单独处理；认证、数据库、实时业务需要另外实现。</text>
+<rect x="56" y="1510" width="1328" height="125" rx="10" fill="#f8f5ed" stroke="#a17b43" stroke-width="1.5" stroke-dasharray="8 6"/>
+<text x="80" y="1550" class="head">完整系统还需补充  /  我们的建议，非上游现成能力</text>
+<text x="80" y="1585" class="body">结构化契约与校验 → 任务状态与依赖 → 可重复验收 → 有界重试与断点恢复</text>
+<text x="80" y="1614" class="tiny">实现顺序：先采集准确、状态覆盖和局部修复，再扩展整站与更多并行。</text>
+<text x="56" y="1675" class="tiny">实线：职责与流程要求（不等于程序强制执行）    虚线：工程扩展建议</text>
+<text x="1008" y="1675" class="tiny">源码快照 92872bc · 克隆效果未实测</text>
+</g>
+</svg>

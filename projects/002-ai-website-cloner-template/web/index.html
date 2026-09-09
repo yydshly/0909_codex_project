@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="输入目标 URL，借助 AI 编程代理复刻网页布局、样式、素材和可观察交互，生成可运行的 Next.js 前端工程。研究其采集、实现、验证与流程约束。">
+  <title>URL 驱动的 AI 网页复刻 | GitHub 项目研究室</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"><script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead"><a class="brand" href="../../">研究室<span> / 002</span></a><span class="archive-label">研究归档 · 2026.09.09</span><a href="https://github.com/JCodesMore/ai-website-cloner-template">上游仓库 ↗</a></header>
+<nav class="section-nav" aria-label="章节导航"><a href="#understanding">核心理解</a><a href="#architecture">完整架构</a><a href="#process">处理思路</a><a href="#comparison">同类区别</a><a href="#limits">可控边界</a><a href="#sources">资料下载</a></nav>
+<main id="main">
+<section class="hero" id="understanding">
+ <div><p class="eyebrow">AI WEBSITE CLONER TEMPLATE / RESEARCH NOTE</p><h1>输入 URL，<br>复刻成<span>前端工程。</span></h1><p class="lead">给出目标网页地址，借助 AI 编程代理复刻布局、样式、素材、响应式和可观察交互，生成可运行、可修改的 Next.js 页面。</p><div class="actions"><a class="button primary" href="#architecture">阅读完整架构 <span>↓</span></a><a class="text-link" href="assets/understanding.md" download>下载理解文档 ↗</a></div></div>
+ <aside class="takeaway"><span class="large-no">002</span><p class="eyebrow">目标 / 方法 / 边界</p><h2>目标是网页复刻。<br>流程让执行更稳定。</h2><p>模型与工具提供能力，规格和验证减少遗漏。复刻前端不等于恢复原始源码或后台业务，也不保证完全可控。</p><div class="status"><span></span> 已归档 · 源码研究，克隆效果未实测</div></aside>
+</section>
+<div class="goal-path" aria-label="核心目标与输入输出"><span><b>输入</b> 一个或多个目标 URL</span><i aria-hidden="true">→</i><span><b>复刻</b> 页面外观与可观察交互</span><i aria-hidden="true">→</i><span><b>输出</b> 可修改的 Next.js 工程</span></div>
+<div class="roles"><article><span>01 / 模型</span><h3>理解与生成</h3><p>看懂画面、归纳结构、编写代码、分析偏差。</p></article><article><span>02 / 工具环境</span><h3>观察与执行</h3><p>打开网页、读取 DOM/CSS、操作页面、运行与截图。</p></article><article><span>03 / 这个仓库</span><h3>流程与约束</h3><p>采集清单、组件规格、任务拆分、模板和验收要求。</p></article></div>
+
+<section id="architecture" class="section">
+ <div class="section-heading"><div><p class="eyebrow">01 / THE WHOLE PICTURE</p><h2>一张图，连接全部理解。</h2></div><p>从信息输入到反馈修复，<br>区分已有流程和建议补充的机制。</p></div>
+ <div class="diagram-tools"><span><i class="solid"></i> 职责 / 现有流程要求 <i class="dashed"></i> 我们的扩展建议</span><button id="open-diagram" class="button" hidden>放大阅读 ⤢</button></div>
+ <figure class="architecture"><a href="assets/architecture.svg" target="_blank" rel="noopener" aria-label="打开完整架构 SVG 原图"><img src="assets/architecture.svg" width="1440" height="1840" alt="URL 网页复刻架构：输入网页地址，经截图、DOM/CSS 和交互采集，分析与组件实现，对照验证后交付 Next.js 前端工程；同时标明模型工具分工、共享规格和能力边界。"></a><figcaption>从 URL 输入到前端交付；实线框是职责和流程要求，不代表每步都由程序强制执行。原图可放大，下方提供等价文字说明。</figcaption></figure>
+ <div class="download-row"><a href="assets/architecture.svg" download>下载 SVG 矢量图 ↓</a><a href="assets/architecture.png" download>下载 PNG 分享图 ↓</a><a href="assets/technical-understanding.md" download>下载完整技术说明 ↓</a></div>
+</section>
+
+<section id="process" class="section">
+ <div class="section-heading"><div><p class="eyebrow">02 / HOW IT WORKS</p><h2>先找证据，再写实现。</h2></div><p>点击步骤查看输入、动作和产物。<br>这里是方法说明，不执行网页克隆。</p></div>
+ <div class="process-layout"><div class="step-list" aria-label="处理步骤"><button data-step="0" aria-pressed="true"><span>01</span>观察页面<i>↗</i></button><button data-step="1" aria-pressed="false"><span>02</span>提取事实<i>↗</i></button><button data-step="2" aria-pressed="false"><span>03</span>归纳与推断<i>↗</i></button><button data-step="3" aria-pressed="false"><span>04</span>形成规格<i>↗</i></button><button data-step="4" aria-pressed="false"><span>05</span>拆分实现<i>↗</i></button><button data-step="5" aria-pressed="false"><span>06</span>验证与修复<i>↗</i></button></div><article id="step-detail" class="step-detail" aria-live="polite"><p class="eyebrow">01 / 观察页面</p><h3>先确认实际看到了什么。</h3><p>固定 URL、视口和主题，观察整体区域；滚动触发懒加载，并保存参考截图。</p><dl><dt>输入</dt><dd>目标 URL、任务范围、可访问的页面。</dd><dt>产物</dt><dd>页面拓扑、截图、未覆盖区域。</dd><dt>注意</dt><dd>截图只有当前画面；DOM 也可能尚未包含未加载的内容。</dd></dl></article></div>
+ <noscript><p class="notice">当前未启用 JavaScript。完整步骤：观察页面 → 提取结构与样式 → 归纳规则及行为 → 写组件规格 → 拆分实现 → 对照验证与修复。详细解释可下载技术说明。</p></noscript>
+ <div class="input-grid"><article><span class="tag">截图</span><h3>最终看起来怎样</h3><p>构图、区域关系、视觉层次。缺少精确布局规则与隐藏状态。</p></article><article><span class="tag">DOM / CSS</span><h3>现在怎样被渲染</h3><p>层级、文本、实际样式与素材。运行时结构不等于原始组件源码。</p></article><article><span class="tag">操作实验</span><h3>触发后怎样变化</h3><p>点击、悬停、滚动与调整宽度；记录状态变化，补充静态信息。</p></article></div>
+
+ <div class="example"><div class="example-copy"><p class="eyebrow">原创示例 / 非真实测量</p><h3>导航栏变了。<br>我们究竟知道了什么？</h3><p>下列状态按示例数据展示。行为被观察到，并不能证明原站内部采用了哪一种事件机制。</p><div class="example-controls" aria-label="导航示例状态"><button data-state="initial" aria-pressed="true">初始状态</button><button data-state="scrolled" aria-pressed="false">滚动后</button><button data-state="restored" aria-pressed="false">返回顶部</button></div></div><div class="example-preview"><div class="preview-label">导航栏示意 <span id="example-state">初始状态</span></div><div class="mini-page"><div class="mini-header" id="mini-header"><strong>EXAMPLE</strong><span>产品　关于</span></div><div class="mini-content"><span></span><span></span><span></span></div></div><p id="measurement">示例读数：高度 88px；背景透明；无阴影。</p><p class="evidence"><b>操作确认</b> 滚动前后外观不同。<br><b>仍属推断</b> 是否使用 IntersectionObserver。</p></div></div>
+
+ <div class="method-grid"><article><span class="section-no">A</span><h3>规范怎样识别</h3><p>先读取字体、颜色、间距、布局等事实，再跨元素归纳重复。结合可访问 CSS 变量；保留特例，不随意把相近值合并。</p></article><article><span class="section-no">B</span><h3>交互怎样识别</h3><p>保存状态 → 执行动作 → 比较 DOM、样式、内容、URL、焦点和网络 → 恢复。重复实验，排除计时巧合。</p></article><article><span class="section-no">C</span><h3>响应式怎样识别</h3><p>多视口采样，变化区间补测，区分断点、容器查询、流式尺寸和自动换行；用中间宽度复验。</p></article><article><span class="section-no">D</span><h3>细节怎样把控</h3><p>先素材和字体，再整体几何，之后局部样式，最后状态与动画。固定环境对照，沿证据链定位根因。</p></article></div>
+</section>
+
+<section id="comparison" class="section"><div class="section-heading"><div><p class="eyebrow">03 / WHAT CHANGED</p><h2>已有能力，新的组织方式。</h2></div><p>与 8 月 29 日研究的 Screenshot-to-Code 比较。<br>比较固定版本的形态，不声称效果优劣。</p></div>
+<div class="table-wrap" role="region" aria-label="同类项目比较，可横向滚动" tabindex="0"><table><thead><tr><th>维度</th><th>Screenshot-to-Code</th><th>本次模板</th></tr></thead><tbody><tr><th>形态</th><td>独立前后端 Agent 工作台</td><td>Skill + Next.js 起始工程</td></tr><tr><th>信息来源</th><td>截图、录屏、文字等视觉参考</td><td>在线截图 + DOM/CSS + 操作</td></tr><tr><th>执行循环</th><td>项目后端实现模型与工具循环</td><td>复用宿主编程代理的循环</td></tr><tr><th>主要产物</th><td>单个 index.html 原型</td><td>多文件组件与路由工程</td></tr><tr><th>共同边界</th><td colspan="2">依赖外部模型与工具；外观相似不能证明真实业务一致。</td></tr></tbody></table></div>
+<p class="caption">Screenshot-to-Code：d026163；本模板：92872bc。此前判断为保留研究，暂不安装或集成。<a href="https://github.com/yydshly/0829_codex_project/tree/main/projects/screenshot-to-code-agent-study">查看既有记录 ↗</a></p>
+</section>
+
+<section id="limits" class="section"><div class="section-heading"><div><p class="eyebrow">04 / CONTROL & LIMITS</p><h2>流程约束，是可控性的起点。</h2></div></div>
+<div class="control-grid"><article class="current"><span class="tag">仓库已有 · 主要以指令表达</span><h3>把模糊任务变成明确要求</h3><ul><li>“看懂页面” → 采集清单</li><li>“写出页面” → 组件规格与拆分</li><li>“完成了” → 构建与视觉检查</li></ul><p>这些要求帮助减少遗漏，但仍依赖代理执行。</p></article><article class="proposed"><span class="tag">我们的建议 · 需要额外实现</span><h3>把要求变成可检查的机制</h3><ul><li>结构化契约、必填校验与证据等级</li><li>任务状态、依赖与规格版本</li><li>可重复测试、有界重试与断点恢复</li></ul><p>先提高采集与验收可靠性，再扩展整站和并行。</p></article></div>
+<div class="boundary"><strong>三个不能等同</strong><p>构建通过 ≠ 视觉一致<br>视觉一致 ≠ 行为完整<br>行为相似 ≠ 后端业务相同</p><span>未触发的隐藏状态、特殊渲染与后台规则仍可能未知。</span></div>
+<p class="decision"><span>对我们的意义</span><strong>吸收方法，按需使用；当前完成研究归档。</strong>已有工具能力与它高度重叠，是否引入整库应由实际重复任务决定。本次没有克隆质量、费用或耗时对照。</p>
+</section>
+
+<section id="sources" class="section sources"><div class="section-heading"><div><p class="eyebrow">05 / KEEP & REUSE</p><h2>保存这份理解。</h2></div><p>文档、网页、架构图共同归档。<br>全部示例在本地运行，不调用模型。</p></div><div class="resource-grid"><a href="assets/understanding.md" download><span>01 / MARKDOWN</span><strong>核心理解文档</strong><small>结论、定位、比较与采用判断 ↓</small></a><a href="assets/technical-understanding.md" download><span>02 / TECHNICAL NOTE</span><strong>完整技术说明</strong><small>采集、规范、交互与实现路线 ↓</small></a><a href="assets/architecture.svg" download><span>03 / SVG + PNG</span><strong>完整架构原图</strong><small>可放大、可复用的矢量图 ↓</small></a></div>
+<details><summary>查看依据与研究边界</summary><p>本次为固定版本源码研究，不是上游功能实测。架构图和示例为本研究原创，虚线扩展尚未实现。</p><ul><li><a href="https://github.com/JCodesMore/ai-website-cloner-template/blob/92872bc40ced2c5edb4d5dc9fd3970d40c77f4ca/.claude/skills/clone-website/SKILL.md">核心工作流：采集、规格、构建与检查</a></li><li><a href="https://github.com/JCodesMore/ai-website-cloner-template/blob/92872bc40ced2c5edb4d5dc9fd3970d40c77f4ca/scripts/sync-skills.mjs">多平台指令同步脚本</a></li><li><a href="https://github.com/JCodesMore/ai-website-cloner-template/blob/92872bc40ced2c5edb4d5dc9fd3970d40c77f4ca/.github/workflows/ci.yml">CI：同步、lint、类型与构建</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle">MDN：计算样式与伪元素</a></li><li><a href="https://playwright.dev/docs/test-snapshots">Playwright：视觉比较</a></li><li><a href="assets/sources.md" download>完整来源与边界清单 ↓</a></li></ul></details></section>
+<footer><span>GitHub 项目研究室 / 002</span><span>研究快照 92872bc · 2026.09.09</span><a href="#main">回到顶部 ↑</a></footer>
+</main>
+<dialog id="diagram-dialog" aria-labelledby="dialog-title"><div class="dialog-head"><h2 id="dialog-title">完整架构图</h2><button id="close-diagram" class="button">关闭 ×</button></div><p>横向或纵向滚动阅读；按 Escape 关闭。</p><div class="diagram-scroll" tabindex="0" role="region" aria-label="架构原图滚动区域"><img src="assets/architecture.svg" width="1440" height="1840" alt="从 URL 到前端工程的网页复刻完整架构原图"></div></dialog>
+</body></html>

@@ -1,5 +1,5 @@
 {
-  "nextId": 2,
+  "nextId": 3,
   "projects": [
     {
       "id": 1,
@@ -13,6 +13,22 @@
         "提示词工程",
         "交互教程",
         "技术图谱"
+      ],
+      "cover": "web/assets/architecture.svg",
+      "demo": true
+    },
+    {
+      "id": 2,
+      "slug": "ai-website-cloner-template",
+      "order": 20,
+      "name": "URL 驱动的 AI 网页复刻",
+      "source": "https://github.com/JCodesMore/ai-website-cloner-template",
+      "summary": "输入一个或多个目标 URL，借助 AI 编程代理复刻网页布局、样式、素材和可观察交互，生成可修改的 Next.js 前端工程；以规格和验证流程减少执行遗漏。",
+      "status": "已归档",
+      "tags": [
+        "URL 网页复刻",
+        "Agent 工作流",
+        "流程约束"
       ],
       "cover": "web/assets/architecture.svg",
       "demo": true

@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-09-09T04:32:51.616Z",
+  "viewports": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "images": true
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "scrollWidth": 768,
+      "images": true
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "images": true
+    }
+  ],
+  "interactions": [
+    "Six process steps update their content and selection",
+    "Keyboard End selects and focuses final step",
+    "Navigation example changes and restores state",
+    "Diagram dialog opens, closes with Escape, and restores focus"
+  ],
+  "missingLinks": [],
+  "svgOverflow": [],
+  "errors": [],
+  "reducedMotion": true,
+  "jsDisabled": true,
+  "result": "passed"
+}

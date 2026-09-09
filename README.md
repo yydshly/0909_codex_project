@@ -10,6 +10,7 @@
 | 顺序 | 编号 | 项目 | 一句话摘要 | 状态 | Web |
 | --- | --- | --- | --- | --- | --- |
 | 1 | 001 | [提示词工程交互教程](projects/001-prompt-eng-interactive-tutorial/README.md) | Anthropic 官方交互式提示词课程：通过 9 章 Notebook 学习任务定义、示例、格式与证据约束，并用调用反馈迭代；附录介绍提示词链、工具调用、评估和检索扩展。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/001-prompt-eng-interactive-tutorial/) |
+| 2 | 002 | [URL 驱动的 AI 网页复刻](projects/002-ai-website-cloner-template/README.md) | 输入一个或多个目标 URL，借助 AI 编程代理复刻网页布局、样式、素材和可观察交互，生成可修改的 Next.js 前端工程；以规格和验证流程减少执行遗漏。 | 已归档 | [演示](https://yydshly.github.io/0909_codex_project/projects/002-ai-website-cloner-template/) |
 <!-- PROJECT_INDEX:END -->
 
 ## 项目速览
@@ -22,6 +23,14 @@ Anthropic 官方交互式提示词课程：通过 9 章 Notebook 学习任务定
 ![提示词工程交互教程 封面](projects/001-prompt-eng-interactive-tutorial/web/assets/architecture.svg)
 
 [研究记录](projects/001-prompt-eng-interactive-tutorial/README.md) · [上游仓库](https://github.com/anthropics/prompt-eng-interactive-tutorial) · [Web 演示](https://yydshly.github.io/0909_codex_project/projects/001-prompt-eng-interactive-tutorial/)
+
+### 002 · URL 驱动的 AI 网页复刻
+
+输入一个或多个目标 URL，借助 AI 编程代理复刻网页布局、样式、素材和可观察交互，生成可修改的 Next.js 前端工程；以规格和验证流程减少执行遗漏。
+
+![URL 驱动的 AI 网页复刻 封面](projects/002-ai-website-cloner-template/web/assets/architecture.svg)
+
+[研究记录](projects/002-ai-website-cloner-template/README.md) · [上游仓库](https://github.com/JCodesMore/ai-website-cloner-template) · [Web 演示](https://yydshly.github.io/0909_codex_project/projects/002-ai-website-cloner-template/)
 <!-- PROJECT_CARDS:END -->
 
 ## 001 · 架构图阅读指南
