@@ -10,8 +10,11 @@ const tasks = {
   agent: {title:'描述采集目标',scope:'云服务 · 默认自部署不包含',desc:'直接说明需要什么数据，由 Agent 组织搜索、导航与获取。可选提供网址或结果字段。',input:'找出示例公司 A 与 B 的套餐，\n比较价格和限制，并给出来源。',output:'结果示意\n公司 A：套餐与限制 + 来源\n公司 B：套餐与限制 + 来源\n缺失信息：明确标注未知',flow:['理解任务目标','规划并寻找来源','导航和采集','整理带来源的结果'],limit:'此处展示任务形式，不是已执行结果。模型规划仍受来源覆盖、预算和页面可访问性影响。',endpoint:'POST /v2/agent',request:{prompt:'比较示例公司 A 与 B 的收费套餐与限制，并给出来源。'},source:'https://docs.firecrawl.dev/features/agent'}
 };
 const routes = {
+ import:{label:'业务系统的导入路径',title:'读取用户导出的文件',description:'用户从来源平台导出 JSON、CSV 或 HTML，业务程序解析后入库。导入过程本身不需要浏览器。',flow:['来源平台提供导出文件','用户交给自己的程序','解析字段并校验格式','保存、分类和检索'],conclusion:'这是一种补充数据入口，不是 Firecrawl 默认提供的通用账号导入器。数据范围取决于平台导出内容。'},
+ extension:{label:'使用现有浏览器',title:'扩展读取用户已经打开的页面',description:'用户自行打开、登录页面，扩展在获得权限后读取页面内容。读取页面不一定需要自动点击。',flow:['用户安装并授权扩展','打开来源页面','扩展读取已加载内容','经授权保存到自己的系统'],conclusion:'需要另行开发或选择扩展。Firecrawl 不会自动继承本机登录；扩展也不会豁免来源平台规则。'},
+ webhook:{label:'由来源发起通知',title:'有更新时，网站主动推送',description:'来源平台支持 Webhook 时，可在事件发生后向你配置的接收地址发送数据，不必反复轮询。',flow:['来源支持并配置事件通知','来源发生新事件','来源向你的服务发送数据','业务系统校验、去重并处理'],conclusion:'这是来源平台的数据入口；Firecrawl 自己的任务完成 Webhook 是采集任务通知，不能让任意网站主动推送。'},
  html:{label:'普通网络请求',title:'网页正文已经在 HTML 中',description:'目标网站直接返回包含正文的网页代码，HTTP 客户端就能取得内容，不必为每次请求都启动浏览器。',flow:['你的程序调用 Firecrawl API','HTTP 客户端请求文章 URL','目标网站返回 HTML','解析正文并转换输出'],conclusion:'数据来源：目标网页的 HTML。Firecrawl API 是你使用服务的入口。'},
- browser:{label:'动态页面路径',title:'运行浏览器，让内容加载出来',description:'服务器初始可能只返回“正在加载”。浏览器执行 JavaScript，页面脚本再请求数据，最后将正文显示在页面结构中。',flow:['Firecrawl 选择浏览器引擎','访问网址并执行页面脚本','脚本可能请求网站内部接口','读取加载后的页面内容'],conclusion:'浏览器通常运行在服务端。读取页面结构和文字，不等于先截图再用 AI 识字。'},
+ browser:{label:'动态页面路径',title:'控制真实无头浏览器，让内容加载出来',description:'服务器初始可能只返回“正在加载”。浏览器执行 JavaScript，页面脚本再请求数据，最后将正文显示在页面结构中。',flow:['Firecrawl 选择浏览器引擎','访问网址并执行页面脚本','脚本可能请求网站内部接口','读取加载后的页面内容'],conclusion:'无头是没有可见窗口，仍是真实浏览器引擎。加载、渲染和点击是不同动作；读取页面通常不需要截图识字。'},
  rss:{label:'订阅源路径',title:'RSS 提供更新条目或全文',description:'新闻程序读取 RSS，可以得到标题、链接、摘要，有时也包括全文。RSS 不是 Firecrawl 普通网页抓取的主要机制。',flow:['新闻程序请求 RSS 地址','解析更新条目','若只有摘要，取得文章 URL','可交给 Firecrawl 补充正文'],conclusion:'RSS 与网页抓取可以配合使用。RSS 已提供足够内容时，无需重复抓取。'},
  api:{label:'平台接口路径',title:'程序直接获取结构化数据',description:'GitHub 等平台提供接口，程序按照接口规定请求 Issue、Release 等数据。Agents Radar 为不同平台编写了这样的适配。',flow:['程序调用目标平台 API','平台返回 JSON 等结构化响应','程序读取标题、正文与状态','直接进入筛选和分析'],conclusion:'调用 Firecrawl API ≠ 调用目标网站官方 API。普通网页抓取不自动成为官方 API 集成。'}
 };

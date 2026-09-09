@@ -15,6 +15,6 @@ note = note.replace("(notes/verification.md)", "(https://github.com/yydshly/0909
 catalog_path = root / "registry" / "projects.json"
 catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
 entry = next(p for p in catalog["projects"] if p["slug"] == "firecrawl")
-entry.update(summary="Firecrawl 是网页数据获取服务，以 API/SDK 接收网址、搜索词与任务，通过 HTTP 请求、浏览器渲染、队列调度和内容转换输出 Markdown/JSON；支持搜索、抓取、爬站及云端交互，可用于新闻补全文与知识库，扩展持续更新、行业字段与质量校验，并明确登录和平台封号边界。", status="已整理", tags=["网页获取", "浏览器与 API", "登录与平台限制", "能力与扩展"], cover="web/assets/architecture.svg", demo=True)
+entry.update(summary="Firecrawl 是网页数据获取与处理服务：以 API/SDK 接收网址、搜索词和任务，结合直接 HTTP 请求、真实无头浏览器的渲染与按需交互、队列调度和内容转换输出 Markdown/JSON，并非每次都操作浏览器；支持搜索、抓取、爬站及云端 Agent/Interact，可扩展新闻雷达、知识库与质量监控，附数据接入方式、同类工具及登录风控边界。", status="已整理", tags=["网页获取", "浏览器与 API", "登录与平台限制", "能力与扩展"], cover="web/assets/architecture.svg", demo=True)
 catalog_path.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 print("Refreshed downloadable artifacts and Firecrawl catalog entry.")

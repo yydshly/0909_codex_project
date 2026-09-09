@@ -6,12 +6,12 @@
 
 - 建立 `013-firecrawl` 子项目，保留其他项目和已有未提交修改。
 - 研究笔记整理了 URL / 搜索词等入口、HTML / 浏览器 / RSS / API 的区别、两层调度、开源与云服务边界、Agents Radar 对照；补充登录、X 平台防护和 Siftly 取数边界。
-- 独立网页包含八种能力切换、四种获取方式切换、整体图、常见误解和真实服务调用示例下载。
+- 独立网页包含八种能力切换、七种数据入口切换、整体图、常见误解和真实服务调用示例下载。
 - 将 Firecrawl 加入总索引，状态为“已整理”，生成总项目静态输出。
 
 ## 执行过的检查
 
-- `python experiments/check_static.py`：23 处静态引用检查通过，页面锚点、SVG XML、Python 语法、下载副本一致性通过。
+- `python experiments/check_static.py`：页面静态引用检查通过，页面锚点、SVG XML、Python 语法、下载副本一致性通过。
 - `node --check web/app.js`：JavaScript 语法通过。
 - `python experiments/firecrawl_example.py --help`：命令行入口正常。
 - 根目录 `python scripts/catalog.py check`：13 个项目清单与索引一致。
@@ -36,3 +36,9 @@
 - 工作流执行清单测试、索引校验和静态构建，再部署 Pages；部署结果以对应提交的成功运行记录为准。
 
 网页发布的是研究和教学展示，不会启动 Firecrawl 服务端，不接受账号凭证，不自动采集任何登录网页。
+
+## 本次理解补充
+
+- 摘要明确直接 HTTP 与真实无头浏览器路径，区分渲染和交互；未将云端 Browser / Interact 视为默认开源能力。
+- 新增爬虫、模拟请求、真实浏览器与 Agent 对照，七种入口说明，以及十项工具定位比较（含 Firecrawl）。
+- 新增内容是研究与教学说明，未接通 RSS、扩展、Webhook 或任何新的账号数据来源。

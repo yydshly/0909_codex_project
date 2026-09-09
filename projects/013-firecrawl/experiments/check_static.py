@@ -41,7 +41,7 @@ for ref in page.refs:
     elif parsed.fragment:
         assert parsed.fragment in page.ids, f"Broken section link: {ref}"
 assert len(page.buttons["task"]) == 8 and len(set(page.buttons["task"])) == 8
-assert len(page.buttons["route"]) == 4
+assert len(page.buttons["route"]) == 7 and len(set(page.buttons["route"])) == 7
 ElementTree.parse(web / "assets" / "architecture.svg")
 for file in [project / "experiments" / "firecrawl_example.py", web / "downloads" / "firecrawl_example.py"]:
     ast.parse(file.read_text(encoding="utf-8"))
