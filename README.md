@@ -15,6 +15,7 @@
 | 4 | 004 | [中文手绘解释图展厅](projects/004-ian-handdrawn-ppt/README.md) | [helloianneo/ian-handdrawn-ppt](https://github.com/helloianneo/ian-handdrawn-ppt) | 输入想法、文章或观点，AI 按库的规则提炼信息、编排思路并生成风格统一的演示页面 PNG；用整体引导图、原作与真实场景实作展示能力，明确图像式演示稿与可编辑 PPTX 的区别。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/004-ian-handdrawn-ppt/) |
 | 5 | 005 | [Agents Radar 多源情报架构](projects/005-agents-radar/README.md) | [duanyytop/agents-radar](https://github.com/duanyytop/agents-radar) | 拆解 19 个 GitHub 仓库、2 家官网及社区、论文、模型和产品平台的来源配置、采集适配、文本处理与双语报告分发，附一页全景图与完整来源清单。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/005-agents-radar/) |
 | 6 | 007 | [HeliosGen AI 创作工作台](projects/007-heliosgen/README.md) | [SegFault42/HeliosGen](https://github.com/SegFault42/HeliosGen) | 面向图片与视频创作的桌面应用，支持提示词辅助、节点工作流与本地素材管理；通过云端模型 API 适配和依赖调度串联生成任务，减少重复操作、复用创作流程；可扩展更多模型、本地推理、任务恢复、成本控制与行业模板。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/007-heliosgen/) |
+| 7 | 008 | [Siftly X 收藏知识库](projects/008-siftly/README.md) | [viperrcrypto/Siftly](https://github.com/viperrcrypto/Siftly) | 面向个人的自托管 X 收藏知识库，通过文件、Cookie 或官方 API 路径获取收藏，使用 SQLite 存储、视觉大模型提取图片信息，并以全文召回和大模型重排实现自然语言查找；适合工具资料整理、教程检索、视觉素材回找与 Obsidian 积累。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/008-siftly/) |
 <!-- PROJECT_INDEX:END -->
 
 ## 项目速览
@@ -71,6 +72,14 @@ Anthropic 官方交互式提示词课程：通过 9 章 Notebook 学习任务定
 ![HeliosGen AI 创作工作台 封面](projects/007-heliosgen/web/assets/heliosgen-overview.png)
 
 [研究记录](projects/007-heliosgen/README.md) · [上游仓库](https://github.com/SegFault42/HeliosGen) · [Web 演示](https://yydshly.github.io/0909_codex_project/projects/007-heliosgen/)
+
+### 008 · Siftly X 收藏知识库
+
+面向个人的自托管 X 收藏知识库，通过文件、Cookie 或官方 API 路径获取收藏，使用 SQLite 存储、视觉大模型提取图片信息，并以全文召回和大模型重排实现自然语言查找；适合工具资料整理、教程检索、视觉素材回找与 Obsidian 积累。
+
+![Siftly X 收藏知识库 封面](projects/008-siftly/web/assets/siftly-overview.png)
+
+[研究记录](projects/008-siftly/README.md) · [上游仓库](https://github.com/viperrcrypto/Siftly) · [Web 演示](https://yydshly.github.io/0909_codex_project/projects/008-siftly/)
 <!-- PROJECT_CARDS:END -->
 
 ## 001 · 架构图阅读指南

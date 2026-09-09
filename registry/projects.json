@@ -1,5 +1,5 @@
 {
-  "nextId": 8,
+  "nextId": 9,
   "projects": [
     {
       "id": 1,
@@ -100,6 +100,23 @@
         "模型 API 适配"
       ],
       "cover": "web/assets/heliosgen-overview.png",
+      "demo": true
+    },
+    {
+      "id": 8,
+      "slug": "siftly",
+      "order": 80,
+      "name": "Siftly X 收藏知识库",
+      "source": "https://github.com/viperrcrypto/Siftly",
+      "summary": "面向个人的自托管 X 收藏知识库，通过文件、Cookie 或官方 API 路径获取收藏，使用 SQLite 存储、视觉大模型提取图片信息，并以全文召回和大模型重排实现自然语言查找；适合工具资料整理、教程检索、视觉素材回找与 Obsidian 积累。",
+      "status": "已整理",
+      "tags": [
+        "收藏管理",
+        "视觉理解",
+        "全文检索",
+        "个人知识库"
+      ],
+      "cover": "web/assets/siftly-overview.png",
       "demo": true
     }
   ]

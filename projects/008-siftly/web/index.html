@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Siftly 是自托管 X 收藏知识库：SQLite 存储、视觉大模型提取图片信息、全文召回与大模型重排；适合工具资料整理、教程检索、视觉素材回找与 Obsidian 积累。">
+  <meta name="theme-color" content="#17364f">
+  <title>Siftly：能力、技术原理与使用场景 · GitHub 项目研究室</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#understanding">跳到正文</a>
+<header class="topbar">
+  <a class="brand" href="../../">项目研究室 <span>/ 008</span></a>
+  <nav aria-label="页面导航"><a href="#access">如何接入</a><a href="#technology">技术原理</a><a href="#scenarios">使用场景</a><a href="#limits">边界与优化</a></nav>
+  <a class="source-link" href="https://github.com/viperrcrypto/Siftly">上游仓库 ↗</a>
+</header>
+<main>
+  <section class="overview" id="overview" aria-labelledby="title">
+    <div class="intro"><div><p class="eyebrow">OPEN SOURCE FIELD NOTES · 008</p><h1 id="title">Siftly <span>X 收藏知识库</span></h1></div><span class="status">源码核对 · 未实测账号</span></div>
+    <p class="lead">把 X 收藏变成可搜索的个人资料库：通过文件或账号接入获取内容，用视觉大模型补充图片信息，再以全文检索和大模型重排找回工具、教程与视觉素材。</p>
+    <figure class="poster"><a href="./assets/siftly-overview.png" aria-label="打开 Siftly 功能全景原图"><img src="./assets/siftly-overview.png" width="2000" height="1250" alt="Siftly 单页功能全景：三种接入路径；本地存储、图片理解、标签分类、AI 搜索、浏览探索及导出复用的输入、技术与输出。完整文字见下方正文。" fetchpriority="high"></a></figure>
+    <div class="overview-actions"><span>先接入，再理解，最后查找与复用。</span><div><button id="expand" type="button" hidden>全屏查看</button><a class="button" href="./assets/siftly-overview.pdf" download>下载单页 PDF</a><a class="text-link" href="#understanding">深入阅读 ↓</a></div></div>
+  </section>
+
+  <section class="section" id="understanding" aria-labelledby="understanding-title">
+    <p class="eyebrow">01 / 我们如何理解它</p><h2 id="understanding-title">收藏之后，还能找得回来。</h2>
+    <p class="section-lead">Siftly 是一套有网页界面和后端的自托管应用。核心价值是把零散的社交媒体收藏，转成有标签、有分类、可检索、可导出的个人资料库。</p>
+    <div class="three-grid principles">
+      <article><span class="index">输入</span><h3>自己的 X 收藏</h3><p>推文 ID、正文、作者、时间，以及图片和视频地址。Cookie 与 OAuth 是获取数据的凭证，不是内容数据。</p></article>
+      <article><span class="index">处理</span><h3>补充可以检索的信息</h3><p>规则提取实体，视觉模型描述图片，大模型生成语义标签并分类；分析结果保存下来，供以后复用。</p></article>
+      <article><span class="index">输出</span><h3>可查找、可带走的资料</h3><p>列表与分类图、附匹配理由的搜索结果，以及 CSV、JSON、分类 ZIP 和 Obsidian 笔记。</p></article>
+    </div>
+    <p class="note">这是一页对上游仓库的研究说明。GitHub Pages 仅发布本静态页面；Siftly 的数据库、采集与 AI 服务需要另行部署。</p>
+  </section>
+
+  <section class="section" id="access" aria-labelledby="access-title">
+    <p class="eyebrow">02 / 获取数据是第一步</p><h2 id="access-title">三条接入路径，一类内容数据。</h2>
+    <div class="three-grid access-grid">
+      <article class="panel"><span class="badge">A · 文件导入</span><h3>浏览器导出 → 上传 JSON</h3><p>登录 X 后，用书签按钮或控制台脚本启动采集。脚本自动滚动，并捕获网页后续请求返回的 JSON；导出后上传到 Siftly。</p><p class="mechanism">两种启动方式，共用同一采集原理：拦截 <code>fetch / XHR</code> 响应。</p><p class="caveat">可能遗漏启动前已加载的数据，或因等待超时提前结束；“导出完成”不等于取完所有历史收藏。</p></article>
+      <article class="panel"><span class="badge">B · Cookie 接入</span><h3>登录凭证 → 内部接口</h3><p>本地配置 <code>auth_token</code> 和 <code>ct0</code>，程序调用 X 网页内部 GraphQL 接口，按游标分页导入。</p><p class="mechanism">支持按 1、4、8、24 小时周期运行；调度位于应用进程内。</p><p class="caveat">凭证过期、查询 ID 或响应格式变化都会影响获取；当前主要是去重新增，不是双向同步。</p></article>
+      <article class="panel"><span class="badge amber">C · 官方 API</span><h3>开发者应用 → OAuth 授权</h3><p>配置 X 开发者应用，用户登录并授权；代码交换访问令牌、获取用户 ID、刷新过期令牌，再请求收藏。</p><p class="mechanism">有正式授权与分页文档，是更适合长期维护的方向。</p><p class="caveat">代码读取收藏时使用 <code>/2/users/me/bookmarks</code>，与官方要求的真实用户 ID 路径不一致；默认 5 页、最多 20 页，需修正和实测。</p></article>
+    </div>
+    <p class="note">三条路径均未经本次真实账号测试。可靠性应以实际取数、历史覆盖和失败恢复验证为准。官方接口的权限与计费以 <a href="https://docs.x.com/x-api/posts/bookmarks/quickstart/bookmarks-lookup">X 当前文档</a>为准。</p>
+  </section>
+
+  <section class="section" id="technology" aria-labelledby="technology-title">
+    <p class="eyebrow">03 / 功能与技术对应</p><h2 id="technology-title">本地数据 + 规则处理 + 现成大模型。</h2>
+    <p class="section-lead">主要技术栈为 Next.js / React / TypeScript、Prisma / SQLite，以及 React Flow。AI 能力通过模型适配层调用，未看到模型训练或微调实现。</p>
+    <div class="function-list">
+      <article><h3><span>01</span> 本地存储</h3><div><p><strong>输入：</strong>文件或接口返回的数据。</p><p><strong>技术：</strong>解析格式，按推文 ID 去重，经 Prisma 写入 SQLite。书签、媒体和分类以关系表关联。</p><p><strong>输出：</strong>正文、作者、导入数据、媒体地址、分类及处理状态。媒体地址入库不等于下载完成。</p></div></article>
+      <article><h3><span>02</span> 图片理解</h3><div><p><strong>输入：</strong>库内收藏关联的图片 / GIF，视频主要分析缩略图。</p><p><strong>技术：</strong>视觉大模型识别文字、物体、场景与图表，并返回结构化 JSON。SDK 路径传入编码后的图片；CLI 备用路径仅在提示词里传 URL，效果依赖实际工具访问能力。</p><p><strong>输出：</strong>OCR 文字、场景、情绪和视觉标签，保存到媒体记录。OCR 由模型生成，没有独立 OCR 引擎。</p></div></article>
+      <article><h3><span>03</span> 标签与分类</h3><div><p><strong>输入：</strong>正文、图片分析结果，以及用户定义的分类名称与说明。</p><p><strong>技术：</strong>规则提取话题、网址、提及与已知工具；大模型生成语义标签并分配分类。分类说明影响提示词。</p><p><strong>输出：</strong>实体、标签与分类置信度写回数据库；按处理状态增量运行，或手动重跑。</p></div></article>
+      <article><h3><span>04</span> AI 搜索</h3><div><p><strong>输入：</strong>用户的文字问题及可选分类。</p><p><strong>技术：</strong>关键词提取、FTS5 全文召回、分类意图规则，再由大模型重排。全文索引不可用或无命中时回退文本匹配；候选不足时补近期资料。</p><p><strong>输出：</strong>相关收藏、配图、分数与匹配理由。未进入候选集的资料，模型无法在重排阶段找回。</p></div></article>
+      <article><h3><span>05</span> 浏览与探索</h3><div><p><strong>输入：</strong>筛选条件、分类调整与库内分类关系。</p><p><strong>技术：</strong>数据库查询与分页，React 呈现列表 / 网格；React Flow 展示分类图。另有 CLI 查询列表、详情、统计和全文搜索。</p><p><strong>输出：</strong>分类导航和原文入口；CLI 返回 JSON，不执行 AI 重排。导图展示归属，没有书签间观点或引用关系推理。</p></div></article>
+      <article><h3><span>06</span> 导出与复用</h3><div><p><strong>输入：</strong>库内收藏、格式选择，以及分类或 Obsidian 路径。</p><p><strong>技术：</strong>转换 CSV / JSON，JSZip 打包，Markdown 模板生成笔记及分类、作者索引。</p><p><strong>输出：</strong>CSV / JSON 主要字段；分类 ZIP 包含清单和成功下载的媒体；全量 ZIP 仅含 JSON。Obsidian 媒体仍指向远程地址，导出不等于完整数据库备份。</p></div></article>
+    </div>
+  </section>
+
+  <section class="search-section section" id="image-search" aria-labelledby="image-search-title">
+    <p class="eyebrow">关键原理 / 图片如何被找到</p><h2 id="image-search-title">先把图读成文字，再用文字找回图。</h2>
+    <p>例如，一张收藏里的比特币下跌图，可以先被描述为“bitcoin、price chart、falling”等标签。用户输入 <code>bitcoin crash chart</code>，系统通过这些文字找回候选，再让大模型判断相关性。此例仅说明机制，不是实测结果。</p>
+    <ol class="search-flow"><li><b>图片</b><span>库内收藏的媒体</span></li><li><b>文字与标签</b><span>视觉模型生成</span></li><li><b>全文召回</b><span>匹配用户描述</span></li><li><b>大模型重排</b><span>返回相关收藏</span></li></ol>
+    <p class="note">当前没有图片向量检索、CLIP 相似度匹配或上传图片找相似图。中文关键词提取会过滤中文字符，纯中文查询的召回可能明显受损。</p>
+  </section>
+
+  <section class="section" id="scenarios" aria-labelledby="scenarios-title">
+    <p class="eyebrow">04 / 使用场景</p><h2 id="scenarios-title">适合已经有收藏、却难以再次利用的人。</h2>
+    <div class="two-grid scenarios">
+      <article><span class="index">开发者 / 技术学习</span><h3>找回教程与代码线索</h3><p>收藏了很多 React 教程或开发工具，可以按技术主题和用途回找，而不必记住原作者与准确措辞。</p></article>
+      <article><span class="index">工具研究 / 产品观察</span><h3>积累可检索的工具资料</h3><p>把工具发布、功能介绍和行业观点归类。准备使用某项功能时，按用途重新找到原始收藏。</p></article>
+      <article><span class="index">设计 / 内容创作</span><h3>通过画面内容找参考</h3><p>收藏界面截图、图表和梗图，通过图片文字、场景与标签寻找参考。效果取决于图片分析与召回质量。</p></article>
+      <article><span class="index">个人知识管理</span><h3>把社交收藏带进 Obsidian</h3><p>导出带来源、标签和索引的笔记，减少手工整理，再由自己完成阅读、归纳和长期积累。</p></article>
+    </div>
+    <p class="note">这些场景是基于代码能力的应用推导。它尚不是全网自动采集器、通用文档问答系统或团队协作知识库。</p>
+  </section>
+
+  <section class="section" id="limits" aria-labelledby="limits-title">
+    <p class="eyebrow">05 / 研究结论与优化方向</p><h2 id="limits-title">先验证数据链路，再扩展智能能力。</h2>
+    <div class="three-grid priorities">
+      <article><span class="badge amber">优先 · 可靠获取</span><h3>能取到，也知道有没有取完</h3><p>修正官方请求地址，保存分页进度，处理限流与中断；区分正常结束、达到上限与失败停止。</p></article>
+      <article><span class="badge">其次 · 内容与检索</span><h3>保存完整，查询准确</h3><p>验证长推文、线程和媒体保存范围；修复中文处理，建立已知答案的检索评估，再决定是否增加向量召回。</p></article>
+      <article><span class="badge">后续 · 资料利用</span><h3>从找到内容到利用内容</h3><p>增加带来源引用的问答、多源接入、可靠任务队列与成本统计。以上是建议，当前并未全部实现。</p></article>
+    </div>
+    <p class="note">应用与数据库可在本地运行，使用外部模型时相关文本和图片仍会发送到模型服务。实际视觉支持、费用和运行效果依赖模型、凭证与网络。本次没有运行上游应用、使用真实 X 账号或调用付费 AI。</p>
+  </section>
+
+  <section class="section sources" id="sources" aria-labelledby="sources-title">
+    <p class="eyebrow">06 / 可核查的依据</p><h2 id="sources-title">基于核心源码，而非仅复述 README。</h2>
+    <p>核对日期：2026-09-09；上游版本 <a href="https://github.com/viperrcrypto/Siftly/tree/b25daa45b858f4be096b5c368671c34db4407d8e"><code>b25daa4</code></a>。图为本研究的说明图，不是上游界面截图。</p>
+    <ul class="source-grid">
+      <li><a href="https://github.com/viperrcrypto/Siftly/blob/b25daa45b858f4be096b5c368671c34db4407d8e/app/import/page.tsx">浏览器采集与导入页面 ↗</a></li>
+      <li><a href="https://github.com/viperrcrypto/Siftly/blob/b25daa45b858f4be096b5c368671c34db4407d8e/lib/x-sync.ts">Cookie 同步与调度 ↗</a></li>
+      <li><a href="https://github.com/viperrcrypto/Siftly/blob/b25daa45b858f4be096b5c368671c34db4407d8e/app/api/import/x-oauth/fetch/route.ts">官方 API 获取实现 ↗</a></li>
+      <li><a href="https://github.com/viperrcrypto/Siftly/blob/b25daa45b858f4be096b5c368671c34db4407d8e/prisma/schema.prisma">SQLite 数据模型 ↗</a></li>
+      <li><a href="https://github.com/viperrcrypto/Siftly/blob/b25daa45b858f4be096b5c368671c34db4407d8e/lib/vision-analyzer.ts">图片理解与语义标签 ↗</a></li>
+      <li><a href="https://github.com/viperrcrypto/Siftly/blob/b25daa45b858f4be096b5c368671c34db4407d8e/app/api/search/ai/route.ts">全文召回与大模型重排 ↗</a></li>
+      <li><a href="https://github.com/viperrcrypto/Siftly/blob/b25daa45b858f4be096b5c368671c34db4407d8e/app/api/export/route.ts">全量 / 分类导出差异 ↗</a></li>
+      <li><a href="https://github.com/yydshly/0909_codex_project/blob/main/projects/008-siftly/notes/sources.md">完整来源与核查记录 ↗</a></li>
+    </ul>
+  </section>
+</main>
+<footer><a href="../../">← 返回项目研究室</a><span>Siftly 研究笔记 · 能力 / 技术 / 场景</span><a href="https://github.com/yydshly/0909_codex_project/tree/main/projects/008-siftly">研究文件 ↗</a></footer>
+<dialog id="poster-dialog" aria-labelledby="dialog-title"><div class="dialog-toolbar"><h2 id="dialog-title">Siftly 功能全景</h2><div><a href="./assets/siftly-overview.png" target="_blank" rel="noopener">原尺寸图片 ↗</a><button id="close-poster" type="button">关闭 <span aria-hidden="true">×</span></button></div></div><img src="./assets/siftly-overview.png" width="2000" height="1250" alt="Siftly 三种接入方式与六项功能的输入、技术和输出全景图"></dialog>
+</body>
+</html>
