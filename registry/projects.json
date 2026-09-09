@@ -39,7 +39,7 @@
       "order": 30,
       "name": "Archify 能力与设计图谱",
       "source": "https://github.com/tt-a1i/archify",
-      "summary": "一页理解 Archify 的能力、输入与原理、定位边界、UML / 4+1 / C4 设计体系和扩展路线；附五类中文源码实战、真实差异、原生导出与预览实验。",
+      "summary": "完整研究展厅：介绍 Archify 能力与原理，直接展示原库六个样例、研究仓库和 Archify 自身两个案例，并整合导出、验证、设计体系与扩展方向。",
       "status": "已整理",
       "tags": [
         "技术图",

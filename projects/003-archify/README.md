@@ -2,7 +2,13 @@
 
 > 把系统描述或代码理解转成可交互的架构图、工作流、时序图、数据流和生命周期图；先看真实产物，再理解实现原理。
 
-[打开一页理解全景](web/index.html) · [公开网页](https://yydshly.github.io/0909_codex_project/projects/003-archify/) · [完整文字整理](web/research.html) · [原始能力展厅](web/examples.html) · [上游仓库](https://github.com/tt-a1i/archify)
+[打开完整研究展厅](web/index.html) · [公开网页](https://yydshly.github.io/0909_codex_project/projects/003-archify/) · [完整文字整理](web/research.html) · [一页理解图](web/overview.html) · [上游仓库](https://github.com/tt-a1i/archify)
+
+## 网页首页：完整展示库与案例
+
+首页按章节直接展示能力与边界、六个原库样例、研究总仓库架构案例、Archify 自身六张中文图、生成原理、八组风格、原生导出与预览实验、设计体系和扩展分类。13 个图形可以在当前页打开原生交互查看器；JSON、生成凭证与深入研究保留独立入口。
+
+一页图作为分享和下载资料保留在 `web/overview.html`，不再占据网页首页。[展厅检查记录](web/receipts/showroom-browser.json) 覆盖 13 张图、路径查询、预览状态、四种屏宽、缩放风格及 72 个本地资源；复现入口为 `node projects/003-archify/scripts/verify-showroom.cjs`。
 
 ## 对外总览：能力、原理、设计体系与扩展
 

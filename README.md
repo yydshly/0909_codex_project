@@ -11,7 +11,7 @@
 | --- | --- | --- | --- | --- | --- |
 | 1 | 001 | [提示词工程交互教程](projects/001-prompt-eng-interactive-tutorial/README.md) | Anthropic 官方交互式提示词课程：通过 9 章 Notebook 学习任务定义、示例、格式与证据约束，并用调用反馈迭代；附录介绍提示词链、工具调用、评估和检索扩展。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/001-prompt-eng-interactive-tutorial/) |
 | 2 | 002 | [URL 驱动的 AI 网页复刻](projects/002-ai-website-cloner-template/README.md) | 输入一个或多个目标 URL，借助 AI 编程代理复刻网页布局、样式、素材和可观察交互，生成可修改的 Next.js 前端工程；以规格和验证流程减少执行遗漏。 | 已归档 | [演示](https://yydshly.github.io/0909_codex_project/projects/002-ai-website-cloner-template/) |
-| 3 | 003 | [Archify 能力与设计图谱](projects/003-archify/README.md) | 一页理解 Archify 的能力、输入与原理、定位边界、UML / 4\+1 / C4 设计体系和扩展路线；附五类中文源码实战、真实差异、原生导出与预览实验。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/003-archify/) |
+| 3 | 003 | [Archify 能力与设计图谱](projects/003-archify/README.md) | 完整研究展厅：介绍 Archify 能力与原理，直接展示原库六个样例、研究仓库和 Archify 自身两个案例，并整合导出、验证、设计体系与扩展方向。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/003-archify/) |
 <!-- PROJECT_INDEX:END -->
 
 ## 项目速览
@@ -35,7 +35,7 @@ Anthropic 官方交互式提示词课程：通过 9 章 Notebook 学习任务定
 
 ### 003 · Archify 能力与设计图谱
 
-一页理解 Archify 的能力、输入与原理、定位边界、UML / 4\+1 / C4 设计体系和扩展路线；附五类中文源码实战、真实差异、原生导出与预览实验。
+完整研究展厅：介绍 Archify 能力与原理，直接展示原库六个样例、研究仓库和 Archify 自身两个案例，并整合导出、验证、设计体系与扩展方向。
 
 ![Archify 能力与设计图谱 封面](projects/003-archify/web/assets/understanding-preview.png)
 
