@@ -1,0 +1,116 @@
+{
+  "scenes": [
+    "architecture",
+    "workflow",
+    "sequence",
+    "dataflow",
+    "lifecycle",
+    "delta"
+  ],
+  "viewports": [
+    {
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "width": 390,
+      "scroll": 390
+    }
+  ],
+  "styles": [
+    "classic-light",
+    "classic-dark",
+    "signal-flow-light",
+    "signal-flow-dark",
+    "blueprint-light",
+    "blueprint-dark",
+    "editorial-light",
+    "editorial-dark"
+  ],
+  "errors": [],
+  "video": {
+    "duration": 5.524,
+    "playedTo": 5.524,
+    "width": 1180,
+    "height": 546
+  },
+  "localResources": 25,
+  "route": {
+    "source": {
+      "id": "spec",
+      "label": "五类 JSON 规格"
+    },
+    "target": {
+      "id": "viewer",
+      "label": "交互查看器"
+    },
+    "nodeIds": [
+      "spec",
+      "cli",
+      "loader",
+      "renderer",
+      "template",
+      "checker",
+      "commit",
+      "viewer"
+    ],
+    "hops": 7,
+    "edges": [
+      {
+        "key": "1",
+        "id": "spec-cli",
+        "from": "spec",
+        "to": "cli",
+        "label": ""
+      },
+      {
+        "key": "2",
+        "id": "cli-loader",
+        "from": "cli",
+        "to": "loader",
+        "label": ""
+      },
+      {
+        "key": "3",
+        "id": "loader-renderer",
+        "from": "loader",
+        "to": "renderer",
+        "label": ""
+      },
+      {
+        "key": "4",
+        "id": "renderer-template",
+        "from": "renderer",
+        "to": "template",
+        "label": ""
+      },
+      {
+        "key": "5",
+        "id": "template-checker",
+        "from": "template",
+        "to": "checker",
+        "label": ""
+      },
+      {
+        "key": "6",
+        "id": "checker-commit",
+        "from": "checker",
+        "to": "commit",
+        "label": ""
+      },
+      {
+        "key": "7",
+        "id": "commit-viewer",
+        "from": "commit",
+        "to": "viewer",
+        "label": ""
+      }
+    ]
+  },
+  "guidedView": "#view=deliver",
+  "ok": true
+}

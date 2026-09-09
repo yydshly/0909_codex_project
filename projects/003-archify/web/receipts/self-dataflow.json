@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "deliver",
+  "type": "dataflow",
+  "input": "projects/003-archify\\web\\specs\\self-dataflow.json",
+  "output": "projects/003-archify\\web\\diagrams\\self-dataflow.html",
+  "specification": {
+    "sha256": "298771eb616682c5123c129843e3ae794050f6c5710314e1a668ce24b172b2fd",
+    "bytes": 4809
+  },
+  "artifact": {
+    "sha256": "ecaf44d277a9179f23fb02f077a8a06ad5f0cc9a8abd82f82f30b5cb320271af",
+    "bytes": 807865
+  },
+  "validation": {
+    "checksPassed": 9,
+    "checkCount": 9,
+    "compositionProfile": "showcase",
+    "compositionStatus": "pass",
+    "errors": 0,
+    "warnings": 0
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "deliver",
+  "type": "dataflow",
+  "input": "web/specs/dataflow.json",
+  "output": "web/diagrams/dataflow.html",
+  "specification": {
+    "sha256": "c6e31680f59fc79c09c7e152eb839b841c1a52a4f09ba1936af8987157d93684",
+    "bytes": 7785
+  },
+  "artifact": {
+    "sha256": "d14ff7b8ea609a894f9c209de80518b0e8156a1a6895898210c18101b71fd396",
+    "bytes": 814253
+  },
+  "validation": {
+    "checksPassed": 9,
+    "checkCount": 9,
+    "compositionProfile": "showcase",
+    "compositionStatus": "pass",
+    "errors": 0,
+    "warnings": 0
+  }
+}

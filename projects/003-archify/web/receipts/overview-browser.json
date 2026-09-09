@@ -1,0 +1,21 @@
+{
+  "viewports": [
+    {
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "width": 390,
+      "scroll": 390
+    }
+  ],
+  "errors": [],
+  "outside": [],
+  "overlaps": [],
+  "resourcesChecked": 55,
+  "ok": true
+}

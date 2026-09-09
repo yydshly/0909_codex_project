@@ -1,0 +1,190 @@
+{
+  "diagrams": [
+    {
+      "type": "architecture",
+      "title": "Archify：从图规格到交付"
+    },
+    {
+      "type": "workflow",
+      "title": "Archify：一次交付怎样完成"
+    },
+    {
+      "type": "sequence",
+      "title": "Archify：交付命令的进程时序"
+    },
+    {
+      "type": "dataflow",
+      "title": "Archify：JSON 如何成为网页"
+    },
+    {
+      "type": "lifecycle",
+      "title": "Archify：候选产物的生命周期"
+    },
+    {
+      "type": "delta",
+      "title": "字体依赖：变更后 Architecture Delta"
+    }
+  ],
+  "styles": [
+    {
+      "theme": "light",
+      "preset": "signal-flow"
+    },
+    {
+      "theme": "light",
+      "preset": "blueprint"
+    },
+    {
+      "theme": "light",
+      "preset": "editorial"
+    },
+    {
+      "theme": "light",
+      "preset": "classic"
+    },
+    {
+      "theme": "dark",
+      "preset": "signal-flow"
+    },
+    {
+      "theme": "dark",
+      "preset": "blueprint"
+    },
+    {
+      "theme": "dark",
+      "preset": "editorial"
+    },
+    {
+      "theme": "dark",
+      "preset": "classic"
+    }
+  ],
+  "exports": [
+    {
+      "name": "archify-reach.png",
+      "bytes": 95710,
+      "sha256": "21a614ad9867234a0741a68d89ff93dae290b7de96a82917dcbd4e9cc33aefa1"
+    },
+    {
+      "name": "archify-route.png",
+      "bytes": 98981,
+      "sha256": "8b68ea46a7c9cb58fcdd1599d3b20698dcd85e0b686622dc853f79cabad89665"
+    },
+    {
+      "name": "archify.png",
+      "bytes": 664946,
+      "sha256": "1467e8c0381c1f1f04d054b126f30baf24cc54cc4e1c4067fb1494dfaf0a262c"
+    },
+    {
+      "name": "archify.jpg",
+      "bytes": 611686,
+      "sha256": "9422028bd1e936fb698e74f55a5054b2217eb5cbb1a4d5112eb3c67eb03c07f2"
+    },
+    {
+      "name": "archify.webp",
+      "bytes": 222336,
+      "sha256": "298fb53a11cbb696aecbdbb04a3794fbf7c1de2c6065bbca87d9aca30f25dd0d"
+    },
+    {
+      "name": "archify.svg",
+      "bytes": 151767,
+      "sha256": "3b0312e1f80fc7df660c445dad7a1b8898891e2f55b1d9efafdefe99ad64d19b"
+    },
+    {
+      "name": "archify-share.png",
+      "bytes": 105927,
+      "sha256": "1bc9272f4df1835dbb29b454199e4921478e4fd94493f09c5879ab27a0e08571"
+    },
+    {
+      "name": "archify.webm",
+      "bytes": 525677,
+      "sha256": "062bba12823436ba43d9a77fc726141d1c447a4c61358793ed91e86707b387e4"
+    }
+  ],
+  "errors": [],
+  "sourceHref": "https://github.com/tt-a1i/archify/blob/10722002bb8777ecb639d93c49586fae4adf3ae4/archify/bin/archify.mjs#L821-L966",
+  "downstream": [
+    "cli",
+    "loader",
+    "evidence",
+    "renderer",
+    "viewer",
+    "commit",
+    "checker",
+    "template"
+  ],
+  "route": {
+    "source": {
+      "id": "spec",
+      "label": "五类 JSON 规格"
+    },
+    "target": {
+      "id": "viewer",
+      "label": "交互查看器"
+    },
+    "nodeIds": [
+      "spec",
+      "cli",
+      "loader",
+      "renderer",
+      "template",
+      "checker",
+      "commit",
+      "viewer"
+    ],
+    "hops": 7,
+    "edges": [
+      {
+        "key": "1",
+        "id": "spec-cli",
+        "from": "spec",
+        "to": "cli",
+        "label": ""
+      },
+      {
+        "key": "2",
+        "id": "cli-loader",
+        "from": "cli",
+        "to": "loader",
+        "label": ""
+      },
+      {
+        "key": "3",
+        "id": "loader-renderer",
+        "from": "loader",
+        "to": "renderer",
+        "label": ""
+      },
+      {
+        "key": "4",
+        "id": "renderer-template",
+        "from": "renderer",
+        "to": "template",
+        "label": ""
+      },
+      {
+        "key": "5",
+        "id": "template-checker",
+        "from": "template",
+        "to": "checker",
+        "label": ""
+      },
+      {
+        "key": "6",
+        "id": "checker-commit",
+        "from": "checker",
+        "to": "commit",
+        "label": ""
+      },
+      {
+        "key": "7",
+        "id": "commit-viewer",
+        "from": "commit",
+        "to": "viewer",
+        "label": ""
+      }
+    ]
+  },
+  "ok": true,
+  "exportMethod": "Invoked original Archify.exportMenu methods in Chrome; unmodified native export implementation. Toolbar interaction clears focus in this version; saved route/reach files use native methods."
+}

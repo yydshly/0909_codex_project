@@ -1,0 +1,399 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Archify：从图规格到交付",
+    "locale": "zh-CN",
+    "animation": "trace",
+    "quality_profile": "showcase",
+    "visual_preset": "signal-flow",
+    "repository": {
+      "url": "https://github.com/tt-a1i/archify",
+      "revision": "10722002bb8777ecb639d93c49586fae4adf3ae4"
+    },
+    "views": [
+      {
+        "id": "author",
+        "label": "① 内容从哪里来",
+        "focus": [
+          "agent",
+          "skill",
+          "spec"
+        ],
+        "note": "Agent 阅读代码并编写规格；Skill 约束表达。这里没有自动代码关系抽取器。"
+      },
+      {
+        "id": "deliver",
+        "label": "② 生成与验收",
+        "focus": [
+          "cli",
+          "loader",
+          "renderer",
+          "template",
+          "checker",
+          "commit"
+        ],
+        "note": "冻结输入，在私有目录生成候选；通过检查后才替换最终文件。"
+      },
+      {
+        "id": "read",
+        "label": "③ 带证据阅读",
+        "focus": [
+          "evidence",
+          "viewer"
+        ],
+        "note": "可选源代码核验检查版本、路径、行号；查看器沿规格中的关系探索。"
+      }
+    ],
+    "legend": {
+      "mode": "auto",
+      "entries": {
+        "external": {
+          "label": "外部作者"
+        },
+        "database": {
+          "label": "规格与规范"
+        },
+        "backend": {
+          "label": "程序模块"
+        },
+        "security": {
+          "label": "校验环节"
+        },
+        "frontend": {
+          "label": "浏览器界面"
+        }
+      }
+    }
+  },
+  "components": [
+    {
+      "id": "agent",
+      "type": "external",
+      "label": "用户 / Agent",
+      "sublabel": "分析源码 · 决定表达",
+      "tag": "",
+      "pos": [
+        40,
+        30
+      ],
+      "size": [
+        200,
+        88
+      ]
+    },
+    {
+      "id": "spec",
+      "type": "database",
+      "label": "五类 JSON 规格",
+      "sublabel": "节点 · 关系 · 布局",
+      "tag": "结构化输入",
+      "pos": [
+        340,
+        30
+      ],
+      "size": [
+        200,
+        88
+      ]
+    },
+    {
+      "id": "cli",
+      "type": "backend",
+      "label": "交付命令",
+      "sublabel": "冻结输入 · 调度子进程",
+      "tag": "deliver",
+      "pos": [
+        640,
+        30
+      ],
+      "size": [
+        200,
+        88
+      ],
+      "sources": [
+        {
+          "path": "archify/bin/archify.mjs",
+          "line": 821,
+          "end_line": 966,
+          "label": "deliver：读取与冻结规格"
+        }
+      ]
+    },
+    {
+      "id": "loader",
+      "type": "security",
+      "label": "加载与校验",
+      "sublabel": "Schema · 引用 · 语义",
+      "tag": "",
+      "pos": [
+        940,
+        30
+      ],
+      "size": [
+        200,
+        88
+      ],
+      "sources": [
+        {
+          "path": "archify/renderers/shared/cli.mjs",
+          "line": 18,
+          "end_line": 47,
+          "label": "加载、校验与资源读取"
+        }
+      ]
+    },
+    {
+      "id": "skill",
+      "type": "database",
+      "label": "绘图 Skill",
+      "sublabel": "指导外部 Agent 写规格",
+      "tag": "",
+      "pos": [
+        40,
+        210
+      ],
+      "size": [
+        200,
+        88
+      ],
+      "sources": [
+        {
+          "path": "archify/SKILL.md",
+          "line": 1,
+          "end_line": 45,
+          "label": "Agent 使用与表达规范"
+        }
+      ]
+    },
+    {
+      "id": "evidence",
+      "type": "security",
+      "label": "仓库证据核验",
+      "sublabel": "可选 Git 版本与行范围",
+      "tag": "",
+      "pos": [
+        640,
+        210
+      ],
+      "size": [
+        200,
+        88
+      ],
+      "sources": [
+        {
+          "path": "archify/renderers/shared/repository-evidence.mjs",
+          "line": 74,
+          "end_line": 140,
+          "label": "固定版本的文件与行号核验"
+        }
+      ]
+    },
+    {
+      "id": "renderer",
+      "type": "backend",
+      "label": "五类专用渲染器",
+      "sublabel": "计算布局 · 生成 SVG",
+      "tag": "",
+      "pos": [
+        940,
+        210
+      ],
+      "size": [
+        200,
+        88
+      ],
+      "sources": [
+        {
+          "path": "archify/renderers/architecture/render-architecture.mjs",
+          "line": 1037,
+          "end_line": 1078,
+          "label": "架构 SVG 渲染与输出"
+        }
+      ]
+    },
+    {
+      "id": "viewer",
+      "type": "frontend",
+      "label": "交互查看器",
+      "sublabel": "搜索 · 路径 · 导出",
+      "tag": "",
+      "pos": [
+        40,
+        390
+      ],
+      "size": [
+        200,
+        88
+      ],
+      "sources": [
+        {
+          "path": "archify/assets/template.html",
+          "line": 12910,
+          "end_line": 12965,
+          "label": "查看器中的有向路径查询"
+        }
+      ]
+    },
+    {
+      "id": "commit",
+      "type": "backend",
+      "label": "原子交付",
+      "sublabel": "哈希回执 · 替换文件",
+      "tag": "",
+      "pos": [
+        340,
+        390
+      ],
+      "size": [
+        200,
+        88
+      ],
+      "sources": [
+        {
+          "path": "archify/bin/archify.mjs",
+          "line": 1074,
+          "end_line": 1189,
+          "label": "哈希回执、原子替换与清理"
+        }
+      ]
+    },
+    {
+      "id": "checker",
+      "type": "security",
+      "label": "产物检查器",
+      "sublabel": "结构与构图九项检查",
+      "tag": "",
+      "pos": [
+        640,
+        390
+      ],
+      "size": [
+        200,
+        88
+      ],
+      "sources": [
+        {
+          "path": "archify/bin/archify.mjs",
+          "line": 985,
+          "end_line": 1034,
+          "label": "运行产物检查器"
+        }
+      ]
+    },
+    {
+      "id": "template",
+      "type": "backend",
+      "label": "HTML 模板组装",
+      "sublabel": "嵌入图形 · 样式 · 脚本",
+      "tag": "",
+      "pos": [
+        940,
+        390
+      ],
+      "size": [
+        200,
+        88
+      ],
+      "sources": [
+        {
+          "path": "archify/renderers/shared/utils.mjs",
+          "line": 126,
+          "end_line": 175,
+          "label": "把图与元数据装入模板"
+        }
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "agent-spec",
+      "from": "agent",
+      "to": "spec"
+    },
+    {
+      "id": "spec-cli",
+      "from": "spec",
+      "to": "cli"
+    },
+    {
+      "id": "cli-loader",
+      "from": "cli",
+      "to": "loader"
+    },
+    {
+      "id": "loader-renderer",
+      "from": "loader",
+      "to": "renderer",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "renderer-template",
+      "from": "renderer",
+      "to": "template",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "template-checker",
+      "from": "template",
+      "to": "checker",
+      "fromSide": "left",
+      "toSide": "right"
+    },
+    {
+      "id": "checker-commit",
+      "from": "checker",
+      "to": "commit",
+      "fromSide": "left",
+      "toSide": "right"
+    },
+    {
+      "id": "commit-viewer",
+      "from": "commit",
+      "to": "viewer",
+      "fromSide": "left",
+      "toSide": "right"
+    },
+    {
+      "id": "skill-agent",
+      "from": "skill",
+      "to": "agent",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "variant": "dashed"
+    },
+    {
+      "id": "loader-evidence",
+      "from": "loader",
+      "to": "evidence",
+      "fromSide": "bottom",
+      "toSide": "right",
+      "variant": "security"
+    }
+  ],
+  "cards": [
+    {
+      "title": "信息来源",
+      "dot": "emerald",
+      "items": [
+        "关系由本次源码分析后编写；Archify 负责校验和绘图。"
+      ]
+    },
+    {
+      "title": "箭头含义",
+      "dot": "emerald",
+      "items": [
+        "主链表示处理与交付顺序；证据核验是可选调用。"
+      ]
+    },
+    {
+      "title": "证据边界",
+      "dot": "rose",
+      "items": [
+        "点选节点查看固定提交源码；引用有效不等于语义被证明。"
+      ]
+    }
+  ]
+}

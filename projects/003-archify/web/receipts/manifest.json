@@ -1,0 +1,38 @@
+{
+  "upstream": "https://github.com/tt-a1i/archify",
+  "revision": "10722002bb8777ecb639d93c49586fae4adf3ae4",
+  "version": "2.17.0-dev.1",
+  "modifications": "Chinese page titles and viewer locale; static by default. Original English example content and topology retained.",
+  "artifacts": [
+    {
+      "id": "architecture",
+      "bytes": 809719,
+      "sha256": "3075c2cefc4b36b1c7b4c0fe6f2f2dfce9a3e5ee54168ff1aee3da2b68a50170"
+    },
+    {
+      "id": "workflow",
+      "bytes": 816714,
+      "sha256": "dc1c1d84701528d325960cd64fd41d4c41e66d69ef235e92a6439672330a76ec"
+    },
+    {
+      "id": "sequence",
+      "bytes": 811876,
+      "sha256": "9d6748739477b0ee16fe27bdf8647f341f4059693c856e1af83b0d450d32c384"
+    },
+    {
+      "id": "dataflow",
+      "bytes": 814253,
+      "sha256": "d14ff7b8ea609a894f9c209de80518b0e8156a1a6895898210c18101b71fd396"
+    },
+    {
+      "id": "lifecycle",
+      "bytes": 807521,
+      "sha256": "10ba64adec42399487ffff08d4f69b4461ba802f85064512763945828a32d5d7"
+    },
+    {
+      "id": "delta",
+      "bytes": 2212918,
+      "sha256": "61fb0f0ee085cfd028200946e6e14ce61e973984340a38dd9b56f4bc19df9ab1"
+    }
+  ]
+}

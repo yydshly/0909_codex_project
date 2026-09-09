@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "deliver",
+  "type": "workflow",
+  "input": "projects/003-archify\\web\\specs\\self-workflow.json",
+  "output": "projects/003-archify\\web\\diagrams\\self-workflow.html",
+  "specification": {
+    "sha256": "c12512a99b83f43b2c60f7f4e018ba840e22192fb88edb6081208c59bf4f2a9e",
+    "bytes": 4611
+  },
+  "artifact": {
+    "sha256": "1bd4d21908d27841bd4c404e6856610e97df0928293fe54180dac389974345bd",
+    "bytes": 804003
+  },
+  "validation": {
+    "checksPassed": 9,
+    "checkCount": 9,
+    "compositionProfile": "showcase",
+    "compositionStatus": "pass",
+    "errors": 0,
+    "warnings": 0
+  }
+}

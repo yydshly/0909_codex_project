@@ -1,0 +1,4 @@
+const map=document.getElementById('map'),area=document.getElementById('map-scroll'),scale=document.getElementById('scale');let factor=1;
+function zoom(n){factor=Math.min(4,Math.max(.5,n));map.style.width=(factor*100)+'%';scale.textContent=Math.round(factor*100)+'%';document.getElementById('less').disabled=factor<=.5;document.getElementById('more').disabled=factor>=4;}
+document.getElementById('fit').addEventListener('click',()=>{zoom(1);area.scrollLeft=0});document.getElementById('less').addEventListener('click',()=>zoom(factor-.25));document.getElementById('more').addEventListener('click',()=>zoom(factor+.25));
+fetch('./assets/understanding.svg').then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.text()}).then(s=>{map.innerHTML=s;zoom(1)}).catch(()=>{document.getElementById('load-state').innerHTML='总览图未能载入。<a href="./assets/understanding.svg">直接打开 SVG</a>，或<a href="./research.html">阅读文字版</a>。'});

@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "scope": "Actual startPreview execution: valid input → malformed JSON → corrected input. Saved experiment, not a running server.",
+  "states": [
+    {
+      "phase": "初次成功",
+      "status": "verified",
+      "revision": 1,
+      "artifactSha256": "1bd4d21908d27841bd4c404e6856610e97df0928293fe54180dac389974345bd"
+    },
+    {
+      "phase": "故意损坏 JSON",
+      "status": "needs-fix",
+      "revision": 1,
+      "artifactSha256": "1bd4d21908d27841bd4c404e6856610e97df0928293fe54180dac389974345bd",
+      "preserved": true
+    },
+    {
+      "phase": "修复后",
+      "status": "verified",
+      "revision": 2,
+      "artifactSha256": "4682002c0ab4ce059f88b464fde0a33c51af8b2ae69f8fe38bb39f4d366a98d9"
+    }
+  ]
+}

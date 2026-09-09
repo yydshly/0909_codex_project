@@ -1,0 +1,123 @@
+{
+  "testedAt": "2026-09-09T04:48:05.116Z",
+  "browser": "Chromium / Playwright",
+  "reports": [
+    {
+      "id": "architecture",
+      "svgCount": 2,
+      "title": "Web 应用架构"
+    },
+    {
+      "id": "workflow",
+      "svgCount": 2,
+      "title": "Agent 工具调用流程"
+    },
+    {
+      "id": "sequence",
+      "svgCount": 2,
+      "title": "缓存未命中的请求时序"
+    },
+    {
+      "id": "dataflow",
+      "svgCount": 2,
+      "title": "产品分析数据流"
+    },
+    {
+      "id": "lifecycle",
+      "svgCount": 2,
+      "title": "Agent 任务生命周期"
+    },
+    {
+      "id": "delta",
+      "svgCount": 1,
+      "title": "Checkout Platform — Fraud Gate Architecture Delta"
+    },
+    {
+      "galleryViewport": 390,
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "galleryViewport": 768,
+      "width": 768,
+      "scrollWidth": 768
+    },
+    {
+      "galleryViewport": 1440,
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "diagram": "architecture",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 1000,
+      "scrollHeight": 1000,
+      "sha256": "3075c2cefc4b36b1c7b4c0fe6f2f2dfce9a3e5ee54168ff1aee3da2b68a50170"
+    },
+    {
+      "diagram": "workflow",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 1000,
+      "scrollHeight": 1000,
+      "sha256": "dc1c1d84701528d325960cd64fd41d4c41e66d69ef235e92a6439672330a76ec"
+    },
+    {
+      "diagram": "sequence",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 1000,
+      "scrollHeight": 1000,
+      "sha256": "9d6748739477b0ee16fe27bdf8647f341f4059693c856e1af83b0d450d32c384"
+    },
+    {
+      "diagram": "dataflow",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 1000,
+      "scrollHeight": 1000,
+      "sha256": "d14ff7b8ea609a894f9c209de80518b0e8156a1a6895898210c18101b71fd396"
+    },
+    {
+      "diagram": "lifecycle",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 1000,
+      "scrollHeight": 1000,
+      "sha256": "10ba64adec42399487ffff08d4f69b4461ba802f85064512763945828a32d5d7"
+    },
+    {
+      "diagram": "delta",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 1000,
+      "scrollHeight": 1269,
+      "sha256": "61fb0f0ee085cfd028200946e6e14ce61e973984340a38dd9b56f4bc19df9ab1"
+    },
+    {
+      "themeToggle": true,
+      "nodeSearch": true,
+      "exportOptions": [
+        "分享卡片1200×630 PNG",
+        "路径分享卡片1200×630 PNG",
+        "可达范围分享卡片1200×630 PNG",
+        "复制分享卡片复制 PNG 到剪贴板",
+        "复制图表复制 PNG 到剪贴板",
+        "PNG无损图像",
+        "JPEG紧凑图像",
+        "WebP现代图像格式",
+        "SVG可编辑矢量图",
+        "WebM6 秒动效"
+      ],
+      "pngExport": {
+        "bytes": 458406,
+        "width": 4320,
+        "height": 2352,
+        "signatureVerified": true
+      }
+    }
+  ],
+  "errors": [],
+  "scope": "Six local artifacts, gallery navigation, deep-link handoff, keyboard tabs, mobile/tablet/desktop containment, theme, search, export menu. Screenshots require separate visual review."
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "deliver",
+  "type": "architecture",
+  "input": "web/specs/repository.json",
+  "output": "web/diagrams/repository.html",
+  "specification": {
+    "sha256": "a5e77d28b8648b3d8013538dc4a8573141a9cbfd76750a4b2542bdc956018917",
+    "bytes": 10090
+  },
+  "artifact": {
+    "sha256": "988a27999e18552ea33e1e2f8e2923bf7bf90020bca19d2df3c634d2b1475d6b",
+    "bytes": 817624
+  },
+  "validation": {
+    "checksPassed": 9,
+    "checkCount": 9,
+    "compositionProfile": "showcase",
+    "compositionStatus": "pass",
+    "errors": 0,
+    "warnings": 0
+  },
+  "evidence": {
+    "verified": true,
+    "repository": "https://github.com/yydshly/0909_codex_project",
+    "revision": "855cde37272f0ab9912cfe8595ee0060ad531c9a",
+    "references": 14
+  }
+}

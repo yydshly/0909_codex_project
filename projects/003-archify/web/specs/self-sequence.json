@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "Archify：交付命令的进程时序",
+    "locale": "zh-CN",
+    "animation": "trace",
+    "quality_profile": "showcase",
+    "visual_preset": "signal-flow",
+    "viewBox": [
+      1080,
+      650
+    ],
+    "column_fit": "spread",
+    "views": [
+      {
+        "id": "prepare",
+        "label": "① 准备输入",
+        "focus": [
+          "author",
+          "cli",
+          "disk"
+        ],
+        "note": "调用者提交规格，主进程冻结本次输入字节。"
+      },
+      {
+        "id": "verify",
+        "label": "② 子进程验收",
+        "focus": [
+          "cli",
+          "disk",
+          "renderer",
+          "checker"
+        ],
+        "note": "渲染器写候选文件，检查器读取并验收。"
+      }
+    ]
+  },
+  "participants": [
+    {
+      "id": "author",
+      "type": "external",
+      "label": "调用者",
+      "sublabel": "用户 / Agent"
+    },
+    {
+      "id": "cli",
+      "type": "backend",
+      "label": "交付命令",
+      "sublabel": "主进程"
+    },
+    {
+      "id": "disk",
+      "type": "database",
+      "label": "文件系统",
+      "sublabel": "快照与产物"
+    },
+    {
+      "id": "renderer",
+      "type": "backend",
+      "label": "渲染器",
+      "sublabel": "子进程"
+    },
+    {
+      "id": "checker",
+      "type": "security",
+      "label": "检查器",
+      "sublabel": "子进程"
+    }
+  ],
+  "segments": [
+    {
+      "from": 150,
+      "to": 260,
+      "label": "冻结输入"
+    },
+    {
+      "from": 270,
+      "to": 380,
+      "label": "渲染候选"
+    },
+    {
+      "from": 390,
+      "to": 565,
+      "label": "验收交付"
+    }
+  ],
+  "messages": [
+    {
+      "id": "step-1",
+      "from": "author",
+      "to": "cli",
+      "label": "调用 deliver",
+      "variant": "default",
+      "y": 160
+    },
+    {
+      "id": "step-2",
+      "from": "cli",
+      "to": "disk",
+      "label": "读取 JSON",
+      "variant": "default",
+      "y": 190
+    },
+    {
+      "id": "step-3",
+      "from": "disk",
+      "to": "cli",
+      "label": "原始字节",
+      "variant": "return",
+      "y": 220
+    },
+    {
+      "id": "step-4",
+      "from": "cli",
+      "to": "disk",
+      "label": "写入私有快照",
+      "variant": "default",
+      "y": 250
+    },
+    {
+      "id": "step-5",
+      "from": "cli",
+      "to": "renderer",
+      "label": "启动渲染子进程",
+      "variant": "default",
+      "y": 280
+    },
+    {
+      "id": "step-6",
+      "from": "renderer",
+      "to": "disk",
+      "label": "读取快照与模板",
+      "variant": "default",
+      "y": 310
+    },
+    {
+      "id": "step-7",
+      "from": "renderer",
+      "to": "disk",
+      "label": "写候选 HTML",
+      "variant": "default",
+      "y": 340
+    },
+    {
+      "id": "step-8",
+      "from": "renderer",
+      "to": "cli",
+      "label": "渲染成功",
+      "variant": "return",
+      "y": 370
+    },
+    {
+      "id": "step-9",
+      "from": "cli",
+      "to": "checker",
+      "label": "启动产物检查",
+      "variant": "default",
+      "y": 400
+    },
+    {
+      "id": "step-10",
+      "from": "checker",
+      "to": "disk",
+      "label": "读取候选 HTML",
+      "variant": "default",
+      "y": 430
+    },
+    {
+      "id": "step-11",
+      "from": "checker",
+      "to": "cli",
+      "label": "检查通过",
+      "variant": "return",
+      "y": 460
+    },
+    {
+      "id": "step-12",
+      "from": "cli",
+      "to": "disk",
+      "label": "读取产物算哈希",
+      "variant": "default",
+      "y": 490
+    },
+    {
+      "id": "step-13",
+      "from": "cli",
+      "to": "disk",
+      "label": "原子替换最终文件",
+      "variant": "default",
+      "y": 520
+    },
+    {
+      "id": "step-14",
+      "from": "cli",
+      "to": "author",
+      "label": "返回交付回执",
+      "variant": "return",
+      "y": 550
+    }
+  ],
+  "activations": [
+    {
+      "participant": "cli",
+      "from": 160,
+      "to": 555,
+      "type": "backend"
+    },
+    {
+      "participant": "renderer",
+      "from": 280,
+      "to": 375,
+      "type": "backend"
+    },
+    {
+      "participant": "checker",
+      "from": 400,
+      "to": 465,
+      "type": "security"
+    }
+  ],
+  "cards": [
+    {
+      "title": "阅读方式",
+      "dot": "emerald",
+      "items": [
+        "从上向下是顺序；箭头是进程与文件系统的交互。"
+      ]
+    },
+    {
+      "title": "范围",
+      "dot": "emerald",
+      "items": [
+        "呈现成功分支；哈希计算、清理细节按阅读粒度合并。"
+      ]
+    }
+  ]
+}

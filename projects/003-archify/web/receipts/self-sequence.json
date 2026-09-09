@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "deliver",
+  "type": "sequence",
+  "input": "projects/003-archify\\web\\specs\\self-sequence.json",
+  "output": "projects/003-archify\\web\\diagrams\\self-sequence.html",
+  "specification": {
+    "sha256": "0d5f4193ebea252be65a16f5769c3d948fdad3b008ea66d404d719ac4314f2cd",
+    "bytes": 4644
+  },
+  "artifact": {
+    "sha256": "804353d8208e401175777435f77bca37ee4b2fb4250cefad7d35b1c3a78ef655",
+    "bytes": 807819
+  },
+  "validation": {
+    "checksPassed": 9,
+    "checkCount": 9,
+    "compositionProfile": "showcase",
+    "compositionStatus": "pass",
+    "errors": 0,
+    "warnings": 0
+  }
+}

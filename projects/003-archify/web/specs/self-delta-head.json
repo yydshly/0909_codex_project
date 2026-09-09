@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "字体依赖：变更后",
+    "locale": "zh-CN",
+    "animation": "trace",
+    "quality_profile": "showcase",
+    "visual_preset": "signal-flow",
+    "repository": {
+      "url": "https://github.com/tt-a1i/archify",
+      "revision": "10722002bb8777ecb639d93c49586fae4adf3ae4"
+    },
+    "views": [
+      {
+        "id": "font",
+        "label": "字体依赖",
+        "focus": [
+          "template",
+          "embedded",
+          "viewer"
+        ],
+        "note": "变更后，字体字节随查看器 HTML 一起交付。"
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "template",
+      "type": "backend",
+      "label": "查看器模板",
+      "sublabel": "嵌入 WOFF2 字节",
+      "pos": [
+        40,
+        80
+      ],
+      "size": [
+        220,
+        88
+      ],
+      "sources": [
+        {
+          "path": "archify/assets/template.html",
+          "line": 34,
+          "end_line": 55,
+          "label": "变更后的内嵌字体样式"
+        }
+      ]
+    },
+    {
+      "id": "embedded",
+      "type": "database",
+      "label": "内嵌字体资源",
+      "sublabel": "JetBrains Mono 子集",
+      "pos": [
+        360,
+        80
+      ],
+      "size": [
+        220,
+        88
+      ],
+      "sources": [
+        {
+          "path": "archify/assets/JetBrainsMono-OFL.txt",
+          "line": 1,
+          "end_line": 20,
+          "label": "随包发布的字体许可证"
+        }
+      ]
+    },
+    {
+      "id": "viewer",
+      "type": "frontend",
+      "label": "浏览器查看器",
+      "sublabel": "显示交付图形",
+      "pos": [
+        680,
+        80
+      ],
+      "size": [
+        220,
+        88
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "template-viewer",
+      "from": "template",
+      "to": "viewer",
+      "fromSide": "bottom",
+      "toSide": "bottom"
+    },
+    {
+      "id": "embedded-viewer",
+      "from": "embedded",
+      "to": "viewer"
+    }
+  ],
+  "cards": [
+    {
+      "title": "变更后的效果",
+      "dot": "emerald",
+      "items": [
+        "字体覆盖字符不再依赖在线下载；中文仍使用系统字体回退。"
+      ]
+    }
+  ]
+}

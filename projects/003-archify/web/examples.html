@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="通过五类真实图和架构差异示例，体验 Archify 的系统表达、交互阅读和导出能力。">
+  <title>Archify · 把系统讲清楚</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#explore">跳到图形展厅</a>
+  <header class="topbar"><a class="brand" href="../../"><span class="brand-mark" aria-hidden="true">a</span> 研究室 <span class="muted">/ 003</span></a><nav aria-label="页面导航"><a href="#explore">能力体验</a><a href="#workflow">生成原理</a><a href="https://github.com/tt-a1i/archify" target="_blank" rel="noopener noreferrer">上游仓库 ↗</a></nav></header>
+  <main>
+    <section class="intro">
+      <div><p class="eyebrow">ARCHIFY / CAPABILITY EXPLORER</p><h1>把复杂系统，<br><span>讲清楚。</span></h1><p class="lead">从组件之间的连接，到一次请求的来回。<br>用可探索的技术图，让系统的结构与过程变得可见。</p></div>
+      <div class="intro-aside"><span class="stamp">真实渲染 · 可直接操作</span><p>先选一个你想解释的问题，<br>再进入它对应的图。</p><div class="facts"><div><strong>05</strong><span>图形类型</span></div><div><strong>01</strong><span>架构差异示例</span></div><div><strong>HTML</strong><span>独立交互文件</span></div></div></div>
+    </section>
+    <section class="scope"><p class="eyebrow">新增 / ARCHIFY 自身源码实战</p><h2>用它自己的能力，讲清它自己。</h2><p>五类中文技术图、真实提交差异、八组风格效果、实际导出文件，以及预览失败保留上一版的实验。所有关系均根据 Archify 源码整理。</p><a class="primary-link" href="./self.html">进入完整能力实战 →</a></section>
+    <section class="explorer" id="explore" aria-labelledby="explore-title">
+      <div class="section-line"><h2 id="explore-title">从我们自己的代码开始</h2><span>本仓库实战 + 六个能力示例 ↓</span></div>
+      <p class="case-intro">新增实战：分析 <strong>0909_codex_project</strong> 的收录、索引、构建与发布代码，用 Archify 生成中文图，并关联固定版本源码。<a href="./repository-notes.html">查看本次分析与证据对应表 ↗</a></p>
+      <div class="tabs" role="tablist" aria-label="选择图形类型">
+        <button id="tab-repository" role="tab" aria-selected="true" aria-controls="scene" data-scene="repository"><span>00 / REAL CODE</span>本仓库实战<small>代码怎样变成图？</small></button>
+        <button id="tab-architecture" role="tab" aria-selected="false" aria-controls="scene" tabindex="-1" data-scene="architecture"><span>01 / STRUCTURE</span>架构图<small>系统由什么组成？</small></button>
+        <button id="tab-workflow" role="tab" aria-selected="false" aria-controls="scene" tabindex="-1" data-scene="workflow"><span>02 / PROCESS</span>工作流<small>谁先做，谁后做？</small></button>
+        <button id="tab-sequence" role="tab" aria-selected="false" aria-controls="scene" tabindex="-1" data-scene="sequence"><span>03 / INTERACTION</span>时序图<small>一次请求怎样往返？</small></button>
+        <button id="tab-dataflow" role="tab" aria-selected="false" aria-controls="scene" tabindex="-1" data-scene="dataflow"><span>04 / DATA</span>数据流<small>数据流向哪里？</small></button>
+        <button id="tab-lifecycle" role="tab" aria-selected="false" aria-controls="scene" tabindex="-1" data-scene="lifecycle"><span>05 / STATE</span>生命周期<small>任务如何走到结束？</small></button>
+        <button id="tab-delta" role="tab" aria-selected="false" aria-controls="scene" tabindex="-1" data-scene="delta"><span>06 / CHANGE</span>架构差异<small>这次改造改变了什么？</small></button>
+      </div>
+      <div id="scene" role="tabpanel" aria-labelledby="tab-architecture" tabindex="0">
+        <div class="scene-heading"><div><p id="scene-kicker" class="eyebrow">ARCHITECTURE / 系统全貌</p><h3 id="scene-title">一个 Web 应用，从入口到数据库</h3><p id="scene-description">沿 Users → CloudFront → Load Balancer → API Server → PostgreSQL 阅读主链路，再看缓存与异步任务分支。</p></div><a id="open-diagram" class="primary-link" href="./diagrams/architecture.html" target="_blank" rel="noopener noreferrer">打开完整交互图 ↗</a></div>
+        <div class="canvas-shell"><div class="canvas-bar"><span class="live-dot" aria-hidden="true"></span><span>ARCHIFY 原生产物</span><span id="load-status" role="status">正在载入图形…</span></div><iframe id="diagram" title="Web 应用架构交互演示" src="./diagrams/architecture.html" allow="clipboard-write; fullscreen" loading="eager"></iframe><a id="mobile-preview" href="./diagrams/architecture.html" target="_blank" rel="noopener noreferrer"><img id="preview-image" src="./assets/architecture-preview.png" alt="Web 应用架构完整预览"><span>小屏显示完整预览 · 点击打开交互图 ↗<small>完整探索建议使用桌面浏览器</small></span></a></div>
+        <div class="reading"><div><span class="mini-label">看懂这张图</span><p id="reading-note">实线主链路说明同步访问；下方消息队列和 Worker 展示异步工作；区域和安全组框说明部署边界。</p></div><div><span class="mini-label">动手试一下</span><p id="try-note">点选 API Server 查看关联节点；按 / 搜索；在工具栏切换主题、视觉风格，或导出 SVG / PNG。</p></div><div class="resources"><span class="mini-label">保留可复查的源文件</span><a id="source-link" href="./specs/architecture.json" target="_blank" rel="noopener noreferrer">查看图规格 JSON ↗</a><a id="receipt-link" href="./receipts/architecture.json" target="_blank" rel="noopener noreferrer">查看生成检查记录 ↗</a></div></div>
+      </div>
+    </section>
+    <section class="abilities" aria-labelledby="abilities-title"><div class="section-line"><h2 id="abilities-title">生成以后，还能做什么？</h2><span>从“看一眼”到“读明白”</span></div><div class="ability-grid">
+      <article><span class="index">01</span><h3>沿关系探索</h3><p>搜索并聚焦节点，查看上下游，查询两个节点间已声明的有向路径。</p><button class="text-action" data-jump="architecture" data-fragment="focus=api&reach=downstream">体验 API 下游追踪 →</button></article>
+      <article><span class="index">02</span><h3>分章节讲解</h3><p>把一张图拆成主请求、缓存回退、返回与追踪等阅读视角，按需播放有限动画。</p><button class="text-action" data-jump="sequence" data-fragment="view=cache-fallback">打开缓存回退章节 →</button></article>
+      <article><span class="index">03</span><h3>换风格与导出</h3><p>在完整交互图中试用四种视觉预设、深浅主题，再保存 SVG、图片或动态演示。</p><button class="text-action" data-jump="architecture">进入查看器试用 →</button></article>
+      <article><span class="index">04</span><h3>对照架构变更</h3><p>切换 Before、Delta、After，区分组件变化、位置移动与连线改道。</p><button class="text-action" data-jump="delta">查看一次结算平台改造 →</button></article>
+    </div></section>
+    <section class="how" id="workflow"><div><p class="eyebrow">HOW IT WORKS</p><h2>AI 组织表达，<br>程序负责渲染与检查。</h2><p>输入可以是系统描述、经 Agent 阅读的代码，或已有 Mermaid。图中每个节点和关系最终都落到结构化规格里。</p></div><ol><li><span>01</span><div><h3>理解与取舍</h3><p>Agent 选择图型、关键组件、主链路和布局意图。</p></div></li><li><span>02</span><div><h3>形成图规格</h3><p>把节点、关系、边界和布局写入有类型约束的 JSON。</p></div></li><li><span>03</span><div><h3>渲染并校验</h3><p>专用渲染器生成 HTML / SVG；错误带着具体对象与修复提示返回。</p></div></li><li><span>04</span><div><h3>交互阅读与交付</h3><p>检查通过才替换最终文件，浏览器负责查看、探索和导出。</p></div></li></ol></section>
+    <section class="scope"><h2>这里展示的是什么</h2><p>“本仓库实战”是根据 0909_codex_project 实际源码整理的中文架构图，带有 14 处固定提交的源码引用。其余六个图来自上游样例，保留英文节点与说明；全部由真实 Archify 渲染器生成。</p><p>真实案例中的关系由本次代码阅读后编写，程序核验源文件与行范围、检查结构与布局；这不等于独立完成代码理解，也不直接证明运行影响。<a href="./repository-notes.html">阅读过程与证据 ↗</a></p><p class="comparison">与我们研究过的 <a href="https://yydshly.github.io/0902_codex_project/demos/002-larashero3-dotcom-lieflat-charts/" target="_blank" rel="noopener noreferrer">Lieflat Charts ↗</a> 相比：它侧重数据、指标和报告；Archify 侧重系统、关系与过程。</p></section>
+  </main>
+  <footer><div><strong>Archify</strong><span>003 · GitHub 项目研究室 / 2026.09.09</span></div><p>基于 v2.17.0-dev.1 · <a href="https://github.com/tt-a1i/archify/tree/10722002bb8777ecb639d93c49586fae4adf3ae4" target="_blank" rel="noopener noreferrer">1072200 ↗</a><br><a href="./LICENSE-Archify.txt">MIT 许可</a> · <a href="./THIRD-PARTY-NOTICES.md">第三方声明</a> · <a href="./receipts/manifest.json">产物来源</a></p></footer>
+</body>
+</html>

@@ -1,0 +1,18 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {spawnSync} from 'node:child_process';
+const project=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const root=path.resolve(project,'../..');
+const upstream=path.resolve(process.argv[2]||path.join(root,'.research/archify'));
+const expected='10722002bb8777ecb639d93c49586fae4adf3ae4';
+const version=spawnSync('git',['-C',upstream,'rev-parse','HEAD'],{encoding:'utf8'});
+if(version.status!==0||version.stdout.trim()!==expected)throw new Error('Use the pinned Archify renderer revision '+expected);
+const input=path.join(project,'web/specs/repository.json');
+const output=path.join(project,'web/diagrams/repository.html');
+const result=spawnSync(process.execPath,[path.join(upstream,'archify/bin/archify.mjs'),'deliver','architecture',input,output,'--repo-root',root,'--quality','showcase','--json'],{encoding:'utf8',maxBuffer:10*1024*1024});
+if(result.status!==0)throw new Error(result.stdout+result.stderr);
+const receipt=JSON.parse(result.stdout);
+receipt.input='web/specs/repository.json';receipt.output='web/diagrams/repository.html';
+fs.writeFileSync(path.join(project,'web/receipts/repository.json'),JSON.stringify(receipt,null,2)+'\n');
+console.log(JSON.stringify(receipt,null,2));

@@ -1,0 +1,223 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1800" height="3180" viewBox="0 0 1800 3180" role="img" aria-labelledby="title desc">
+<title id="title">Archify 理解全景：能力、原理、设计体系与扩展路线</title><desc id="desc">一页中文研究图。涵盖五类技术图和架构差异、外部作者到结构化规格的生成链、UML 与 4+1 及 C4 的区别、八个项目分析维度、三层扩展路线和真实实验依据。带链接的卡片可进入详细演示或官方来源。</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,1 L8,5 L0,9" fill="none" stroke="#668773" stroke-width="1.6"/></marker></defs>
+<style>text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif}a{cursor:pointer}a:hover>rect{stroke:#3c7660;stroke-width:2}a:focus>rect{stroke:#b88225;stroke-width:3}</style>
+<rect x="0" y="0" width="1800" height="3180" rx="0" fill="#f3f5ef" stroke="#f3f5ef"/>
+<text x="56" y="51" font-size="17" fill="#5d7865" font-weight="700">003  /  OPEN-SOURCE RESEARCH MAP</text>
+<text x="56" y="114" font-size="48" fill="#163f32" font-weight="700">Archify：从技术表达，到可交付的项目图谱</text>
+<text x="56" y="158" font-size="24" fill="#62776a" font-weight="400">能力是什么 · 信息从哪里来 · 如何组织设计 · 还能向哪里扩展</text>
+<text x="1396" y="48" font-size="17" fill="#607567" font-weight="400">研究快照 / 2026.09.09</text>
+<text x="1396" y="76" font-size="17" fill="#607567" font-weight="400">v2.17.0-dev.1 · 1072200</text>
+<rect x="56" y="194" width="546" height="179" rx="15" fill="#e8efe3" stroke="#d4ded5"/>
+<text x="80" y="223" font-size="15" fill="#667e6d" font-weight="700">定位 / OUR INTERPRETATION</text>
+<text x="80" y="261" font-size="27" fill="#234d3d" font-weight="700">面向 Agent 的技术图表达与交付</text>
+<text x="80" y="299" font-size="21" fill="#50645d" font-weight="400">Skill 指导表达；结构化规格驱动绘图。</text>
+<text x="80" y="330" font-size="21" fill="#50645d" font-weight="400">用于源码讲解、设计评审、文档与变更沟通。</text>
+<rect x="626" y="194" width="546" height="179" rx="15" fill="#fffefa" stroke="#d4ded5"/>
+<text x="650" y="223" font-size="15" fill="#667e6d" font-weight="700">价值 / WHY IT MATTERS</text>
+<text x="650" y="261" font-size="27" fill="#234d3d" font-weight="700">把理解沉淀为可复查的图</text>
+<text x="650" y="299" font-size="21" fill="#50645d" font-weight="400">图规格可修改、版本化；产物可离线阅读。</text>
+<text x="650" y="330" font-size="21" fill="#50645d" font-weight="400">确定布局与校验规则，减少随意拼图。</text>
+<rect x="1196" y="194" width="548" height="179" rx="15" fill="#f9f0df" stroke="#d4ded5"/>
+<text x="1220" y="223" font-size="15" fill="#667e6d" font-weight="700">边界 / WHAT IT DOES NOT DO</text>
+<text x="1220" y="261" font-size="27" fill="#234d3d" font-weight="700">代码理解来自外部</text>
+<text x="1220" y="299" font-size="21" fill="#50645d" font-weight="400">没有通用源码关系抽取器；不会独立理解仓库。</text>
+<text x="1220" y="330" font-size="21" fill="#50645d" font-weight="400">不等于完整 UML、拖拽编辑或托管协作平台。</text>
+<text x="56" y="425" font-size="21" fill="#67806b" font-weight="700">01</text>
+<text x="104" y="425" font-size="30" fill="#193c32" font-weight="700">从输入到成品：谁负责理解，谁负责绘制？</text>
+<rect x="56" y="460" width="320" height="166" rx="15" fill="#edf0eb" stroke="#d4ded5"/>
+<text x="74" y="496" font-size="24" fill="#24513d" font-weight="700">外部信息与作者</text>
+<text x="74" y="529" font-size="17" fill="#50645d" font-weight="400">源码 · 描述 · Mermaid</text>
+<text x="74" y="567" font-size="18" fill="#50645d" font-weight="400">用户或 Agent 分析并取舍内容。</text>
+<text x="74" y="595" font-size="18" fill="#50645d" font-weight="400">这些信息需先转为图规格。</text>
+<path d="M378,545 L394,545" stroke="#668773" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="398" y="460" width="320" height="166" rx="15" fill="#e8efe3" stroke="#d4ded5"/>
+<text x="416" y="496" font-size="24" fill="#24513d" font-weight="700">有类型的 JSON 规格</text>
+<text x="416" y="529" font-size="17" fill="#50645d" font-weight="400">Archify 程序直接读取的输入</text>
+<text x="416" y="567" font-size="18" fill="#50645d" font-weight="400">声明节点、关系、布局与说明。</text>
+<text x="416" y="595" font-size="18" fill="#50645d" font-weight="400">五类 Schema 约束各自结构。</text>
+<path d="M720,545 L736,545" stroke="#668773" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="740" y="460" width="320" height="166" rx="15" fill="#e8efe3" stroke="#d4ded5"/>
+<text x="758" y="496" font-size="24" fill="#24513d" font-weight="700">校验、布局与渲染</text>
+<text x="758" y="529" font-size="17" fill="#50645d" font-weight="400">专用渲染器 + 共享模块</text>
+<text x="758" y="567" font-size="18" fill="#50645d" font-weight="400">检查字段、引用、布局约束。</text>
+<text x="758" y="595" font-size="18" fill="#50645d" font-weight="400">生成 SVG，装入 HTML 模板。</text>
+<path d="M1062,545 L1078,545" stroke="#668773" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="1082" y="460" width="320" height="166" rx="15" fill="#e8efe3" stroke="#d4ded5"/>
+<text x="1100" y="496" font-size="24" fill="#24513d" font-weight="700">检查与原子交付</text>
+<text x="1100" y="529" font-size="17" fill="#50645d" font-weight="400">deliver 的受控生成链</text>
+<text x="1100" y="567" font-size="18" fill="#50645d" font-weight="400">冻结快照 → 验收候选 → 哈希。</text>
+<text x="1100" y="595" font-size="18" fill="#50645d" font-weight="400">通过后才替换最终文件。</text>
+<path d="M1404,545 L1420,545" stroke="#668773" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="1424" y="460" width="320" height="166" rx="15" fill="#e8efe3" stroke="#d4ded5"/>
+<text x="1442" y="496" font-size="24" fill="#24513d" font-weight="700">浏览器阅读与导出</text>
+<text x="1442" y="529" font-size="17" fill="#50645d" font-weight="400">已生成页面不需要模型服务</text>
+<text x="1442" y="567" font-size="18" fill="#50645d" font-weight="400">搜索、聚焦、路径、章节与风格。</text>
+<text x="1442" y="595" font-size="18" fill="#50645d" font-weight="400">导出图片、矢量和动态视频。</text>
+<rect x="56" y="644" width="1688" height="64" rx="8" fill="#e9eee7" stroke="#d4ded5"/>
+<text x="76" y="671" font-size="20" fill="#263d38" font-weight="400">可选源码证据：架构图可核验固定 Git 提交、文件与行范围；不证明关系语义正确。</text>
+<text x="76" y="696" font-size="18" fill="#607568" font-weight="400">实现要点：开发阶段用 AJV 编译校验器；共享模板承载交互。preview 监控输入，失败保留上次验证通过的产物。</text>
+<text x="56" y="760" font-size="21" fill="#67806b" font-weight="700">02</text>
+<text x="104" y="760" font-size="30" fill="#193c32" font-weight="700">已支持的表达能力：五类基础图 + 架构差异视图</text>
+<text x="1523" y="760" font-size="17" fill="#687d72" font-weight="400">点击卡片 → 中文源码实战</text>
+<a href="https://yydshly.github.io/0909_codex_project/projects/003-archify/self.html#architecture" target="_blank" rel="noopener">
+<rect x="56" y="796" width="546" height="198" rx="15" fill="#fffefa" stroke="#d4ded5"/>
+<text x="80" y="825" font-size="15" fill="#667e6d" font-weight="700">01 / ARCHITECTURE</text>
+<text x="80" y="863" font-size="27" fill="#234d3d" font-weight="700">架构图：系统由什么组成？</text>
+<text x="80" y="901" font-size="21" fill="#50645d" font-weight="400">组件、关系、区域、分组与边界。</text>
+<text x="80" y="932" font-size="21" fill="#50645d" font-weight="400">案例：作者 → 规格 → 渲染交付 → 查看器。</text>
+<text x="80" y="974" font-size="17" fill="#3c7660" font-weight="600">节点可附固定版本源码引用</text>
+</a>
+<a href="https://yydshly.github.io/0909_codex_project/projects/003-archify/self.html#workflow" target="_blank" rel="noopener">
+<rect x="626" y="796" width="546" height="198" rx="15" fill="#fffefa" stroke="#d4ded5"/>
+<text x="650" y="825" font-size="15" fill="#667e6d" font-weight="700">02 / WORKFLOW</text>
+<text x="650" y="863" font-size="27" fill="#234d3d" font-weight="700">工作流：谁先做什么？</text>
+<text x="650" y="901" font-size="21" fill="#50645d" font-weight="400">步骤、职责泳道、阶段、分支与异常。</text>
+<text x="650" y="932" font-size="21" fill="#50645d" font-weight="400">案例：生成、验收、交付及外部修复重试。</text>
+<text x="650" y="974" font-size="17" fill="#3c7660" font-weight="600">表达控制流与责任交接</text>
+</a>
+<a href="https://yydshly.github.io/0909_codex_project/projects/003-archify/self.html#sequence" target="_blank" rel="noopener">
+<rect x="1196" y="796" width="546" height="198" rx="15" fill="#fffefa" stroke="#d4ded5"/>
+<text x="1220" y="825" font-size="15" fill="#667e6d" font-weight="700">03 / SEQUENCE</text>
+<text x="1220" y="863" font-size="27" fill="#234d3d" font-weight="700">时序图：调用如何往返？</text>
+<text x="1220" y="901" font-size="21" fill="#50645d" font-weight="400">参与者、生命线、消息、返回与活动区间。</text>
+<text x="1220" y="932" font-size="21" fill="#50645d" font-weight="400">案例：主进程与两个子进程的调用顺序。</text>
+<text x="1220" y="974" font-size="17" fill="#3c7660" font-weight="600">时间顺序 ≠ 实际耗时</text>
+</a>
+<a href="https://yydshly.github.io/0909_codex_project/projects/003-archify/self.html#dataflow" target="_blank" rel="noopener">
+<rect x="56" y="1014" width="546" height="198" rx="15" fill="#fffefa" stroke="#d4ded5"/>
+<text x="80" y="1043" font-size="15" fill="#667e6d" font-weight="700">04 / DATAFLOW</text>
+<text x="80" y="1081" font-size="27" fill="#234d3d" font-weight="700">数据流：输入变成什么？</text>
+<text x="80" y="1119" font-size="21" fill="#50645d" font-weight="400">数据来源、处理阶段、存储、流向与标签。</text>
+<text x="80" y="1150" font-size="21" fill="#50645d" font-weight="400">案例：JSON → 已校验规格 → SVG / HTML。</text>
+<text x="80" y="1192" font-size="17" fill="#3c7660" font-weight="600">IR 是图规格，不是源码 AST</text>
+</a>
+<a href="https://yydshly.github.io/0909_codex_project/projects/003-archify/self.html#lifecycle" target="_blank" rel="noopener">
+<rect x="626" y="1014" width="546" height="198" rx="15" fill="#fffefa" stroke="#d4ded5"/>
+<text x="650" y="1043" font-size="15" fill="#667e6d" font-weight="700">05 / LIFECYCLE</text>
+<text x="650" y="1081" font-size="27" fill="#234d3d" font-weight="700">生命周期：怎样完成或失败？</text>
+<text x="650" y="1119" font-size="21" fill="#50645d" font-weight="400">阶段、活动、等待、决策、成功与失败。</text>
+<text x="650" y="1150" font-size="21" fill="#50645d" font-weight="400">案例：候选产物通过验收后成为最终文件。</text>
+<text x="650" y="1192" font-size="17" fill="#3c7660" font-weight="600">本次阶段名由源码分析后整理</text>
+</a>
+<a href="https://yydshly.github.io/0909_codex_project/projects/003-archify/self.html#delta" target="_blank" rel="noopener">
+<rect x="1196" y="1014" width="546" height="198" rx="15" fill="#fffefa" stroke="#d4ded5"/>
+<text x="1220" y="1043" font-size="15" fill="#667e6d" font-weight="700">06 / ARCHITECTURE DELTA</text>
+<text x="1220" y="1081" font-size="27" fill="#234d3d" font-weight="700">架构差异：前后改变了什么？</text>
+<text x="1220" y="1119" font-size="21" fill="#50645d" font-weight="400">比较两份架构规格：新增、删除、修改、</text>
+<text x="1220" y="1150" font-size="21" fill="#50645d" font-weight="400">移动与改道；切换 Before / Delta / After。</text>
+<text x="1220" y="1192" font-size="17" fill="#3c7660" font-weight="600">真实案例：在线字体 → 内嵌字体</text>
+</a>
+<rect x="56" y="1248" width="1688" height="82" rx="10" fill="#dfeadd" stroke="#d4ded5"/>
+<text x="78" y="1278" font-size="22" fill="#24523d" font-weight="700">通用查看器能力</text>
+<text x="280" y="1278" font-size="20" fill="#263d38" font-weight="400">搜索与聚焦 · 上下游与有向路径 · 章节讲解 · 动画与演示 · 四种风格 × 深浅主题</text>
+<text x="78" y="1310" font-size="19" fill="#263d38" font-weight="400">交付与导出：独立 HTML、PNG、JPEG、WebP、SVG、WebM、整图 / 路径 / 范围分享卡片。不同视图支持的操作有区别。</text>
+<text x="56" y="1381" font-size="21" fill="#67806b" font-weight="700">03</text>
+<text x="104" y="1381" font-size="30" fill="#193c32" font-weight="700">设计体系：组织视角、定义语义、保存设计理由</text>
+<rect x="56" y="1416" width="832" height="208" rx="15" fill="#fffefa" stroke="#d4ded5"/>
+<text x="80" y="1453" font-size="27" fill="#24523d" font-weight="700">4+1 / 检查哪些架构关注点</text>
+<text x="80" y="1492" font-size="21" fill="#50645d" font-weight="400">逻辑：职责与关键抽象    开发：源码组织与依赖</text>
+<text x="80" y="1523" font-size="21" fill="#50645d" font-weight="400">进程：并发、通信与同步    物理：软件与运行节点</text>
+<text x="80" y="1554" font-size="19" fill="#50645d" font-weight="400">＋1：关键场景贯穿并验证四个视图；不只是多画一张图。</text>
+<text x="80" y="1585" font-size="19" fill="#50645d" font-weight="400">一个视图可以包含多张图；进程视图不是普通流程图。</text>
+<rect x="912" y="1416" width="832" height="208" rx="15" fill="#fffefa" stroke="#d4ded5"/>
+<text x="936" y="1453" font-size="27" fill="#24523d" font-weight="700">C4 / 从系统全景逐层展开到代码</text>
+<text x="936" y="1492" font-size="23" fill="#50645d" font-weight="400">系统上下文 → 容器 → 组件 → 代码</text>
+<text x="936" y="1523" font-size="19" fill="#50645d" font-weight="400">用户与外部系统 → 应用 / 服务 / 存储 → 内部组件 → 实现</text>
+<text x="936" y="1554" font-size="19" fill="#50645d" font-weight="400">Container 不专指 Docker；按需要选择层级。</text>
+<text x="936" y="1585" font-size="19" fill="#50645d" font-weight="400">补充动态与部署视图，帮助从总览进入关键细节。</text>
+<rect x="56" y="1644" width="1688" height="137" rx="15" fill="#fffefa" stroke="#d4ded5"/>
+<text x="80" y="1680" font-size="26" fill="#24523d" font-weight="700">UML / 规定模型元素、关系与行为的表达语义</text>
+<text x="80" y="1719" font-size="21" fill="#263d38" font-weight="400">结构类：类图、对象图、包图、组件图、组合结构图、部署图、轮廓图。</text>
+<text x="80" y="1753" font-size="21" fill="#263d38" font-weight="400">行为类：用例图、活动图、状态机图；交互类属于行为类，包括顺序图、通信图、交互概览图、定时图。</text>
+<rect x="56" y="1801" width="1688" height="117" rx="15" fill="#eef0e9" stroke="#d4ded5"/>
+<text x="80" y="1835" font-size="20" fill="#263d38" font-weight="400">arc42：记录目标、约束、结构、运行、部署、决策、质量与风险。BPMN：业务流程。SysML：软硬件系统工程。</text>
+<text x="80" y="1868" font-size="20" fill="#263d38" font-weight="400">ArchiMate：企业业务—应用—技术的建模语言。TOGAF：企业架构方法与治理框架。</text>
+<text x="80" y="1897" font-size="18" fill="#607568" font-weight="400">关系：C4 组织层级，4+1 检查关注点，UML 等定义表达，arc42 组织文档；分层、微服务、六边形架构属于设计风格。</text>
+<text x="56" y="1970" font-size="21" fill="#67806b" font-weight="700">04</text>
+<text x="104" y="1970" font-size="30" fill="#193c32" font-weight="700">按系统整理：完整项目还值得展示哪些图？</text>
+<text x="1506" y="1970" font-size="17" fill="#687d72" font-weight="400">可复用 ≠ 已有专用语义支持</text>
+<rect x="56" y="2000" width="1688" height="527" rx="10" fill="#fffefa" stroke="#d4ded5"/>
+<path d="M56,2050 H1744" stroke="#d4ded5"/>
+<text x="80" y="2033" font-size="20" fill="#315943" font-weight="700">分析维度</text>
+<text x="308" y="2033" font-size="20" fill="#315943" font-weight="700">建议图谱与要回答的问题</text>
+<text x="948" y="2033" font-size="20" fill="#315943" font-weight="700">信息来源</text>
+<text x="1432" y="2033" font-size="20" fill="#315943" font-weight="700">与 Archify 的关系</text>
+<rect x="57" y="2051" width="1686" height="58" rx="0" fill="#f3f6ee" stroke="#f3f6ee"/>
+<text x="80" y="2087" font-size="18" fill="#304c3e" font-weight="600">业务与目标</text>
+<text x="308" y="2087" font-size="19" fill="#566b5e" font-weight="400">上下文图、用例图、BPMN：谁用、做什么、跨谁协作？</text>
+<text x="948" y="2087" font-size="19" fill="#566b5e" font-weight="400">需求、角色、业务规则</text>
+<text x="1432" y="2087" font-size="18" fill="#566b5e" font-weight="400">复用架构 / 新图型</text>
+<text x="80" y="2146" font-size="18" fill="#304c3e" font-weight="600">结构与部署</text>
+<text x="308" y="2146" font-size="19" fill="#566b5e" font-weight="400">C4 分层、组件与部署图：拆成什么，运行在哪里？</text>
+<text x="948" y="2146" font-size="19" fill="#566b5e" font-weight="400">模块设计、部署配置</text>
+<text x="1432" y="2146" font-size="18" fill="#566b5e" font-weight="400">细化架构图</text>
+<rect x="57" y="2169" width="1686" height="58" rx="0" fill="#f3f6ee" stroke="#f3f6ee"/>
+<text x="80" y="2205" font-size="18" fill="#304c3e" font-weight="600">代码与接口</text>
+<text x="308" y="2205" font-size="19" fill="#566b5e" font-weight="400">包依赖、调用图、类 / 接口图：如何组织、调用、扩展？</text>
+<text x="948" y="2205" font-size="19" fill="#566b5e" font-weight="400">引用解析、静态分析、追踪</text>
+<text x="1432" y="2205" font-size="18" fill="#566b5e" font-weight="400">关系图复用 / 类图新增</text>
+<text x="80" y="2264" font-size="18" fill="#304c3e" font-weight="600">数据与契约</text>
+<text x="308" y="2264" font-size="19" fill="#566b5e" font-weight="400">ER、规格结构、数据血缘：字段如何关联、转换和派生？</text>
+<text x="948" y="2264" font-size="19" fill="#566b5e" font-weight="400">数据库、Schema、转换逻辑</text>
+<text x="1432" y="2264" font-size="18" fill="#566b5e" font-weight="400">细化数据流 / ER 新增</text>
+<rect x="57" y="2287" width="1686" height="58" rx="0" fill="#f3f6ee" stroke="#f3f6ee"/>
+<text x="80" y="2323" font-size="18" fill="#304c3e" font-weight="600">运行与异常</text>
+<text x="308" y="2323" font-size="19" fill="#566b5e" font-weight="400">时序、完整状态机、并发图：如何响应、等待和恢复？</text>
+<text x="948" y="2323" font-size="19" fill="#566b5e" font-weight="400">控制逻辑、事件、运行日志</text>
+<text x="1432" y="2323" font-size="18" fill="#566b5e" font-weight="400">复用时序 / 深化状态</text>
+<text x="80" y="2382" font-size="18" fill="#304c3e" font-weight="600">安全与验证</text>
+<text x="308" y="2382" font-size="19" fill="#566b5e" font-weight="400">信任边界、权限、需求—实现—测试：谁能做，如何证明？</text>
+<text x="948" y="2382" font-size="19" fill="#566b5e" font-weight="400">权限配置、需求和测试关联</text>
+<text x="1432" y="2382" font-size="18" fill="#566b5e" font-weight="400">边界复用 / 关联模型新增</text>
+<rect x="57" y="2405" width="1686" height="58" rx="0" fill="#f3f6ee" stroke="#f3f6ee"/>
+<text x="80" y="2441" font-size="18" fill="#304c3e" font-weight="600">性能与变化</text>
+<text x="308" y="2441" font-size="19" fill="#566b5e" font-weight="400">热点 / 火焰图、版本差异：哪里慢，哪些结构改变？</text>
+<text x="948" y="2441" font-size="19" fill="#566b5e" font-weight="400">性能测量、前后模型</text>
+<text x="1432" y="2441" font-size="18" fill="#566b5e" font-weight="400">性能新增 / 架构差异已有</text>
+<text x="80" y="2500" font-size="18" fill="#304c3e" font-weight="600">项目与演进</text>
+<text x="308" y="2500" font-size="19" fill="#566b5e" font-weight="400">功能树、路线图、甘特图：范围是什么，怎样逐步实现？</text>
+<text x="948" y="2500" font-size="19" fill="#566b5e" font-weight="400">功能清单、计划和决策</text>
+<text x="1432" y="2500" font-size="18" fill="#566b5e" font-weight="400">树图、时间轴等新增</text>
+<text x="56" y="2580" font-size="21" fill="#67806b" font-weight="700">05</text>
+<text x="104" y="2580" font-size="30" fill="#193c32" font-weight="700">扩展路线：补上信息来源、模型语义与阅读层级</text>
+<text x="1523" y="2580" font-size="17" fill="#687d72" font-weight="400">以下均为建议，未声称已实现</text>
+<rect x="56" y="2614" width="546" height="218" rx="15" fill="#f9f0df" stroke="#d4ded5"/>
+<text x="80" y="2643" font-size="15" fill="#667e6d" font-weight="700">第一层 / DATA</text>
+<text x="80" y="2681" font-size="27" fill="#234d3d" font-weight="700">从“有人写规格”到“有证据提取”</text>
+<text x="80" y="2719" font-size="21" fill="#50645d" font-weight="400">接入源码引用、调用关系、数据库结构、</text>
+<text x="80" y="2750" font-size="21" fill="#50645d" font-weight="400">部署配置、OpenAPI 与运行追踪。</text>
+<text x="80" y="2781" font-size="21" fill="#50645d" font-weight="400">保留来源、版本、未知项与分析置信度。</text>
+<text x="80" y="2812" font-size="17" fill="#3c7660" font-weight="600">绘图类型增加，不会自动带来数据来源</text>
+<rect x="626" y="2614" width="546" height="218" rx="15" fill="#f9f0df" stroke="#d4ded5"/>
+<text x="650" y="2643" font-size="15" fill="#667e6d" font-weight="700">第二层 / MODEL</text>
+<text x="650" y="2681" font-size="27" fill="#234d3d" font-weight="700">从通用节点到专用语义模型</text>
+<text x="650" y="2719" font-size="21" fill="#50645d" font-weight="400">新增类图、ER、完整状态机等 Schema。</text>
+<text x="650" y="2750" font-size="21" fill="#50645d" font-weight="400">定义接口、关系数量、触发条件与约束；</text>
+<text x="650" y="2781" font-size="21" fill="#50645d" font-weight="400">配套布局、诊断、测试和图间一致性。</text>
+<text x="650" y="2812" font-size="17" fill="#3c7660" font-weight="600">先定义含义，再设计外观</text>
+<rect x="1196" y="2614" width="548" height="218" rx="15" fill="#f9f0df" stroke="#d4ded5"/>
+<text x="1220" y="2643" font-size="15" fill="#667e6d" font-weight="700">第三层 / READING</text>
+<text x="1220" y="2681" font-size="27" fill="#234d3d" font-weight="700">从多张图到可逐层浏览的图谱</text>
+<text x="1220" y="2719" font-size="21" fill="#50645d" font-weight="400">稳定 ID、全景到模块的跳转与跨图引用。</text>
+<text x="1220" y="2750" font-size="21" fill="#50645d" font-weight="400">关联设计理由、质量指标、变更与测试；</text>
+<text x="1220" y="2781" font-size="21" fill="#50645d" font-weight="400">支持按角色、场景和分析层级阅读。</text>
+<text x="1220" y="2812" font-size="17" fill="#3c7660" font-weight="600">推荐：C4 层级 + 4+1 视角 + 必要细节图</text>
+<rect x="56" y="2842" width="1688" height="92" rx="10" fill="#e8efe3" stroke="#d4ded5"/>
+<text x="78" y="2874" font-size="23" fill="#24523d" font-weight="700">对 Archify 自身的优先补充</text>
+<text x="78" y="2909" font-size="20" fill="#263d38" font-weight="400">模块依赖图 → 关键函数调用图 → 五类规格结构图 → 预览状态机 → 新图型接入图。增加分析深度，避免多张图重复同一条主线。</text>
+<text x="56" y="2980" font-size="21" fill="#67806b" font-weight="700">06</text>
+<text x="104" y="2980" font-size="30" fill="#193c32" font-weight="700">可复查的实战与阅读边界</text>
+<text x="56" y="3017" font-size="20" fill="#263d38" font-weight="400">已验证：五类中文图各 9/9 检查通过；八组风格、八份原生导出；预览错误期间旧文件哈希不变，修复后才更新。</text>
+<text x="56" y="3050" font-size="18" fill="#66796c" font-weight="400">注意：路径只遍历已声明关系；Delta 比较两份模型，不自动理解 Git diff。本次范围分享菜单有交互问题，成品通过原生接口导出。</text>
+<a href="https://yydshly.github.io/0909_codex_project/projects/003-archify/self.html" target="_blank" rel="noopener">
+<text x="56" y="3090" font-size="20" fill="#28704e" font-weight="700">查看全部原生实战 ↗</text>
+</a>
+<a href="https://yydshly.github.io/0909_codex_project/projects/003-archify/research.html" target="_blank" rel="noopener">
+<text x="376" y="3090" font-size="20" fill="#28704e" font-weight="700">查看完整文字整理与来源 ↗</text>
+</a>
+<a href="https://github.com/tt-a1i/archify/tree/10722002bb8777ecb639d93c49586fae4adf3ae4" target="_blank" rel="noopener">
+<text x="804" y="3090" font-size="20" fill="#28704e" font-weight="700">核对上游固定版本源码 ↗</text>
+</a>
+<text x="56" y="3133" font-size="17" fill="#748577" font-weight="400">本页为研究整理的信息总览，不是 Archify 自动生成的代码分析结果。示例与导出保留上游 MIT 及字体 OFL 许可。</text>
+</svg>

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "deliver",
+  "type": "sequence",
+  "input": "web/specs/sequence.json",
+  "output": "web/diagrams/sequence.html",
+  "specification": {
+    "sha256": "55813c727b2ab1b0589d2aeaae90467edb2239565f390c86f7f11c9860ad564b",
+    "bytes": 5573
+  },
+  "artifact": {
+    "sha256": "9d6748739477b0ee16fe27bdf8647f341f4059693c856e1af83b0d450d32c384",
+    "bytes": 811876
+  },
+  "validation": {
+    "checksPassed": 9,
+    "checkCount": 9,
+    "compositionProfile": "showcase",
+    "compositionStatus": "pass",
+    "errors": 0,
+    "warnings": 0
+  }
+}

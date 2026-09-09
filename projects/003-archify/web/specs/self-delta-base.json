@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "字体依赖：变更前",
+    "locale": "zh-CN",
+    "animation": "trace",
+    "quality_profile": "showcase",
+    "visual_preset": "signal-flow",
+    "repository": {
+      "url": "https://github.com/tt-a1i/archify",
+      "revision": "b86b60789e18829885dd23c844e36549f0b40303"
+    },
+    "views": [
+      {
+        "id": "font",
+        "label": "字体依赖",
+        "focus": [
+          "template",
+          "font",
+          "viewer"
+        ],
+        "note": "变更前，浏览器通过在线样式表请求字体。"
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "template",
+      "type": "backend",
+      "label": "查看器模板",
+      "sublabel": "声明在线字体",
+      "pos": [
+        40,
+        80
+      ],
+      "size": [
+        220,
+        88
+      ],
+      "sources": [
+        {
+          "path": "archify/assets/template.html",
+          "line": 34,
+          "end_line": 44,
+          "label": "变更前的 Google Fonts 链接"
+        }
+      ]
+    },
+    {
+      "id": "font",
+      "type": "cloud",
+      "label": "Google Fonts",
+      "sublabel": "浏览器请求在线字体",
+      "pos": [
+        360,
+        80
+      ],
+      "size": [
+        220,
+        88
+      ]
+    },
+    {
+      "id": "viewer",
+      "type": "frontend",
+      "label": "浏览器查看器",
+      "sublabel": "显示交付图形",
+      "pos": [
+        680,
+        80
+      ],
+      "size": [
+        220,
+        88
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "template-viewer",
+      "from": "template",
+      "to": "viewer",
+      "fromSide": "bottom",
+      "toSide": "bottom"
+    },
+    {
+      "id": "font-viewer",
+      "from": "font",
+      "to": "viewer"
+    }
+  ],
+  "cards": [
+    {
+      "title": "真实历史变更",
+      "dot": "emerald",
+      "items": [
+        "对照前一提交；字体加载采用异步在线样式表。"
+      ]
+    }
+  ]
+}

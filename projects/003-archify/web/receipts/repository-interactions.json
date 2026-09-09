@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "sourceHref": "https://github.com/yydshly/0909_codex_project/blob/855cde37272f0ab9912cfe8595ee0060ad531c9a/scripts/catalog.py#L133-L168",
+  "downstreamNodes": [
+    "build",
+    "site",
+    "publish",
+    "pages",
+    "browser"
+  ],
+  "viewports": [
+    {
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "width": 390,
+      "scroll": 390
+    }
+  ],
+  "errors": [],
+  "scope": "Real repository case: exact source link, authored downstream reach, gallery integration and notes page. Official visual-check receipt is separate."
+}

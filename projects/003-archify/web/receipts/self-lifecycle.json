@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "deliver",
+  "type": "lifecycle",
+  "input": "projects/003-archify\\web\\specs\\self-lifecycle.json",
+  "output": "projects/003-archify\\web\\diagrams\\self-lifecycle.html",
+  "specification": {
+    "sha256": "bc62e7252dc20010b534bcfb2e1746cedcf0c79e5f08541dc1319e1baf2571da",
+    "bytes": 4140
+  },
+  "artifact": {
+    "sha256": "8b63f59c20c34dcbacca5a542f5ba63a9b67844b02784fec330fbaefc26aab76",
+    "bytes": 805709
+  },
+  "validation": {
+    "checksPassed": 9,
+    "checkCount": 9,
+    "compositionProfile": "showcase",
+    "compositionStatus": "pass",
+    "errors": 0,
+    "warnings": 0
+  }
+}

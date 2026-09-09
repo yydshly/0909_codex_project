@@ -1,0 +1,233 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Archify：一次交付怎样完成",
+    "locale": "zh-CN",
+    "animation": "trace",
+    "quality_profile": "showcase",
+    "visual_preset": "signal-flow",
+    "legend": {
+      "mode": "auto",
+      "entries": {
+        "backend": {
+          "label": "程序步骤"
+        },
+        "database": {
+          "label": "交付回执"
+        },
+        "security": {
+          "label": "产物检查"
+        },
+        "external": {
+          "label": "用户 / Agent"
+        }
+      }
+    },
+    "views": [
+      {
+        "id": "success",
+        "label": "① 成功交付",
+        "focus": [
+          "input",
+          "freeze",
+          "render",
+          "check",
+          "commit",
+          "receipt"
+        ],
+        "note": "沿职责泳道跟踪规格的准备、生成、验收与交付。"
+      },
+      {
+        "id": "repair",
+        "label": "② 失败后修复",
+        "focus": [
+          "render",
+          "check",
+          "repair",
+          "input"
+        ],
+        "note": "渲染或检查失败返回作者；修复与重试由外部执行。"
+      }
+    ]
+  },
+  "lanes": [
+    {
+      "id": "author",
+      "label": "用户 / Agent"
+    },
+    {
+      "id": "cli",
+      "label": "交付命令"
+    },
+    {
+      "id": "engine",
+      "label": "渲染与检查"
+    }
+  ],
+  "phases": [
+    {
+      "id": "prepare",
+      "label": "准备",
+      "fromCol": 0,
+      "toCol": 1
+    },
+    {
+      "id": "generate",
+      "label": "生成与验收",
+      "fromCol": 2,
+      "toCol": 3,
+      "variant": "emphasis"
+    },
+    {
+      "id": "publish",
+      "label": "交付",
+      "fromCol": 4,
+      "toCol": 5
+    }
+  ],
+  "mainPath": [
+    "input",
+    "freeze",
+    "render",
+    "check",
+    "commit",
+    "receipt"
+  ],
+  "nodes": [
+    {
+      "id": "input",
+      "lane": "author",
+      "col": 0,
+      "type": "external",
+      "label": "编写规格",
+      "sublabel": "确定内容与关系",
+      "width": 142
+    },
+    {
+      "id": "freeze",
+      "lane": "cli",
+      "col": 1,
+      "type": "backend",
+      "label": "冻结快照",
+      "sublabel": "固定本次输入",
+      "width": 142
+    },
+    {
+      "id": "render",
+      "lane": "engine",
+      "col": 2,
+      "type": "backend",
+      "label": "校验渲染",
+      "sublabel": "生成候选 HTML",
+      "width": 142
+    },
+    {
+      "id": "check",
+      "lane": "engine",
+      "col": 3,
+      "type": "security",
+      "label": "检查候选",
+      "sublabel": "九项产物检查",
+      "width": 142
+    },
+    {
+      "id": "commit",
+      "lane": "cli",
+      "col": 4,
+      "type": "backend",
+      "label": "原子提交",
+      "sublabel": "替换最终文件",
+      "width": 142
+    },
+    {
+      "id": "receipt",
+      "lane": "cli",
+      "col": 5,
+      "type": "database",
+      "label": "返回回执",
+      "sublabel": "哈希与检查结果",
+      "width": 142
+    },
+    {
+      "id": "repair",
+      "lane": "author",
+      "col": 3,
+      "type": "external",
+      "label": "修改后重试",
+      "sublabel": "由用户或 Agent 处理",
+      "width": 142
+    }
+  ],
+  "edges": [
+    {
+      "id": "input-freeze",
+      "from": "input",
+      "to": "freeze"
+    },
+    {
+      "id": "freeze-render",
+      "from": "freeze",
+      "to": "render"
+    },
+    {
+      "id": "render-check",
+      "from": "render",
+      "to": "check"
+    },
+    {
+      "id": "check-commit",
+      "from": "check",
+      "to": "commit"
+    },
+    {
+      "id": "commit-receipt",
+      "from": "commit",
+      "to": "receipt"
+    },
+    {
+      "id": "check-repair",
+      "from": "check",
+      "to": "repair",
+      "role": "error",
+      "variant": "security",
+      "label": "失败",
+      "fromSide": "top",
+      "toSide": "bottom"
+    },
+    {
+      "id": "render-repair",
+      "from": "render",
+      "to": "repair",
+      "role": "error",
+      "variant": "security",
+      "fromSide": "top",
+      "toSide": "left"
+    },
+    {
+      "id": "repair-input",
+      "from": "repair",
+      "to": "input",
+      "role": "branch",
+      "variant": "dashed",
+      "fromSide": "left",
+      "toSide": "right"
+    }
+  ],
+  "cards": [
+    {
+      "title": "成功路径",
+      "dot": "emerald",
+      "items": [
+        "快照 → 渲染 → 检查 → 原子替换；回执包含 SHA-256。"
+      ]
+    },
+    {
+      "title": "失败路径",
+      "dot": "rose",
+      "items": [
+        "错误返回诊断；修改规格与重新调用由外部完成。"
+      ]
+    }
+  ]
+}

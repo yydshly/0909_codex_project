@@ -1,0 +1,444 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "研究室：从收录到网页",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "animation": "none",
+    "repository": {
+      "url": "https://github.com/yydshly/0909_codex_project",
+      "revision": "855cde37272f0ab9912cfe8595ee0060ad531c9a"
+    },
+    "views": [
+      {
+        "id": "registration",
+        "label": "① 收录与索引",
+        "focus": [
+          "template",
+          "create",
+          "registry",
+          "index",
+          "assets"
+        ],
+        "note": "create_project 分配编号、复制模板、写入清单并同步 README；研究内容由人或 Agent 填写。"
+      },
+      {
+        "id": "site-build",
+        "label": "② 静态站点构建",
+        "focus": [
+          "registry",
+          "assets",
+          "site-template",
+          "build",
+          "site"
+        ],
+        "note": "build 读取项目清单、网页素材和总览模板，生成 _site；仅复制 demo=true 的项目网页。"
+      },
+      {
+        "id": "publication",
+        "label": "③ 手动发布",
+        "focus": [
+          "site",
+          "publish",
+          "pages",
+          "browser"
+        ],
+        "note": "GitHub Actions 的手动工作流先测试、检查、构建，再上传 _site 并部署 Pages；普通推送只检查。"
+      }
+    ],
+    "legend": {
+      "mode": "auto",
+      "entries": {
+        "external": {
+          "label": "访问者"
+        },
+        "cloud": {
+          "label": "托管服务"
+        },
+        "database": {
+          "label": "文件与素材"
+        },
+        "backend": {
+          "label": "脚本与任务"
+        }
+      }
+    }
+  },
+  "components": [
+    {
+      "id": "template",
+      "type": "database",
+      "label": "子项目模板",
+      "sublabel": "统一研究记录骨架",
+      "tag": "templates/project",
+      "pos": [
+        40,
+        30
+      ],
+      "size": [
+        200,
+        88
+      ],
+      "sources": [
+        {
+          "path": "templates/project/README.md",
+          "line": 1,
+          "end_line": 45,
+          "label": "研究页模板"
+        }
+      ]
+    },
+    {
+      "id": "create",
+      "type": "backend",
+      "label": "创建子项目",
+      "sublabel": "分配编号 · 复制模板",
+      "tag": "catalog.py new",
+      "pos": [
+        340,
+        30
+      ],
+      "size": [
+        200,
+        88
+      ],
+      "sources": [
+        {
+          "path": "scripts/catalog.py",
+          "line": 171,
+          "end_line": 200,
+          "label": "create_project：创建与登记"
+        }
+      ]
+    },
+    {
+      "id": "registry",
+      "type": "database",
+      "label": "项目元数据清单",
+      "sublabel": "编号 · 摘要 · 演示开关",
+      "tag": "registry/projects.json",
+      "pos": [
+        640,
+        30
+      ],
+      "size": [
+        200,
+        88
+      ],
+      "sources": [
+        {
+          "path": "scripts/catalog.py",
+          "line": 49,
+          "end_line": 93,
+          "label": "load_catalog：读取并校验清单"
+        },
+        {
+          "path": "scripts/catalog.py",
+          "line": 193,
+          "end_line": 198,
+          "label": "新增条目写回清单"
+        }
+      ]
+    },
+    {
+      "id": "index",
+      "type": "backend",
+      "label": "README 索引同步",
+      "sublabel": "生成索引表与项目卡片",
+      "tag": "catalog.py sync",
+      "pos": [
+        940,
+        30
+      ],
+      "size": [
+        200,
+        88
+      ],
+      "sources": [
+        {
+          "path": "scripts/catalog.py",
+          "line": 102,
+          "end_line": 130,
+          "label": "readme_content 与 sync"
+        }
+      ]
+    },
+    {
+      "id": "assets",
+      "type": "database",
+      "label": "各子项目内容",
+      "sublabel": "研究记录 · 封面 · 网页",
+      "tag": "projects/<id-slug>",
+      "pos": [
+        40,
+        210
+      ],
+      "size": [
+        200,
+        88
+      ],
+      "sources": [
+        {
+          "path": "scripts/catalog.py",
+          "line": 185,
+          "end_line": 192,
+          "label": "从模板生成项目目录"
+        },
+        {
+          "path": "scripts/catalog.py",
+          "line": 145,
+          "end_line": 155,
+          "label": "按清单取封面与网页"
+        }
+      ]
+    },
+    {
+      "id": "build",
+      "type": "backend",
+      "label": "静态站点构建",
+      "sublabel": "组合清单 · 模板 · 素材",
+      "tag": "catalog.py build",
+      "pos": [
+        340,
+        210
+      ],
+      "size": [
+        200,
+        88
+      ],
+      "sources": [
+        {
+          "path": "scripts/catalog.py",
+          "line": 133,
+          "end_line": 168,
+          "label": "build：生成静态站点"
+        }
+      ]
+    },
+    {
+      "id": "site",
+      "type": "database",
+      "label": "可发布的静态产物",
+      "sublabel": "总览页 · 封面 · 项目页",
+      "tag": "_site/",
+      "pos": [
+        640,
+        210
+      ],
+      "size": [
+        200,
+        88
+      ],
+      "sources": [
+        {
+          "path": "scripts/catalog.py",
+          "line": 134,
+          "end_line": 168,
+          "label": "_site 输出路径与写入"
+        }
+      ]
+    },
+    {
+      "id": "publish",
+      "type": "backend",
+      "label": "手动发布任务",
+      "sublabel": "测试 → 检查 → 构建",
+      "tag": "GitHub Actions",
+      "pos": [
+        940,
+        210
+      ],
+      "size": [
+        200,
+        88
+      ],
+      "sources": [
+        {
+          "path": ".github/workflows/pages.yml",
+          "line": 1,
+          "end_line": 42,
+          "label": "手动构建与部署工作流"
+        },
+        {
+          "path": ".github/workflows/check.yml",
+          "line": 1,
+          "end_line": 24,
+          "label": "普通推送只运行检查"
+        }
+      ]
+    },
+    {
+      "id": "site-template",
+      "type": "database",
+      "label": "总览页面模板",
+      "sublabel": "卡片占位 · 统一样式",
+      "tag": "site/index.html + CSS",
+      "pos": [
+        340,
+        390
+      ],
+      "size": [
+        200,
+        88
+      ],
+      "sources": [
+        {
+          "path": "scripts/catalog.py",
+          "line": 140,
+          "end_line": 140,
+          "label": "复制总览样式"
+        },
+        {
+          "path": "scripts/catalog.py",
+          "line": 165,
+          "end_line": 167,
+          "label": "替换 COUNT 与 CARDS"
+        }
+      ]
+    },
+    {
+      "id": "pages",
+      "type": "cloud",
+      "label": "GitHub Pages",
+      "sublabel": "托管静态网站",
+      "tag": "deploy-pages",
+      "pos": [
+        640,
+        390
+      ],
+      "size": [
+        200,
+        88
+      ],
+      "sources": [
+        {
+          "path": ".github/workflows/pages.yml",
+          "line": 28,
+          "end_line": 42,
+          "label": "上传产物并部署 Pages"
+        }
+      ]
+    },
+    {
+      "id": "browser",
+      "type": "external",
+      "label": "访问者浏览器",
+      "sublabel": "浏览研究入口与演示",
+      "tag": "静态 HTML / CSS / JS",
+      "pos": [
+        940,
+        390
+      ],
+      "size": [
+        200,
+        88
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "template-copy",
+      "from": "template",
+      "to": "create",
+      "label": "复制骨架"
+    },
+    {
+      "id": "register",
+      "from": "create",
+      "to": "registry",
+      "label": "写入元数据",
+      "variant": "emphasis"
+    },
+    {
+      "id": "sync-index",
+      "from": "registry",
+      "to": "index",
+      "label": "生成索引",
+      "variant": "emphasis"
+    },
+    {
+      "id": "create-directory",
+      "from": "create",
+      "to": "assets",
+      "label": "创建目录",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "read-catalog",
+      "from": "registry",
+      "to": "build",
+      "label": "读取清单",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "variant": "emphasis"
+    },
+    {
+      "id": "copy-content",
+      "from": "assets",
+      "to": "build",
+      "label": "按开关复制"
+    },
+    {
+      "id": "render-template",
+      "from": "site-template",
+      "to": "build",
+      "label": "替换占位",
+      "fromSide": "top",
+      "toSide": "bottom"
+    },
+    {
+      "id": "write-site",
+      "from": "build",
+      "to": "site",
+      "label": "生成文件",
+      "variant": "emphasis"
+    },
+    {
+      "id": "upload-artifact",
+      "from": "site",
+      "to": "publish",
+      "label": "收集产物"
+    },
+    {
+      "id": "deploy-site",
+      "from": "publish",
+      "to": "pages",
+      "label": "部署站点",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "variant": "emphasis"
+    },
+    {
+      "id": "serve-pages",
+      "from": "pages",
+      "to": "browser",
+      "label": "访问网页",
+      "variant": "emphasis"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "收录层：工具不替你研究",
+      "items": [
+        "人或 Agent 填写研究内容；脚本负责编号、清单和索引。"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "构建层：静态文件组合",
+      "items": [
+        "箭头表示数据流；build 只复制启用演示的项目网页。"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "发布层：手动动作与证据边界",
+      "items": [
+        "手动触发 Pages 发布；SRC 只核验固定版本文件与行号。"
+      ]
+    }
+  ]
+}

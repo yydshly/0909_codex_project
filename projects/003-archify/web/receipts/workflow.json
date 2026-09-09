@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "deliver",
+  "type": "workflow",
+  "input": "web/specs/workflow.json",
+  "output": "web/diagrams/workflow.html",
+  "specification": {
+    "sha256": "3ef44fdbaeadc3d9a23dcc5ea02a5c822e2b9a1d770505d0082f5fbe9c73c1e3",
+    "bytes": 7191
+  },
+  "artifact": {
+    "sha256": "dc1c1d84701528d325960cd64fd41d4c41e66d69ef235e92a6439672330a76ec",
+    "bytes": 816714
+  },
+  "validation": {
+    "checksPassed": 9,
+    "checkCount": 9,
+    "compositionProfile": "showcase",
+    "compositionStatus": "pass",
+    "errors": 0,
+    "warnings": 0
+  }
+}

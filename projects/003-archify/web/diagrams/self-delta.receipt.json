@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "compare",
+  "type": "architecture",
+  "comparatorVersion": 1,
+  "canonicalVersion": 1,
+  "completeness": "complete",
+  "proofLevel": "revision-pinned",
+  "base": {
+    "title": "字体依赖：变更前",
+    "rawSha256": "dfeac04316bc3c36bd8bbffb69c7127b5a38ce488675802ec187cbeadeeeed32",
+    "semanticSha256": "d20a3edad01dc8c1662e0e2f51c20e91e35fc535eb84256241dc635ff6560d0f",
+    "bytes": 1993,
+    "revision": "b86b60789e18829885dd23c844e36549f0b40303"
+  },
+  "head": {
+    "title": "字体依赖：变更后",
+    "rawSha256": "7aa9a2186278349da7eb3d7940f3d1208a5bf59778b3d4e0f97e179f55c73a34",
+    "semanticSha256": "3c81dc5e634be5c5f352a764984a410a46bb98748959073718097bed04f80dd1",
+    "bytes": 2234,
+    "revision": "10722002bb8777ecb639d93c49586fae4adf3ae4"
+  },
+  "summary": {
+    "components": {
+      "added": 1,
+      "changed": 1,
+      "evidenceChanged": 0,
+      "removed": 1,
+      "moved": 0
+    },
+    "connections": {
+      "added": 1,
+      "changed": 0,
+      "removed": 1,
+      "rerouted": 0
+    },
+    "boundaries": {
+      "added": 0,
+      "changed": 0,
+      "removed": 0,
+      "geometryChanged": 0
+    },
+    "presentationChanged": true,
+    "provenanceChanged": true
+  },
+  "changes": {
+    "components": [
+      {
+        "id": "embedded",
+        "headLabel": "内嵌字体资源",
+        "status": "added",
+        "classifications": [
+          "semantic"
+        ],
+        "changedFields": []
+      },
+      {
+        "id": "font",
+        "baseLabel": "Google Fonts",
+        "status": "removed",
+        "classifications": [
+          "semantic"
+        ],
+        "changedFields": []
+      },
+      {
+        "id": "template",
+        "baseLabel": "查看器模板",
+        "headLabel": "查看器模板",
+        "status": "changed",
+        "classifications": [
+          "evidence",
+          "semantic"
+        ],
+        "changedFields": [
+          "/sources",
+          "/sublabel"
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "id": "embedded-viewer",
+        "head": {
+          "from": "embedded",
+          "to": "viewer",
+          "label": ""
+        },
+        "status": "added",
+        "classifications": [
+          "topology"
+        ],
+        "changedFields": []
+      },
+      {
+        "id": "font-viewer",
+        "base": {
+          "from": "font",
+          "to": "viewer",
+          "label": ""
+        },
+        "status": "removed",
+        "classifications": [
+          "topology"
+        ],
+        "changedFields": []
+      }
+    ],
+    "boundaries": []
+  },
+  "identity": {
+    "components": "components[].id",
+    "connections": "connections[].id (required)",
+    "boundaries": "boundaries[].kind + boundaries[].label (derived)"
+  },
+  "view": {
+    "visualPreset": "signal-flow"
+  },
+  "limitations": [
+    "Authored Architecture IR only; no runtime impact, causality, risk, or mergeability is inferred.",
+    "Boundary identity is conservatively derived from kind + label."
+  ],
+  "artifact": {
+    "sha256": "76e6e46975c1b1635d16a57edbad7d2a7f11b5b1b0eec551cbe608cc0a54e9aa",
+    "bytes": 2159035
+  },
+  "validation": {
+    "checksPassed": 28,
+    "checkCount": 28,
+    "baseComposition": "pass",
+    "headComposition": "pass"
+  }
+}

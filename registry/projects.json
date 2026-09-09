@@ -1,5 +1,5 @@
 {
-  "nextId": 3,
+  "nextId": 4,
   "projects": [
     {
       "id": 1,
@@ -31,6 +31,23 @@
         "流程约束"
       ],
       "cover": "web/assets/architecture.svg",
+      "demo": true
+    },
+    {
+      "id": 3,
+      "slug": "archify",
+      "order": 30,
+      "name": "Archify 能力与设计图谱",
+      "source": "https://github.com/tt-a1i/archify",
+      "summary": "一页理解 Archify 的能力、输入与原理、定位边界、UML / 4+1 / C4 设计体系和扩展路线；附五类中文源码实战、真实差异、原生导出与预览实验。",
+      "status": "已整理",
+      "tags": [
+        "技术图",
+        "Agent Skill",
+        "JSON 图规格",
+        "交互可视化"
+      ],
+      "cover": "web/assets/understanding-preview.png",
       "demo": true
     }
   ]

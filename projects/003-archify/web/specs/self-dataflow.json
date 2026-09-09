@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "Archify：JSON 如何成为网页",
+    "locale": "zh-CN",
+    "animation": "trace",
+    "quality_profile": "showcase",
+    "visual_preset": "signal-flow",
+    "viewBox": [
+      1080,
+      520
+    ],
+    "legend": {
+      "mode": "auto",
+      "entries": {
+        "security": {
+          "label": "证据核验"
+        },
+        "database": {
+          "label": "数据与产物"
+        },
+        "default": {
+          "label": "数据流"
+        }
+      }
+    },
+    "views": [
+      {
+        "id": "main",
+        "label": "① 主数据路径",
+        "focus": [
+          "json",
+          "snapshot",
+          "ir",
+          "candidate",
+          "html"
+        ],
+        "note": "关注图规格从输入到最终网页的形态变化。"
+      },
+      {
+        "id": "side",
+        "label": "② 资源与输出",
+        "focus": [
+          "git",
+          "ir",
+          "template",
+          "candidate",
+          "receipt",
+          "html",
+          "export"
+        ],
+        "note": "区分可选仓库证据、模板资源、交付回执与浏览器导出。"
+      }
+    ]
+  },
+  "stages": [
+    {
+      "label": "输入"
+    },
+    {
+      "label": "冻结"
+    },
+    {
+      "label": "校验"
+    },
+    {
+      "label": "生成"
+    },
+    {
+      "label": "交付"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "json",
+      "label": "图规格",
+      "sublabel": "节点与关系",
+      "stage": 0,
+      "row": 1,
+      "type": "database"
+    },
+    {
+      "id": "snapshot",
+      "label": "输入快照",
+      "sublabel": "固定字节",
+      "stage": 1,
+      "row": 1,
+      "type": "database"
+    },
+    {
+      "id": "ir",
+      "label": "已校验规格",
+      "sublabel": "渲染器内存",
+      "stage": 2,
+      "row": 1,
+      "type": "backend"
+    },
+    {
+      "id": "candidate",
+      "label": "候选网页",
+      "sublabel": "私有目录",
+      "stage": 3,
+      "row": 1,
+      "type": "database"
+    },
+    {
+      "id": "html",
+      "label": "最终网页",
+      "sublabel": "嵌入 SVG",
+      "stage": 4,
+      "row": 1,
+      "type": "database"
+    },
+    {
+      "id": "git",
+      "label": "Git 证据",
+      "sublabel": "可选版本核验",
+      "stage": 1,
+      "row": 2,
+      "type": "security"
+    },
+    {
+      "id": "template",
+      "label": "模板资源",
+      "sublabel": "样式与脚本",
+      "stage": 3,
+      "row": 0,
+      "type": "database"
+    },
+    {
+      "id": "receipt",
+      "label": "交付回执",
+      "sublabel": "检查与哈希",
+      "stage": 3,
+      "row": 2,
+      "type": "database"
+    },
+    {
+      "id": "export",
+      "label": "导出文件",
+      "sublabel": "图片与视频",
+      "stage": 4,
+      "row": 2,
+      "type": "database"
+    }
+  ],
+  "flows": [
+    {
+      "id": "json-snapshot",
+      "from": "json",
+      "to": "snapshot",
+      "label": "原始字节"
+    },
+    {
+      "id": "snapshot-ir",
+      "from": "snapshot",
+      "to": "ir",
+      "label": "图对象"
+    },
+    {
+      "id": "ir-candidate",
+      "from": "ir",
+      "to": "candidate",
+      "label": "SVG 与元数据"
+    },
+    {
+      "id": "candidate-html",
+      "from": "candidate",
+      "to": "html",
+      "label": "验收通过"
+    },
+    {
+      "id": "git-ir",
+      "from": "git",
+      "to": "ir",
+      "variant": "security",
+      "fromSide": "right",
+      "toSide": "bottom",
+      "label": "行号结果",
+      "via": [
+        [
+          530,
+          385
+        ]
+      ],
+      "labelAt": [
+        430,
+        372
+      ]
+    },
+    {
+      "id": "template-candidate",
+      "from": "template",
+      "to": "candidate",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "route": "straight",
+      "label": "页面资源",
+      "labelAt": [
+        745,
+        214
+      ]
+    },
+    {
+      "id": "candidate-receipt",
+      "from": "candidate",
+      "to": "receipt",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "route": "straight",
+      "label": "检查与哈希",
+      "labelAt": [
+        745,
+        328
+      ]
+    },
+    {
+      "id": "html-export",
+      "from": "html",
+      "to": "export",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "route": "straight",
+      "label": "浏览器导出",
+      "labelAt": [
+        960,
+        328
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "数据不是源码自动抽取",
+      "dot": "emerald",
+      "items": [
+        "JSON 已包含作者声明的关系；IR 是校验后的图规格。"
+      ]
+    },
+    {
+      "title": "两类输出",
+      "dot": "emerald",
+      "items": [
+        "命令交付 HTML 与回执；浏览器再将图形导出为媒体。"
+      ]
+    }
+  ]
+}

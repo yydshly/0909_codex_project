@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "deliver",
+  "type": "architecture",
+  "input": "projects/003-archify\\web\\specs\\self-architecture.json",
+  "output": "projects/003-archify\\web\\diagrams\\self-architecture.html",
+  "specification": {
+    "sha256": "263a370fc74985ce02dd35444c8f939b2927c32e7ee21bf36b0f612180178175",
+    "bytes": 8263
+  },
+  "artifact": {
+    "sha256": "bc8c74fe0e5f16aa199e0de05e8bdc476c11aa48298e9c031fe20bb2a1c4e76c",
+    "bytes": 811285
+  },
+  "validation": {
+    "checksPassed": 9,
+    "checkCount": 9,
+    "compositionProfile": "showcase",
+    "compositionStatus": "pass",
+    "errors": 0,
+    "warnings": 0
+  },
+  "evidence": {
+    "verified": true,
+    "repository": "https://github.com/tt-a1i/archify",
+    "revision": "10722002bb8777ecb639d93c49586fae4adf3ae4",
+    "references": 9
+  }
+}

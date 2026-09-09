@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "deliver",
+  "type": "lifecycle",
+  "input": "web/specs/lifecycle.json",
+  "output": "web/diagrams/lifecycle.html",
+  "specification": {
+    "sha256": "585f2078e821005909d6ea2d77da0b0ae356903518399f43805ea0f40e97757c",
+    "bytes": 5506
+  },
+  "artifact": {
+    "sha256": "10ba64adec42399487ffff08d4f69b4461ba802f85064512763945828a32d5d7",
+    "bytes": 807521
+  },
+  "validation": {
+    "checksPassed": 9,
+    "checkCount": 9,
+    "compositionProfile": "showcase",
+    "compositionStatus": "pass",
+    "errors": 0,
+    "warnings": 0
+  }
+}

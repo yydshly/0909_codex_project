@@ -1,0 +1,62 @@
+{
+  "repository": "https://github.com/tt-a1i/archify",
+  "revision": "10722002bb8777ecb639d93c49586fae4adf3ae4",
+  "before": "b86b60789e18829885dd23c844e36549f0b40303",
+  "scope": "Five Chinese source-derived diagrams, plus authored snapshots of the real font dependency change. Relationships are authored from code, not automatically extracted. Both delta snapshots use the pinned current renderer.",
+  "evidence": {
+    "skill": {
+      "path": "archify/SKILL.md",
+      "line": 1,
+      "end_line": 45,
+      "label": "Agent 使用与表达规范"
+    },
+    "cli": {
+      "path": "archify/bin/archify.mjs",
+      "line": 821,
+      "end_line": 966,
+      "label": "deliver：读取与冻结规格"
+    },
+    "loader": {
+      "path": "archify/renderers/shared/cli.mjs",
+      "line": 18,
+      "end_line": 47,
+      "label": "加载、校验与资源读取"
+    },
+    "evidence": {
+      "path": "archify/renderers/shared/repository-evidence.mjs",
+      "line": 74,
+      "end_line": 140,
+      "label": "固定版本的文件与行号核验"
+    },
+    "renderer": {
+      "path": "archify/renderers/architecture/render-architecture.mjs",
+      "line": 1037,
+      "end_line": 1078,
+      "label": "架构 SVG 渲染与输出"
+    },
+    "template": {
+      "path": "archify/renderers/shared/utils.mjs",
+      "line": 126,
+      "end_line": 175,
+      "label": "把图与元数据装入模板"
+    },
+    "checker": {
+      "path": "archify/bin/archify.mjs",
+      "line": 985,
+      "end_line": 1034,
+      "label": "运行产物检查器"
+    },
+    "commit": {
+      "path": "archify/bin/archify.mjs",
+      "line": 1074,
+      "end_line": 1189,
+      "label": "哈希回执、原子替换与清理"
+    },
+    "viewer": {
+      "path": "archify/assets/template.html",
+      "line": 12910,
+      "end_line": 12965,
+      "label": "查看器中的有向路径查询"
+    }
+  }
+}

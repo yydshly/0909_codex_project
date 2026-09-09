@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "diagram_type": "lifecycle",
+  "meta": {
+    "title": "Archify：候选产物的生命周期",
+    "locale": "zh-CN",
+    "animation": "trace",
+    "quality_profile": "showcase",
+    "visual_preset": "signal-flow",
+    "viewBox": [
+      1030,
+      630
+    ],
+    "views": [
+      {
+        "id": "success",
+        "label": "① 正常阶段",
+        "focus": [
+          "snapshot",
+          "render",
+          "check",
+          "commit",
+          "done"
+        ],
+        "note": "候选产物逐步通过验收并成为最终文件。"
+      },
+      {
+        "id": "failure",
+        "label": "② 提交前失败",
+        "focus": [
+          "render",
+          "check",
+          "commit",
+          "invalid",
+          "bad",
+          "io",
+          "end"
+        ],
+        "note": "失败结束会清理候选，保留已有的最终文件。"
+      }
+    ]
+  },
+  "lanes": [
+    {
+      "id": "main",
+      "label": "正常交付阶段"
+    },
+    {
+      "id": "errors",
+      "label": "提交前失败"
+    },
+    {
+      "id": "terminal",
+      "label": "失败结束"
+    }
+  ],
+  "states": [
+    {
+      "id": "snapshot",
+      "type": "start",
+      "label": "准备快照",
+      "sublabel": "冻结输入",
+      "lane": "main",
+      "col": 0,
+      "tag": "01"
+    },
+    {
+      "id": "render",
+      "type": "active",
+      "label": "渲染候选",
+      "sublabel": "私有文件",
+      "lane": "main",
+      "col": 1,
+      "tag": "02"
+    },
+    {
+      "id": "check",
+      "type": "decision",
+      "label": "检查产物",
+      "sublabel": "验收门槛",
+      "lane": "main",
+      "col": 2,
+      "tag": "03"
+    },
+    {
+      "id": "commit",
+      "type": "active",
+      "label": "原子提交",
+      "sublabel": "文件替换",
+      "lane": "main",
+      "col": 3,
+      "tag": "04"
+    },
+    {
+      "id": "done",
+      "type": "success",
+      "label": "交付完成",
+      "sublabel": "回执输出",
+      "lane": "main",
+      "col": 4,
+      "tag": "05"
+    },
+    {
+      "id": "invalid",
+      "type": "failure",
+      "label": "渲染失败",
+      "sublabel": "规格或布局",
+      "lane": "errors",
+      "col": 0,
+      "tag": "清理"
+    },
+    {
+      "id": "bad",
+      "type": "failure",
+      "label": "检查失败",
+      "sublabel": "产物不合格",
+      "lane": "errors",
+      "col": 1,
+      "tag": "清理"
+    },
+    {
+      "id": "io",
+      "type": "failure",
+      "label": "提交失败",
+      "sublabel": "文件操作",
+      "lane": "errors",
+      "col": 2,
+      "tag": "清理"
+    },
+    {
+      "id": "end",
+      "type": "failure",
+      "label": "失败结束",
+      "sublabel": "旧文件仍保留",
+      "lane": "terminal",
+      "col": 1,
+      "tag": "未交付"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "render-invalid",
+      "from": "render",
+      "to": "invalid",
+      "variant": "security",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "route": "drop"
+    },
+    {
+      "id": "check-bad",
+      "from": "check",
+      "to": "bad",
+      "variant": "security",
+      "route": "drop"
+    },
+    {
+      "id": "commit-io",
+      "from": "commit",
+      "to": "io",
+      "variant": "security",
+      "route": "drop"
+    },
+    {
+      "id": "invalid-end",
+      "from": "invalid",
+      "to": "end",
+      "variant": "security",
+      "route": "drop"
+    },
+    {
+      "id": "bad-end",
+      "from": "bad",
+      "to": "end",
+      "variant": "security",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "route": "straight"
+    },
+    {
+      "id": "io-end",
+      "from": "io",
+      "to": "end",
+      "variant": "security",
+      "route": "drop"
+    }
+  ],
+  "cards": [
+    {
+      "title": "这是一张源码阶段抽象图",
+      "dot": "emerald",
+      "items": [
+        "对应 deliver 控制分支；这些中文阶段不是源码里的状态枚举。"
+      ]
+    },
+    {
+      "title": "交付边界",
+      "dot": "rose",
+      "items": [
+        "替换前失败会清理候选并保留已有文件；首次失败则没有新产物。"
+      ]
+    }
+  ]
+}
