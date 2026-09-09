@@ -12,6 +12,18 @@
 
 > 本图为本次研究制作的 AI 生成说明图，非上游应用截图。图中以逻辑职责介绍能力，不代表独立微服务。
 
+## 深入阅读网页
+
+网页保留一图速览，并完整整理产品定位、能力清单、业务对象、技术架构、执行机制、应用价值和扩展方向：
+
+- [产品定位与能力边界](https://yydshly.github.io/0909_codex_project/projects/007-heliosgen/#understanding)
+- [五个业务对象与职责拆分](https://yydshly.github.io/0909_codex_project/projects/007-heliosgen/#business)
+- [详细架构图与逐层解释](https://yydshly.github.io/0909_codex_project/projects/007-heliosgen/#architecture) · [下载 SVG 原图](web/assets/architecture.svg)
+- [交互式执行过程与分批调度说明](https://yydshly.github.io/0909_codex_project/projects/007-heliosgen/#execution)
+- [场景与价值](https://yydshly.github.io/0909_codex_project/projects/007-heliosgen/#value) · [可扩展方向](https://yydshly.github.io/0909_codex_project/projects/007-heliosgen/#extensions)
+
+架构图支持放大、缩小、适应宽度和下载。执行过程为本地交互示意，不会上传素材或调用模型；禁用 JavaScript 时仍可阅读静态步骤。
+
 ## 三大能力
 
 | 模块 | 能做什么 |

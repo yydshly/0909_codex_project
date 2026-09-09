@@ -1,53 +1,77 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HeliosGen · AI 创作工作台 | GitHub 项目研究室</title>
-  <meta name="description" content="面向图片与视频创作的桌面应用，支持提示词辅助、节点工作流与本地素材管理；通过云端模型 API 适配和依赖调度串联生成任务，减少重复操作、复用创作流程；可扩展更多模型、本地推理、任务恢复、成本控制与行业模板。">
-  <link rel="stylesheet" href="./style.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HeliosGen · 能力、架构与业务拆分 | GitHub 项目研究室</title>
+<meta name="description" content="面向图片与视频创作的桌面应用，支持提示词辅助、节点工作流与本地素材管理；通过云端模型 API 适配和依赖调度串联生成任务，减少重复操作、复用创作流程；可扩展更多模型、本地推理、任务恢复、成本控制与行业模板。">
+<link rel="stylesheet" href="./style.css"><script src="./app.js" defer></script>
 </head>
 <body>
-  <a class="skip" href="#main">跳到主要内容</a>
-  <header class="topbar">
-    <a class="brand" href="../../">PROJECT LAB / 项目研究室</a>
-    <nav aria-label="项目链接">
-      <a href="https://github.com/yydshly/0909_codex_project/blob/main/projects/007-heliosgen/README.md">研究记录 ↗</a>
-      <a href="https://github.com/SegFault42/HeliosGen">上游仓库 ↗</a>
-    </nav>
-  </header>
-  <main id="main">
-    <section class="intro" aria-labelledby="title">
-      <p class="eyebrow">007 / HELIOSGEN</p>
-      <h1>从生成内容，到组织创作。</h1>
-      <p class="lead">面向图片与视频创作的桌面应用，支持提示词辅助、节点工作流与本地素材管理；通过云端模型 API 适配和依赖调度串联生成任务，减少重复操作、复用创作流程；可扩展更多模型、本地推理、任务恢复、成本控制与行业模板。</p>
-    </section>
-    <figure class="overview">
-      <a href="./assets/heliosgen-overview.png" aria-label="打开 HeliosGen 能力与架构概览原图">
-        <img src="./assets/heliosgen-overview.png" width="1672" height="941" fetchpriority="high" alt="HeliosGen 三大能力：AI 内容创作、可视化工作流、本地素材管理。典型流程：商品参考图到广告主图再到短视频。桌面应用通过本地服务调用云端模型，参考素材按需上传。">
-      </a>
-      <figcaption>
-        <span>研究说明图 · 非应用截图</span>
-        <span><a href="./assets/heliosgen-overview.png">查看原图 ↗</a> <a href="./assets/heliosgen-overview.png" download="heliosgen-overview.png">下载 PNG ↓</a></span>
-      </figcaption>
-    </figure>
-    <section class="capabilities" aria-label="核心能力">
-      <article><p class="number">01 / 创作</p><h2>把想法变成内容</h2><p>提示词助手、图片和视频生成。按模型选择参考素材与参数，快速验证创意。</p></article>
-      <article><p class="number">02 / 编排</p><h2>把步骤连成流程</h2><p>用节点和连线组织操作。图片与视频节点按依赖分批执行，流程可以保存和复用。</p></article>
-      <article><p class="number">03 / 沉淀</p><h2>把结果留作资产</h2><p>本地保存参考素材和生成历史，用文件夹管理，并打包分享工作流及引用素材。</p></article>
-    </section>
-    <aside class="boundary"><strong>本地工作台，云端生成。</strong><p>应用与主要数据保存在本机，模型推理主要由云端完成，参考素材按需上传。生成费用及可用能力取决于供应商和模型。</p></aside>
-    <details>
-      <summary>进一步了解：架构、复用价值与当前边界</summary>
-      <div class="detail-body">
-        <p><strong>三块架构：</strong>Tauri + React / Next.js 承担交互与编排；本地 Node.js 服务处理模型调用和任务状态，SQLite 与文件系统保存数据；Kie.ai 为主要模型入口，部分能力可选 Azure 或 Codex CLI 对应的云端路径。</p>
-        <p><strong>五个业务对象：</strong>工作流保存方案，节点定义步骤，连线传递输入，任务跟踪执行，素材承接产出。适合借鉴 AI 创作应用如何组织业务与模型接入。</p>
-        <p><strong>扩展方向：</strong>任务可靠性、统一模型适配、行业模板、成本管理、本地推理接入。以上为研究建议。</p>
-        <p><strong>当前边界：</strong>自动执行主要调度图片与视频节点；Veo 轮询、大视频上传和失败恢复仍需完善。本次核对为静态源码研究，未运行付费生成。</p>
-        <a href="https://github.com/yydshly/0909_codex_project/blob/main/projects/007-heliosgen/notes/sources.md">查看源码依据与完整边界 ↗</a>
-      </div>
-    </details>
-  </main>
-  <footer><span>核对版本 <a href="https://github.com/SegFault42/HeliosGen/tree/fb011d6f3ad00510b4eface78e054c7eda329c54">fb011d6 ↗</a> · 2026.09.09</span><span>本页为研究介绍，不提供在线模型生成。</span></footer>
+<a class="skip" href="#main">跳到主要内容</a>
+<header class="topbar"><a class="brand" href="../../">PROJECT LAB / 项目研究室</a><nav aria-label="项目链接"><a href="https://github.com/yydshly/0909_codex_project/blob/main/projects/007-heliosgen/README.md">研究记录 ↗</a><a href="https://github.com/SegFault42/HeliosGen">上游仓库 ↗</a></nav></header>
+<main id="main">
+<section class="intro" id="overview" aria-labelledby="title"><p class="eyebrow">007 / HELIOSGEN</p><h1 id="title">从生成内容，到组织创作。</h1><p class="lead">面向图片与视频创作的桌面应用，支持提示词辅助、节点工作流与本地素材管理；通过云端模型 API 适配和依赖调度串联生成任务，减少重复操作、复用创作流程；可扩展更多模型、本地推理、任务恢复、成本控制与行业模板。</p><div class="intro-meta"><span>桌面应用</span><span>云端模型推理</span><span>本地工作流与资产</span><span>源码核对 · 2026.09.09</span></div></section>
+<nav class="contents" aria-label="阅读目录"><a href="#overview">一图速览</a><a href="#understanding">产品定位</a><a href="#capabilities">能力清单</a><a href="#business">业务拆分</a><a href="#architecture">详细架构</a><a href="#execution">执行过程</a><a href="#value">场景与价值</a><a href="#extensions">扩展方向</a><a href="#sources">边界与依据</a></nav>
+<figure class="overview"><a href="./assets/heliosgen-overview.png" aria-label="打开 HeliosGen 能力与架构概览原图"><img src="./assets/heliosgen-overview.png" width="1672" height="941" fetchpriority="high" alt="三大能力：AI 内容创作、可视化工作流、本地素材管理。典型流程：商品参考图生成广告主图，再生成短视频。桌面应用通过本地服务调用云端模型，参考素材按需上传。"></a><figcaption><span>研究说明图 · AI 生成 · 非应用截图</span><span><a href="./assets/heliosgen-overview.png">查看原图 ↗</a><a href="./assets/heliosgen-overview.png" download="heliosgen-overview.png">下载 PNG ↓</a></span></figcaption></figure>
+
+<section id="understanding" class="research-section">
+<div class="section-head"><p class="eyebrow">01 / POSITIONING</p><h2>我们如何理解这个项目</h2><p>模型提供生成能力，HeliosGen 把这些能力组织成用户可以操作、组合、保存和复用的创作过程。</p></div>
+<div class="three-grid"><article class="text-card"><h3>本质：应用层二次开发</h3><p>它调用现有图片、视频和语言模型，主要开发界面、流程和素材管理。源码中没有看到训练或修改底层模型的实现。</p></article><article class="text-card"><h3>形态：网页技术构建的桌面软件</h3><p>界面使用 React / Next.js，经 Tauri 包装为桌面应用。同一云端模型接口也可以被网站调用，网页和 App 的区别主要在交付和运行方式。</p></article><article class="text-card"><h3>价值：形成创作闭环</h3><p>从准备输入到生成、保存，再把产出用于下一步。值得借鉴的是业务对象与执行流程如何配合，技术栈本身采用较常见的组合。</p></article></div>
+<aside class="boundary"><strong>本地运行与存储，不等于离线生成。</strong><p>默认通过 Kie.ai 调用云端模型。部分图片或文本能力支持 Azure；可选 Codex 路径通过本地 CLI 调用云端能力。使用本地参考素材时，程序可能先上传到第三方临时文件服务。软件免费不代表模型调用免费。</p><p class="source-line"><a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/DESKTOP.md">桌面架构 ↗</a> · <a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/kieUpload.ts">素材上传 ↗</a> · <a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/providers.ts">供应商选择 ↗</a></p></aside>
+</section>
+
+<section id="capabilities" class="research-section">
+<div class="section-head"><p class="eyebrow">02 / CAPABILITIES</p><h2>能力清单与使用边界</h2><p>这些能力来自当前代码配置与实现；各模型的具体输入、参数和可用性需要分别核对。</p></div>
+<div class="table-wrap" tabindex="0" role="region" aria-label="HeliosGen 能力清单，可横向滚动"><table><thead><tr><th scope="col">能力</th><th scope="col">可以完成的操作</th><th scope="col">需要理解的边界</th></tr></thead><tbody><tr><th scope="row">图片生成</th><td>文生图、参考图生成，多模型、多画幅与质量选择。</td><td>参考图数量、比例和分辨率由所选模型决定。</td></tr><tr><th scope="row">视频生成</th><td>文生视频、图生视频；部分模型提供首尾帧、动作或多素材参考。</td><td>参考视频、音频、声音开关等不是所有模型共有的能力。</td></tr><tr><th scope="row">提示词助手</th><td>用语言模型对话、改写提示词，把输出供生成节点使用。</td><td>助手调用云端文本模型，未纳入图片 / 视频同一自动执行调度。</td></tr><tr><th scope="row">可视化工作流</th><td>拖放节点与连线，将上游输出传给下游；保存并复用创作方案。</td><td>图片和视频生成节点按依赖分批，同批并行、批间等待。</td></tr><tr><th scope="row">素材与历史</th><td>保存上传素材、生成历史和文件夹，结果可参与后续创作。</td><td>主要数据在本地；生成使用的参考素材可能需要上传。</td></tr><tr><th scope="row">视频辅助处理</th><td>用 FFmpeg 裁剪视频、提取首尾帧或指定帧。</td><td>依赖另行安装 FFmpeg / FFprobe。</td></tr><tr><th scope="row">工作流迁移</th><td>将工作流结构和引用的图片、视频一起打包，支持 ZIP 导入恢复。</td><td>分享的是流程与素材，不包含模型服务访问资格。</td></tr></tbody></table></div>
+<details><summary>查看当前配置的模型范围：9 个图片选项、17 个视频选项</summary><div class="detail-body two-grid"><div><h3>图片</h3><p>Nano Banana、Nano Banana 2、Nano Banana Pro、Nano Banana 2 Lite、Z-Image、Seedream 5.0 Lite / Pro、Grok Imagine、GPT Image 2。</p></div><div><h3>视频</h3><p>Veo 3.1 Lite / Fast / Quality、Gemini Omni Video、Kling 3.0 / Turbo、Grok Imagine / 1.5 preview、Seedance 2.0 / Fast / Mini、Seedance 2.5 / Edit、HappyHorse、MiniMax H3、Motion Control 2.6 / 3.0。</p></div><p class="full-width">计数是该提交中的配置选项，不是独立模型家族数量，也不代表逐个实测成功。<a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/modelConfig.ts">完整模型配置 ↗</a></p></div></details>
+<p class="source-line"><a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/nodeTypes.tsx">节点定义 ↗</a> · <a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/app/api/assistant/route.ts">提示词助手 ↗</a> · <a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/exportWorkflow.ts">工作流打包 ↗</a></p>
+</section>
+
+<section id="business" class="research-section">
+<div class="section-head"><p class="eyebrow">03 / BUSINESS OBJECTS</p><h2>五个对象，拆出完整业务闭环</h2><p>先决定用户的创作过程由什么组成，再让界面、调度、模型调用和存储围绕这些对象协作。</p></div>
+<div class="object-flow" aria-label="工作流由节点和连线构成，执行产生任务与素材"><div><small>组织方案</small><strong>工作流</strong></div><span aria-hidden="true">→</span><div><small>定义操作与关系</small><strong>节点 + 连线</strong></div><span aria-hidden="true">→</span><div><small>跟踪执行</small><strong>生成任务</strong></div><span aria-hidden="true">→</span><div><small>保存并再次使用</small><strong>素材资产</strong></div></div>
+<div class="table-wrap" tabindex="0" role="region" aria-label="五个核心业务对象，可横向滚动"><table><thead><tr><th scope="col">业务对象</th><th scope="col">表达什么</th><th scope="col">包含哪些信息</th><th scope="col">为什么独立拆分</th></tr></thead><tbody><tr><th scope="row">工作流</th><td>一套创作方案</td><td>节点、连线、参数、画布位置</td><td>将分散操作组织成可保存、可分享的过程。</td></tr><tr><th scope="row">节点</th><td>某一步操作</td><td>节点类型、输入端口、参数、输出</td><td>把提示词、资源和生成操作表达成可组合单元。</td></tr><tr><th scope="row">连线</th><td>步骤间的数据关系</td><td>来源节点 / 端口 → 目标节点 / 端口</td><td>把参考图、视频帧或提示词传给下一步。</td></tr><tr><th scope="row">生成任务</th><td>某一步的一次执行</td><td>任务 ID、模型参数、状态、结果或错误</td><td>把耗时的远程生成与前端操作衔接起来。</td></tr><tr><th scope="row">素材资产</th><td>输入与可复用产出</td><td>媒体文件、引用地址、索引与文件夹</td><td>保存创作成果，并让它继续作为下游输入。</td></tr></tbody></table></div>
+<p class="callout">例如，一套“商品参考图 → 广告主图 → 商品短视频”方案是工作流；两次生成分别由节点描述；连线把主图交给视频节点；每次调用产生任务，生成后的图片和视频成为可复用素材。</p>
+<p class="source-line"><a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/store.ts">工作流状态 ↗</a> · <a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/executor.ts">端口与输入解析 ↗</a> · <a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/guest/sqlite.ts">存储对象 ↗</a></p>
+</section>
+
+<section id="architecture" class="research-section">
+<div class="section-head"><p class="eyebrow">04 / ARCHITECTURE</p><h2>从桌面界面，到云端结果</h2><p>下图按源码职责归纳模块，同时标出本地与云端边界。它们不是独立部署的微服务，也不是已经完全解耦的插件框架。</p></div>
+<figure class="overview diagram"><a href="./assets/architecture.svg" aria-label="打开 HeliosGen 详细架构原图"><img src="./assets/architecture.svg" width="1440" height="1360" loading="lazy" alt="详细架构图：本地 Tauri 和 Node 运行基础；前端直接创作、工作流画布、输入解析和依赖执行；本地 API、模型适配、生成任务、媒体处理与素材上传；SQLite、媒体文件和任务状态持久化；外部 Kie.ai、Azure、Codex 云端能力与临时文件服务。"></a><figcaption><span>按逻辑职责分层 · 下方提供逐层文字说明</span><span><button class="text-button" id="open-diagram" hidden>放大查看</button><a href="./assets/architecture.svg" download="heliosgen-architecture.svg">下载 SVG ↓</a></span></figcaption></figure>
+<div class="layer-list"><details><summary><span class="layer-number">01</span>桌面运行基础</summary><div class="detail-body"><p>Tauri 管理窗口和内置 Node 服务的生命周期，WebView 加载本机 Next.js 界面。界面用网页技术编写，用户获得的是桌面应用。</p><a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/DESKTOP.md">桌面架构 ↗</a></div></details><details><summary><span class="layer-number">02</span>交互与工作流状态</summary><div class="detail-body"><p>React Flow 提供画布与节点连线；Zustand 管理工作流状态。流程经本地 API 保存，前端状态与持久化配合。</p><a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/useSpaceSync.ts">工作流同步 ↗</a></div></details><details><summary><span class="layer-number">03</span>输入解析与依赖执行</summary><div class="detail-body"><p>按连线端口读取上游文本、图片、首尾帧和参考视频。生成节点分为多个批次，同批并行，等待本批结束再推进下一批。</p><a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/executor.ts">输入与依赖解析 ↗</a></div></details><details><summary><span class="layer-number">04</span>本地 API 与模型适配</summary><div class="detail-body"><p>生成接口读取模型配置、映射字段并处理不同协议。图片、视频和助手有各自的接口路径，供应商选择与特定模型分支仍存在耦合。</p><a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/app/api/generate/route.ts">图片生成接口 ↗</a></div></details><details><summary><span class="layer-number">05</span>异步任务与结果闭环</summary><div class="detail-body"><p>通用 Kie 任务取得 ID 后由后台轮询；完成后下载结果、更新历史与状态，通过查询或事件流返回界面。不同供应商处理路径有所不同。</p><a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/kieJobPoller.ts">任务轮询与结果处理 ↗</a></div></details><details><summary><span class="layer-number">06</span>素材、存储与迁移</summary><div class="detail-body"><p>SQLite 保存工作流、历史、设置和素材索引；媒体写入本地目录。任务状态另有 JSON 文件，部分界面状态保存在 localStorage；工作流可连同素材打包。</p><a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/guest/sqlite.ts">数据库结构 ↗</a></div></details></div>
+<div class="two-grid architecture-notes"><article><h3>模型配置解决什么问题？</h3><p>把模型 ID、支持的输入、数量限制、比例和质量字段集中描述，驱动界面选项与请求参数。结构相似的新模型较容易接入；新协议和新交互通常还需修改 API 与界面。</p></article><article><h3>哪里还没有完全抽象？</h3><p>生成接口仍有 Azure、Codex 和多个视频模型专用分支；任务结果处理也存在不同路径。适配层在这里是职责概括，不意味着已有统一、可直接安装的插件系统。</p></article></div>
+</section>
+
+<section id="execution" class="research-section">
+<div class="section-head"><p class="eyebrow">05 / EXECUTION</p><h2>跟着一次生成，理解系统如何运转</h2><p>以“商品参考图 → 广告主图 → 商品短视频”为例。下面是可切换的流程示意，不会提交任务、上传素材或调用模型。</p></div>
+<div class="walkthrough" id="walkthrough" hidden>
+<div class="step-picker" role="group" aria-label="选择流程阶段"><button type="button" data-step="0" aria-pressed="true"><span>01</span>准备输入</button><button type="button" data-step="1" aria-pressed="false"><span>02</span>解析依赖</button><button type="button" data-step="2" aria-pressed="false"><span>03</span>发起图片任务</button><button type="button" data-step="3" aria-pressed="false"><span>04</span>等待图片结果</button><button type="button" data-step="4" aria-pressed="false"><span>05</span>传给视频节点</button><button type="button" data-step="5" aria-pressed="false"><span>06</span>完成并沉淀</button></div>
+<div class="step-content"><p class="eyebrow" id="step-count">01 / 06</p><h3 id="step-title">准备输入</h3><p id="step-description"></p><div class="task-nodes" aria-label="示例节点状态"><div data-task="reference"><small>输入素材</small><strong>商品参考图</strong><span></span></div><span class="connector" aria-hidden="true">→</span><div data-task="image"><small>第一批任务</small><strong>广告主图</strong><span></span></div><span class="connector" aria-hidden="true">→</span><div data-task="video"><small>下一批任务</small><strong>商品短视频</strong><span></span></div></div><dl class="step-facts"><div><dt>此时谁在工作</dt><dd id="step-owner"></dd></div><div><dt>传递什么数据</dt><dd id="step-data"></dd></div></dl><div class="step-footer"><a id="step-source" href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/store.ts">查看对应源码 ↗</a><div><button type="button" id="previous-step" aria-label="上一步">← 上一步</button><button type="button" id="next-step" aria-label="下一步">下一步 →</button></div></div><p id="step-announcement" class="sr-only" aria-live="polite"></p></div>
+</div>
+<ol class="execution-fallback" id="execution-fallback"><li>准备提示词与参考图，建立图片和视频节点连线。</li><li>解析输入，识别图片节点先执行，视频节点等待。</li><li>适配模型参数，上传必要素材，取得图片生成任务 ID。</li><li>后台查询通用 Kie 任务，完成后下载图片并更新节点。</li><li>本批结束后推进视频节点，把图片作为首帧并发起新任务。</li><li>保存视频和生成历史，结果供后续创作使用。</li></ol>
+<div class="two-grid execution-notes"><article><h3>并行是按“批次”进行的</h3><div class="waves"><div><small>第一批 · 并行</small><span>图片 A</span><span>图片 B</span></div><b aria-hidden="true">↓</b><div><small>等待整批结束</small></div><b aria-hidden="true">↓</b><div><small>第二批</small><span>下游视频节点</span></div></div><p>同批任务没有生成节点之间的相互依赖。当前实现等待整批结束再继续，某个慢节点会拖住下一批；它不是每个节点就绪就立即调度的通用执行器。</p></article><article><h3>耗时生成用异步任务衔接</h3><p>通用 Kie 任务提交后返回任务 ID。本地后台约每 3 秒查询一次状态，最长约 12 分钟。结果下载、历史更新和前端通知共同形成闭环。</p><p>桌面应用无需为这条通用路径暴露公网回调地址。部分 Kie 任务可恢复查询；Veo、Azure 和 Codex 的路径与恢复能力需要分别看待。</p><p class="source-line"><a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/kieJobPoller.ts">轮询逻辑 ↗</a> · <a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/usePipelineRunner.ts">分批推进 ↗</a></p></article></div>
+</section>
+
+<section id="value" class="research-section">
+<div class="section-head"><p class="eyebrow">06 / SCENARIOS & VALUE</p><h2>把能力放进真实任务中</h2><p>以下场景是基于现有能力的应用推导，不是仓库已经交付的行业解决方案。</p></div>
+<div class="two-grid scenario-grid"><article class="text-card"><h3>电商与广告素材</h3><p class="scenario-path">商品参考图 → 场景主图 → 产品短片</p><p>复用产品素材与创作流程，减少反复上传、下载和参数配置。</p></article><article class="text-card"><h3>分镜与概念预演</h3><p class="scenario-path">角色参考 → 分镜图片 → 镜头视频</p><p>快速验证视觉方向；人物或风格的一致性仍取决于模型和输入。</p></article><article class="text-card"><h3>多模型效果比较</h3><p class="scenario-path">相同提示词与参考图 → 多个生成节点</p><p>集中比较不同模型的产出，为后续选择积累经验。</p></article><article class="text-card"><h3>AI 创作产品原型</h3><p class="scenario-path">沿用画布、模型接入和资产管理 → 增加业务模板</p><p>缩短应用层原型开发；仍需补充稳定性、成本控制与实际业务验证。</p></article></div>
+<p class="callout"><strong>最值得复用的价值：</strong>把模型调用包装成有输入、参数、状态与产出的操作，再通过工作流和素材库连接起来。它主要提高操作和流程复用效率，最终内容质量仍取决于模型、提示词、参考素材与人工判断。</p>
+</section>
+
+<section id="extensions" class="research-section">
+<div class="section-head"><p class="eyebrow">07 / EXTENSION DIRECTIONS</p><h2>从创作原型，走向可重复交付</h2><p>以下为研究建议，按任务可靠性、接入基础、业务落地和长期能力组织；不是已实现功能或上游官方路线图。</p></div>
+<div class="table-wrap" tabindex="0" role="region" aria-label="扩展方向与建议，可横向滚动"><table><thead><tr><th scope="col">关注点</th><th scope="col">扩展方向</th><th scope="col">具体工作</th><th scope="col">带来的价值</th></tr></thead><tbody><tr><th scope="row">优先完善</th><td>任务可靠性</td><td>持久化队列、并发上限、重试、取消、失败阻断、恢复执行。</td><td>减少等待、错误和重复生成对长流程的影响。</td></tr><tr><th scope="row">接入基础</th><td>统一模型接口</td><td>统一提交、查询、取消、素材上传及能力描述，降低模型专用分支的影响。</td><td>让增加供应商和模型更可维护。</td></tr><tr><th scope="row">业务落地</th><td>行业创作模板</td><td>电商主图、品牌广告、角色分镜模板，配合固定输入与审核步骤。</td><td>把通用能力转化为用户可重复完成的任务。</td></tr><tr><th scope="row">运行控制</th><td>质量与成本管理</td><td>生成前估价、预算限制、结果选优、人工确认、局部重跑。</td><td>提升产出可控性与成本可解释性。</td></tr><tr><th scope="row">能力拓展</th><td>本地推理接入</td><td>对接本机或局域网 ComfyUI / Diffusers 服务。</td><td>在模型与资源允许的条件下，提供本地生成路径。</td></tr><tr><th scope="row">长期方向</th><td>流程与团队协作</td><td>条件分支、变量、批量遍历、助手调度，以及共享资产和权限。</td><td>支持更复杂的自动化与多人创作；改造范围较大。</td></tr></tbody></table></div>
+<p class="callout">若基于它开发产品，可以先选一个明确场景，再按<strong>任务可靠性 → 模板化输入 → 成本记录 → 模型扩展</strong>推进，让一条具体流程稳定地产出可交付内容。</p>
+</section>
+
+<section id="sources" class="research-section">
+<div class="section-head"><p class="eyebrow">08 / EVIDENCE & LIMITS</p><h2>当前边界与源码依据</h2><p>研究范围固定于 fb011d6（2026-09-06 提交），核对日期为 2026-09-09。本次没有安装运行上游桌面应用，也没有调用付费生成接口。</p></div>
+<div class="two-grid"><article class="text-card"><h3>能力边界</h3><ul><li>助手节点未纳入图片 / 视频同一自动调度。</li><li>失败传播和依赖阻断较简单，不能直接等同生产级任务引擎。</li><li>Veo 轮询尚未补齐；大视频的 Base64 上传路径存在限制。</li><li>FFmpeg / FFprobe 与可选生成 CLI 需要另行准备。</li><li>README 当时明确提供 macOS 构建；其他平台需单独核对。</li></ul></article><article class="text-card"><h3>如何区分已有能力与推导</h3><p>能力清单、执行机制和存储描述来自源码。场景、产品价值、扩展优先级是研究判断。概览图与详细架构图都是说明图，不是上游运行截图或实测效果。</p><p>本网站只托管研究介绍与交互示意，不部署 HeliosGen 的 Node 服务、数据库或模型调用接口。</p></article></div>
+<div class="source-grid"><a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/DESKTOP.md">桌面运行与已知缺口 ↗</a><a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/modelConfig.ts">模型配置与限制 ↗</a><a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/executor.ts">输入解析与依赖拆分 ↗</a><a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/usePipelineRunner.ts">前端执行器 ↗</a><a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/kieUpload.ts">参考素材上传 ↗</a><a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/kieJobPoller.ts">异步生成任务 ↗</a><a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/exportWorkflow.ts">工作流导出 ↗</a><a href="https://github.com/SegFault42/HeliosGen/blob/fb011d6f3ad00510b4eface78e054c7eda329c54/lib/jobStore.ts">任务状态存储 ↗</a></div>
+<p class="source-line"><a href="https://github.com/yydshly/0909_codex_project/blob/main/projects/007-heliosgen/notes/sources.md">完整依据与研究记录 ↗</a> · <a href="https://github.com/yydshly/0909_codex_project/blob/main/projects/007-heliosgen/notes/image-prompt.txt">概览图提示词 ↗</a></p>
+</section>
+</main>
+<footer><span>PROJECT LAB / 007 · <a href="https://github.com/SegFault42/HeliosGen/tree/fb011d6f3ad00510b4eface78e054c7eda329c54">fb011d6 ↗</a> · 2026.09.09</span><a href="#main">回到顶部 ↑</a></footer>
+<dialog id="diagram-dialog" aria-labelledby="dialog-title"><div class="dialog-toolbar"><h2 id="dialog-title">HeliosGen 详细架构</h2><div><button id="zoom-out" type="button" aria-label="缩小架构图">−</button><output id="zoom-value" aria-live="polite">100%</output><button id="zoom-in" type="button" aria-label="放大架构图">＋</button><button id="fit-diagram" type="button">适应宽度</button><button id="close-diagram" type="button">关闭</button></div></div><div class="diagram-scroll" tabindex="0" role="region" aria-label="架构图，可滚动查看"><img id="large-diagram" src="./assets/architecture.svg" width="1440" height="1360" alt="HeliosGen 详细架构，原图可缩放和滚动"></div></dialog>
 </body>
 </html>

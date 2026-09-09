@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1360" viewBox="0 0 1440 1360" role="img" aria-labelledby="title desc">
+<title id="title">HeliosGen 详细架构：桌面交互、本地业务服务、持久化与云端能力</title>
+<desc id="desc">本地桌面中的画布与状态管理解析输入、按依赖触发生成节点。本地 API 完成模型参数适配、参考素材上传和生成任务处理。云端模型返回结果，本地保存到 SQLite、媒体文件与任务状态。任务结果回到界面并供下游使用。助手请求与直接创作可直接进入 API。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8" fill="none" stroke="#438980" stroke-width="1.5"/></marker></defs>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif;fill:#173546}.h{font-size:24px;font-weight:650}.body{font-size:19px;fill:#425f6c}.small{font-size:17px;fill:#506975}.label{font-size:18px;fill:#216f64;font-weight:600}.code{font-size:16px;fill:#687d86}.line{fill:none;stroke:#438980;stroke-width:2.2;marker-end:url(#arrow)}</style>
+<rect width="1440" height="1360" fill="#f8fbfa"/>
+
+<text x="40" y="54" class="h">HeliosGen · 详细业务与技术架构</text>
+<text x="40" y="88" class="body">沿主链阅读：界面与工作流 → 本地 API → 云端生成 → 本地资产 → 后续创作</text>
+<rect x="28" y="120" width="966" height="1176" rx="18" fill="#eef7f3" stroke="#b9d7cd"/>
+<rect x="1022" y="120" width="390" height="1176" rx="18" fill="#edf4fc" stroke="#c4d6ec"/>
+<text x="50" y="157" class="label">本地电脑 · 单个桌面应用中的逻辑模块</text>
+<text x="1044" y="157" class="label">外部云端能力</text>
+<rect x="50" y="180" width="922" height="98" rx="12" fill="#e0eee9" stroke="#d4e4df"/>
+<text x="70" y="212" class="h">运行基础</text>
+<text x="70" y="244" class="body">Tauri / Rust：管理窗口与服务进程</text>
+<text x="518" y="212" class="h">内置 Node.js + Next.js</text>
+<text x="518" y="244" class="body">本机 HTTP 服务 · WebView 加载界面</text>
+<text x="50" y="320" class="label">01  桌面交互与前端编排</text>
+<rect x="50" y="342" width="292" height="114" rx="12" fill="#fff" stroke="#d4e4df"/>
+<text x="68" y="374" class="h">直接创作</text>
+<text x="68" y="404" class="body">图片 / 视频参数与参考素材</text>
+<text x="68" y="430" class="body">提示词助手与流式对话</text>
+<rect x="366" y="342" width="292" height="114" rx="12" fill="#fff" stroke="#d4e4df"/>
+<text x="384" y="374" class="h">工作流画布</text>
+<text x="384" y="404" class="body">节点、端口、连线、分组</text>
+<text x="384" y="430" class="body">React Flow 拖放与连接</text>
+<rect x="682" y="342" width="290" height="114" rx="12" fill="#fff" stroke="#d4e4df"/>
+<text x="700" y="374" class="h">素材与设置</text>
+<text x="700" y="404" class="body">历史、文件夹、模型选择</text>
+<text x="700" y="430" class="body">工作流导入 / 导出</text>
+<rect x="50" y="478" width="292" height="107" rx="12" fill="#fff" stroke="#d4e4df"/>
+<text x="68" y="510" class="h">状态与流程数据</text>
+<text x="68" y="540" class="body">Zustand 管理节点与结果</text>
+<text x="68" y="569" class="code">store.ts · useSpaceSync.ts</text>
+<rect x="366" y="478" width="292" height="107" rx="12" fill="#fff" stroke="#d4e4df"/>
+<text x="384" y="510" class="h">输入解析</text>
+<text x="384" y="540" class="body">沿连线读取提示词与素材</text>
+<text x="384" y="569" class="code">executor.ts / resolveInputs</text>
+<rect x="682" y="478" width="290" height="107" rx="12" fill="#fff" stroke="#d4e4df"/>
+<text x="700" y="510" class="h">依赖执行</text>
+<text x="700" y="540" class="body">图片 / 视频节点分批运行</text>
+<text x="700" y="569" class="code">usePipelineRunner.ts</text>
+<path d="M342 532 L361 532" class="line"/>
+<path d="M658 532 L677 532" class="line"/>
+<path d="M824 588 L824 628" class="line"/>
+<text x="55" y="619" class="small">直接创作与助手可直接发起 API 请求；自动编排主要覆盖图片、视频节点。</text>
+<text x="50" y="665" class="label">02  本地业务 API 与执行处理</text>
+<rect x="50" y="686" width="292" height="139" rx="12" fill="#fff" stroke="#d4e4df"/>
+<text x="68" y="718" class="h">业务接口</text>
+<text x="68" y="748" class="body">图片、视频、助手请求</text>
+<text x="68" y="774" class="body">工作流 / 素材 / 设置 CRUD</text>
+<text x="68" y="809" class="code">app/api/*</text>
+<rect x="366" y="686" width="292" height="139" rx="12" fill="#fff" stroke="#d4e4df"/>
+<text x="384" y="718" class="h">模型适配</text>
+<text x="384" y="748" class="body">供应商选择与参数转换</text>
+<text x="384" y="774" class="body">模型专用分支、CLI 调用</text>
+<text x="384" y="809" class="code">modelConfig.ts · providers.ts</text>
+<rect x="682" y="686" width="290" height="139" rx="12" fill="#fff" stroke="#d4e4df"/>
+<text x="700" y="718" class="h">生成任务</text>
+<text x="700" y="748" class="body">任务 ID、状态查询与事件</text>
+<text x="700" y="774" class="body">通用 Kie 轮询、结果下载</text>
+<text x="700" y="809" class="code">kieJobPoller.ts · jobEvents.ts</text>
+<path d="M342 746 L361 746" class="line"/>
+<path d="M658 746 L677 746" class="line"/>
+<rect x="50" y="845" width="292" height="107" rx="12" fill="#fff" stroke="#d4e4df"/>
+<text x="68" y="877" class="h">媒体工具</text>
+<text x="68" y="907" class="body">本地视频裁剪、帧提取</text>
+<text x="68" y="936" class="code">FFmpeg / FFprobe（需另装）</text>
+<rect x="366" y="845" width="292" height="107" rx="12" fill="#fff" stroke="#d4e4df"/>
+<text x="384" y="877" class="h">结构与素材迁移</text>
+<text x="384" y="907" class="body">workflow.json + assets ZIP</text>
+<text x="384" y="936" class="code">export / importWorkflow.ts</text>
+<rect x="682" y="845" width="290" height="107" rx="12" fill="#fff" stroke="#d4e4df"/>
+<text x="700" y="877" class="h">参考素材上传</text>
+<text x="700" y="907" class="body">本地文件 → 临时访问 URL</text>
+<text x="700" y="936" class="code">kieUpload.ts</text>
+<text x="50" y="1000" class="label">03  本地持久化与复用</text>
+<rect x="50" y="1022" width="292" height="138" rx="12" fill="#fff" stroke="#d4e4df"/>
+<text x="68" y="1054" class="h">SQLite 数据库</text>
+<text x="68" y="1084" class="body">工作流、生成历史、文件夹</text>
+<text x="68" y="1110" class="body">素材索引、设置</text>
+<text x="68" y="1144" class="code">lib/guest/sqlite.ts</text>
+<rect x="366" y="1022" width="292" height="138" rx="12" fill="#fff" stroke="#d4e4df"/>
+<text x="384" y="1054" class="h">媒体文件</text>
+<text x="384" y="1084" class="body">参考素材、生成图片与视频</text>
+<text x="384" y="1110" class="body">同源媒体地址供界面读取</text>
+<text x="384" y="1144" class="code">lib/guest/localStorage.ts</text>
+<rect x="682" y="1022" width="290" height="138" rx="12" fill="#fff" stroke="#d4e4df"/>
+<text x="700" y="1054" class="h">状态存储</text>
+<text x="700" y="1084" class="body">任务状态 JSON 文件</text>
+<text x="700" y="1110" class="body">界面 localStorage 状态</text>
+<text x="700" y="1144" class="code">jobStore.ts · Zustand persist</text>
+<rect x="50" y="1184" width="922" height="80" rx="12" fill="#e0eee9" stroke="#d4e4df"/>
+<text x="70" y="1215" class="h">结果闭环</text>
+<text x="70" y="1245" class="body">任务结果返回界面 → 更新节点与历史 → 下游继续使用素材；流程可保存、导出与复用。</text>
+<rect x="1044" y="200" width="346" height="113" rx="12" fill="#fff" stroke="#d4e4df"/>
+<text x="1062" y="232" class="h">实际生成能力</text>
+<text x="1062" y="262" class="body">图片 · 视频 · 文本</text>
+<text x="1062" y="288" class="body">推理发生在云端</text>
+<rect x="1044" y="342" width="346" height="125" rx="12" fill="#fff" stroke="#d4e4df"/>
+<text x="1062" y="374" class="h">Azure · 可选路径</text>
+<text x="1062" y="404" class="body">部分图片能力与文本助手</text>
+<text x="1062" y="430" class="body">需相应密钥、端点与部署</text>
+<rect x="1044" y="491" width="346" height="125" rx="12" fill="#fff" stroke="#d4e4df"/>
+<text x="1062" y="523" class="h">Codex · 可选图片路径</text>
+<text x="1062" y="553" class="body">本机 codex-imagegen CLI</text>
+<text x="1062" y="579" class="body">调用对应云端能力</text>
+<rect x="1044" y="640" width="346" height="125" rx="12" fill="#fff" stroke="#d4e4df"/>
+<text x="1062" y="672" class="h">Kie.ai · 主要入口</text>
+<text x="1062" y="702" class="body">统一入口接入多个模型</text>
+<text x="1062" y="728" class="body">生成任务提交与状态查询</text>
+<rect x="1044" y="813" width="346" height="125" rx="12" fill="#fff" stroke="#d4e4df"/>
+<text x="1062" y="845" class="h">第三方临时文件服务</text>
+<text x="1062" y="875" class="body">托管按需上传的参考素材</text>
+<text x="1062" y="901" class="body">让云端模型能够读取</text>
+<path d="M974 742 L1037 742" class="line"/>
+<text x="980" y="716" class="small">调用</text>
+<path d="M1039 786 L978 786" class="line"/>
+<text x="982" y="809" class="small">结果</text>
+<path d="M976 906 L1037 906" class="line"/>
+<rect x="1044" y="970" width="346" height="296" rx="12" fill="#e1ebf8" stroke="#c4d6ec"/>
+<text x="1062" y="1006" class="h">阅读边界</text>
+<text x="1062" y="1041" class="small">模块按职责归纳，非微服务。</text>
+<text x="1062" y="1076" class="small">模型输入与能力并不完全一致。</text>
+<text x="1062" y="1111" class="small">本地应用不等于离线推理。</text>
+<text x="1062" y="1146" class="small">参考素材可能上传到云端。</text>
+<text x="1062" y="1181" class="small">Veo 轮询等接入仍有缺口。</text>
+<text x="1062" y="1216" class="small">图示为源码研究，非运行实测。</text>
+<text x="40" y="1333" class="small">源码核对：fb011d6 · 2026-09-09    |    主链为简化示意，详细职责与时序见配套研究页面。</text>
+</svg>
