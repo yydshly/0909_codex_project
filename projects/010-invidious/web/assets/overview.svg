@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">一图理解 Invidious：YouTube 内容获取、独立界面与订阅、Companion 播放</title>
+<desc id="desc">上方列出搜索、播放、字幕评论、订阅历史、API 嵌入五组能力。浏览器和第三方应用访问主服务；主服务向 YouTube 获取信息，读写 PostgreSQL，并通过 Companion 获取播放信息。视频始终来自 YouTube，媒体由浏览器直连或经代理传输。无任意视频源配置，不是上传托管平台，不含 AI 总结。</desc>
+<defs>
+<marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 9 4.5 0 9" fill="none" stroke="#466459" stroke-width="1.5"/></marker>
+<marker id="blue" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 9 4.5 0 9" fill="none" stroke="#446c8d" stroke-width="1.5"/></marker>
+<style>text{font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif;fill:#213e34}.muted{fill:#526b60}.small{font-size:18px}.body{font-size:21px}.label{font-size:23px;font-weight:700}.head{font-size:28px;font-weight:700}.line{fill:none;stroke:#466459;stroke-width:2.5;marker-end:url(#arrow)}.chip{fill:#edf3ee;stroke:#c8d8ce}.panel{fill:white;stroke:#c8d8ce;stroke-width:1.5}</style>
+</defs>
+<rect width="1600" height="1000" fill="#f6f7f2"/>
+<rect x="60" y="44" width="6" height="66" rx="3" fill="#28664e"/>
+<text x="86" y="77" font-size="39" font-weight="700">Invidious：自己掌握观看入口，内容仍来自 YouTube</text>
+<text x="87" y="111" class="body muted">一套可自建的网站与 API 服务，将内容获取、播放适配和独立订阅组织在一起。</text>
+<rect x="60" y="147" width="1480" height="111" rx="14" fill="#e7eee6"/>
+<text x="83" y="179" font-size="17" fill="#526b60">01</text><text x="83" y="211" class="label">搜索与浏览</text><text x="83" y="239" class="small muted">视频 · 频道 · 播放列表</text><path d="M355 168v69" stroke="#c2d1c3"/><text x="379" y="179" font-size="17" fill="#526b60">02</text><text x="379" y="211" class="label">视频与音频</text><text x="379" y="239" class="small muted">播放 · 字幕 · 不同格式</text><path d="M651 168v69" stroke="#c2d1c3"/><text x="675" y="179" font-size="17" fill="#526b60">03</text><text x="675" y="211" class="label">内容信息</text><text x="675" y="239" class="small muted">详情 · 评论 · 已有字幕</text><path d="M947 168v69" stroke="#c2d1c3"/><text x="971" y="179" font-size="17" fill="#526b60">04</text><text x="971" y="211" class="label">独立用户数据</text><text x="971" y="239" class="small muted">订阅 · 历史 · 偏好</text><path d="M1243 168v69" stroke="#c2d1c3"/><text x="1267" y="179" font-size="17" fill="#526b60">05</text><text x="1267" y="211" class="label">开发与复用</text><text x="1267" y="239" class="small muted">JSON API · 嵌入 · 下载</text>
+<text x="60" y="301" font-size="18" font-weight="700" letter-spacing="2">运行结构 / 实线：服务请求与数据读写　虚线：媒体传输路径示意</text>
+<rect x="60" y="330" width="260" height="290" rx="16" class="panel"/>
+<text x="85" y="371" class="head">使用入口</text>
+<text x="85" y="424" class="label">浏览器</text><text x="85" y="454" class="small muted">搜索、观看、订阅</text>
+<path d="M85 483h210" stroke="#d8e1d9"/>
+<text x="85" y="532" class="label">你开发的 App</text><text x="85" y="562" class="small muted">调用实例提供的 API</text><text x="85" y="592" class="small muted">学习工具 / 专用客户端</text>
+<rect x="400" y="330" width="690" height="290" rx="16" fill="#eaf2ec" stroke="#88aa95" stroke-width="2"/>
+<text x="427" y="372" class="head">Invidious 主服务</text>
+<text x="1063" y="371" text-anchor="end" class="small muted">Crystal + Kemal</text>
+<text x="427" y="407" class="small muted">同一套业务逻辑，输出网页或 JSON；内部运行后台刷新任务。</text>
+<rect x="426" y="437" width="202" height="153" rx="9" class="panel"/><text x="442" y="473" class="label">网页 / API</text><text x="442" y="515" class="small muted">页面模板与播放器</text><text x="442" y="545" class="small muted">内容读取、账号接口</text><rect x="643" y="437" width="202" height="153" rx="9" class="panel"/><text x="659" y="473" class="label">获取与解析</text><text x="659" y="515" class="small muted">解释 YouTube 数据</text><text x="659" y="545" class="small muted">整理标题、格式等字段</text><rect x="860" y="437" width="202" height="153" rx="9" class="panel"/><text x="876" y="473" class="label">用户与订阅</text><text x="876" y="515" class="small muted">维护账号和偏好</text><text x="876" y="545" class="small muted">聚合频道更新与历史</text>
+<path d="M320 416H394" class="line"/><path d="M320 551H394" class="line"/>
+<text x="359" y="398" text-anchor="middle" class="small muted">网页</text><text x="359" y="533" text-anchor="middle" class="small muted">API</text>
+<rect x="1190" y="330" width="350" height="180" rx="16" fill="#fbefe8" stroke="#dcb69f" stroke-width="1.5"/>
+<text x="1216" y="372" class="head">YouTube 内容端</text>
+<text x="1216" y="413" class="body">内部接口与页面数据</text><text x="1216" y="445" class="small muted">搜索、频道、评论、相关视频等</text><text x="1216" y="473" class="small muted">可观察请求、分析协议</text><text x="1216" y="498" class="small muted">不代表内部员工身份</text>
+<path d="M1090 411H1184" class="line"/><text x="1140" y="391" text-anchor="middle" class="small muted">取信息</text>
+<rect x="400" y="705" width="320" height="140" rx="16" class="panel"/>
+<text x="425" y="744" class="head">PostgreSQL</text><text x="425" y="780" class="body">账号 · 订阅 · 历史 · 偏好</text><text x="425" y="815" class="small muted">视频信息缓存 ≠ 保存视频文件</text>
+<rect x="770" y="705" width="320" height="140" rx="16" fill="#eaf0f6" stroke="#adc1d2" stroke-width="1.5"/>
+<text x="795" y="744" class="head">Companion</text><text x="795" y="780" class="body">播放会话 · 地址 · 流处理</text><text x="795" y="815" class="small muted">Deno + Hono + YouTube.js</text>
+<path d="M560 620V699" class="line"/><text x="578" y="665" class="small muted">读写 / 刷新</text>
+<path d="M930 620V699" class="line"/><text x="948" y="665" class="small muted">播放信息</text>
+<rect x="1190" y="680" width="350" height="165" rx="16" fill="#fbefe8" stroke="#dcb69f" stroke-width="1.5"/>
+<text x="1216" y="720" class="head">YouTube 视频端</text><text x="1216" y="758" class="body">播放接口 + 视频 CDN</text><text x="1216" y="794" class="small muted">实际的音视频数据来自这里</text><text x="1216" y="824" class="small muted">媒体地址、会话及访问限制会变化</text>
+<path d="M1090 767H1184" class="line"/><text x="1140" y="747" text-anchor="middle" class="small muted">取视频</text>
+<path d="M1365 845V878H185V626" fill="none" stroke="#446c8d" stroke-width="2.5" stroke-dasharray="8 7" marker-end="url(#blue)"/>
+<rect x="340" y="862" width="850" height="31" rx="5" fill="#f6f7f2"/>
+<text x="765" y="885" text-anchor="middle" class="body" style="fill:#446c8d">媒体另行传输：浏览器直连，或经主服务 / Companion 代理</text>
+<path d="M60 922H1540" stroke="#c8d8ce"/>
+<text x="60" y="955" class="small">能力边界：固定围绕 YouTube · 不提供上传托管 · 无任意视频源配置 · AI 总结需另行开发</text>
+<text x="60" y="983" font-size="16" class="muted">源码理解图，非运行截图。路由存在不代表实时可用；未安装运行。主仓库 049d591d · 2026-09-09 · 项目研究室 / 010</text>
+</svg>

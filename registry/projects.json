@@ -1,5 +1,5 @@
 {
-  "nextId": 10,
+  "nextId": 11,
   "projects": [
     {
       "id": 1,
@@ -151,6 +151,23 @@
         "工作流编排"
       ],
       "cover": "web/assets/overview.svg",
+      "demo": true
+    },
+    {
+      "id": 10,
+      "slug": "invidious",
+      "order": 100,
+      "name": "Invidious 能力与架构分析",
+      "source": "https://github.com/iv-org/invidious",
+      "summary": "一图解释 Invidious 的 YouTube 内容获取、独立账号与订阅、Companion 播放链路及对外 API；网页用搜索、播放、订阅三个流程澄清数据来源、组件分工和能力边界，未运行上游服务。",
+      "status": "已整理",
+      "tags": [
+        "YouTube",
+        "自托管",
+        "API",
+        "架构分析"
+      ],
+      "cover": "web/assets/overview.png",
       "demo": true
     }
   ]

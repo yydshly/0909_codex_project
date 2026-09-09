@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="一图理解 Invidious 的能力与架构：YouTube 内容获取、独立界面和订阅、Companion 播放；通过搜索、播放和订阅三个流程理解实际分工。">
+<title>Invidious · 一图理解能力与架构 | 项目研究室</title>
+<link rel="stylesheet" href="./style.css"><script src="./app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+<header class="topbar">
+<a class="brand" href="../../">项目研究室 <span>/ 010</span></a>
+<nav aria-label="页内导航"><a href="#overview">一图理解</a><a href="#journeys">请求如何流动</a><a href="#capabilities">能力与边界</a><a href="#sources">源码依据</a></nav>
+</header>
+<main id="main">
+<section class="hero">
+<div><p class="eyebrow">IV-ORG / INVIDIOUS</p><h1>自己的观看入口，<br>视频仍来自 <span>YouTube。</span></h1>
+<p class="lead">Invidious 获取并整理 YouTube 内容，用自己的网页展示和播放，再提供独立的账号、订阅与 API。它是一套可以自建的服务。</p>
+<div class="hero-actions"><a class="button primary" href="#overview">看懂整套架构 <span aria-hidden="true">↓</span></a><a class="text-link" href="./research.md" download>下载研究文档 ↗</a></div></div>
+<aside class="understanding" aria-label="理解这个项目的三个关键点">
+<p class="eyebrow">先记住这三件事</p>
+<div><span>01</span><p><strong>内容来自 YouTube</strong><small>搜索结果、频道信息和视频流，主要由 YouTube 提供。</small></p></div>
+<div><span>02</span><p><strong>账号数据属于你的实例</strong><small>订阅、历史与偏好由 Invidious 保存，独立于 Google 账号。</small></p></div>
+<div><span>03</span><p><strong>播放需要专门适配</strong><small>Companion 处理播放会话与视频流，能搜索不代表一定能播放。</small></p></div>
+</aside>
+</section>
+<div class="research-status"><span class="status-dot" aria-hidden="true"></span><strong>源码研究 · 未实机运行</strong><span>主仓库 049d591d · 2026-09-09</span><span>本页为架构讲解，不连接 YouTube 或运行视频服务。</span></div>
+
+<section class="section map-section" id="overview" aria-labelledby="overview-title">
+<div class="section-head"><div><p class="eyebrow">01 / 一图理解</p><h2 id="overview-title">把能力、组件和内容来源放在一张图里。</h2></div><div class="actions"><button id="zoom-map" type="button">放大查看</button><a class="button" href="./assets/overview.svg" download="invidious-overview.svg">下载 SVG</a><a class="button" href="./assets/overview.png" download="invidious-overview.png">下载 PNG</a></div></div>
+<figure><a href="./assets/overview.svg" class="map-link" aria-label="打开 Invidious 能力与架构总览图"><img src="./assets/overview.svg" width="1600" height="1000" alt="五组能力：搜索浏览、视频音频、字幕评论、独立订阅与API。浏览器和App访问主服务；主服务获取YouTube信息、读写PostgreSQL并调用Companion，实际视频流来自YouTube。"></a><figcaption><span><b>读图顺序：</b>上方看能力，中间看主服务，下方看数据和播放。</span><span>原创源码理解图 · 可下载分享</span></figcaption></figure>
+<p class="note">图里的网页、API、业务逻辑和后台任务，主要在同一个主服务内运行。基础组合是 <strong>Invidious + Companion + PostgreSQL</strong>。</p>
+</section>
+
+<section class="section" id="journeys" aria-labelledby="journeys-title">
+<div class="section-head"><div><p class="eyebrow">02 / 请求如何流动</p><h2 id="journeys-title">换一个操作，看各组件怎么配合。</h2></div><p class="section-caption">流程示意 · 不发送真实请求</p></div>
+<div class="journey-buttons" role="group" aria-label="选择要理解的操作"><button type="button" data-journey="search" aria-pressed="true">搜索一个视频</button><button type="button" data-journey="play" aria-pressed="false">播放一个视频</button><button type="button" data-journey="subscribe" aria-pressed="false">订阅一个频道</button></div>
+<div class="journey-panel" aria-live="polite" aria-atomic="true">
+<div class="journey-context"><span id="journey-label" class="pill">搜索 / 内容请求</span><h3 id="journey-title">搜索“做饭教程”</h3><p id="journey-intro">用户提交关键词，Invidious 从 YouTube 获取搜索结果，再转换成自己的页面或 JSON。</p></div>
+<ol id="journey-steps" class="steps">
+<li><span>01</span><h4>提交关键词</h4><p>浏览器访问搜索页，或 App 调用搜索 API。</p></li>
+<li><span>02</span><h4>请求 YouTube</h4><p>主服务整理地区与过滤条件，请求内部搜索接口。</p></li>
+<li><span>03</span><h4>解析响应</h4><p>提取标题、封面、作者和视频 ID 等字段。</p></li>
+<li><span>04</span><h4>返回结果</h4><p>网页生成结果列表，API 返回结构化 JSON。</p></li>
+</ol>
+<p class="journey-takeaway" id="journey-takeaway"><strong>关键理解：</strong>全站搜索依赖 YouTube；在自己的订阅中搜索，可以查询实例数据库里的标题和作者。</p>
+</div>
+<noscript><p class="note">启用 JavaScript 可切换流程。播放流程：读取缓存 → Companion 获取播放信息 → 生成播放器 → 请求媒体数据。订阅流程：保存频道 ID → 后台刷新频道 → 整理订阅更新 → 展示结果。</p></noscript>
+</section>
+
+<section class="section" id="interfaces" aria-labelledby="interfaces-title">
+<p class="eyebrow">03 / 我们澄清过的概念</p><h2 id="interfaces-title">“内部接口”不代表内部员工权限。</h2>
+<p class="section-intro">这里的“内部”指 YouTube 自己的网页和 App 使用。开发者可以观察客户端请求、分析参数与返回结构，Invidious 将自己的调用实现公开在源码中。</p>
+<div class="three-grid api-grid">
+<article><span class="mini-label">YouTube → 第三方开发者</span><h3>YouTube 官方开放 API</h3><p>面向第三方提供正式文档，按官方要求申请使用。</p><p class="card-foot">Invidious 没有以这套 Data API 作为内容获取路径。</p></article>
+<article><span class="mini-label">YouTube → 自己的网页 / App</span><h3>YouTube 内部接口</h3><p>为客户端提供搜索、频道、播放等数据。可分析请求，但没有面向第三方的稳定使用承诺。</p><p class="card-foot">Invidious 负责适配这部分协议与响应。</p></article>
+<article class="featured"><span class="mini-label">Invidious → 你开发的应用</span><h3>Invidious 对外 API</h3><p>把内容整理成公开文档中的字段和接口。开发自己的客户端，可以从这里接入。</p><p class="card-foot">读取内容；认证后管理实例中的用户数据。</p></article>
+</div>
+<div class="endpoint"><div><h3>同一个关键词，两种输出。</h3><p>网页与 API 共用业务逻辑，网页不需要先请求一遍自己的公开 API。</p></div><dl><div><dt>给人看</dt><dd><code>/search?q=做饭</code><span>返回搜索页面</span></dd></div><div><dt>给程序用</dt><dd><code>/api/v1/search?q=做饭</code><span>返回 JSON 数据</span></dd></div></dl></div>
+</section>
+
+<section class="section" id="capabilities" aria-labelledby="capabilities-title">
+<p class="eyebrow">04 / 六组实际能力</p><h2 id="capabilities-title">它为使用者和开发者分别做好了什么？</h2>
+<div class="three-grid capability-grid">
+<article><span class="card-number">01</span><h3>搜索与频道浏览</h3><p>搜索视频、频道和播放列表；浏览频道视频、Shorts、直播及社区等入口。</p><dl><dt>数据来源</dt><dd>YouTube；路由存在不代表上游当前一定可用。</dd></dl></article>
+<article><span class="card-number">02</span><h3>观看、听音频与嵌入</h3><p>提供播放器、音频模式、DASH 等路径，并支持嵌入页面和下载入口。</p><dl><dt>谁负责播放</dt><dd>主服务与 Companion 配合；增强播放依赖 JavaScript。</dd></dl></article>
+<article><span class="card-number">03</span><h3>视频信息、字幕与评论</h3><p>整理标题、作者、描述、字幕、文字稿和评论。评论另有 Reddit 来源。</p><dl><dt>能力边界</dt><dd>获取已有内容，不内置语音识别或 AI 总结。</dd></dl></article>
+<article><span class="card-number">04</span><h3>独立账号与订阅</h3><p>保存订阅、历史、偏好和播放列表，提供导入导出能力。</p><dl><dt>保存在哪里</dt><dd>实例的 PostgreSQL；不会自动修改 Google 账号。</dd></dl></article>
+<article><span class="card-number">05</span><h3>缓存与更新聚合</h3><p>缓存视频信息，后台刷新频道，预先整理用户的订阅内容，提供 RSS 等入口。</p><dl><dt>为什么需要数据库</dt><dd>管理状态和元数据；并非保存整个视频文件库。</dd></dl></article>
+<article><span class="card-number">06</span><h3>供其他应用调用</h3><p>提供视频、搜索、频道、字幕、评论等 API，以及需认证的用户管理接口。</p><dl><dt>怎样复用</dt><dd>开发手机、电视或学习客户端，不必自己处理所有上游协议。</dd></dl></article>
+</div>
+</section>
+
+<section class="section" id="boundaries" aria-labelledby="boundaries-title">
+<p class="eyebrow">05 / 能力边界</p><h2 id="boundaries-title">理解它能做什么，也理解它依赖什么。</h2>
+<div class="two-grid">
+<div class="questions">
+<details open><summary>视频来源可以改成本地文件或 B 站吗？</summary><p>没有通用视频源开关。内容模型、频道结构和播放流程围绕 YouTube 编写。接入其他来源，需要另行开发适配与播放逻辑。</p></details>
+<details><summary>自己的服务器会保存所有视频吗？</summary><p>不会。数据库主要保存账号、订阅和部分视频信息。代理视频是转发媒体流，不等于完整归档；项目也不是视频上传托管平台。</p></details>
+<details><summary>为什么能搜索却不能播放？</summary><p>搜索和播放经过不同链路。Companion 会话、临时地址、上游访问限制或媒体传输任一环节失败，都可能导致播放失败。</p></details>
+<details><summary>不需要官方 API Key，就能无限调用吗？</summary><p>不能。YouTube 的接口变化、限流和封锁仍会影响实例。网站或健康检查可访问，也不能证明每个视频都可播放。</p></details>
+<details><summary>自建后就完全匿名、自动去掉所有广告了吗？</summary><p>隐私取决于视频是否直连和实例日志等配置；运营者可能记录访问。项目提供无广告界面，但不能理解为自动删除视频中创作者自行植入的商业内容。</p></details>
+</div>
+<aside class="takeaways"><p class="eyebrow">架构带来的实际代价</p><h3>适配省下的工作，<br>会转化为维护责任。</h3><ul><li><strong>上游变化</strong><span>YouTube 改接口或限制访问，需要更新适配。</span></li><li><strong>播放流量</strong><span>代理视频后，实例要承担媒体传输带宽。</span></li><li><strong>后台更新</strong><span>频道刷新和订阅聚合持续消耗网络与数据库资源。</span></li><li><strong>运行条件</strong><span>基础组合有主服务、Companion 和数据库；本次未安装运行。</span></li></ul></aside>
+</div>
+</section>
+
+<section class="section" id="extensions" aria-labelledby="extensions-title">
+<p class="eyebrow">06 / 基于现有能力的扩展</p><h2 id="extensions-title">先复用内容能力，再开发自己的产品。</h2><p class="section-intro">下面是架构推导的应用方向，不是已内置功能。</p>
+<div class="extension-list"><article><h3>语言学习工具</h3><p><b>复用：</b>视频、字幕、播放。<br><b>新增：</b>双语排版、生词本、练习和学习进度。</p></article><article><h3>视频知识库 / AI 摘要</h3><p><b>复用：</b>元数据和已有字幕。<br><b>新增：</b>分段、模型处理、检索与时间戳引用。</p></article><article><h3>频道更新简报</h3><p><b>复用：</b>频道列表、订阅数据或 RSS。<br><b>新增：</b>调度、去重、摘要和通知。</p></article><article><h3>专用客户端</h3><p><b>复用：</b>对外 API 和播放资源。<br><b>新增：</b>电视、手机或适老界面及兼容处理。</p></article></div>
+</section>
+
+<section class="section sources" id="sources" aria-labelledby="sources-title">
+<div class="section-head"><div><p class="eyebrow">07 / 可核查的依据</p><h2 id="sources-title">结论对应到具体源码。</h2></div><a class="button" href="./research.md" download>下载完整研究文档</a></div>
+<div class="source-grid">
+<a href="https://github.com/iv-org/invidious/blob/049d591d294e2a43cb32b97a0bb018c2093e5beb/src/invidious/routing.cr"><strong>功能与 API 入口 ↗</strong><span>routing.cr · 网页、内容接口、认证接口</span></a>
+<a href="https://github.com/iv-org/invidious/blob/049d591d294e2a43cb32b97a0bb018c2093e5beb/src/invidious/yt_backend/youtube_api.cr"><strong>YouTube 请求封装 ↗</strong><span>客户端上下文、内部接口、Companion 调用</span></a>
+<a href="https://github.com/iv-org/invidious/blob/049d591d294e2a43cb32b97a0bb018c2093e5beb/src/invidious/videos.cr#L303"><strong>视频读取与缓存 ↗</strong><span>get_video / fetch_video</span></a>
+<a href="https://github.com/iv-org/invidious/blob/049d591d294e2a43cb32b97a0bb018c2093e5beb/src/invidious/jobs/refresh_feeds_job.cr"><strong>订阅后台刷新 ↗</strong><span>按用户维护订阅物化视图</span></a>
+<a href="https://github.com/iv-org/invidious-companion/blob/master/src/main.ts"><strong>Companion 运行机制 ↗</strong><span>YouTube.js、会话与相关令牌处理</span></a>
+<a href="https://docs.invidious.io/api/"><strong>官方 API 文档 ↗</strong><span>内容读取接口及字段说明</span></a>
+</div>
+<p class="note">研究主仓库：049d591d294e2a43cb32b97a0bb018c2093e5beb。Companion 参考 2026-09-09 读取的 master 源码，未验证两者组合运行。未测实际搜索、字幕获取或播放成功率。上游许可：主仓库声明 AGPL-3.0-only。</p>
+</section>
+</main>
+<footer><span>项目研究室 / 010 · Invidious</span><a href="#main">返回顶部 ↑</a><a href="https://github.com/iv-org/invidious">上游仓库 ↗</a></footer>
+<dialog id="map-dialog" aria-labelledby="dialog-title"><div class="dialog-head"><h2 id="dialog-title">Invidious 能力与架构总览</h2><button type="button" id="close-map" autofocus>关闭 ×</button></div><p>可横向滚动查看细节；按 Esc 关闭。</p><div class="dialog-scroll"><img src="./assets/overview.svg" width="1600" height="1000" alt="放大的 Invidious 能力与架构总览图"></div></dialog>
+</body></html>
