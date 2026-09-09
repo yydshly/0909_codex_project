@@ -20,6 +20,7 @@
 | 9 | 009 | [Hugging Face Agent 开发课程](projects/009-agents-course/README.md) | [huggingface/agents-course](https://github.com/huggingface/agents-course) | Hugging Face 的 Agent 开发课程与示例集：通过模型决策、工具执行和反馈循环，结合检索增强与状态编排，讲解 smolagents、LlamaIndex、LangGraph 的实现；适合学习工具调用、构建知识问答与多步骤任务原型，并通过评估改进效果。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/009-agents-course/) |
 | 10 | 010 | [Invidious 能力与架构分析](projects/010-invidious/README.md) | [iv-org/invidious](https://github.com/iv-org/invidious) | 一图解释 Invidious 的 YouTube 内容获取、独立账号与订阅、Companion 播放链路及对外 API；网页用搜索、播放、订阅三个流程澄清数据来源、组件分工和能力边界，未运行上游服务。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/010-invidious/) |
 | 11 | 011 | [Multica Agent 协作与执行平台](projects/011-multica/README.md) | [multica-ai/multica](https://github.com/multica-ai/multica) | 以事件触发和任务队列调度 Codex、Claude Code 等 Agent 工具，支持依赖交接、并行执行与人工评审控制；附整体架构、完整理解和本机原版实测。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/011-multica/) |
+| 12 | 012 | [MetaGPT 多 Agent 软件团队实验室](projects/012-metagpt/README.md) | [FoundationAgents/MetaGPT](https://github.com/FoundationAgents/MetaGPT) | 以角色、动作、消息和异步循环组织多 Agent 协作：提示词定义工作方式，模型决策与程序调度分工；附两种调度机制、27 个角色及测试返修实测。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/012-metagpt/) |
 <!-- PROJECT_INDEX:END -->
 
 ## 项目速览
@@ -116,6 +117,14 @@ Hugging Face 的 Agent 开发课程与示例集：通过模型决策、工具执
 ![Multica Agent 协作与执行平台 封面](projects/011-multica/web/assets/architecture.svg)
 
 [研究记录](projects/011-multica/README.md) · [上游仓库](https://github.com/multica-ai/multica) · [Web 演示](https://yydshly.github.io/0909_codex_project/projects/011-multica/)
+
+### 012 · MetaGPT 多 Agent 软件团队实验室
+
+以角色、动作、消息和异步循环组织多 Agent 协作：提示词定义工作方式，模型决策与程序调度分工；附两种调度机制、27 个角色及测试返修实测。
+
+![MetaGPT 多 Agent 软件团队实验室 封面](projects/012-metagpt/web/assets/architecture.svg)
+
+[研究记录](projects/012-metagpt/README.md) · [上游仓库](https://github.com/FoundationAgents/MetaGPT) · [Web 演示](https://yydshly.github.io/0909_codex_project/projects/012-metagpt/)
 <!-- PROJECT_CARDS:END -->
 
 ## 001 · 架构图阅读指南

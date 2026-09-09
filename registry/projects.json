@@ -187,6 +187,23 @@
       ],
       "cover": "web/assets/architecture.svg",
       "demo": true
+    },
+    {
+      "id": 12,
+      "slug": "metagpt",
+      "order": 120,
+      "name": "MetaGPT 多 Agent 软件团队实验室",
+      "source": "https://github.com/FoundationAgents/MetaGPT",
+      "summary": "以角色、动作、消息和异步循环组织多 Agent 协作：提示词定义工作方式，模型决策与程序调度分工；附两种调度机制、27 个角色及测试返修实测。",
+      "status": "已整理",
+      "tags": [
+        "多Agent协作",
+        "软件团队",
+        "框架运行验证",
+        "角色定制"
+      ],
+      "cover": "web/assets/architecture.svg",
+      "demo": true
     }
   ]
 }

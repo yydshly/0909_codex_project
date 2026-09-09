@@ -1,0 +1,10 @@
+# Copy to a local ignored file, for example runtime/config2.yaml.
+# No model service is chosen or contacted by the offline demo.
+llm:
+  api_type: openai
+  model: YOUR_MODEL_NAME
+  base_url: https://YOUR_PROVIDER/v1
+  api_key: YOUR_API_KEY
+  max_token: 2048
+  timeout: 60
+  temperature: 0

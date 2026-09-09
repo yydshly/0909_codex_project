@@ -1,0 +1,13 @@
+upstream/
+.venv/
+runtime/local/
+runtime/config2.yaml
+runtime/*.log
+runtime/server.pid
+runtime/dependencies.txt
+runtime/home/
+runtime/workspace/
+runtime/metagpt/
+runtime/logs/
+__pycache__/
+*.pyc

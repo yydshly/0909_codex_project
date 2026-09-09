@@ -1,0 +1,4 @@
+# Upstream lancedb==0.4.0 has no Windows wheel. 0.14.0 is the first
+# published release with a compatible Windows wheel. Its retrieval APIs
+# are not exercised by this demo; no upstream source is modified.
+lancedb==0.14.0
