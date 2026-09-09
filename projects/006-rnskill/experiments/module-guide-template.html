@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="一张模块引导图，整理 rnskill 全部 63 个技能入口。点击技能了解用途、输入输出和准备条件。"><title>rnskill · 全能力模块引导图</title><link rel="stylesheet" href="./guide.css"><script src="./data/catalog.js" defer></script><script src="./guide.js" defer></script></head>
+<body>
+<header><a href="./index.html">← 返回能力工作台</a><span>PROJECT LAB / 006</span><a href="./assets/module-guide.png" download="rnskill-module-guide.png">下载高清图 PNG ↓</a></header>
+<main>
+  <div class="intro"><div><p>从任务出发，找到对应的能力。</p><h1>全能力模块引导图</h1></div><p class="lead">按 A → B → C 理解工作逻辑，按实际需要选择技能。<br>点击图中的技能名称，可查看介绍与原始定义。</p></div>
+  <div class="toolbar" aria-label="图表控制"><div class="legend"><span><i class="method"></i>方法可复用</span><span><i class="tools"></i>需工具配置</span><span><i class="workspace"></i>需工作台适配</span></div><div class="zoom"><button id="zoom-out" aria-label="缩小引导图">−</button><output id="zoom-level" aria-live="polite">100%</output><button id="zoom-in" aria-label="放大引导图">＋</button><button id="zoom-reset">适应宽度</button></div></div>
+  <p class="mobile-hint">小屏幕可左右滑动查看全图，点击名称打开介绍。</p>
+  <div class="map-viewport" id="map-viewport" tabindex="0" aria-label="可横向滚动的完整模块引导图"><!-- MODULE_GUIDE --></div>
+  <footer><p>统计对象是技能文件入口，包含别名与嵌套；不代表 63 项互不重复的功能。本图为源码研究归纳，未执行上游生产流程。</p><a href="./assets/module-guide.svg" download="rnskill-module-guide.svg">下载矢量图 SVG ↓</a><a href="./data/catalog.json" download="rnskill-capabilities.json">完整能力说明 JSON ↓</a></footer>
+</main>
+<dialog id="skill-detail" aria-labelledby="skill-title"><div class="modal-header"><span id="skill-group"></span><button id="close-skill" aria-label="关闭介绍">✕</button></div><div id="skill-body"></div></dialog>
+</body></html>

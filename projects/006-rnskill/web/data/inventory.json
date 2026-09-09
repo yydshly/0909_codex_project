@@ -1,0 +1,679 @@
+{
+  "repository": "https://github.com/Pluviobyte/rnskill",
+  "commit": "7cbf47b57cbae0596d46c10c4a1445cbb27904b3",
+  "checked": "2026-09-09",
+  "method": "静态源码核对，未运行上游技能或调用收费服务",
+  "total": 63,
+  "topLevel": 58,
+  "nested": 5,
+  "missingDependencies": [
+    "automation/scripts/wash_ledger.py",
+    "automation/scripts/check_delivery.py",
+    "automation/scripts/hot_monitor_local_job.sh",
+    "automation/config/tts-routing.json"
+  ],
+  "skills": [
+    {
+      "path": "skills/ai-jian-koubo/SKILL.md",
+      "name": "AI剪口播",
+      "sha": "10846e48215dd4322f7908c2115f7cb2ebade3ab",
+      "bytes": 16974,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/ai-jian-koubo/SKILL.md",
+      "nested": false,
+      "scripts": [
+        "skills/ai-jian-koubo/scripts/auto_filler.js",
+        "skills/ai-jian-koubo/scripts/doctor.js",
+        "skills/ai-jian-koubo/scripts/extract_text.js",
+        "skills/ai-jian-koubo/scripts/gen_analysis.js",
+        "skills/ai-jian-koubo/scripts/gen_word_detail.js",
+        "skills/ai-jian-koubo/scripts/generate_review.js",
+        "skills/ai-jian-koubo/scripts/generate_subtitles.js",
+        "skills/ai-jian-koubo/scripts/lib/build_request.py",
+        "skills/ai-jian-koubo/scripts/lib/compute_keeps.js",
+        "skills/ai-jian-koubo/scripts/lib/fcpxml.js",
+        "skills/ai-jian-koubo/scripts/lib/load_api_key.sh",
+        "skills/ai-jian-koubo/scripts/lib/refine_boundaries.js",
+        "skills/ai-jian-koubo/scripts/lib/volc_common.sh",
+        "skills/ai-jian-koubo/scripts/merge_selections.js",
+        "skills/ai-jian-koubo/scripts/review_server.js",
+        "skills/ai-jian-koubo/scripts/run_transcribe.sh",
+        "skills/ai-jian-koubo/scripts/serve_review.sh",
+        "skills/ai-jian-koubo/scripts/volcengine_flash_transcribe.sh",
+        "skills/ai-jian-koubo/scripts/volcengine_v3_transcribe.sh"
+      ]
+    },
+    {
+      "path": "skills/chengfeng-videocut-skills/剪口播/SKILL.md",
+      "name": "chengfeng-videocut-skills:剪口播",
+      "sha": "489efee1d2e6e0ee738603ea5f7b455649efdce2",
+      "bytes": 18312,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/chengfeng-videocut-skills/%E5%89%AA%E5%8F%A3%E6%92%AD/SKILL.md",
+      "nested": true,
+      "scripts": [
+        "skills/chengfeng-videocut-skills/剪口播/scripts/cut_video.sh",
+        "skills/chengfeng-videocut-skills/剪口播/scripts/detect_en_stutter.js",
+        "skills/chengfeng-videocut-skills/剪口播/scripts/generate_review.js",
+        "skills/chengfeng-videocut-skills/剪口播/scripts/generate_srt_for_video.sh",
+        "skills/chengfeng-videocut-skills/剪口播/scripts/generate_subtitles.js",
+        "skills/chengfeng-videocut-skills/剪口播/scripts/review_server.js",
+        "skills/chengfeng-videocut-skills/剪口播/scripts/volcengine_transcribe.sh",
+        "skills/chengfeng-videocut-skills/剪口播/scripts/watch_cut_done.js"
+      ]
+    },
+    {
+      "path": "skills/chengfeng-videocut-skills/口播成片/SKILL.md",
+      "name": "chengfeng-videocut-skills:口播成片",
+      "sha": "711cce7ad3e5c8a1d177c193842e855d72807d94",
+      "bytes": 15768,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/chengfeng-videocut-skills/%E5%8F%A3%E6%92%AD%E6%88%90%E7%89%87/SKILL.md",
+      "nested": true,
+      "scripts": [
+        "skills/chengfeng-videocut-skills/口播成片/scripts/animation_style.cjs",
+        "skills/chengfeng-videocut-skills/口播成片/scripts/export_final_video.cjs",
+        "skills/chengfeng-videocut-skills/口播成片/scripts/serve_range_preview.cjs",
+        "skills/chengfeng-videocut-skills/口播成片/scripts/user_config.cjs",
+        "skills/chengfeng-videocut-skills/口播成片/scripts/write_render_mode.cjs"
+      ]
+    },
+    {
+      "path": "skills/chengfeng-videocut-skills/口播成片/动画/ian-xiaohei-svg-motion/SKILL.md",
+      "name": "ian-xiaohei-svg-motion",
+      "sha": "5e90df5dbddcec37090569328ee6339bf55467aa",
+      "bytes": 4909,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/chengfeng-videocut-skills/%E5%8F%A3%E6%92%AD%E6%88%90%E7%89%87/%E5%8A%A8%E7%94%BB/ian-xiaohei-svg-motion/SKILL.md",
+      "nested": true,
+      "scripts": []
+    },
+    {
+      "path": "skills/chengfeng-videocut-skills/自进化/SKILL.md",
+      "name": "chengfeng-videocut-skills:自进化",
+      "sha": "9e1cd059ae41f7cbf834d043c2c006f9945466c0",
+      "bytes": 2987,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/chengfeng-videocut-skills/%E8%87%AA%E8%BF%9B%E5%8C%96/SKILL.md",
+      "nested": true,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-action/SKILL.md",
+      "name": "dbs-action",
+      "sha": "c497deebb2760257626f367c8fe4bdbdfec896cc",
+      "bytes": 10597,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-action/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-agent-migration/SKILL.md",
+      "name": "dbs-agent-migration",
+      "sha": "05b53746ff7ce2d2929855c9845b5c1ff832dd95",
+      "bytes": 11790,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-agent-migration/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-ai-check/SKILL.md",
+      "name": "dbs-ai-check",
+      "sha": "508b4807a02e822e7797d5b3f9964f829066561f",
+      "bytes": 12206,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-ai-check/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-benchmark/SKILL.md",
+      "name": "dbs-benchmark",
+      "sha": "0cf1b5d683ab79ef4862ed0223f8e77171a6c6eb",
+      "bytes": 9457,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-benchmark/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-chatroom-austrian/SKILL.md",
+      "name": "dbs-chatroom-austrian",
+      "sha": "02793b5ae3c13a8df6e8de64bc845c2c39f91169",
+      "bytes": 4780,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-chatroom-austrian/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-chatroom/SKILL.md",
+      "name": "dbs-chatroom",
+      "sha": "388ea0bc385f963c97e6ebc6e2b3822d91ede405",
+      "bytes": 4911,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-chatroom/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-content-system/SKILL.md",
+      "name": "dbs-content-system",
+      "sha": "38a9c62648dc884b9207992a051ab796dc58bf58",
+      "bytes": 17342,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-content-system/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-content/SKILL.md",
+      "name": "dbs-content",
+      "sha": "e3e12b134cb9e31b5581edbf0e1446ee10e78db8",
+      "bytes": 9984,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-content/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-decision/SKILL.md",
+      "name": "dbs-decision",
+      "sha": "0b3df13f0ddb34f691d2de36202103da9010b006",
+      "bytes": 11823,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-decision/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-deconstruct/SKILL.md",
+      "name": "dbs-deconstruct",
+      "sha": "0f775e85486c938b71cd1a96ff1cc7b4d04876b1",
+      "bytes": 8984,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-deconstruct/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-diagnosis/SKILL.md",
+      "name": "dbs-diagnosis",
+      "sha": "97bdaf5f5f407de76f0d0fbf08fb93a103a90748",
+      "bytes": 20529,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-diagnosis/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-goal/SKILL.md",
+      "name": "dbs-goal",
+      "sha": "c4182943d9ab7e36a4da3a1acd5b7d28b0e0b450",
+      "bytes": 11629,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-goal/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-good-question/SKILL.md",
+      "name": "dbs-good-question",
+      "sha": "7a5d5bb13c28b823f463d2de7ef533a95d5e9621",
+      "bytes": 15202,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-good-question/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-hook/SKILL.md",
+      "name": "dbs-hook",
+      "sha": "27d45c1addf41d05b9fcb0dfdfa2af9550c960d5",
+      "bytes": 10332,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-hook/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-learning/SKILL.md",
+      "name": "dbs-learning",
+      "sha": "1be81f08862e62f5f923cc96c8568bb6da067f3f",
+      "bytes": 9322,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-learning/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-report/SKILL.md",
+      "name": "dbs-report",
+      "sha": "bb4b3563b1bf58caf3a1930fb0ee654c38054c61",
+      "bytes": 8633,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-report/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-resonate/SKILL.md",
+      "name": "dbs-resonate",
+      "sha": "88aea74dd6aeb76c9a0d41362bc26e6d3ff4a14d",
+      "bytes": 7335,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-resonate/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-restore/SKILL.md",
+      "name": "dbs-restore",
+      "sha": "35fa8fe4aa78740b28cc2590400e19dd8399d48c",
+      "bytes": 6704,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-restore/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-save/SKILL.md",
+      "name": "dbs-save",
+      "sha": "c070a213eee5347184c31ce40f3e5eed9ad13736",
+      "bytes": 8135,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-save/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-slowisfast/SKILL.md",
+      "name": "dbs-slowisfast",
+      "sha": "7684c77b7d4d28a260f9b959553f1d2ad63e40a6",
+      "bytes": 12480,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-slowisfast/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-spread/SKILL.md",
+      "name": "dbs-spread",
+      "sha": "49201f2c0951e8ac35fc066d6d3a3e56c95ea7b1",
+      "bytes": 6897,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-spread/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs-xhs-title/SKILL.md",
+      "name": "dbs-xhs-title",
+      "sha": "67a0967b0781c544d16cdf7622fed1c9e3d50622",
+      "bytes": 32888,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs-xhs-title/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/dbs/SKILL.md",
+      "name": "dbs",
+      "sha": "0d76f27032ba56bb9aa574f5a70dae9156082033",
+      "bytes": 18108,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/dbs/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/editorial-collage-motion/SKILL.md",
+      "name": "editorial-collage-motion",
+      "sha": "731a6b1506d2b82bd54c488a1473b1c344b77aba",
+      "bytes": 9122,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/editorial-collage-motion/SKILL.md",
+      "nested": false,
+      "scripts": [
+        "skills/editorial-collage-motion/scripts/render_assembly.py",
+        "skills/editorial-collage-motion/scripts/validate_collage.py"
+      ]
+    },
+    {
+      "path": "skills/editorial-dot-cover/SKILL.md",
+      "name": "editorial-dot-cover",
+      "sha": "5da4d2e0d9933a5a6b3a2858805fb0a7d6739de1",
+      "bytes": 4432,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/editorial-dot-cover/SKILL.md",
+      "nested": false,
+      "scripts": [
+        "skills/editorial-dot-cover/scripts/render_cover.py"
+      ]
+    },
+    {
+      "path": "skills/grok-build-cli/SKILL.md",
+      "name": "grok-build-cli",
+      "sha": "cd876f6eecd13d5a91a55ce53dde33f7a8b8f2f9",
+      "bytes": 3095,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/grok-build-cli/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/heygen-digital-avatar/SKILL.md",
+      "name": "heygen-digital-avatar",
+      "sha": "cbc9d548b0291a7a2222f37b9d694a55b9ee5068",
+      "bytes": 9904,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/heygen-digital-avatar/SKILL.md",
+      "nested": false,
+      "scripts": [
+        "skills/heygen-digital-avatar/scripts/build_request.py",
+        "skills/heygen-digital-avatar/scripts/compose_circle_avatar.py"
+      ]
+    },
+    {
+      "path": "skills/ian-xiaohei-illustrations/SKILL.md",
+      "name": "ian-xiaohei-illustrations",
+      "sha": "901926630f81bf049a8c38c1d551df60e310920b",
+      "bytes": 4205,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/ian-xiaohei-illustrations/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/ra-audio-to-subtitles/SKILL.md",
+      "name": "ra-audio-to-subtitles",
+      "sha": "929d02d1fa05e206e390257c4f97900e0c1178e0",
+      "bytes": 4361,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/ra-audio-to-subtitles/SKILL.md",
+      "nested": false,
+      "scripts": [
+        "skills/ra-audio-to-subtitles/scripts/generate_subtitles.py"
+      ]
+    },
+    {
+      "path": "skills/ra-hook/SKILL.md",
+      "name": "ra-hook",
+      "sha": "d0b56190b3ce5f45ff2dc110a07d037b2cb0bc4a",
+      "bytes": 6648,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/ra-hook/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/ra-local-talking-head-cut/SKILL.md",
+      "name": "ra-local-talking-head-cut",
+      "sha": "080a646747889aa9b05c6cc1f6e877f83d70f2f2",
+      "bytes": 7198,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/ra-local-talking-head-cut/SKILL.md",
+      "nested": false,
+      "scripts": [
+        "skills/ra-local-talking-head-cut/scripts/analyze_visual_cuts.py",
+        "skills/ra-local-talking-head-cut/scripts/build_edl.py",
+        "skills/ra-local-talking-head-cut/scripts/burn_captions.py",
+        "skills/ra-local-talking-head-cut/scripts/generate_final_subtitles.py",
+        "skills/ra-local-talking-head-cut/scripts/prepare_transcript.py",
+        "skills/ra-local-talking-head-cut/scripts/qc.py",
+        "skills/ra-local-talking-head-cut/scripts/render_cut.py"
+      ]
+    },
+    {
+      "path": "skills/ra-video-download/SKILL.md",
+      "name": "ra-video-download",
+      "sha": "9fd88331a930e1f4092d4d8c72f19e17057e8f02",
+      "bytes": 3603,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/ra-video-download/SKILL.md",
+      "nested": false,
+      "scripts": [
+        "skills/ra-video-download/scripts/download_media.py"
+      ]
+    },
+    {
+      "path": "skills/ra-video-production-director/SKILL.md",
+      "name": "ra-video-production-director",
+      "sha": "b8a80264ea1da111a20812b530ffbcd52ddaa4b8",
+      "bytes": 30941,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/ra-video-production-director/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/ra-video-title/SKILL.md",
+      "name": "ra-video-title",
+      "sha": "d71fcd12ea323117fd985180803289f31bcba5a9",
+      "bytes": 4939,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/ra-video-title/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/ra-video-wash-pipeline/SKILL.md",
+      "name": "ra-video-wash-pipeline",
+      "sha": "eda75b5404de151f202e9e26dd77d6386db7d8fe",
+      "bytes": 10882,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/ra-video-wash-pipeline/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/ra-人话/SKILL.md",
+      "name": "ra-人话",
+      "sha": "6312fca687c92e1519820a07be6ccb2f05e0fd5b",
+      "bytes": 8956,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/ra-%E4%BA%BA%E8%AF%9D/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/ra-公众号提取/SKILL.md",
+      "name": "ra-公众号提取",
+      "sha": "75580ede405751e82e77e60ff4c4cbf946e5551b",
+      "bytes": 4630,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/ra-%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8F%90%E5%8F%96/SKILL.md",
+      "nested": false,
+      "scripts": [
+        "skills/ra-公众号提取/scripts/fetch_wechat.py"
+      ]
+    },
+    {
+      "path": "skills/ra-复盘/SKILL.md",
+      "name": "ra-复盘",
+      "sha": "06951be0f12a1f696a3d314aad35071737e2e51f",
+      "bytes": 4402,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/ra-%E5%A4%8D%E7%9B%98/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/ra-实操策划/SKILL.md",
+      "name": "ra-实操策划",
+      "sha": "40ddfe837a689384839dca06b8ae23f138de24df",
+      "bytes": 4518,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/ra-%E5%AE%9E%E6%93%8D%E7%AD%96%E5%88%92/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/ra-洗稿/SKILL.md",
+      "name": "ra-洗稿",
+      "sha": "0bb1174f049fed953d56034bdac49b8ce3c15529",
+      "bytes": 13681,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/ra-%E6%B4%97%E7%A8%BF/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/ra-选题/SKILL.md",
+      "name": "ra-选题",
+      "sha": "f6b33b1dbbd61af4e4ec8987fffad6b8effe4b25",
+      "bytes": 8204,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/ra-%E9%80%89%E9%A2%98/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/ra-逐字稿提取skill/SKILL.md",
+      "name": "ra-逐字稿提取skill",
+      "sha": "01febbd86fac5a2734d1f99f3a71254964200f73",
+      "bytes": 3303,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/ra-%E9%80%90%E5%AD%97%E7%A8%BF%E6%8F%90%E5%8F%96skill/SKILL.md",
+      "nested": false,
+      "scripts": [
+        "skills/ra-逐字稿提取skill/scripts/transcript.py"
+      ]
+    },
+    {
+      "path": "skills/rn-bw-text-opener/SKILL.md",
+      "name": "rn-bw-text-opener",
+      "sha": "91ea6f585a7bab22bfd729ef580e24132ddfe867",
+      "bytes": 4143,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/rn-bw-text-opener/SKILL.md",
+      "nested": false,
+      "scripts": [
+        "skills/rn-bw-text-opener/scripts/create_opener_plan.py"
+      ]
+    },
+    {
+      "path": "skills/rn-cover-skill/SKILL.md",
+      "name": "rn-cover-skill",
+      "sha": "828d0b7a1a66d819f69c595618b36537e7127281",
+      "bytes": 6228,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/rn-cover-skill/SKILL.md",
+      "nested": false,
+      "scripts": [
+        "skills/rn-cover-skill/scripts/compose_cover.py"
+      ]
+    },
+    {
+      "path": "skills/rn-dark-saas-video/SKILL.md",
+      "name": "rn-dark-saas-video",
+      "sha": "831fbbe52a2487041a3a227838b48821125bddc1",
+      "bytes": 4520,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/rn-dark-saas-video/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/rn-human-motion-extractor/SKILL.md",
+      "name": "rn-human-motion-extractor",
+      "sha": "342245ebbeada7886ee71d3f1b48d328bdf5182d",
+      "bytes": 4312,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/rn-human-motion-extractor/SKILL.md",
+      "nested": false,
+      "scripts": [
+        "skills/rn-human-motion-extractor/scripts/extract_motion.py"
+      ]
+    },
+    {
+      "path": "skills/rn-motion-director/SKILL.md",
+      "name": "rn-motion-director",
+      "sha": "d7517f12466990f86e28cb1cc48f67b2ba99cb0c",
+      "bytes": 6370,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/rn-motion-director/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/rn-motion-replica/SKILL.md",
+      "name": "rn-motion-replica",
+      "sha": "223b96593074b91d7468fdb1f3e8f058c5a1ff36",
+      "bytes": 6917,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/rn-motion-replica/SKILL.md",
+      "nested": false,
+      "scripts": [
+        "skills/rn-motion-replica/scripts/analyze_reference.py",
+        "skills/rn-motion-replica/scripts/init_motion_project.py"
+      ]
+    },
+    {
+      "path": "skills/rn-niulai-style-image/SKILL.md",
+      "name": "rn-niulai-style-image",
+      "sha": "0b7a6b3f68dce985185cce1cd765a1b00708c164",
+      "bytes": 5444,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/rn-niulai-style-image/SKILL.md",
+      "nested": false,
+      "scripts": [
+        "skills/rn-niulai-style-image/scripts/make_comparison.py"
+      ]
+    },
+    {
+      "path": "skills/rn-replica-qc/SKILL.md",
+      "name": "rn-replica-qc",
+      "sha": "f16cbe76e8fe5a10c20de2f5f65bdbe6fc03d4cd",
+      "bytes": 7088,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/rn-replica-qc/SKILL.md",
+      "nested": false,
+      "scripts": [
+        "skills/rn-replica-qc/scripts/build_frame_sprite_rows.py",
+        "skills/rn-replica-qc/scripts/compare_videos.py",
+        "skills/rn-replica-qc/scripts/extract_frame_range.py",
+        "skills/rn-replica-qc/scripts/extract_halfsec_frames.py",
+        "skills/rn-replica-qc/scripts/verify_frame_sequence.py",
+        "skills/rn-replica-qc/scripts/verify_frame_sprite_rows.py",
+        "skills/rn-replica-qc/scripts/verify_timeline_playback.cjs"
+      ]
+    },
+    {
+      "path": "skills/skill-captions/SKILL.md",
+      "name": "skill-captions",
+      "sha": "2e1507fd344c5254c81527e1ef6b5fcaaf8dce27",
+      "bytes": 5247,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/skill-captions/SKILL.md",
+      "nested": false,
+      "scripts": [
+        "skills/skill-captions/scripts/render_captions.py",
+        "skills/skill-captions/scripts/validate_caption_render.py"
+      ]
+    },
+    {
+      "path": "skills/skill-cover/SKILL.md",
+      "name": "skill-cover",
+      "sha": "8d1d04aa362f7b27e63f2aeaf9299ade969a39f3",
+      "bytes": 8465,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/skill-cover/SKILL.md",
+      "nested": false,
+      "scripts": [
+        "skills/skill-cover/scripts/build_prompt.py",
+        "skills/skill-cover/scripts/extract_avatar_frames.py",
+        "skills/skill-cover/scripts/validate_cover.py"
+      ]
+    },
+    {
+      "path": "skills/tts-skill/SKILL.md",
+      "name": "tts-skill",
+      "sha": "f8e76a7639267d6dab87a2fc5659178c60b075ee",
+      "bytes": 5244,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/tts-skill/SKILL.md",
+      "nested": false,
+      "scripts": [
+        "skills/tts-skill/scripts/generate_indextts2_narration.py"
+      ]
+    },
+    {
+      "path": "skills/video-use/SKILL.md",
+      "name": "video-use",
+      "sha": "8a181b86b358a8806d7c044079f2a892becfc1ec",
+      "bytes": 23230,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/video-use/SKILL.md",
+      "nested": false,
+      "scripts": [
+        "skills/video-use/skills/manim-video/scripts/setup.sh"
+      ]
+    },
+    {
+      "path": "skills/video-use/skills/manim-video/SKILL.md",
+      "name": "manim-video",
+      "sha": "dca61f82a2fcff639981c01232c33f32ef340adc",
+      "bytes": 12000,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/video-use/skills/manim-video/SKILL.md",
+      "nested": true,
+      "scripts": [
+        "skills/video-use/skills/manim-video/scripts/setup.sh"
+      ]
+    },
+    {
+      "path": "skills/xhs-article-to-images/SKILL.md",
+      "name": "xhs-article-to-images",
+      "sha": "4e8a7d9985a21dfc6f567ecfdc1d60c2f8e8ded9",
+      "bytes": 7886,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/xhs-article-to-images/SKILL.md",
+      "nested": false,
+      "scripts": [
+        "skills/xhs-article-to-images/scripts/_gen-fem.cjs",
+        "skills/xhs-article-to-images/scripts/init-task.cjs",
+        "skills/xhs-article-to-images/scripts/render.cjs"
+      ]
+    },
+    {
+      "path": "skills/孙割/SKILL.md",
+      "name": "孙割",
+      "sha": "f38d5b5aeef65f02f29cc6790e8b16c722b149d2",
+      "bytes": 569,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/%E5%AD%99%E5%89%B2/SKILL.md",
+      "nested": false,
+      "scripts": []
+    },
+    {
+      "path": "skills/孙宇晨/SKILL.md",
+      "name": "孙宇晨",
+      "sha": "52e35c787f43ed186c04931df742bbdd5983e78e",
+      "bytes": 12441,
+      "source": "https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/%E5%AD%99%E5%AE%87%E6%99%A8/SKILL.md",
+      "nested": false,
+      "scripts": []
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="rnskill 将选题、写作、配音字幕、视觉制作与商业诊断整理为 Agent 技能，通过 SKILL.md 指导模型调用脚本、工具和外部服务，以文件交接和质检衔接流程；适用于个人自媒体、课程教程、产品演示和内容资产管理。">
+  <meta name="theme-color" content="#f4f4ed">
+  <title>rnskill · 个人能力工作台｜项目研究室 006</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./data/catalog.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳至正文</a>
+  <header class="topbar">
+    <a class="brand" href="../../"><span class="brand-mark" aria-hidden="true">↗</span> PROJECT LAB <span class="brand-cn">/ 项目研究室</span></a>
+    <div class="top-links"><span class="project-no">RESEARCH 006</span><a href="https://github.com/Pluviobyte/rnskill" target="_blank" rel="noopener noreferrer">上游仓库 ↗</a></div>
+  </header>
+  <div class="app-layout">
+    <aside class="sidebar" aria-label="能力分类导航">
+      <div class="identity"><span class="identity-icon">rn<span>✳</span></span><div><strong>rnskill</strong><small>个人能力工作台</small></div></div>
+      <p class="nav-label">探索能力</p>
+      <button class="category active" data-category="all" aria-pressed="true"><span><i>⌘</i>全部能力</span><b>63</b></button>
+      <nav id="categories" aria-label="按能力分类"></nav>
+      <div class="side-links"><a href="./guide.html">全能力模块引导图 <span>↗</span></a><a href="#workflow">典型工作流程 <span>↗</span></a><a href="#scenarios">适用场景 <span>↗</span></a><a href="#principle">如何运作 <span>↗</span></a><a href="#boundaries">复用前须知 <span>↗</span></a></div>
+      <div class="side-note"><span class="dot"></span> 源码研究快照<p>2026.09.09<br>固定版本 · 静态核对</p><a href="./data/catalog.json" download="rnskill-capabilities.json">下载能力清单 ↓</a></div>
+    </aside>
+    <main id="main">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy"><p class="eyebrow"><span></span> PERSONAL WORKFLOWS, MADE REUSABLE</p><h1 id="page-title">一个人的经验，<br>一整套<span class="serif">工作能力。</span></h1><p class="hero-lead">把选题、写作、音视频与商业思考，整理成 AI 可以遵循的工作方法。由 Agent 按技能说明调用工具、交接产物，服务于个人自媒体、课程教程和产品演示。</p><div class="hero-actions"><a class="primary" href="#catalog">浏览能力目录 <span>↓</span></a><a class="text-link" href="#workflow">看它们如何串起来 ↗</a></div><p class="hero-caption">研究对象：Pluviobyte / rnskill · 作者：雪踏乌云</p></div>
+        <div class="hero-map" aria-label="以 Agent 技能为中心，连接策划、写作、视觉和制作的能力示意">
+          <div class="map-top"><span>能力连接图</span><span>WORKFLOW / 01</span></div>
+          <svg class="map-lines" viewBox="0 0 430 310" aria-hidden="true"><path d="M110 83H170V150H215M320 83H260V150H215M100 244H168V150H215M330 244H268V150H215" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="168" cy="150" r="3"/><circle cx="268" cy="150" r="3"/></svg>
+          <div class="map-node node-plan"><span>01 / PLAN</span><strong>选题 · 策划</strong></div><div class="map-node node-copy"><span>02 / WRITE</span><strong>写作 · 表达</strong></div><div class="map-center"><span>✳</span><strong>Agent + Skills</strong><small>理解 · 编排 · 调用</small></div><div class="map-node node-visual"><span>03 / CREATE</span><strong>封面 · 动画</strong></div><div class="map-node node-ops"><span>04 / PRODUCE</span><strong>制作 · 复盘</strong></div>
+          <div class="map-bottom"><span class="dot"></span> 方法说明 + 工具脚本 + 工作约定</div>
+        </div>
+      </section>
+      <section class="stats" aria-label="收录统计"><div><strong>63<small> 个</small></strong><span>技能文件入口</span></div><div><strong>09<small> 类</small></strong><span>个人工作能力</span></div><div><strong>58 <em>+ 5</em></strong><span>顶层入口 / 嵌套入口</span></div><div class="stats-note"><span class="stamp">研究范围</span><p>按源码逐项整理，含别名与嵌套技能。<br>展示能力定义，运行效果尚未实测。</p></div></section>
+      <p style="margin:0 0 30px;color:#52633d"><a href="./guide.html" style="font-size:14px;border-bottom:1px solid #b8c79e;padding-bottom:5px">从一张模块引导图，了解全部 63 个技能入口 →</a></p>
+      <section id="catalog" class="catalog-section" aria-labelledby="catalog-title">
+        <div class="section-head"><div><p class="eyebrow">CAPABILITY LIBRARY</p><h2 id="catalog-title">找到你需要的能力<span id="title-count">63</span></h2></div><p>从一个具体任务开始。</p></div>
+        <div class="filters"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="搜索能力、技能名、输入或产物…" autocomplete="off" aria-label="搜索能力"><kbd>/</kbd></label><label class="select-label">复用条件<select id="reuse"><option value="all">全部条件</option><option value="method">方法可复用</option><option value="tools">需工具配置</option><option value="workspace">需工作台适配</option></select></label><label class="select-label">入口类型<select id="entry-type"><option value="all">全部入口</option><option value="top">顶层入口</option><option value="nested">嵌套入口</option><option value="alias">别名入口</option></select></label></div>
+        <div class="results-bar"><p id="result-summary" aria-live="polite">正在加载能力目录…</p><button id="reset" class="reset" hidden>清除筛选 ↺</button></div>
+        <div id="cards" class="cards"></div><div id="empty" class="empty" hidden><span>⌕</span><h3>没有找到匹配的能力</h3><p>试试“字幕”“封面”或清除筛选条件。</p><button id="empty-reset" class="primary">显示全部能力</button></div>
+        <details class="count-note"><summary>关于统计口径与复用条件</summary><p>本页按 2026-09-09 核对的固定提交统计：58 个顶层 SKILL.md + 5 个嵌套 SKILL.md = 63 个文件入口。「孙割」为「孙宇晨」的别名。入口之间也存在重叠，文件数不等于独立能力数。上游 README 标注 57，本页采用文件树口径。</p><p>「方法可复用」指主要依赖宿主 Agent 和文档；「需工具配置」指需要模型、服务或本地工具；「需工作台适配」指明显依赖作者的目录、模板、身份或配套系统。分类是研究判断，均不代表已经安装或运行成功。</p></details>
+      </section>
+      <section id="workflow" class="workflow-section" aria-labelledby="workflow-title"><div class="section-head"><div><p class="eyebrow">CONNECT THE DOTS</p><h2 id="workflow-title">单项能力，串成日常流程。</h2></div><span class="section-note">研究整理的典型路径</span></div><div id="workflow-tabs" class="workflow-tabs" role="tablist" aria-label="工作流程"></div><div id="workflow-panel" role="tabpanel" tabindex="0"></div></section>
+      <section id="principle" class="principle" aria-labelledby="principle-title"><div><p class="eyebrow">UNDER THE HOOD</p><h2 id="principle-title">工作方法负责指导，<br>工具负责真正执行。</h2><p>它保存三种经验：可重复的动作、需要判断的方法，以及跨工具的多步流程。Agent 读取 SKILL.md，按需要调用脚本和外部服务；交接稿、时间轴与质检文件保存每一步的结果。</p></div><ol><li><span>01</span><div><h3>技能说明</h3><p>定义何时使用、操作步骤和检查规则。</p></div><small>SKILL.md</small></li><li><span>02</span><div><h3>模型与工具</h3><p>生成文稿与图片，执行识别、剪辑和渲染。</p></div><small>API / CLI</small></li><li><span>03</span><div><h3>文件与交接</h3><p>记录任务状态、产物和质量检查结果。</p></div><small>MD / JSON</small></li></ol></section>
+      <section id="scenarios" class="boundaries" aria-labelledby="scenarios-title"><div class="section-head"><div><p class="eyebrow">WHERE IT FITS</p><h2 id="scenarios-title">从日常任务，理解使用场景。</h2></div></div><div class="boundary-grid"><article><span>01 / 内容生产</span><h3>自媒体与课程教程</h3><p>选题、改稿、配音字幕和图文排版相互配合，准备文章、讲解视频及教程素材；按实际需要选择制作环节。</p></article><article><span>02 / 产品与业务</span><h3>产品演示与商业分析</h3><p>用产品动效和讲解脚本制作演示素材，用目标澄清、对标与模拟讨论整理分析和决策参考。</p></article><article><span>03 / 持续工作</span><h3>内容资产与制作管理</h3><p>整理素材、保存状态、交接质检和数据复盘，让前一步的产物能够继续加工。完整流程需要适配工作目录及服务配置。</p></article></div></section>
+      <section id="boundaries" class="boundaries" aria-labelledby="boundary-title"><div class="section-head"><div><p class="eyebrow">BEFORE YOU REUSE</p><h2 id="boundary-title">带走方法，也看清条件。</h2></div></div><div class="boundary-grid"><article><span>01 / 环境</span><h3>个人工作台需要适配</h3><p>一些技能使用作者的声音、目录和模板。去重、云端监测、交付检查脚本，以及配音路由配置，未随当前仓库提供。</p><a href="./data/inventory.json" download="rnskill-source-inventory.json">查看核对清单 ↓</a></article><article><span>02 / 执行</span><h3>流程规则需要落地验证</h3><p>文字中的步骤由 Agent 遵循。脚本中的检查才有程序约束；本次没有运行上游视频、配音或付费服务。</p><a href="https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/skills/ra-video-production-director/SKILL.md" target="_blank" rel="noopener noreferrer">查看制作导演定义 ↗</a></article><article><span>03 / 使用</span><h3>各模块许可分别核对</h3><p>仓库默认 CC BY-NC 4.0，第三方模块保留自身许可。展示中的商业诊断指功能主题，不代表整库统一允许商业使用。</p><a href="https://github.com/Pluviobyte/rnskill/blob/7cbf47b57cbae0596d46c10c4a1445cbb27904b3/LICENSE" target="_blank" rel="noopener noreferrer">查看上游许可证 ↗</a></article></div></section>
+      <footer><span>PROJECT LAB / 006 · rnskill</span><p>核对版本 <a href="https://github.com/Pluviobyte/rnskill/tree/7cbf47b57cbae0596d46c10c4a1445cbb27904b3" target="_blank" rel="noopener noreferrer">7cbf47b ↗</a> · 2026.09.09</p><a href="#main">回到顶部 ↑</a></footer>
+    </main>
+  </div>
+  <dialog id="detail" aria-labelledby="detail-title"><div class="dialog-top"><span id="detail-category"></span><button id="close-detail" aria-label="关闭能力详情">✕</button></div><div id="detail-content"></div></dialog>
+  <noscript><p class="noscript">启用 JavaScript 可浏览和筛选完整目录，也可直接<a href="./data/catalog.json">下载能力清单</a>。</p></noscript>
+</body>
+</html>

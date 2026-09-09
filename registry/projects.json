@@ -86,6 +86,23 @@
       "demo": true
     },
     {
+      "id": 6,
+      "slug": "rnskill",
+      "order": 60,
+      "name": "rnskill 个人能力工作台",
+      "source": "https://github.com/Pluviobyte/rnskill",
+      "summary": "rnskill 将选题、写作、配音字幕、视觉制作与商业诊断整理为 Agent 技能，通过 SKILL.md 指导模型调用脚本、工具和外部服务，以文件交接和质检衔接流程；适用于个人自媒体、课程教程、产品演示和内容资产管理。",
+      "status": "已整理",
+      "tags": [
+        "Agent Skills",
+        "能力目录",
+        "内容生产",
+        "工作流"
+      ],
+      "cover": "web/assets/overview.svg",
+      "demo": true
+    },
+    {
       "id": 7,
       "slug": "heliosgen",
       "order": 70,

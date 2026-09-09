@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="740" viewBox="0 0 1200 740" role="img" aria-labelledby="title desc">
+<title id="title">rnskill 九类能力总览</title><desc id="desc">63 个技能文件入口，包括 58 个顶层和 5 个嵌套入口。按九类工作能力整理。</desc>
+<rect width="1200" height="740" fill="#f4f5ed"/>
+<g font-family="Segoe UI, Microsoft YaHei, sans-serif" fill="#293422">
+<text x="48" y="48" font-size="13" letter-spacing="3" fill="#738261">PROJECT LAB / RESEARCH 006</text>
+<text x="48" y="111" font-size="42" font-weight="650">rnskill · 个人能力工作台</text>
+<text x="48" y="150" font-size="17" fill="#78846b">工作方法 × 工具调用 × 生产流程</text>
+<rect x="890" y="58" width="260" height="100" rx="8" fill="#dfe8ce"/>
+<text x="912" y="105" font-size="30" font-weight="600">63 个入口 · 9 类</text>
+<text x="912" y="134" font-size="13" fill="#657950">58 顶层 + 5 嵌套（含别名）</text>
+<rect x="48" y="195" width="350" height="128" rx="7" fill="#fdfdf9" stroke="#d8dfcc"/>
+<text x="68" y="224" font-size="12" fill="#82916e">01 / CAPABILITY</text>
+<text x="68" y="260" font-size="23" font-weight="600">选题与策划</text>
+<text x="360" y="259" font-size="24" text-anchor="end" fill="#82916e">05</text>
+<text x="68" y="294" font-size="13" fill="#7a856d">从灵感走到可制作的选题</text>
+<rect x="425" y="195" width="350" height="128" rx="7" fill="#fdfdf9" stroke="#d8dfcc"/>
+<text x="445" y="224" font-size="12" fill="#82916e">02 / CAPABILITY</text>
+<text x="445" y="260" font-size="23" font-weight="600">写作与表达</text>
+<text x="737" y="259" font-size="24" text-anchor="end" fill="#82916e">08</text>
+<text x="445" y="294" font-size="13" fill="#7a856d">把内容写清楚，再检查表达</text>
+<rect x="802" y="195" width="350" height="128" rx="7" fill="#fdfdf9" stroke="#d8dfcc"/>
+<text x="822" y="224" font-size="12" fill="#82916e">03 / CAPABILITY</text>
+<text x="822" y="260" font-size="23" font-weight="600">素材与剪辑</text>
+<text x="1114" y="259" font-size="24" text-anchor="end" fill="#82916e">08</text>
+<text x="822" y="294" font-size="13" fill="#7a856d">获取素材、转写与编辑视频</text>
+<rect x="48" y="346" width="350" height="128" rx="7" fill="#fdfdf9" stroke="#d8dfcc"/>
+<text x="68" y="375" font-size="12" fill="#82916e">04 / CAPABILITY</text>
+<text x="68" y="411" font-size="23" font-weight="600">声音与字幕</text>
+<text x="360" y="410" font-size="24" text-anchor="end" fill="#82916e">04</text>
+<text x="68" y="445" font-size="13" fill="#7a856d">配音、数字人和字幕时间轴</text>
+<rect x="425" y="346" width="350" height="128" rx="7" fill="#fdfdf9" stroke="#d8dfcc"/>
+<text x="445" y="375" font-size="12" fill="#82916e">05 / CAPABILITY</text>
+<text x="445" y="411" font-size="23" font-weight="600">封面与图文</text>
+<text x="737" y="410" font-size="24" text-anchor="end" fill="#82916e">06</text>
+<text x="445" y="445" font-size="13" fill="#7a856d">把文字转成可发布的视觉内容</text>
+<rect x="802" y="346" width="350" height="128" rx="7" fill="#fdfdf9" stroke="#d8dfcc"/>
+<text x="822" y="375" font-size="12" fill="#82916e">06 / CAPABILITY</text>
+<text x="822" y="411" font-size="23" font-weight="600">动画与动效</text>
+<text x="1114" y="410" font-size="24" text-anchor="end" fill="#82916e">08</text>
+<text x="822" y="445" font-size="13" fill="#7a856d">设计运动、重建参考与提取动作</text>
+<rect x="48" y="497" width="350" height="128" rx="7" fill="#fdfdf9" stroke="#d8dfcc"/>
+<text x="68" y="526" font-size="12" fill="#82916e">07 / CAPABILITY</text>
+<text x="68" y="562" font-size="23" font-weight="600">调度与沉淀</text>
+<text x="360" y="561" font-size="24" text-anchor="end" fill="#82916e">09</text>
+<text x="68" y="596" font-size="13" fill="#7a856d">制作交接、质检和内容资产管理</text>
+<rect x="425" y="497" width="350" height="128" rx="7" fill="#fdfdf9" stroke="#d8dfcc"/>
+<text x="445" y="526" font-size="12" fill="#82916e">08 / CAPABILITY</text>
+<text x="445" y="562" font-size="23" font-weight="600">商业与思考</text>
+<text x="737" y="561" font-size="24" text-anchor="end" fill="#82916e">13</text>
+<text x="445" y="596" font-size="13" fill="#7a856d">诊断问题、比较视角与规划行动</text>
+<rect x="802" y="497" width="350" height="128" rx="7" fill="#fdfdf9" stroke="#d8dfcc"/>
+<text x="822" y="526" font-size="12" fill="#82916e">09 / CAPABILITY</text>
+<text x="822" y="562" font-size="23" font-weight="600">Agent 工具</text>
+<text x="1114" y="561" font-size="24" text-anchor="end" fill="#82916e">02</text>
+<text x="822" y="596" font-size="13" fill="#7a856d">连接其他工具与整理工作台</text>
+<path d="M48 675H1150" stroke="#d8dfcc"/>
+<text x="48" y="708" font-size="12" fill="#7a856d">文件数量不等于独立能力数量 · 能力定义已整理，上游运行效果未实测</text>
+<text x="1150" y="708" font-size="12" text-anchor="end" fill="#7a856d">7cbf47b / 2026.09.09</text></g></svg>
