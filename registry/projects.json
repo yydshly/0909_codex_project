@@ -1,5 +1,5 @@
 {
-  "nextId": 9,
+  "nextId": 10,
   "projects": [
     {
       "id": 1,
@@ -117,6 +117,23 @@
         "个人知识库"
       ],
       "cover": "web/assets/siftly-overview.png",
+      "demo": true
+    },
+    {
+      "id": 9,
+      "slug": "agents-course",
+      "order": 90,
+      "name": "Hugging Face Agent 开发课程",
+      "source": "https://github.com/huggingface/agents-course",
+      "summary": "Hugging Face 的 Agent 开发课程与示例集：通过模型决策、工具执行和反馈循环，结合检索增强与状态编排，讲解 smolagents、LlamaIndex、LangGraph 的实现；适合学习工具调用、构建知识问答与多步骤任务原型，并通过评估改进效果。",
+      "status": "已整理",
+      "tags": [
+        "Agent 教程",
+        "工具调用",
+        "检索增强",
+        "工作流编排"
+      ],
+      "cover": "web/assets/overview.svg",
       "demo": true
     }
   ]

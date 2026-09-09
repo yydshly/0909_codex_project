@@ -16,6 +16,7 @@
 | 5 | 005 | [Agents Radar 多源情报架构](projects/005-agents-radar/README.md) | [duanyytop/agents-radar](https://github.com/duanyytop/agents-radar) | 拆解 19 个 GitHub 仓库、2 家官网及社区、论文、模型和产品平台的来源配置、采集适配、文本处理与双语报告分发，附一页全景图与完整来源清单。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/005-agents-radar/) |
 | 6 | 007 | [HeliosGen AI 创作工作台](projects/007-heliosgen/README.md) | [SegFault42/HeliosGen](https://github.com/SegFault42/HeliosGen) | 面向图片与视频创作的桌面应用，支持提示词辅助、节点工作流与本地素材管理；通过云端模型 API 适配和依赖调度串联生成任务，减少重复操作、复用创作流程；可扩展更多模型、本地推理、任务恢复、成本控制与行业模板。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/007-heliosgen/) |
 | 7 | 008 | [Siftly X 收藏知识库](projects/008-siftly/README.md) | [viperrcrypto/Siftly](https://github.com/viperrcrypto/Siftly) | 面向个人的自托管 X 收藏知识库，通过文件、Cookie 或官方 API 路径获取收藏，使用 SQLite 存储、视觉大模型提取图片信息，并以全文召回和大模型重排实现自然语言查找；适合工具资料整理、教程检索、视觉素材回找与 Obsidian 积累。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/008-siftly/) |
+| 8 | 009 | [Hugging Face Agent 开发课程](projects/009-agents-course/README.md) | [huggingface/agents-course](https://github.com/huggingface/agents-course) | Hugging Face 的 Agent 开发课程与示例集：通过模型决策、工具执行和反馈循环，结合检索增强与状态编排，讲解 smolagents、LlamaIndex、LangGraph 的实现；适合学习工具调用、构建知识问答与多步骤任务原型，并通过评估改进效果。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/009-agents-course/) |
 <!-- PROJECT_INDEX:END -->
 
 ## 项目速览
@@ -80,6 +81,14 @@ Anthropic 官方交互式提示词课程：通过 9 章 Notebook 学习任务定
 ![Siftly X 收藏知识库 封面](projects/008-siftly/web/assets/siftly-overview.png)
 
 [研究记录](projects/008-siftly/README.md) · [上游仓库](https://github.com/viperrcrypto/Siftly) · [Web 演示](https://yydshly.github.io/0909_codex_project/projects/008-siftly/)
+
+### 009 · Hugging Face Agent 开发课程
+
+Hugging Face 的 Agent 开发课程与示例集：通过模型决策、工具执行和反馈循环，结合检索增强与状态编排，讲解 smolagents、LlamaIndex、LangGraph 的实现；适合学习工具调用、构建知识问答与多步骤任务原型，并通过评估改进效果。
+
+![Hugging Face Agent 开发课程 封面](projects/009-agents-course/web/assets/overview.svg)
+
+[研究记录](projects/009-agents-course/README.md) · [上游仓库](https://github.com/huggingface/agents-course) · [Web 演示](https://yydshly.github.io/0909_codex_project/projects/009-agents-course/)
 <!-- PROJECT_CARDS:END -->
 
 ## 001 · 架构图阅读指南
