@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Ian Handdrawn PPT 效果展厅：原作者示例与 GitHub 项目研究室真实场景实作，从素材到手绘解释图。">
+  <title>手绘解释图 · 开源项目研究室</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./explanation.css">
+  <script defer src="./data/gallery.js"></script><script defer src="./app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#original">跳到原作展示</a>
+  <header class="topbar"><a class="brand" href="../../"><span class="brand-symbol" aria-hidden="true">研</span>开源项目研究室<span class="brand-divider">/</span><span class="brand-sub">004</span></a><nav aria-label="页面导航"><a href="#original">原作效果</a><a href="#real">真实场景</a><a href="#method">风格与原理</a><a class="upstream-link" href="https://github.com/helloianneo/ian-handdrawn-ppt" target="_blank" rel="noopener noreferrer">上游仓库 ↗</a></nav></header>
+  <main>
+    <section class="intro" aria-labelledby="intro-title"><div><p class="eyebrow"><span></span> IAN HANDDRAWN PPT · 能力实作</p><h1 id="intro-title">把复杂的想法，<br>画成<span class="ink-mark">看得懂的图。</span></h1><p class="lead">先看原作者的成品，再看一份真实工作说明<br class="desktop-break">如何变成一组中文手绘解释页。</p><a class="intro-explainer" href="#overview">从想法到一套演示图，先看整体引导 →</a></div><aside class="intro-note"><span class="note-pin" aria-hidden="true"></span><p class="note-kicker">这次看什么</p><p>一套方法，两组作品。</p><div class="note-stats"><span><strong>04</strong>原作示例</span><span><strong>04</strong>本次实作</span></div><small>整页 PNG · 中文文字与插图一起生成</small></aside></section>
+    <section id="overview" class="guide-section" aria-labelledby="guide-title">
+      <div class="section-heading"><div><p class="eyebrow">00 / THE BIG PICTURE</p><h2 id="guide-title">从一个想法，到一套演示图</h2><p>输入内容，AI 按库的规则组织思路，再生成符合讲述顺序、风格统一的页面图片。</p></div><a class="text-link" href="./assets/library-guide.png" target="_blank" rel="noopener">放大整体图 ↗</a></div>
+      <a class="guide-image" href="./assets/library-guide.png" target="_blank" rel="noopener" aria-label="放大：Ian Handdrawn PPT 整体引导图"><img src="./assets/library-guide.png" width="1672" height="941" alt="输入想法、文章或观点，AI 按库的规则提炼观点、编排思路、设计页面、生图与检查，得到整页 PNG、总览图和规划摘要。默认手绘风格可通过修改规则扩展；图像式演示稿并非可编辑 PPTX。"></a>
+      <p class="provenance">本研究室的理解引导图 · 图中文字与关系已目视检查。原库提供工作规则，实际执行依赖 AI 与图像模型；可编辑 PPTX 需额外实现。</p>
+    </section>
+    <section id="original" class="showcase" aria-labelledby="original-title"><div class="section-heading"><div><p class="eyebrow">01 / ORIGINAL COLLECTION</p><h2 id="original-title">先看原库的效果<span class="pill">原作者示例</span></h2><p>主题：自动化的边界。观察同一风格怎样承载隐喻、对比、流程和判断。</p></div><a class="text-link" href="https://github.com/helloianneo/ian-handdrawn-ppt/tree/b2cc5f303337e5470fd6ac2870d261a43b218439/examples/images" target="_blank" rel="noopener noreferrer">查看原始出处 ↗</a></div><div id="original-gallery" class="gallery" tabindex="0" aria-label="原作者示例画廊，方向键切换图片"></div><p class="provenance">原图来自 Ian（helloianneo）的公开仓库，保留原文件。此处展示原作，不代表本次重新生成。</p></section>
+    <section id="real" class="showcase real-section" aria-labelledby="real-title"><div class="section-heading"><div><p class="eyebrow">02 / REAL-WORLD PRACTICE</p><h2 id="real-title">再放进一个真实场景<span class="pill green">本次实作</span></h2><p>给研究室的新协作者，讲清楚“怎样把一个开源项目整理成可复用的知识”。</p></div><a class="text-link" href="./assets/scenario/contact-sheet.png" target="_blank" rel="noopener">整套总览 ↗</a></div>
+      <div class="brief-strip"><div><span class="brief-label">实际需求</span><p>把研究流程讲给新协作者</p></div><div><span class="brief-label">真实材料</span><p>本仓库的介绍、收录与发布约定</p></div><div><span class="brief-label">交付形式</span><p>1 张封面 + 3 张正文解释页</p></div></div>
+      <div id="scenario-gallery" class="gallery" tabindex="0" aria-label="真实场景实作画廊，方向键切换图片"></div>
+      <p class="provenance">按原 Skill 的规划与风格规则，使用内置图像工具逐页生成；附原库参考图。不是原作者作品，也不是对原图的改字复用。</p>
+      <div class="workbench"><div class="workbench-header"><div><p class="eyebrow">BEHIND THE IMAGE</p><h3>一张图，是怎样从材料里长出来的？</h3></div><div class="tabs" role="tablist" aria-label="实作过程"><button role="tab" aria-selected="true" aria-controls="source-panel" id="source-tab" data-panel="source-panel">原始材料</button><button role="tab" aria-selected="false" aria-controls="blueprint-panel" id="blueprint-tab" data-panel="blueprint-panel" tabindex="-1">页面规划</button><button role="tab" aria-selected="false" aria-controls="prompt-panel" id="prompt-tab" data-panel="prompt-panel" tabindex="-1">生成提示词</button></div></div>
+      <div id="source-panel" class="panel" role="tabpanel" aria-labelledby="source-tab"><div class="source-heading"><span class="file-label">材料摘要 · 本研究室现有规范</span><a href="./data/source-material.md" download>下载完整素材 ↓</a></div><div class="source-columns"><blockquote>“记录它们解决的问题、实现思路、运行方法和可复用的经验。每个项目独立整理研究笔记、截图和可选的 Web 演示。”<cite>README · 研究室介绍</cite></blockquote><blockquote>“记录研究对应的上游版本或 Commit……引入上游源码时保留许可信息。”<cite>project-guide · 收录约定</cite></blockquote><blockquote>“资料推送与站点上线是独立步骤。当前继续采用手动发布。”<cite>deployment · 发布约定</cite></blockquote></div><p class="small-note">教学编排：收录档案 → 研究验证 → 保存与发布。内容来自实际工作区，未添加虚构客户或效果数据。</p></div>
+      <div id="blueprint-panel" class="panel" role="tabpanel" aria-labelledby="blueprint-tab" hidden><div class="source-heading"><span class="file-label">每页只保留一个主要观点</span><a href="./data/blueprint.json" download>下载完整规划 ↓</a></div><div id="blueprint-list"></div></div>
+      <div id="prompt-panel" class="panel" role="tabpanel" aria-labelledby="prompt-tab" hidden><div class="source-heading"><label for="prompt-page">选择页面 <select id="prompt-page"></select></label><button id="copy-prompt" class="plain-button">复制提示词</button></div><pre id="prompt-text"></pre><p id="copy-status" role="status" class="small-note"></p></div></div>
+    </section>
+    <section id="method" class="method" aria-labelledby="method-title">
+      <div class="section-heading"><div><p class="eyebrow">03 / STYLE, WORKFLOW & OUTPUT</p><h2 id="method-title">风格、原理与能力边界</h2><p>当前展示的是一套默认手绘风格，用两组不同的内容验证效果。</p></div></div>
+      <div class="explain-grid">
+        <article class="explain-card"><span class="explain-number">01 / 风格</span><h3>只能画成这一种吗？</h3><p><strong>默认只有这套风格，可修改规则进行扩展。</strong>原库没有内置多风格菜单。淡色手绘是它选定的视觉体系；其他风格需要更换参考图，并同步调整配色、线条、字体和提示词约束，再重新生成。</p><p class="explain-example">对比图、流程图、分类图属于<strong>不同版式</strong>，并不意味着使用了不同风格。</p></article>
+        <article class="explain-card"><span class="explain-number">02 / 核心</span><h3>主要是在生成图片吗？</h3><p><strong>最终主要交付整页 PNG。</strong>先理解材料，提炼观点与叙事，再选择每页结构，按统一风格生成图片。标题、标签和插图通常一起生成，文字已经嵌入图片中。</p><p class="explain-example">只想整理内容时，也可以停在<strong>页面规划</strong>阶段，不调用生图。</p></article>
+        <article class="explain-card"><span class="explain-number">03 / 信息</span><h3>除了成品，还能看什么？</h3><p><strong>本展厅保留了从素材到结果的过程。</strong>原作注明来源与作者，实作提供原始材料、每页主旨、版式、完整提示词，以及实际图片尺寸和制作记录。</p><p class="explain-example">这些说明由<strong>本展厅</strong>整理呈现；原库本身是一套指导 AI 工作的 Skill。</p></article>
+      </div>
+      <div class="style-scope"><div class="scope-heading"><h3>哪些已经展示，哪些需要扩展？</h3><p>以下是能力范围说明，尚未实作的方向没有效果预览。</p></div>
+        <div class="scope-row"><span class="scope-status ready">已展示</span><div><h4>中文手绘技术解释风格</h4><p>近白纸底、细线、淡色标签、大留白；本页全部 8 张作品沿用这套风格。</p></div><span class="scope-kind">原库默认</span></div>
+        <div class="scope-row"><span class="scope-status">可调整</span><div><h4>同一风格内的变化</h4><p>修改配色、画幅、文字密度或边框等规则。新增配置后需要重新生图并检查效果。</p></div><span class="scope-kind">需改规则与验证</span></div>
+        <div class="scope-row"><span class="scope-status">扩展方向</span><div><h4>扁平信息图、蓝图或漫画讲解</h4><p>这是可探索的新方向，当前未实作。需替换风格参考，重写相关视觉规则与限制，效果取决于生图模型。</p></div><span class="scope-kind">非内置风格包</span></div>
+      </div>
+      <div class="scope-heading workflow-heading"><h3>从材料到整页图片，中间发生了什么？</h3><p>语义决定“画什么、怎么组织”，风格决定“看起来是什么样”。</p></div>
+      <ol class="method-steps"><li><span>01</span><h3>理解与提炼</h3><p>读懂原文、受众与目标，保留核心观点和事实依据。</p></li><li><span>02</span><h3>编排与选版式</h3><p>每页一个观点。步骤画流程，差异做对比，归类用分支。</p></li><li><span>03</span><h3>风格与提示词</h3><p>统一视觉规则，逐页写明构图、图形关系和必需文字。</p></li><li><span>04</span><h3>生图与检查</h3><p>生成带字的整页 PNG，检查文字、关系和跨页一致性；不合格则返工。</p></li></ol>
+      <div class="output-strip"><div><h3>最终交付</h3><p>页面 PNG ＋ 多页缩略总览 ＋ 简短规划摘要。也支持仅输出规划。</p></div><div><h3>当前不包含</h3><p>可编辑 PPTX、可单独修改的文字与图形、交互动画。PDF/PPTX 导出需要额外实现。</p></div></div>
+      <div class="boundary"><div><h3>适合用来做</h3><p>技术文章配图、概念教学、课程插图、产品流程讲解。</p></div><div><h3>使用前要知道</h3><p>原库提供工作规则，执行依赖 AI 与图像工具。文字准确性和风格一致性仍需检查。当前页面是效果展厅，不提供在线生图。</p></div></div>
+      <p class="method-links">继续查看：<a href="./data/source-material.md">真实场景素材</a> · <a href="./data/blueprint.json">逐页规划与提示词</a> · <a href="./data/verification.json">尺寸与制作记录</a> · <a href="https://github.com/helloianneo/ian-handdrawn-ppt/blob/b2cc5f303337e5470fd6ac2870d261a43b218439/ian-handdrawn-ppt/SKILL.md" target="_blank" rel="noopener noreferrer">原库规则依据 ↗</a></p>
+    </section>
+    <footer><div><strong>Ian Handdrawn PPT</strong><p>原作与风格参考：Ian · MIT License<br>实作与展示页：开源项目研究室 · 2026.09.09</p></div><div class="footer-links"><a href="./assets/original/LICENSE">许可证</a><a href="./assets/original/NOTICE.md">署名说明</a><a href="./data/verification.json" target="_blank" rel="noopener">制作记录 ↗</a><a href="#original">回到作品 ↑</a></div></footer>
+  </main>
+  <dialog id="lightbox" aria-label="图片放大预览"><div class="lightbox-bar"><p id="lightbox-title"></p><button id="lightbox-close" aria-label="关闭预览">关闭 ×</button></div><img id="lightbox-image" alt=""><div class="lightbox-controls"><button id="lightbox-prev" aria-label="上一张">← 上一张</button><span id="lightbox-count" aria-live="polite"></span><button id="lightbox-next" aria-label="下一张">下一张 →</button></div></dialog>
+  <noscript><p>请启用 JavaScript 使用画廊，或直接查看 <a href="./assets/original/cover.png">原作封面</a> 与 <a href="./assets/scenario/contact-sheet.png">实作总览</a>。</p></noscript>
+</body>
+</html>

@@ -12,7 +12,8 @@
 | 1 | 001 | [提示词工程交互教程](projects/001-prompt-eng-interactive-tutorial/README.md) | [anthropics/prompt-eng-interactive-tutorial](https://github.com/anthropics/prompt-eng-interactive-tutorial) | Anthropic 官方交互式提示词课程：通过 9 章 Notebook 学习任务定义、示例、格式与证据约束，并用调用反馈迭代；附录介绍提示词链、工具调用、评估和检索扩展。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/001-prompt-eng-interactive-tutorial/) |
 | 2 | 002 | [URL 驱动的 AI 网页复刻](projects/002-ai-website-cloner-template/README.md) | [JCodesMore/ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template) | 输入一个或多个目标 URL，借助 AI 编程代理复刻网页布局、样式、素材和可观察交互，生成可修改的 Next.js 前端工程；以规格和验证流程减少执行遗漏。 | 已归档 | [演示](https://yydshly.github.io/0909_codex_project/projects/002-ai-website-cloner-template/) |
 | 3 | 003 | [Archify 能力与设计图谱](projects/003-archify/README.md) | [tt-a1i/archify](https://github.com/tt-a1i/archify) | 将用户或 Agent 编写的 JSON 规格渲染为交互式架构图、工作流、时序图、数据流和生命周期图，支持架构模型差异与多格式导出；用于系统讲解、设计评审和重构沟通，以可校验、可复现的图形交付提升沟通效率，可扩展代码关系提取、UML/ER 图及 CI 文档更新。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/003-archify/) |
-| 4 | 007 | [HeliosGen AI 创作工作台](projects/007-heliosgen/README.md) | [SegFault42/HeliosGen](https://github.com/SegFault42/HeliosGen) | 面向图片与视频创作的桌面应用，支持提示词辅助、节点工作流与本地素材管理；通过云端模型 API 适配和依赖调度串联生成任务，减少重复操作、复用创作流程；可扩展更多模型、本地推理、任务恢复、成本控制与行业模板。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/007-heliosgen/) |
+| 4 | 004 | [中文手绘解释图展厅](projects/004-ian-handdrawn-ppt/README.md) | [helloianneo/ian-handdrawn-ppt](https://github.com/helloianneo/ian-handdrawn-ppt) | 输入想法、文章或观点，AI 按库的规则提炼信息、编排思路并生成风格统一的演示页面 PNG；用整体引导图、原作与真实场景实作展示能力，明确图像式演示稿与可编辑 PPTX 的区别。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/004-ian-handdrawn-ppt/) |
+| 5 | 007 | [HeliosGen AI 创作工作台](projects/007-heliosgen/README.md) | [SegFault42/HeliosGen](https://github.com/SegFault42/HeliosGen) | 面向图片与视频创作的桌面应用，支持提示词辅助、节点工作流与本地素材管理；通过云端模型 API 适配和依赖调度串联生成任务，减少重复操作、复用创作流程；可扩展更多模型、本地推理、任务恢复、成本控制与行业模板。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/007-heliosgen/) |
 <!-- PROJECT_INDEX:END -->
 
 ## 项目速览
@@ -45,6 +46,14 @@ Anthropic 官方交互式提示词课程：通过 9 章 Notebook 学习任务定
 [![Archify 能力与设计图谱 实际效果预览](projects/003-archify/web/assets/self-architecture-preview.png)](https://yydshly.github.io/0909_codex_project/projects/003-archify/)
 
 [研究记录](projects/003-archify/README.md) · [上游仓库](https://github.com/tt-a1i/archify) · [Web 演示](https://yydshly.github.io/0909_codex_project/projects/003-archify/)
+
+### 004 · 中文手绘解释图展厅
+
+输入想法、文章或观点，AI 按库的规则提炼信息、编排思路并生成风格统一的演示页面 PNG；用整体引导图、原作与真实场景实作展示能力，明确图像式演示稿与可编辑 PPTX 的区别。
+
+![中文手绘解释图展厅 封面](projects/004-ian-handdrawn-ppt/web/assets/library-guide.png)
+
+[研究记录](projects/004-ian-handdrawn-ppt/README.md) · [上游仓库](https://github.com/helloianneo/ian-handdrawn-ppt) · [Web 演示](https://yydshly.github.io/0909_codex_project/projects/004-ian-handdrawn-ppt/)
 
 ### 007 · HeliosGen AI 创作工作台
 

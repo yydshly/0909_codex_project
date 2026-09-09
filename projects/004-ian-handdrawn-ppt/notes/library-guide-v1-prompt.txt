@@ -1,0 +1,42 @@
+Use case: productivity-visual.
+Create ONE polished Chinese educational overview infographic, final PNG, landscape 16:9, preferred 2560x1440 if supported. This is a REVIEW DRAFT of our understanding of the repository Ian Handdrawn PPT, not a screenshot and not a PPTX.
+Use the attached image as a STYLE REFERENCE ONLY. Replace all its content. Refined near-white paper #FBFAF5, fine black pen and pencil hatching, pale blue/sage/peach/lavender small marker labels, sparse corner construction marks, no page border, no people, calm wide margins. Chinese lettering must be highly readable. Use a restrained centered title and pale blue underline. Diagram detail higher than flat icons. No fake writing on books/screens, use only simple lines. Do not add arbitrary text.
+Main intended message: A user supplies an idea, article or viewpoint; an AI agent follows this skill's rules to understand content, organize a coherent narrative, select per-page layouts and shared style, call an image model and check outputs; result is a coherent set of page images, NOT directly an editable PPTX. The repository provides workflow rules rather than its own model.
+
+Layout:
+TOP at 6-18% height: small repository name "Ian Handdrawn PPT", title "从想法到一套演示图", subtitle "先组织思路，再生成页面".
+MAIN at 26-73% height: three clear left-to-right zones with thin connecting arrows.
+LEFT zone about 19% width: label "你提供内容" above a small lightbulb, document and thought-notebook cluster. Exactly three captions below them: "一个想法", "一篇文章", "一套观点". Below in tiny readable text: "明确受众与目标". One arrow from the input zone to the central workflow.
+MIDDLE zone about 42% width: label "AI 按库的规则执行". Under it use FOUR compact stages in a 2 by 2 reading flow: top-left "提炼观点" with magnifier over blank text lines; top-right "编排思路" with ordered index cards; lower-right "设计页面" with miniature contrast/process layouts; lower-left "生图与检查" with pencil plus simple checkmark. Connect top-left → top-right → lower-right → lower-left with thin clear arrows. Stage subcaptions respectively "抓住核心", "安排顺序", "版式与风格", "调用图像模型". No numbers, avoid mistaken additional text. A clear outgoing arrow from the last stage curves BELOW the central group to the RIGHT output zone without crossing diagram objects.
+RIGHT zone about 24% width: label "得到一套演示图" above three small overlapping landscape slide sheets on a small paper tray, each with a pale title line and different simple diagrams (contrast, process, classification); no actual text on miniature sheets. Beneath list 2 small lines: "整页 PNG" and "总览图 · 规划摘要". Under these a small annotation "适合文章配图与讲解".
+BOTTOM at 82-94% height, separated by a faint short line, two concise interpretation notes with tiny symbols:
+left note near small palette: "默认手绘风格，可改规则扩展"
+right note near tiny page icon: "图像式演示稿 ≠ 可编辑 PPTX".
+Do not use any unrelated logos or sales claims. All arrow relationships must be legible. The bottom notes are important capability boundaries and must not be omitted.
+
+Required text only, every item exactly once:
+Ian Handdrawn PPT
+从想法到一套演示图
+先组织思路，再生成页面
+你提供内容
+一个想法
+一篇文章
+一套观点
+明确受众与目标
+AI 按库的规则执行
+提炼观点
+抓住核心
+编排思路
+安排顺序
+设计页面
+版式与风格
+生图与检查
+调用图像模型
+得到一套演示图
+整页 PNG
+总览图 · 规划摘要
+适合文章配图与讲解
+默认手绘风格，可改规则扩展
+图像式演示稿 ≠ 可编辑 PPTX
+
+Text accuracy is essential. No omissions, no additional slogans, no dense paragraph text. All imagery is metaphorical except explicit workflow arrows.

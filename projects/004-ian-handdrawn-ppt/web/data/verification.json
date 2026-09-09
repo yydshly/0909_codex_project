@@ -1,0 +1,135 @@
+{
+  "date": "2026-09-09",
+  "upstream": "https://github.com/helloianneo/ian-handdrawn-ppt",
+  "upstreamCommit": "b2cc5f303337e5470fd6ac2870d261a43b218439",
+  "generation": "内置 image_gen，附原库参考图，逐页独立提示词；模型版本不作额外推断",
+  "scenarioSources": [
+    "README.md",
+    "docs/project-guide.md",
+    "docs/deployment.md"
+  ],
+  "files": [
+    {
+      "file": "web/assets/original/cover.png",
+      "origin": "Ian 原作，原文件未改动",
+      "source": "https://github.com/helloianneo/ian-handdrawn-ppt/blob/b2cc5f303337e5470fd6ac2870d261a43b218439/examples/images/cover-automation-boundary.png",
+      "width": 1928,
+      "height": 816,
+      "sha256": "ce212c25086484fad78878e50fb8a8bc20330193ddbf84c9bd101f3486c50627",
+      "gitBlob": "a0a09040921cf632f5aba0843cb242b2bb4a6edb",
+      "matchesUpstream": true
+    },
+    {
+      "file": "web/assets/original/page-01.png",
+      "origin": "Ian 原作，原文件未改动",
+      "source": "https://github.com/helloianneo/ian-handdrawn-ppt/blob/b2cc5f303337e5470fd6ac2870d261a43b218439/examples/images/page-01-reading-two-things.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "7c8ed0bf320f264d3d56cc1c1f34a2c3ce8e0498ed3e204429c5da67d9a12000",
+      "gitBlob": "9cfa198ea67f618a9a879becf4dfdaa174f57c4f",
+      "matchesUpstream": true
+    },
+    {
+      "file": "web/assets/original/page-02.png",
+      "origin": "Ian 原作，原文件未改动",
+      "source": "https://github.com/helloianneo/ian-handdrawn-ppt/blob/b2cc5f303337e5470fd6ac2870d261a43b218439/examples/images/page-02-where-to-automate.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "a1e1e99c7d776e83c9fedb80aab4a4134f3072219414235101fdb9838c4ccf3e",
+      "gitBlob": "ee593a2f0731c9d8be1f19b00baac695280cd189",
+      "matchesUpstream": true
+    },
+    {
+      "file": "web/assets/original/page-03.png",
+      "origin": "Ian 原作，原文件未改动",
+      "source": "https://github.com/helloianneo/ian-handdrawn-ppt/blob/b2cc5f303337e5470fd6ac2870d261a43b218439/examples/images/page-03-three-question-method.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "c423437e28f16110f58d95283f0e5dfd9555d98e9458f3744c9f2c4c79b42f35",
+      "gitBlob": "80a60970483511f2bf2b488ba8659010f5cd5eef",
+      "matchesUpstream": true
+    },
+    {
+      "file": "web/assets/scenario/cover.png",
+      "origin": "本次实作：内置图像工具生成",
+      "width": 1916,
+      "height": 821,
+      "sha256": "e47601b6bf10c8b741718d6a559271732fc2f531bb6588a1aa882218660097d3",
+      "requiredText": [
+        "让开源项目成为知识",
+        "收录 · 研究 · 复用",
+        "开源项目",
+        "研究工作台",
+        "知识资料"
+      ],
+      "promptRecord": "web/data/blueprint.json → pages[0]",
+      "postprocessing": "无；保留生成器返回的原生 PNG",
+      "styleReference": "upstream/assets/reference-handdrawn-article-illustration-style.png"
+    },
+    {
+      "file": "web/assets/scenario/page-01.png",
+      "origin": "本次实作：内置图像工具生成",
+      "width": 1672,
+      "height": 941,
+      "sha256": "6c321883eb024e79a2ff8ebfd880dc0616c7fe6ee98127190fe076c7f66c4751",
+      "requiredText": [
+        "01 / 03",
+        "先把项目收录清楚",
+        "一个项目 · 一份档案",
+        "来源",
+        "版本",
+        "许可",
+        "摘要"
+      ],
+      "promptRecord": "web/data/blueprint.json → pages[1]",
+      "postprocessing": "无；保留生成器返回的原生 PNG",
+      "styleReference": "upstream/assets/reference-handdrawn-article-illustration-style.png"
+    },
+    {
+      "file": "web/assets/scenario/page-02.png",
+      "origin": "本次实作：内置图像工具生成",
+      "width": 1672,
+      "height": 941,
+      "sha256": "396490cb700774f570dba9f47eb827241c00201db366a2f7a8f6704df2f02450",
+      "requiredText": [
+        "02 / 03",
+        "从读懂到亲手验证",
+        "阅读 · 拆解 · 验证",
+        "读材料",
+        "画结构",
+        "做演示",
+        "用途与限制",
+        "模块与流程",
+        "操作与结果"
+      ],
+      "promptRecord": "web/data/blueprint.json → pages[2]",
+      "postprocessing": "无；保留生成器返回的原生 PNG",
+      "styleReference": "upstream/assets/reference-handdrawn-article-illustration-style.png"
+    },
+    {
+      "file": "web/assets/scenario/page-03.png",
+      "origin": "本次实作：内置图像工具生成",
+      "width": 1672,
+      "height": 941,
+      "sha256": "b2957cd19ff7947578a332d8a617a6d437afab53544806edd6552d6398096b43",
+      "requiredText": [
+        "03 / 03",
+        "保存与上线分两步",
+        "资料更新 · 网站发布",
+        "推送资料",
+        "自动检查",
+        "手动发布",
+        "网站更新"
+      ],
+      "promptRecord": "web/data/blueprint.json → pages[3]",
+      "postprocessing": "无；保留生成器返回的原生 PNG",
+      "styleReference": "upstream/assets/reference-handdrawn-article-illustration-style.png"
+    }
+  ],
+  "automatedChecks": [
+    "8 个 PNG 文件均可解码",
+    "原作 Git blob 哈希与上游固定版本一致",
+    "新图实际宽高比与页面角色接近，误差小于 3.5%"
+  ],
+  "visualReview": "见项目 notes/verification.md，人工目视检查与自动检查分开记录"
+}

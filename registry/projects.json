@@ -52,6 +52,23 @@
       "demo": true
     },
     {
+      "id": 4,
+      "slug": "ian-handdrawn-ppt",
+      "order": 40,
+      "name": "中文手绘解释图展厅",
+      "source": "https://github.com/helloianneo/ian-handdrawn-ppt",
+      "summary": "输入想法、文章或观点，AI 按库的规则提炼信息、编排思路并生成风格统一的演示页面 PNG；用整体引导图、原作与真实场景实作展示能力，明确图像式演示稿与可编辑 PPTX 的区别。",
+      "status": "已整理",
+      "tags": [
+        "手绘解释图",
+        "Agent Skill",
+        "真实场景实作",
+        "PNG"
+      ],
+      "cover": "web/assets/library-guide.png",
+      "demo": true
+    },
+    {
       "id": 7,
       "slug": "heliosgen",
       "order": 70,
