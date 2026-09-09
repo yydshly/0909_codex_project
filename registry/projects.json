@@ -69,6 +69,23 @@
       "demo": true
     },
     {
+      "id": 5,
+      "slug": "agents-radar",
+      "order": 50,
+      "name": "Agents Radar 多源情报架构",
+      "source": "https://github.com/duanyytop/agents-radar",
+      "summary": "拆解 19 个 GitHub 仓库、2 家官网及社区、论文、模型和产品平台的来源配置、采集适配、文本处理与双语报告分发，附一页全景图与完整来源清单。",
+      "status": "已整理",
+      "tags": [
+        "多源采集",
+        "来源配置",
+        "情报流水线",
+        "一页架构图"
+      ],
+      "cover": "web/assets/overview.svg",
+      "demo": true
+    },
+    {
       "id": 7,
       "slug": "heliosgen",
       "order": 70,

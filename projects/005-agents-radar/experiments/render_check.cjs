@@ -1,0 +1,64 @@
+const fs = require('fs');
+const path = require('path');
+function dependency(name) {
+ if (process.env.RADAR_NODE_MODULES) return require(path.join(process.env.RADAR_NODE_MODULES,name));
+ return require(name);
+}
+const { chromium } = dependency('playwright');
+const { pathToFileURL } = require('url');
+const root=path.resolve(__dirname,'..');
+const web=path.join(root,'web');
+const qa=path.join(root,'notes','qa');fs.mkdirSync(qa,{recursive:true});
+(async()=>{
+ const browser=await chromium.launch({headless:true,executablePath:chromium.executablePath(),timeout:20000,args:['--disable-gpu','--disable-features=CDPScreenshotNewSurface'],ignoreDefaultArgs:['--enable-features=CDPScreenshotNewSurface']});
+ console.log('Browser ready');
+ const page=await browser.newPage({viewport:{width:1440,height:1050},deviceScaleFactor:1});
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(pathToFileURL(path.join(web,'assets','overview.svg')).href);
+ await page.evaluate(()=>document.fonts.ready);
+ const svgBounds=await page.evaluate(()=>[...document.querySelectorAll('text')].map(t=>({text:t.textContent,box:t.getBBox()})).filter(x=>x.box.x+x.box.width>1915||x.box.y+x.box.height>1195||x.box.x<0));
+ const sharp=dependency('sharp');
+ await sharp(path.join(web,'assets','overview.svg'),{density:144}).png().toFile(path.join(web,'assets','overview.png'));
+ console.log('Diagram PNG ready');
+ await page.goto(pathToFileURL(path.join(web,'overview.html')).href);
+ await page.pdf({path:path.join(web,'downloads','agents-radar-overview.pdf'),printBackground:true,preferCSSPageSize:true});
+ console.log('One-page PDF ready');
+ await page.goto(pathToFileURL(path.join(web,'downloads','research-print.html')).href);
+ await page.emulateMedia({media:'print'});
+ const reportFit=await page.evaluate(()=>[...document.querySelectorAll('.report-page')].map((el,i)=>{
+  const r=el.getBoundingClientRect();const b=[...el.children].map(e=>e.getBoundingClientRect().bottom);return {page:i+1,overflow:Math.max(...b)-(r.bottom-parseFloat(getComputedStyle(el).paddingBottom))};
+ }));
+ await page.pdf({path:path.join(web,'downloads','agents-radar-research.pdf'),printBackground:true,preferCSSPageSize:true});
+ console.log('Research PDF ready',reportFit);
+ await page.emulateMedia({media:'screen'});
+ await page.setViewportSize({width:1440,height:1050});
+ await page.goto(pathToFileURL(path.join(web,'index.html')).href);
+ await page.screenshot({path:path.join(qa,'web-desktop.png'),fullPage:false});
+ await page.getByRole('button',{name:'Agent 项目',exact:true}).click();
+ const agentCount=await page.locator('#repo-count').innerText();
+ if(agentCount!=='显示 5 / 19 个仓库')throw new Error(agentCount);
+ await page.locator('#repo-search').fill('hermes');
+ if(await page.locator('#repo-count').innerText()!=='显示 1 / 19 个仓库')throw new Error('combined search failed');
+ await page.locator('#repo-search').fill('not-a-real-repo');
+ if(!await page.locator('#empty').isVisible())throw new Error('empty state failed');
+ await page.locator('#repo-search').fill('');
+ await page.getByRole('button',{name:'全部',exact:true}).click();
+ if(await page.locator('#repo-count').innerText()!=='显示 19 / 19 个仓库')throw new Error('reset failed');
+ const brokenLinks=await page.evaluate(async()=>{
+  const links=[...document.querySelectorAll('a[href]')].map(a=>a.getAttribute('href')).filter(x=>x.startsWith('./')&&!x.includes('#'));return links;
+ });
+ const missing=brokenLinks.filter(x=>!fs.existsSync(path.resolve(web,decodeURIComponent(x))));
+ await page.setViewportSize({width:390,height:844});
+ await page.evaluate(()=>window.scrollTo(0,0));
+ await page.screenshot({path:path.join(qa,'web-mobile.png'),fullPage:false});
+ const mobile=await page.evaluate(()=>({width:innerWidth,scrollWidth:document.documentElement.scrollWidth}));
+ await page.locator('#sources').scrollIntoViewIfNeeded();
+ await page.screenshot({path:path.join(qa,'web-mobile-sources.png'),fullPage:false});
+ await page.setViewportSize({width:1440,height:1050});
+ await page.locator('#sources').scrollIntoViewIfNeeded();
+ await page.screenshot({path:path.join(qa,'web-sources.png'),fullPage:false});
+ const result={date:'2026-09-09',upstreamCommit:'dd2aaae700e2ebf62a7c80557c2bd64709be5e79',svgBounds,reportFit,errors,missing,mobile,interactionChecks:['category 5/19','combined search 1/19','empty state','clear search and category 19/19']};
+ fs.writeFileSync(path.join(qa,'checks.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));
+ await browser.close();
+ if(svgBounds.length||errors.length||missing.length||mobile.scrollWidth>mobile.width||reportFit.some(x=>x.overflow>1))process.exitCode=1;
+})().catch(e=>{console.error(e);process.exit(1);});

@@ -1,0 +1,47 @@
+{
+  "date": "2026-09-09",
+  "upstreamCommit": "dd2aaae700e2ebf62a7c80557c2bd64709be5e79",
+  "svgBounds": [],
+  "reportFit": [
+    {
+      "page": 1,
+      "overflow": -129.9303500000001
+    },
+    {
+      "page": 2,
+      "overflow": -88.61785000000009
+    },
+    {
+      "page": 3,
+      "overflow": -104.88347500000009
+    },
+    {
+      "page": 4,
+      "overflow": -199.52409999999963
+    },
+    {
+      "page": 5,
+      "overflow": -188.68034999999963
+    },
+    {
+      "page": 6,
+      "overflow": -65.35222499999963
+    },
+    {
+      "page": 7,
+      "overflow": -441.22722499999963
+    }
+  ],
+  "errors": [],
+  "missing": [],
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390
+  },
+  "interactionChecks": [
+    "category 5/19",
+    "combined search 1/19",
+    "empty state",
+    "clear search and category 19/19"
+  ]
+}

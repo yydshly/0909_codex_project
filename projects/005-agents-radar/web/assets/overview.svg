@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1200" viewBox="0 0 1920 1200" role="img" aria-labelledby="title desc">
+<title id="title">Agents Radar 一页能力与架构总览</title>
+<desc id="desc">左侧列出十九个真实 GitHub 仓库、两家官网及榜单社区论文模型产品来源；沿箭头经过采集适配、筛选与模型分析，最终生成双语报告并通过网页订阅通知和 MCP 分发。</desc>
+<defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7" fill="#22756a"/></marker></defs>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC",sans-serif;fill:#18323a} .muted{fill:#587078} .mono{font-family:"Consolas","Microsoft YaHei",monospace} .eyebrow{fill:#22756a;font-weight:700}</style>
+<rect width="1920" height="1200" fill="#f4f2eb"/>
+<text x="48" y="43" font-size="18" font-weight="700" class="eyebrow">研究室 005  /  AGENTS RADAR</text>
+<text x="48" y="100" font-size="43" font-weight="700" class="">多源信息如何成为可订阅的 AI 生态报告</text>
+<text x="48" y="133" font-size="22" font-weight="400" class="muted">来源设置 → 采集适配 → 规则处理与模型分析 → 双语展示与分发</text>
+<text x="1320" y="79" font-size="44" font-weight="700" class="">19</text>
+<text x="1320" y="111" font-size="18" font-weight="400" class="muted">固定 GitHub 仓库</text>
+<text x="1540" y="79" font-size="44" font-weight="700" class="">2</text>
+<text x="1540" y="111" font-size="18" font-weight="400" class="muted">公司官网</text>
+<text x="1700" y="79" font-size="44" font-weight="700" class="">6</text>
+<text x="1700" y="111" font-size="18" font-weight="400" class="muted">外部平台</text>
+<rect x="48" y="165" width="1824" height="76" rx="12" fill="#e7eee7" stroke="#d7dfd9"/>
+<text x="70" y="194" font-size="18" font-weight="700" class="eyebrow">配置</text>
+<text x="132" y="194" font-size="21" font-weight="400" class="">config.yml：仓库地址 / 分页 / Discussions</text>
+<text x="132" y="222" font-size="18" font-weight="400" class="muted">站点栏目、标签与关键词仍配置在各采集模块中</text>
+<text x="740" y="194" font-size="18" font-weight="700" class="eyebrow">调度</text>
+<text x="802" y="194" font-size="21" font-weight="400" class="">GitHub Actions + src/index.ts</text>
+<text x="802" y="222" font-size="18" font-weight="400" class="muted">每日 06:37 北京时间触发；可手动运行</text>
+<text x="1315" y="194" font-size="18" font-weight="700" class="eyebrow">模型</text>
+<text x="1377" y="194" font-size="21" font-weight="400" class="">6 种供应商适配</text>
+<text x="1377" y="222" font-size="18" font-weight="400" class="muted">当前工作流选择 Qwen；模型并发上限 5</text>
+<text x="48" y="280" font-size="20" font-weight="700" class="eyebrow">01</text>
+<text x="90" y="280" font-size="26" font-weight="700" class="">真实来源</text>
+<text x="820" y="280" font-size="20" font-weight="700" class="eyebrow">02</text>
+<text x="862" y="280" font-size="26" font-weight="700" class="">采集适配</text>
+<text x="1137" y="280" font-size="20" font-weight="700" class="eyebrow">03</text>
+<text x="1179" y="280" font-size="26" font-weight="700" class="">清洗与分析</text>
+<text x="1509" y="280" font-size="20" font-weight="700" class="eyebrow">04</text>
+<text x="1551" y="280" font-size="26" font-weight="700" class="">报告与服务</text>
+<rect x="48" y="301" width="740" height="674" rx="12" fill="#ffffff" stroke="#d7dfd9"/>
+<rect x="820" y="301" width="285" height="674" rx="12" fill="#ffffff" stroke="#d7dfd9"/>
+<rect x="1137" y="301" width="340" height="674" rx="12" fill="#ffffff" stroke="#d7dfd9"/>
+<rect x="1509" y="301" width="363" height="674" rx="12" fill="#ffffff" stroke="#d7dfd9"/>
+<line x1="792" y1="620" x2="815" y2="620" stroke="#22756a" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="1109" y1="620" x2="1132" y2="620" stroke="#22756a" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="1481" y1="620" x2="1504" y2="620" stroke="#22756a" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="421" y1="326" x2="421" y2="950" stroke="#22756a" stroke-width="2"/>
+<text x="70" y="338" font-size="20" font-weight="700" class="">GitHub CLI 工具 · 7</text>
+<text x="70" y="366" font-size="18" font-weight="400" class="mono">anthropics/claude-code</text>
+<text x="70" y="389" font-size="18" font-weight="400" class="mono">openai/codex</text>
+<text x="70" y="412" font-size="18" font-weight="400" class="mono">google-gemini/gemini-cli</text>
+<text x="70" y="435" font-size="18" font-weight="400" class="mono">github/copilot-cli</text>
+<text x="70" y="458" font-size="18" font-weight="400" class="mono">anomalyco/opencode</text>
+<text x="70" y="481" font-size="18" font-weight="400" class="mono">earendil-works/pi</text>
+<text x="70" y="504" font-size="18" font-weight="400" class="mono">QwenLM/qwen-code</text>
+<text x="70" y="545" font-size="20" font-weight="700" class="">GitHub Agent 项目 · 5</text>
+<text x="70" y="573" font-size="18" font-weight="400" class="mono">openclaw/openclaw</text>
+<text x="70" y="596" font-size="18" font-weight="400" class="mono">nousresearch/hermes-agent</text>
+<text x="70" y="619" font-size="18" font-weight="400" class="mono">nearai/ironclaw</text>
+<text x="70" y="642" font-size="18" font-weight="400" class="mono">agentscope-ai/QwenPaw</text>
+<text x="70" y="665" font-size="18" font-weight="400" class="mono">zeroclaw-labs/zeroclaw</text>
+<text x="70" y="706" font-size="20" font-weight="700" class="">GitHub AI 基础设施 · 6</text>
+<text x="70" y="734" font-size="18" font-weight="400" class="mono">vllm-project/vllm</text>
+<text x="70" y="757" font-size="18" font-weight="400" class="mono">sgl-project/sglang</text>
+<text x="70" y="780" font-size="18" font-weight="400" class="mono">ggml-org/llama.cpp</text>
+<text x="70" y="803" font-size="18" font-weight="400" class="mono">ollama/ollama</text>
+<text x="70" y="826" font-size="18" font-weight="400" class="mono">BerriAI/litellm</text>
+<text x="70" y="849" font-size="18" font-weight="400" class="mono">unslothai/unsloth</text>
+<text x="70" y="890" font-size="20" font-weight="700" class="">GitHub Skills · 1</text>
+<text x="70" y="918" font-size="18" font-weight="400" class="mono">anthropics/skills</text>
+<text x="442" y="338" font-size="20" font-weight="700" class="">公司官网 · 2</text>
+<text x="442" y="370" font-size="18" font-weight="400" class="">anthropic.com</text>
+<text x="442" y="397" font-size="18" font-weight="400" class="">Sitemap + 正文；指定 4 类栏目</text>
+<text x="442" y="424" font-size="18" font-weight="400" class="">openai.com</text>
+<text x="442" y="451" font-size="18" font-weight="400" class="">Sitemap 元数据；指定 9 类栏目</text>
+<text x="442" y="510" font-size="20" font-weight="700" class="">GitHub 开源发现</text>
+<text x="442" y="542" font-size="18" font-weight="400" class="">github.com/trending 日榜</text>
+<text x="442" y="569" font-size="18" font-weight="400" class="">Search API：6 个 AI Topic</text>
+<text x="442" y="628" font-size="20" font-weight="700" class="">技术社区 · 3</text>
+<text x="442" y="660" font-size="18" font-weight="400" class="">Hacker News：AI 相关热门故事</text>
+<text x="442" y="687" font-size="18" font-weight="400" class="">Dev.to：5 个 AI 相关标签</text>
+<text x="442" y="714" font-size="18" font-weight="400" class="">Lobste.rs：AI / ML 标签</text>
+<text x="442" y="773" font-size="20" font-weight="700" class="">论文 · 模型 · 产品</text>
+<text x="442" y="805" font-size="18" font-weight="400" class="">ArXiv：cs.AI / cs.CL / cs.LG</text>
+<text x="442" y="832" font-size="18" font-weight="400" class="">Hugging Face：likes7d 模型榜</text>
+<text x="442" y="859" font-size="18" font-weight="400" class="">Product Hunt：昨日产品票数榜</text>
+<text x="442" y="934" font-size="16" font-weight="400" class="muted">具体地址与筛选规则见详细清单</text>
+<text x="840" y="341" font-size="21" font-weight="700" class="">GitHub API</text>
+<text x="840" y="374" font-size="17" font-weight="400" class="muted">REST：Issue / PR / Release</text>
+<text x="840" y="402" font-size="17" font-weight="400" class="muted">GraphQL：Discussions</text>
+<text x="840" y="430" font-size="17" font-weight="400" class="muted">Skills：独立热门条目</text>
+<text x="840" y="497" font-size="21" font-weight="700" class="">HTML 与 Sitemap</text>
+<text x="840" y="530" font-size="17" font-weight="400" class="muted">Trending 榜单页面解析</text>
+<text x="840" y="558" font-size="17" font-weight="400" class="muted">官网 URL 与 lastmod 状态</text>
+<text x="840" y="586" font-size="17" font-weight="400" class="muted">Anthropic 正文 / OpenAI 元数据</text>
+<text x="840" y="653" font-size="21" font-weight="700" class="">各平台原生接口</text>
+<text x="840" y="686" font-size="17" font-weight="400" class="muted">HN：官方 Firebase API</text>
+<text x="840" y="714" font-size="17" font-weight="400" class="muted">Dev.to / HF：REST API</text>
+<text x="840" y="742" font-size="17" font-weight="400" class="muted">Lobste.rs：JSON</text>
+<text x="840" y="770" font-size="17" font-weight="400" class="muted">ArXiv：Atom XML</text>
+<text x="840" y="798" font-size="17" font-weight="400" class="muted">Product Hunt：GraphQL</text>
+<text x="840" y="865" font-size="21" font-weight="700" class="">模块内并行与容错</text>
+<text x="840" y="898" font-size="17" font-weight="400" class="muted">按来源返回类型化数据</text>
+<text x="840" y="926" font-size="17" font-weight="400" class="muted">失败来源降级或跳过</text>
+<text x="1158" y="341" font-size="21" font-weight="700" class="">规则筛选</text>
+<text x="1158" y="374" font-size="18" font-weight="400" class="muted">时间窗口 / AI 关键词匹配</text>
+<text x="1158" y="402" font-size="18" font-weight="400" class="muted">多查询去重 / 热度排序</text>
+<text x="1158" y="430" font-size="18" font-weight="400" class="muted">Top N 抽样</text>
+<text x="1158" y="494" font-size="21" font-weight="700" class="">文本规整</text>
+<text x="1158" y="527" font-size="18" font-weight="400" class="muted">提取标题、状态、互动与链接</text>
+<text x="1158" y="555" font-size="18" font-weight="400" class="muted">去标签、脚本和多余空白</text>
+<text x="1158" y="583" font-size="18" font-weight="400" class="muted">GitHub 正文通常截取 300 字符</text>
+<text x="1158" y="611" font-size="18" font-weight="400" class="muted">官网正文最多 1500 字符</text>
+<text x="1158" y="675" font-size="21" font-weight="700" class="">模型归纳</text>
+<text x="1158" y="708" font-size="18" font-weight="400" class="muted">分项目摘要 → 跨项目比较</text>
+<text x="1158" y="736" font-size="18" font-weight="400" class="muted">功能变化 / 痛点 / 趋势信号</text>
+<text x="1158" y="764" font-size="18" font-weight="400" class="muted">先英文生成 → 中文翻译</text>
+<text x="1158" y="792" font-size="18" font-weight="400" class="muted">再提取通知亮点</text>
+<text x="1158" y="856" font-size="21" font-weight="700" class="">运行控制</text>
+<text x="1158" y="889" font-size="18" font-weight="400" class="muted">限流与连接重试 / 失败统计</text>
+<text x="1158" y="917" font-size="18" font-weight="400" class="muted">翻译失败回退 / 健康门限</text>
+<text x="1530" y="341" font-size="21" font-weight="700" class="">10 类报告 · 中英双语</text>
+<text x="1530" y="374" font-size="18" font-weight="400" class="muted">CLI / Agent / 基础设施</text>
+<text x="1530" y="402" font-size="18" font-weight="400" class="muted">官网 / Trending / HN / 产品</text>
+<text x="1530" y="430" font-size="18" font-weight="400" class="muted">论文 / 模型 / 社区合刊</text>
+<text x="1530" y="458" font-size="18" font-weight="400" class="muted">HF 每周一；部分来源按条件产出</text>
+<text x="1530" y="521" font-size="21" font-weight="700" class="">文件与历史</text>
+<text x="1530" y="554" font-size="18" font-weight="400" class="muted">按日期保存 Markdown</text>
+<text x="1530" y="582" font-size="18" font-weight="400" class="muted">Git 归档 + 官网增量状态</text>
+<text x="1530" y="610" font-size="18" font-weight="400" class="muted">manifest.json / feed.xml</text>
+<text x="1530" y="673" font-size="21" font-weight="700" class="">阅读与触达</text>
+<text x="1530" y="706" font-size="18" font-weight="400" class="muted">GitHub Pages / GitHub Issues</text>
+<text x="1530" y="734" font-size="18" font-weight="400" class="muted">RSS：订阅报告</text>
+<text x="1530" y="762" font-size="18" font-weight="400" class="muted">Telegram / 飞书：亮点与链接</text>
+<text x="1530" y="825" font-size="21" font-weight="700" class="">MCP 查询服务</text>
+<text x="1530" y="858" font-size="18" font-weight="400" class="muted">列出 / 最新 / 指定日期报告</text>
+<text x="1530" y="886" font-size="18" font-weight="400" class="muted">近期关键词匹配，最多 14 个日期</text>
+<text x="1530" y="914" font-size="18" font-weight="400" class="muted">Cloudflare Worker 读取静态报告</text>
+<rect x="48" y="1003" width="592" height="130" rx="12" fill="#eaf0eb" stroke="#d7dfd9"/>
+<text x="70" y="1038" font-size="22" font-weight="700" class="">可复用的实现</text>
+<text x="70" y="1074" font-size="19" font-weight="400" class="">同类仓库统一适配；不同平台独立采集</text>
+<text x="70" y="1103" font-size="19" font-weight="400" class="">后续报告生成、翻译与分发流程共用</text>
+<rect x="664" y="1003" width="592" height="130" rx="12" fill="#eaf0eb" stroke="#d7dfd9"/>
+<text x="686" y="1038" font-size="22" font-weight="700" class="">当前边界</text>
+<text x="686" y="1074" font-size="19" font-weight="400" class="">采样与元数据限制分析深度；MCP 为关键词搜索</text>
+<text x="686" y="1103" font-size="19" font-weight="400" class="">没有通用来源配置中心、全文核验或长期趋势引擎</text>
+<rect x="1280" y="1003" width="592" height="130" rx="12" fill="#eaf0eb" stroke="#d7dfd9"/>
+<text x="1302" y="1038" font-size="22" font-weight="700" class="">值得扩展的方向</text>
+<text x="1302" y="1074" font-size="19" font-weight="400" class="">统一来源配置 → 结构化事件与证据</text>
+<text x="1302" y="1103" font-size="19" font-weight="400" class="">个性订阅与告警 → 长期趋势与语义检索</text>
+<text x="48" y="1172" font-size="17" font-weight="400" class="muted">代码核对版本 dd2aaae · 2026-09-09  |  github.com/duanyytop/agents-radar</text>
+<text x="1270" y="1172" font-size="17" font-weight="400" class="muted">HN 按源码使用 Firebase；RSS 是输出渠道</text>
+</svg>
