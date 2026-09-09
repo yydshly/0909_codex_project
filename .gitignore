@@ -22,3 +22,8 @@ coverage/
 .DS_Store
 Thumbs.db
 *.log
+
+# Multica local checkout and runtime
+/projects/011-multica/upstream/
+/projects/011-multica/runtime/local/
+/projects/011-multica/runtime/bin/

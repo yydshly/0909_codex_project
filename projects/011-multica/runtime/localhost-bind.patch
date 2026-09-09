@@ -1,0 +1,13 @@
+diff --git a/server/cmd/server/main.go b/server/cmd/server/main.go
+index 0f9647b..4cc2fb7 100644
+--- a/server/cmd/server/main.go
++++ b/server/cmd/server/main.go
+@@ -653,7 +653,7 @@ func main() {
+ 	// the scheduler's Run goroutine starts so the field write is race-free.
+ 	heartbeatScheduler.RecoveryNotifier = h
+ 
+-	srv := newMainHTTPServer(":"+port, r)
++	srv := newMainHTTPServer(os.Getenv("HOST")+":"+port, r)
+ 	profilingServer := profiling.NewServer()
+ 
+ 	// Start background workers.

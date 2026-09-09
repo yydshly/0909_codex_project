@@ -1,0 +1,15 @@
+{
+  "title": "已跑通：真实文件产物 + Codex 小队协作闭环",
+  "checks": [
+    "原版 Web、Go API、专用 PostgreSQL 已启动；同一台机器检测到 Codex 与 Claude Code。",
+    "LAB-1：Claude Code 生成 hello-multica.txt，命令读回，发表评论，任务进入待评审。",
+    "LAB-2：Codex 组长委派 → 成员返回 391 及计算过程 → 组长再次运行并核对，三个 Run 均完成。",
+    "保留实际问题：默认模型与 Codex CLI 版本不兼容；一次文件修改停滞后主动取消，再由操作者改派 Claude Code。",
+    "此为最小真实验证；定时任务、外部集成、插件、多机扩展和生产稳定性未实测。"
+  ],
+  "screenshots": [
+    {"file":"assets/runtime-original.png","caption":"原版节点页：本机 Daemon 已发现 Claude 与 Codex，两者在线。"},
+    {"file":"assets/squad-original.png","caption":"LAB-2：组长委派、成员反馈、组长核对，来自三个真实 Run。"},
+    {"file":"assets/result-original.png","caption":"LAB-1：Claude Code 生成文件并读回，真实结果已写入评论。"}
+  ]
+}

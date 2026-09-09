@@ -1,0 +1,3 @@
+Multica demo
+Agent: Claude Code
+17 * 23 = 391

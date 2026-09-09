@@ -1,5 +1,5 @@
 {
-  "nextId": 11,
+  "nextId": 13,
   "projects": [
     {
       "id": 1,
@@ -168,6 +168,24 @@
         "架构分析"
       ],
       "cover": "web/assets/overview.png",
+      "demo": true
+    },
+    {
+      "id": 11,
+      "slug": "multica",
+      "order": 110,
+      "name": "Multica Agent 协作与执行平台",
+      "source": "https://github.com/multica-ai/multica",
+      "summary": "以事件触发和任务队列调度 Codex、Claude Code 等 Agent 工具，支持依赖交接、并行执行与人工评审控制；附整体架构、完整理解和本机原版实测。",
+      "status": "已整理",
+      "tags": [
+        "Agent 工具编排",
+        "多 Agent 协作",
+        "人工控制",
+        "事件与并发",
+        "原版实测"
+      ],
+      "cover": "web/assets/architecture.svg",
       "demo": true
     }
   ]
