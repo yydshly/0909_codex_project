@@ -21,6 +21,7 @@
 | 10 | 010 | [Invidious 能力与架构分析](projects/010-invidious/README.md) | [iv-org/invidious](https://github.com/iv-org/invidious) | 一图解释 Invidious 的 YouTube 内容获取、独立账号与订阅、Companion 播放链路及对外 API；网页用搜索、播放、订阅三个流程澄清数据来源、组件分工和能力边界，未运行上游服务。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/010-invidious/) |
 | 11 | 011 | [Multica Agent 协作与执行平台](projects/011-multica/README.md) | [multica-ai/multica](https://github.com/multica-ai/multica) | 以事件触发和任务队列调度 Codex、Claude Code 等 Agent 工具，支持依赖交接、并行执行与人工评审控制；附整体架构、完整理解和本机原版实测。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/011-multica/) |
 | 12 | 012 | [MetaGPT 多 Agent 软件团队实验室](projects/012-metagpt/README.md) | [FoundationAgents/MetaGPT](https://github.com/FoundationAgents/MetaGPT) | 以角色、动作、消息和异步循环组织多 Agent 协作：提示词定义工作方式，模型决策与程序调度分工；附两种调度机制、27 个角色及测试返修实测。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/012-metagpt/) |
+| 13 | 013 | [Firecrawl 网页获取与能力实验室](projects/013-firecrawl/README.md) | [firecrawl/firecrawl](https://github.com/firecrawl/firecrawl) | Firecrawl 是网页数据获取服务，以 API/SDK 接收网址、搜索词与任务，通过 HTTP 请求、浏览器渲染、队列调度和内容转换输出 Markdown/JSON；支持搜索、抓取、爬站及云端交互，可用于新闻补全文与知识库，扩展持续更新、行业字段与质量校验，并明确登录和平台封号边界。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/013-firecrawl/) |
 <!-- PROJECT_INDEX:END -->
 
 ## 项目速览
@@ -125,6 +126,14 @@ Hugging Face 的 Agent 开发课程与示例集：通过模型决策、工具执
 ![MetaGPT 多 Agent 软件团队实验室 封面](projects/012-metagpt/web/assets/architecture.svg)
 
 [研究记录](projects/012-metagpt/README.md) · [上游仓库](https://github.com/FoundationAgents/MetaGPT) · [Web 演示](https://yydshly.github.io/0909_codex_project/projects/012-metagpt/)
+
+### 013 · Firecrawl 网页获取与能力实验室
+
+Firecrawl 是网页数据获取服务，以 API/SDK 接收网址、搜索词与任务，通过 HTTP 请求、浏览器渲染、队列调度和内容转换输出 Markdown/JSON；支持搜索、抓取、爬站及云端交互，可用于新闻补全文与知识库，扩展持续更新、行业字段与质量校验，并明确登录和平台封号边界。
+
+![Firecrawl 网页获取与能力实验室 封面](projects/013-firecrawl/web/assets/architecture.svg)
+
+[研究记录](projects/013-firecrawl/README.md) · [上游仓库](https://github.com/firecrawl/firecrawl) · [Web 演示](https://yydshly.github.io/0909_codex_project/projects/013-firecrawl/)
 <!-- PROJECT_CARDS:END -->
 
 ## 001 · 架构图阅读指南

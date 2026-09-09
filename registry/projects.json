@@ -1,5 +1,5 @@
 {
-  "nextId": 13,
+  "nextId": 14,
   "projects": [
     {
       "id": 1,
@@ -201,6 +201,23 @@
         "软件团队",
         "框架运行验证",
         "角色定制"
+      ],
+      "cover": "web/assets/architecture.svg",
+      "demo": true
+    },
+    {
+      "id": 13,
+      "slug": "firecrawl",
+      "order": 130,
+      "name": "Firecrawl 网页获取与能力实验室",
+      "source": "https://github.com/firecrawl/firecrawl",
+      "summary": "Firecrawl 是网页数据获取服务，以 API/SDK 接收网址、搜索词与任务，通过 HTTP 请求、浏览器渲染、队列调度和内容转换输出 Markdown/JSON；支持搜索、抓取、爬站及云端交互，可用于新闻补全文与知识库，扩展持续更新、行业字段与质量校验，并明确登录和平台封号边界。",
+      "status": "已整理",
+      "tags": [
+        "网页获取",
+        "浏览器与 API",
+        "登录与平台限制",
+        "能力与扩展"
       ],
       "cover": "web/assets/architecture.svg",
       "demo": true
