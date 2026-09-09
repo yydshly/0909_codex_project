@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="1420" viewBox="0 0 1520 1420" role="img" aria-labelledby="title desc">
+  <title id="title">Anthropic 提示词工程交互教程：内容与运行架构</title>
+  <desc id="desc">从 Notebook 学习入口，经过第 1 到 9 章的输入组织、输出控制和复杂任务组合，进入提示词组装、API 调用、Claude 生成与评估迭代回路。附录提供提示词链、工具调用、Bedrock 评估教学以及仅作为延伸阅读的 RAG。底部列出应用场景和现代模型适用边界。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9" fill="none" stroke="#66806c" stroke-width="1.5"/></marker>
+    <style>
+      text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;fill:#223b2e}
+      .eyebrow{font-size:16px;letter-spacing:2px;fill:#60765f}.title{font-size:40px;font-weight:700}.subtitle{font-size:21px;fill:#596d5a}
+      .section{font-size:23px;font-weight:700}.label{font-size:17px;fill:#6a7c61}.heading{font-size:25px;font-weight:700}.body{font-size:21px;fill:#465e48}.small{font-size:18px;fill:#61745e}
+      .card{fill:#fff;stroke:#ccd8c4;stroke-width:1.5}.line{fill:none;stroke:#66806c;stroke-width:2;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1520" height="1420" rx="20" fill="#f5f7f0"/>
+  <rect x="48" y="46" width="6" height="77" rx="3" fill="#1b5140"/>
+  <text x="76" y="65" class="eyebrow">PROJECT 001 / CONTENT &amp; EXECUTION ARCHITECTURE</text>
+  <text x="74" y="116" class="title">提示词工程交互教程 · 一张图看懂内容与原理</text>
+  <text x="48" y="156" class="subtitle">定位：通过修改提示词与观察结果学习任务设计的课程；不训练模型，也不是完整的业务应用框架。</text>
+
+  <text x="48" y="205" class="section">01  学习入口</text>
+  <rect class="card" x="48" y="225" width="1424" height="92" rx="12"/>
+  <text x="74" y="263" class="heading">Jupyter Notebook</text>
+  <text x="74" y="295" class="small">讲解 + 练习 + 提示 + Example Playground</text>
+  <path d="M586 271H646" class="line"/>
+  <text x="682" y="263" class="heading">读讲解 → 改提示词 → 运行 → 看反馈</text>
+  <text x="682" y="295" class="small">主课共 9 章；直接 API 与 Amazon Bedrock 两条调用路径</text>
+
+  <text x="48" y="366" class="section">02  主课内容：逐步组合任务要求</text>
+  <rect class="card" x="48" y="390" width="456" height="226" rx="12"/>
+  <rect x="48" y="390" width="456" height="7" rx="3" fill="#9ab87d"/>
+  <text x="74" y="430" class="label">第 1–4 章 / 定义与组织输入</text>
+  <text x="74" y="470" class="heading">把任务和材料说清楚</text>
+  <text x="74" y="510" class="body">基本结构 · 清晰指令 · 角色提示</text>
+  <text x="74" y="545" class="body">模板变量 + XML 标签分隔数据</text>
+  <text x="74" y="585" class="small">作用：减少目标、规则与材料的歧义</text>
+  <rect class="card" x="532" y="390" width="456" height="226" rx="12"/>
+  <rect x="532" y="390" width="456" height="7" rx="3" fill="#719978"/>
+  <text x="558" y="430" class="label">第 5–8 章 / 控制输出与质量</text>
+  <text x="558" y="470" class="heading">让回答符合要求、有依据</text>
+  <text x="558" y="510" class="body">格式与预填充 · 分步骤处理</text>
+  <text x="558" y="545" class="body">Few-shot 示例 · 证据约束与拒绝猜测</text>
+  <text x="558" y="585" class="small">作用：引导格式、任务模式与回答依据</text>
+  <rect class="card" x="1016" y="390" width="456" height="226" rx="12"/>
+  <rect x="1016" y="390" width="456" height="7" rx="3" fill="#38654d"/>
+  <text x="1042" y="430" class="label">第 9 章 / 复杂提示词组合</text>
+  <text x="1042" y="470" class="heading">将组件组成具体业务任务</text>
+  <text x="1042" y="510" class="body">角色 + 材料 + 规则 + 示例 + 输出</text>
+  <text x="1042" y="545" class="body">职业教练 · 法律 / 税务问答 · 代码教学</text>
+  <text x="1042" y="585" class="small">作用：形成可复用模板，按效果精简</text>
+
+  <path d="M760 622V655" class="line"/>
+  <text x="48" y="678" class="section">03  运行机制：调整本次上下文，不修改模型权重</text>
+  <rect x="48" y="700" width="1424" height="182" rx="12" fill="#e7eede"/>
+  <rect class="card" x="68" y="720" width="320" height="108" rx="8"/>
+  <text x="90" y="759" class="heading">组装提示词</text>
+  <text x="90" y="798" class="small">Python f-string / format()</text>
+  <path d="M396 774H425" class="line"/>
+  <rect class="card" x="436" y="720" width="320" height="108" rx="8"/>
+  <text x="458" y="759" class="heading">调用 API</text>
+  <text x="458" y="798" class="small">Anthropic API / Amazon Bedrock</text>
+  <path d="M764 774H793" class="line"/>
+  <rect class="card" x="804" y="720" width="300" height="108" rx="8"/>
+  <text x="826" y="759" class="heading">Claude 生成回答</text>
+  <text x="826" y="798" class="small">根据规则、材料和示例生成文本</text>
+  <path d="M1112 774H1141" class="line"/>
+  <rect class="card" x="1152" y="720" width="300" height="108" rx="8"/>
+  <text x="1174" y="759" class="heading">观察与练习判分</text>
+  <text x="1174" y="798" class="small">人工阅读 / 关键词 / 正则匹配</text>
+  <path d="M1302 834V858H228V835" class="line"/>
+  <rect x="594" y="843" width="340" height="30" fill="#e7eede"/>
+  <text x="617" y="865" class="small">依据反馈修改提示词，再次运行</text>
+
+  <text x="48" y="935" class="section">04  附录：按需延伸能力</text>
+  <text x="1042" y="935" class="small">实线：教学示例　虚线：延伸阅读</text>
+  <rect class="card" x="48" y="956" width="338" height="181" rx="12"/>
+  <text x="70" y="995" class="heading">提示词链</text>
+  <text x="70" y="1027" class="label">Prompt chaining</text>
+  <text x="70" y="1066" class="body">前一次回答 → 下一次请求</text>
+  <text x="70" y="1102" class="small">分阶段生成、检查和改写</text>
+  <rect class="card" x="410" y="956" width="338" height="181" rx="12"/>
+  <text x="432" y="995" class="heading">工具调用</text>
+  <text x="432" y="1027" class="label">Tool use / Function calling</text>
+  <text x="432" y="1066" class="body">模型给参数 → Python 执行</text>
+  <text x="432" y="1102" class="small">结果送回模型；示例含计算器</text>
+  <rect class="card" x="772" y="956" width="338" height="181" rx="12"/>
+  <text x="794" y="995" class="heading">效果评估</text>
+  <text x="794" y="1027" class="label">Bedrock 版独立附录</text>
+  <text x="794" y="1066" class="body">代码评分 / 人工 / 模型评分</text>
+  <text x="794" y="1102" class="small">教学演示，不是完整评测平台</text>
+  <rect x="1134" y="956" width="338" height="181" rx="12" fill="#f4efe1" stroke="#b49b63" stroke-width="1.5" stroke-dasharray="7 5"/>
+  <text x="1156" y="995" class="heading">检索增强生成 RAG</text>
+  <text x="1156" y="1027" class="label">Cookbook 与资料链接</text>
+  <text x="1156" y="1066" class="body">检索相关资料 → 带入上下文</text>
+  <text x="1156" y="1102" class="small">仓库未实现完整知识库系统</text>
+
+  <text x="48" y="1190" class="section">05  应用与当前价值</text>
+  <rect x="48" y="1210" width="1424" height="94" rx="12" fill="#1b5140"/>
+  <text x="74" y="1248" style="font-size:23px;fill:#f5f8ed;font-weight:700">学习与培训　 /　 邮件分类　 /　 文档问答　 /　 业务助手　 /　 AI 辅助开发</text>
+  <text x="74" y="1283" style="font-size:20px;fill:#d4e2c8">保留目标、上下文、证据与验收方法；旧预填充、推理提示及工具协议需按目标模型重新验证。</text>
+  <text x="48" y="1347" class="small">边界：提示词不保证事实正确；练习通过不等于业务可靠。评测台、完整 RAG 与业务工作流属于可扩展方向。</text>
+  <text x="48" y="1381" class="label">原创研究图 · 上游 anthropics/prompt-eng-interactive-tutorial @ 0d277542e927 · 源码阅读整理，未执行模型实验</text>
+</svg>

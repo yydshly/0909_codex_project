@@ -1,4 +1,21 @@
 {
-  "nextId": 1,
-  "projects": []
+  "nextId": 2,
+  "projects": [
+    {
+      "id": 1,
+      "slug": "prompt-eng-interactive-tutorial",
+      "order": 10,
+      "name": "提示词工程交互教程",
+      "source": "https://github.com/anthropics/prompt-eng-interactive-tutorial",
+      "summary": "Anthropic 官方交互式提示词课程：通过 9 章 Notebook 学习任务定义、示例、格式与证据约束，并用调用反馈迭代；附录介绍提示词链、工具调用、评估和检索扩展。",
+      "status": "已整理",
+      "tags": [
+        "提示词工程",
+        "交互教程",
+        "技术图谱"
+      ],
+      "cover": "web/assets/architecture.svg",
+      "demo": true
+    }
+  ]
 }

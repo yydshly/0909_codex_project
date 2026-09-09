@@ -2,19 +2,35 @@
 
 持续研究遇到的优秀开源项目，记录它们解决的问题、实现思路、运行方法和可复用的经验。每个项目独立整理研究笔记、截图和可选的 Web 演示，这里只保留摘要与入口。
 
-**阅读路线：** 浏览下方有序索引 → 进入项目研究页 → 查看图片、复现步骤与演示。
+**阅读路线：** 浏览项目摘要与概览图 → 进入项目研究页 → 查看技术解释、运行方法与交互演示。
 
 ## 项目索引
 
 <!-- PROJECT_INDEX:START -->
-暂无研究项目。第一个项目将从 **001** 开始编号。
+| 顺序 | 编号 | 项目 | 一句话摘要 | 状态 | Web |
+| --- | --- | --- | --- | --- | --- |
+| 1 | 001 | [提示词工程交互教程](projects/001-prompt-eng-interactive-tutorial/README.md) | Anthropic 官方交互式提示词课程：通过 9 章 Notebook 学习任务定义、示例、格式与证据约束，并用调用反馈迭代；附录介绍提示词链、工具调用、评估和检索扩展。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/001-prompt-eng-interactive-tutorial/) |
 <!-- PROJECT_INDEX:END -->
 
 ## 项目速览
 
 <!-- PROJECT_CARDS:START -->
-收录项目后，这里会自动展示摘要和已添加的封面图片。
+### 001 · 提示词工程交互教程
+
+Anthropic 官方交互式提示词课程：通过 9 章 Notebook 学习任务定义、示例、格式与证据约束，并用调用反馈迭代；附录介绍提示词链、工具调用、评估和检索扩展。
+
+![提示词工程交互教程 封面](projects/001-prompt-eng-interactive-tutorial/web/assets/architecture.svg)
+
+[研究记录](projects/001-prompt-eng-interactive-tutorial/README.md) · [上游仓库](https://github.com/anthropics/prompt-eng-interactive-tutorial) · [Web 演示](https://yydshly.github.io/0909_codex_project/projects/001-prompt-eng-interactive-tutorial/)
 <!-- PROJECT_CARDS:END -->
+
+## 001 · 架构图阅读指南
+
+上方图总结了 **Anthropic 提示词工程交互教程** 的内容组织与运行机制。它是一套学习如何设计 AI 任务的交互课程，适用于分类、问答、写作和辅助开发；其核心是组织上下文并验证输出，不涉及模型训练。
+
+**沿图从上到下阅读：** Notebook 学习入口 → 第 1–9 章核心技术 → 提示词组装、API 调用与反馈循环 → 附录扩展 → 应用与当前价值。实线框表示已有教学示例，RAG 的虚线框表示延伸阅读入口；生产评测平台和完整知识库仍需另行建设。
+
+[放大查看整体架构图](projects/001-prompt-eng-interactive-tutorial/web/assets/architecture.svg) · [阅读 12 项技术的简明解释](projects/001-prompt-eng-interactive-tutorial/README.md#core-techniques) · [查看来源与能力边界](projects/001-prompt-eng-interactive-tutorial/notes/sources.md)
 
 ## 仓库结构
 
