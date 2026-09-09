@@ -15,6 +15,12 @@
 
 [打开完整研究展厅](web/index.html) · [公开网页](https://yydshly.github.io/0909_codex_project/projects/003-archify/) · [完整文字整理](web/research.html) · [一页理解图](web/overview.html) · [上游仓库](https://github.com/tt-a1i/archify)
 
+## 实际效果预览：用 Archify 展示自身架构
+
+[![Archify 原生生成的中文架构图：从外部作者、JSON 规格到校验、渲染和交互交付](web/assets/self-architecture-preview.png)](https://yydshly.github.io/0909_codex_project/projects/003-archify/self.html#architecture)
+
+这是由 Archify 原生渲染器生成的真实效果：中文节点展示规格、校验、渲染和交付的关系。事实由 Agent 阅读源码后整理，图中来源标记可在交互版本中查看。点击图片打开架构实战，或[查看五类图与架构差异的完整效果](https://yydshly.github.io/0909_codex_project/projects/003-archify/#archify-case)。
+
 ## 网页首页：完整展示库与案例
 
 首页按章节直接展示能力与边界、六个原库样例、研究总仓库架构案例、Archify 自身六张中文图、生成原理、八组风格、原生导出与预览实验、设计体系和扩展分类。13 个图形可以在当前页打开原生交互查看器；JSON、生成凭证与深入研究保留独立入口。

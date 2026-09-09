@@ -48,6 +48,7 @@
         "交互可视化"
       ],
       "cover": "web/assets/understanding-preview.png",
+      "preview": "web/assets/self-architecture-preview.png",
       "demo": true
     }
   ]

@@ -79,6 +79,10 @@ def load_catalog():
             cover = inside(directory, p["cover"])
             require(cover.is_file() and cover.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg"},
                     f"封面不存在或格式不支持：{p['cover']}")
+        if p.get("preview"):
+            preview = inside(directory, p["preview"])
+            require(preview.is_file() and preview.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg"},
+                    f"效果预览不存在或格式不支持：{p['preview']}")
         if p["demo"]:
             web = inside(directory, "web")
             require((web / "index.html").is_file(), f"已启用演示但缺少 {key(p)}/web/index.html")
@@ -101,17 +105,22 @@ def readme_content(projects):
         index = "暂无研究项目。第一个项目将从 **001** 开始编号。"
         cards = "收录项目后，这里会自动展示摘要和已添加的封面图片。"
     else:
-        rows = ["| 顺序 | 编号 | 项目 | 一句话摘要 | 状态 | Web |", "| --- | --- | --- | --- | --- | --- |"]
+        rows = ["| 顺序 | 编号 | 项目 | 源库 | 一句话摘要 | 状态 | Web |", "| --- | --- | --- | --- | --- | --- | --- |"]
         blocks = []
         for rank, p in enumerate(projects, 1):
             folder = f"projects/{key(p)}"
             demo = f"https://yydshly.github.io/0909_codex_project/{folder}/"
             demo_link = f"[演示]({demo})" if p["demo"] else "—"
             rows.append(f"| {rank} | {p['id']:03d} | [{markdown(p['name'])}]({folder}/README.md) | "
+                        f"[{markdown(urlparse(p['source']).path.strip('/'))}]({p['source']}) | "
                         f"{markdown(p['summary'])} | {p['status']} | {demo_link} |")
             block = f"### {p['id']:03d} · {markdown(p['name'])}\n\n{markdown(p['summary'])}\n\n"
             if p["cover"]:
                 block += f"![{markdown(p['name'])} 封面]({folder}/{quote(p['cover'])})\n\n"
+            if p.get("preview"):
+                preview_link = demo if p["demo"] else f"{folder}/README.md"
+                block += (f"**实际效果预览** · 点击图片进入演示与说明。\n\n"
+                          f"[![{markdown(p['name'])} 实际效果预览]({folder}/{quote(p['preview'])})]({preview_link})\n\n")
             block += f"[研究记录]({folder}/README.md) · [上游仓库]({p['source']})"
             if p["demo"]:
                 block += f" · [Web 演示]({demo})"
@@ -154,11 +163,21 @@ def build(projects):
             shutil.copytree(ROOT / "projects" / folder / "web", output / "projects" / folder,
                             ignore=shutil.ignore_patterns(".gitkeep"))
             links += f'<a href="./projects/{folder}/">Web 演示 →</a>'
+        preview_html = ""
+        if p.get("preview"):
+            source = ROOT / "projects" / folder / p["preview"]
+            target = output / "previews" / (folder + source.suffix.lower())
+            target.parent.mkdir(exist_ok=True)
+            shutil.copyfile(source, target)
+            preview_link = f"./projects/{folder}/" if p["demo"] else f"{REPO}/blob/main/projects/{folder}/README.md"
+            preview_html = (f'<p><strong>实际效果预览</strong> · 点击图片进入演示与说明</p>'
+                            f'<a href="{preview_link}"><img src="./previews/{target.name}" '
+                            f'alt="{escape(p["name"])} 实际效果预览" loading="lazy"></a>')
         tags = "".join(f"<li>{escape(t)}</li>" for t in p["tags"])
         cards.append(f'<article class="card">{picture}<div class="card-body">'
                      f'<div class="meta"><span>NO. {p["id"]:03d}</span><span>{p["status"]}</span></div>'
                      f'<h3>{escape(p["name"])}</h3><p>{escape(p["summary"])}</p>'
-                     f'<ul class="tags">{tags}</ul><nav class="links" aria-label="{escape(p["name"])} 项目入口">'
+                     f'{preview_html}<ul class="tags">{tags}</ul><nav class="links" aria-label="{escape(p["name"])} 项目入口">'
                      f'{links}</nav></div></article>')
     content = "\n".join(cards) or ('<div class="empty"><h3>从第一个好项目开始。</h3>'
                                  '<p>研究室已就绪。收录后，这里将按顺序展示项目摘要、图片与演示入口。</p></div>')
