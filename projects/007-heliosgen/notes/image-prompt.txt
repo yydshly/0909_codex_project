@@ -1,0 +1,15 @@
+Use case: infographic-diagram.
+Create one polished, publication-ready landscape image for a GitHub README that explains HeliosGen at a glance. This is a simplified product capability overview with a small architecture foundation, NOT a detailed engineering flowchart. All explanatory text in Simplified Chinese, exact text below. Wide 16:9 composition, approximately 2400x1350 if possible. Crisp large typography, generous whitespace, very readable at README width. White/off-white background, dark navy type, restrained teal and blue accents, tidy modular graphic design, thin connectors, subtle flat vector-like illustrations. No photographic elements, no mock browser frame, no decorative filler, no watermark, no invented logo.
+
+Layout:
+Top left big title "HeliosGen".
+Below it a clear one-line subtitle "把 AI 图片与视频生成，组织成可复用的创作流程".
+Main middle row has exactly THREE equal-size spacious feature modules, horizontally aligned. Each module has a small elegant illustrative motif, a large heading, and just two short supporting lines:
+Module 1 heading "AI 内容创作"; supporting lines "提示词助手 · 图片生成 · 视频生成" and "参考素材驱动，多模型选择". Motif: text bubble plus image frame plus video play frame, simply drawn.
+Module 2 heading "可视化工作流"; supporting lines "拖放节点，连接创作步骤" and "串行 / 并行执行，保存与复用". Motif: a compact 4-node branching pipeline, visually showing reusable connections.
+Module 3 heading "本地素材管理"; supporting lines "参考素材 · 生成历史 · 项目文件夹" and "工作流与素材打包导入 / 导出". Motif: tidy folder containing image and video cards.
+Under these modules, a short horizontal example strip, labeled "典型流程", with three readable labels and simple arrows: "商品参考图" → "广告主图" → "商品短视频". Keep it clearly an example, not the overall architecture.
+Bottom architecture strip with exactly three rectangular blocks left-to-right connected with subtle arrows. Left block heading "桌面应用"; small subline "Tauri + React / Next.js"; second subline "交互界面 · 流程编排". Middle heading "本地服务"; small subline "模型适配 · 任务处理"; second subline "SQLite + 本地文件". Right heading "云端模型"; small subline "Kie.ai · Azure · Codex 接入"; second subline "图片 / 视频 / 文本生成".
+Enclose ONLY the first two bottom blocks in a lightly tinted shared enclosure with small top label "本机运行与存储". Third block sits outside this enclosure with "云端推理" small label above. Connector between middle and right can be double-headed to show requests and results.
+Very bottom one concise factual note: "应用与数据在本地，生成调用云端；参考素材按需上传。"
+Do not add any other text, numbered section names, implementation file paths, claims about offline operation, GPU training, free generation, microservices, or enterprise features. Make this feel like an excellent concise open-source project README overview, balanced typography and spacing.

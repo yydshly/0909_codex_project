@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HeliosGen · AI 创作工作台 | GitHub 项目研究室</title>
+  <meta name="description" content="一张图了解 HeliosGen：AI 内容创作、可视化工作流、本地素材管理，以及桌面应用与云端模型的分工。">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要内容</a>
+  <header class="topbar">
+    <a class="brand" href="../../">PROJECT LAB / 项目研究室</a>
+    <nav aria-label="项目链接">
+      <a href="https://github.com/yydshly/0909_codex_project/blob/main/projects/007-heliosgen/README.md">研究记录 ↗</a>
+      <a href="https://github.com/SegFault42/HeliosGen">上游仓库 ↗</a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="intro" aria-labelledby="title">
+      <p class="eyebrow">007 / HELIOSGEN</p>
+      <h1>从生成内容，到组织创作。</h1>
+      <p class="lead">一个把提示词、图片和视频模型连接起来的桌面工作台。<br>先看三大能力，再看本地与云端如何分工。</p>
+    </section>
+    <figure class="overview">
+      <a href="./assets/heliosgen-overview.png" aria-label="打开 HeliosGen 能力与架构概览原图">
+        <img src="./assets/heliosgen-overview.png" width="1672" height="941" fetchpriority="high" alt="HeliosGen 三大能力：AI 内容创作、可视化工作流、本地素材管理。典型流程：商品参考图到广告主图再到短视频。桌面应用通过本地服务调用云端模型，参考素材按需上传。">
+      </a>
+      <figcaption>
+        <span>研究说明图 · 非应用截图</span>
+        <span><a href="./assets/heliosgen-overview.png">查看原图 ↗</a> <a href="./assets/heliosgen-overview.png" download="heliosgen-overview.png">下载 PNG ↓</a></span>
+      </figcaption>
+    </figure>
+    <section class="capabilities" aria-label="核心能力">
+      <article><p class="number">01 / 创作</p><h2>把想法变成内容</h2><p>提示词助手、图片和视频生成。按模型选择参考素材与参数，快速验证创意。</p></article>
+      <article><p class="number">02 / 编排</p><h2>把步骤连成流程</h2><p>用节点和连线组织操作。图片与视频节点按依赖分批执行，流程可以保存和复用。</p></article>
+      <article><p class="number">03 / 沉淀</p><h2>把结果留作资产</h2><p>本地保存参考素材和生成历史，用文件夹管理，并打包分享工作流及引用素材。</p></article>
+    </section>
+    <aside class="boundary"><strong>本地工作台，云端生成。</strong><p>应用与主要数据保存在本机，模型推理主要由云端完成，参考素材按需上传。生成费用及可用能力取决于供应商和模型。</p></aside>
+    <details>
+      <summary>进一步了解：架构、复用价值与当前边界</summary>
+      <div class="detail-body">
+        <p><strong>三块架构：</strong>Tauri + React / Next.js 承担交互与编排；本地 Node.js 服务处理模型调用和任务状态，SQLite 与文件系统保存数据；Kie.ai 为主要模型入口，部分能力可选 Azure 或 Codex CLI 对应的云端路径。</p>
+        <p><strong>五个业务对象：</strong>工作流保存方案，节点定义步骤，连线传递输入，任务跟踪执行，素材承接产出。适合借鉴 AI 创作应用如何组织业务与模型接入。</p>
+        <p><strong>扩展方向：</strong>任务可靠性、统一模型适配、行业模板、成本管理、本地推理接入。以上为研究建议。</p>
+        <p><strong>当前边界：</strong>自动执行主要调度图片与视频节点；Veo 轮询、大视频上传和失败恢复仍需完善。本次核对为静态源码研究，未运行付费生成。</p>
+        <a href="https://github.com/yydshly/0909_codex_project/blob/main/projects/007-heliosgen/notes/sources.md">查看源码依据与完整边界 ↗</a>
+      </div>
+    </details>
+  </main>
+  <footer><span>核对版本 <a href="https://github.com/SegFault42/HeliosGen/tree/fb011d6f3ad00510b4eface78e054c7eda329c54">fb011d6 ↗</a> · 2026.09.09</span><span>本页为研究介绍，不提供在线模型生成。</span></footer>
+</body>
+</html>

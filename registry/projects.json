@@ -1,5 +1,5 @@
 {
-  "nextId": 4,
+  "nextId": 8,
   "projects": [
     {
       "id": 1,
@@ -49,6 +49,23 @@
       ],
       "cover": "web/assets/understanding-preview.png",
       "preview": "web/assets/self-architecture-preview.png",
+      "demo": true
+    },
+    {
+      "id": 7,
+      "slug": "heliosgen",
+      "order": 70,
+      "name": "HeliosGen AI 创作工作台",
+      "source": "https://github.com/SegFault42/HeliosGen",
+      "summary": "用一张图理解 AI 内容创作、可视化工作流和本地素材管理，以及桌面应用、本地服务与云端模型的分工。",
+      "status": "已整理",
+      "tags": [
+        "AI 图片与视频",
+        "可视化工作流",
+        "桌面应用",
+        "一图概览"
+      ],
+      "cover": "web/assets/heliosgen-overview.png",
       "demo": true
     }
   ]
