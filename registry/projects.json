@@ -57,13 +57,13 @@
       "order": 70,
       "name": "HeliosGen AI 创作工作台",
       "source": "https://github.com/SegFault42/HeliosGen",
-      "summary": "用一张图理解 AI 内容创作、可视化工作流和本地素材管理，以及桌面应用、本地服务与云端模型的分工。",
+      "summary": "面向图片与视频创作的桌面应用，支持提示词辅助、节点工作流与本地素材管理；通过云端模型 API 适配和依赖调度串联生成任务，减少重复操作、复用创作流程；可扩展更多模型、本地推理、任务恢复、成本控制与行业模板。",
       "status": "已整理",
       "tags": [
         "AI 图片与视频",
         "可视化工作流",
         "桌面应用",
-        "一图概览"
+        "模型 API 适配"
       ],
       "cover": "web/assets/heliosgen-overview.png",
       "demo": true

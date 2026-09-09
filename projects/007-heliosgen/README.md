@@ -2,7 +2,7 @@
 
 **把 AI 图片与视频生成，组织成可复用的创作流程。**
 
-HeliosGen 是基于现有大模型接口二次开发的桌面应用：模型提供生成能力，软件负责操作界面、流程编排、模型适配和素材管理。
+面向图片与视频创作的桌面应用，支持提示词辅助、节点工作流与本地素材管理；通过云端模型 API 适配和依赖调度串联生成任务，减少重复操作、复用创作流程；可扩展更多模型、本地推理、任务恢复、成本控制与行业模板。
 
 [在线概览](https://yydshly.github.io/0909_codex_project/projects/007-heliosgen/) · [上游仓库](https://github.com/SegFault42/HeliosGen) · [查看原图](web/assets/heliosgen-overview.png) · [返回研究室](../../README.md)
 
