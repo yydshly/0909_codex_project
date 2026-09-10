@@ -1,5 +1,5 @@
 {
-  "nextId": 14,
+  "nextId": 15,
   "projects": [
     {
       "id": 1,
@@ -220,6 +220,24 @@
         "能力与扩展"
       ],
       "cover": "web/assets/architecture.svg",
+      "demo": true
+    },
+    {
+      "id": 14,
+      "slug": "surfsense",
+      "order": 140,
+      "name": "SurfSense 研究与知识库实验室",
+      "source": "https://github.com/MODSetter/SurfSense",
+      "summary": "SurfSense 将多格式资料解析、切块、Embedding、混合检索与大模型生成组织成可自行部署的研究平台，提供 NotebookLM 式引用问答与内容生成，并扩展实时数据、MCP 和自动化；附技术引导图，讲清向量表示、候选资料查找与 RAG 的分工，以及考纲覆盖、测验和复习的扩展路径。",
+      "status": "已整理",
+      "tags": [
+        "知识库与 RAG",
+        "实时数据连接器",
+        "Agent / MCP",
+        "引用追溯",
+        "教学演示"
+      ],
+      "cover": "web/assets/readme-guide.png",
       "demo": true
     }
   ]

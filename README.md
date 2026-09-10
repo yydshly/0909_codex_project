@@ -22,6 +22,7 @@
 | 11 | 011 | [Multica Agent 协作与执行平台](projects/011-multica/README.md) | [multica-ai/multica](https://github.com/multica-ai/multica) | 以事件触发和任务队列调度 Codex、Claude Code 等 Agent 工具，支持依赖交接、并行执行与人工评审控制；附整体架构、完整理解和本机原版实测。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/011-multica/) |
 | 12 | 012 | [MetaGPT 多 Agent 软件团队实验室](projects/012-metagpt/README.md) | [FoundationAgents/MetaGPT](https://github.com/FoundationAgents/MetaGPT) | 以角色、动作、消息和异步循环组织多 Agent 协作：提示词定义工作方式，模型决策与程序调度分工；附两种调度机制、27 个角色及测试返修实测。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/012-metagpt/) |
 | 13 | 013 | [Firecrawl 网页获取与能力实验室](projects/013-firecrawl/README.md) | [firecrawl/firecrawl](https://github.com/firecrawl/firecrawl) | Firecrawl 是网页数据获取与处理服务：以 API/SDK 接收网址、搜索词和任务，结合直接 HTTP 请求、真实无头浏览器的渲染与按需交互、队列调度和内容转换输出 Markdown/JSON，并非每次都操作浏览器；支持搜索、抓取、爬站及云端 Agent/Interact，可扩展新闻雷达、知识库与质量监控，附数据接入方式、同类工具及登录风控边界。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/013-firecrawl/) |
+| 14 | 014 | [SurfSense 研究与知识库实验室](projects/014-surfsense/README.md) | [MODSetter/SurfSense](https://github.com/MODSetter/SurfSense) | SurfSense 将多格式资料解析、切块、Embedding、混合检索与大模型生成组织成可自行部署的研究平台，提供 NotebookLM 式引用问答与内容生成，并扩展实时数据、MCP 和自动化；附技术引导图，讲清向量表示、候选资料查找与 RAG 的分工，以及考纲覆盖、测验和复习的扩展路径。 | 已整理 | [演示](https://yydshly.github.io/0909_codex_project/projects/014-surfsense/) |
 <!-- PROJECT_INDEX:END -->
 
 ## 项目速览
@@ -134,6 +135,14 @@ Firecrawl 是网页数据获取与处理服务：以 API/SDK 接收网址、搜�
 ![Firecrawl 网页获取与能力实验室 封面](projects/013-firecrawl/web/assets/architecture.svg)
 
 [研究记录](projects/013-firecrawl/README.md) · [上游仓库](https://github.com/firecrawl/firecrawl) · [Web 演示](https://yydshly.github.io/0909_codex_project/projects/013-firecrawl/)
+
+### 014 · SurfSense 研究与知识库实验室
+
+SurfSense 将多格式资料解析、切块、Embedding、混合检索与大模型生成组织成可自行部署的研究平台，提供 NotebookLM 式引用问答与内容生成，并扩展实时数据、MCP 和自动化；附技术引导图，讲清向量表示、候选资料查找与 RAG 的分工，以及考纲覆盖、测验和复习的扩展路径。
+
+![SurfSense 研究与知识库实验室 封面](projects/014-surfsense/web/assets/readme-guide.png)
+
+[研究记录](projects/014-surfsense/README.md) · [上游仓库](https://github.com/MODSetter/SurfSense) · [Web 演示](https://yydshly.github.io/0909_codex_project/projects/014-surfsense/)
 <!-- PROJECT_CARDS:END -->
 
 ## 001 · 架构图阅读指南

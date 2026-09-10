@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="2680" viewBox="0 0 2400 2680" role="img" aria-labelledby="title desc">
+<title id="title">SurfSense 资料、索引与 RAG 技术全景</title>
+<desc id="desc">入库时解析、切块并保存原文、向量和全文表示；查询时混合召回、融合、可选重排，取回原文组装上下文并生成。侧栏解释概念与通用扩展，底部说明维护、验证和备考建议。</desc>
+<rect width="2400" height="2680" fill="#f4f7fb"/>
+<text x="60" y="54" fill="#087b76" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="22" font-weight="700">SURFSENSE  /  TECHNICAL READING MAP  /  V2</text>
+<text x="60" y="132" fill="#163449" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="49" font-weight="700">从多格式资料，到可检索知识，再到有依据的生成</text>
+<text x="60" y="181" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="27" font-weight="400">核心问题：资料如何变成模型能用的证据？关键是保留内容、建立查找能力、按问题组织上下文。</text>
+<rect x="60" y="215" width="16" height="16" rx="4" fill="#087b76" stroke="#087b76" stroke-width="2"/>
+<text x="88" y="232" fill="#087b76" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="23" font-weight="700">绿色：资料入库</text>
+<rect x="450" y="215" width="16" height="16" rx="4" fill="#295fbd" stroke="#295fbd" stroke-width="2"/>
+<text x="478" y="232" fill="#295fbd" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="23" font-weight="700">蓝色：检索与生成</text>
+<rect x="900" y="215" width="16" height="16" rx="4" fill="#7851ac" stroke="#7851ac" stroke-width="2"/>
+<text x="928" y="232" fill="#7851ac" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="23" font-weight="700">紫色：通用方案 / 建议扩展</text>
+<text x="1630" y="232" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="23" font-weight="400">主流程按已核对代码概括；不是完整调用时序</text>
+<text x="65" y="318" fill="#087b76" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="31" font-weight="700">01</text>
+<text x="128" y="318" fill="#087b76" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="31" font-weight="700">资料入库 · 新增或更新时执行</text>
+<text x="65" y="359" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="24" font-weight="400">解析和切分后的片段，同时服务于语义查找、全文查找和原文回取。</text>
+<rect x="65" y="380" width="380" height="235" rx="17" fill="#ffffff" stroke="#cfdee8" stroke-width="2"/>
+<text x="85" y="429" fill="#087b76" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">来源与采集</text>
+<text x="85" y="477" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">文件 / 网盘 / 本地资料</text>
+<text x="85" y="514" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">网页与平台连接器</text>
+<text x="85" y="551" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">PDF、Office、图片、音频</text>
+<text x="85" y="588" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">来源与支持范围依配置</text>
+<rect x="490" y="380" width="380" height="235" rx="17" fill="#ffffff" stroke="#cfdee8" stroke-width="2"/>
+<text x="510" y="429" fill="#087b76" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">按格式解析</text>
+<text x="510" y="477" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">文本：直接读取或转换</text>
+<text x="510" y="514" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">文档：Docling 等适配器</text>
+<text x="510" y="551" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">扫描文字：OCR</text>
+<text x="510" y="588" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">音频：STT；图片可加描述</text>
+<rect x="915" y="380" width="380" height="235" rx="17" fill="#ffffff" stroke="#cfdee8" stroke-width="2"/>
+<text x="935" y="429" fill="#087b76" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">统一内容与结构</text>
+<text x="935" y="477" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">输出 Markdown 等文本</text>
+<text x="935" y="514" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">保留可提取的标题与表格</text>
+<text x="935" y="551" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">携带文档及来源信息</text>
+<text x="935" y="588" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">复杂内容需检查解析质量</text>
+<rect x="1340" y="380" width="380" height="235" rx="17" fill="#ffffff" stroke="#cfdee8" stroke-width="2"/>
+<text x="1360" y="429" fill="#087b76" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">切块 · Chunking</text>
+<text x="1360" y="477" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">长文拆为可检索片段</text>
+<text x="1360" y="514" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">保留文档关联与文本顺序</text>
+<text x="1360" y="551" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">处理 Markdown 表格完整性</text>
+<text x="1360" y="588" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">切太小缺语境，太大有噪声</text>
+<polyline points="445,495 490,495" stroke="#087b76" stroke-width="3" fill="none"/>
+<polygon points="490,495 479,489 479,501" fill="#087b76"/>
+<polyline points="870,495 915,495" stroke="#087b76" stroke-width="3" fill="none"/>
+<polygon points="915,495 904,489 904,501" fill="#087b76"/>
+<polyline points="1295,495 1340,495" stroke="#087b76" stroke-width="3" fill="none"/>
+<polygon points="1340,495 1329,489 1329,501" fill="#087b76"/>
+<polyline points="1530,615 1530,648 340,648 340,705" stroke="#087b76" stroke-width="3" fill="none"/>
+<polygon points="340,705 334,694 346,694" fill="#087b76"/>
+<polyline points="890,648 890,705" stroke="#087b76" stroke-width="3" fill="none"/>
+<polygon points="890,705 884,694 896,694" fill="#087b76"/>
+<polyline points="1440,648 1440,705" stroke="#087b76" stroke-width="3" fill="none"/>
+<polygon points="1440,705 1434,694 1446,694" fill="#087b76"/>
+<text x="65" y="686" fill="#087b76" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="24" font-weight="700">同一片段，三种用途</text>
+<rect x="65" y="705" width="530" height="205" rx="17" fill="#ffffff" stroke="#cfdee8" stroke-width="2"/>
+<text x="85" y="754" fill="#087b76" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">A  内容存储：保留证据</text>
+<text x="85" y="802" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">保存片段原文 + 文档 / 片段 ID</text>
+<text x="85" y="839" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">通过来源关联支持回溯与引用</text>
+<text x="85" y="876" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">示意：{ id, text, document_id, position }</text>
+<rect x="625" y="705" width="530" height="205" rx="17" fill="#ffffff" stroke="#cfdee8" stroke-width="2"/>
+<text x="645" y="754" fill="#087b76" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">B  Embedding：语义表示</text>
+<text x="645" y="802" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">片段文本 → 编码模型 → 数值向量</text>
+<text x="645" y="839" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">向量与片段关联，存入 pgvector</text>
+<text x="645" y="876" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">示意：[0.12, -0.38, …]，不是原文编码表</text>
+<rect x="1185" y="705" width="535" height="205" rx="17" fill="#ffffff" stroke="#cfdee8" stroke-width="2"/>
+<text x="1205" y="754" fill="#087b76" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">C  全文查询：词项表示</text>
+<text x="1205" y="802" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">文本 → 分词 / 规范化 → tsvector</text>
+<text x="1205" y="839" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">问题词项与内容词项进行匹配</text>
+<text x="1205" y="876" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">PostgreSQL 排序：ts_rank_cd</text>
+<text x="65" y="959" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="24" font-weight="400">缓存与增量：复用未变化的解析 / 向量结果；更换编码模型时，需要相应重建或迁移语义索引。</text>
+<text x="65" y="1030" fill="#295fbd" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="31" font-weight="700">02</text>
+<text x="128" y="1030" fill="#295fbd" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="31" font-weight="700">检索与生成 · 每次提问时执行</text>
+<text x="65" y="1071" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="24" font-weight="400">候选 ID / 分数用于选择资料；进入生成模型的主要是筛选后的原文与来源。</text>
+<rect x="65" y="1090" width="380" height="245" rx="17" fill="#ffffff" stroke="#cfdee8" stroke-width="2"/>
+<text x="85" y="1139" fill="#295fbd" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">问题与范围</text>
+<text x="85" y="1187" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">输入问题文本</text>
+<text x="85" y="1224" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">限定工作区及所选资料</text>
+<text x="85" y="1261" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">问题用兼容的模型编码</text>
+<text x="85" y="1298" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">得到问题向量和全文查询</text>
+<rect x="490" y="1090" width="805" height="245" rx="17" fill="#ffffff" stroke="#cfdee8" stroke-width="2"/>
+<text x="510" y="1139" fill="#295fbd" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">双路初步检索 · 找出候选资料</text>
+<text x="510" y="1197" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">语义路：问题向量与片段向量（对应 B）</text>
+<text x="510" y="1235" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">pgvector 余弦距离，找到含义相近的候选</text>
+<text x="510" y="1281" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">全文路：问题词项与内容词项（对应 C）</text>
+<text x="510" y="1319" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">PostgreSQL 全文排序，补充字面匹配</text>
+<rect x="1340" y="1090" width="380" height="245" rx="17" fill="#ffffff" stroke="#cfdee8" stroke-width="2"/>
+<text x="1360" y="1139" fill="#295fbd" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">融合 · RRF</text>
+<text x="1360" y="1187" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">按各路名次融合候选</text>
+<text x="1360" y="1224" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">Σ 1 / (60 + rank)</text>
+<text x="1360" y="1261" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">不直接相加不同尺度分数</text>
+<text x="1360" y="1298" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">保留命中片段与文档关联</text>
+<polyline points="445,1210 490,1210" stroke="#295fbd" stroke-width="3" fill="none"/>
+<polygon points="490,1210 479,1204 479,1216" fill="#295fbd"/>
+<polyline points="1295,1210 1340,1210" stroke="#295fbd" stroke-width="3" fill="none"/>
+<polygon points="1340,1210 1329,1204 1329,1216" fill="#295fbd"/>
+<polyline points="1530,1335 1530,1370 255,1370 255,1410" stroke="#295fbd" stroke-width="3" fill="none"/>
+<polygon points="255,1410 249,1399 261,1399" fill="#295fbd"/>
+<rect x="65" y="1410" width="380" height="245" rx="17" fill="#ffffff" stroke="#cfdee8" stroke-width="2"/>
+<text x="85" y="1459" fill="#295fbd" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">可选重排 · Reranker</text>
+<text x="85" y="1507" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">问题 + 候选内容 → 分数</text>
+<text x="85" y="1544" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">重新判断能否帮助回答</text>
+<text x="85" y="1581" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">未配置时保持检索结果</text>
+<text x="85" y="1618" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">首轮漏掉的证据无法凭空补回</text>
+<rect x="490" y="1410" width="805" height="245" rx="17" fill="#ffffff" stroke="#cfdee8" stroke-width="2"/>
+<text x="510" y="1459" fill="#295fbd" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">取回原文 → 组装模型上下文</text>
+<text x="510" y="1507" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">从内容存储 A 取回原文，附上可追溯的来源标识</text>
+<text x="510" y="1544" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">输入：任务要求 + 问题 + 相关原文 + 引用标识</text>
+<text x="510" y="1581" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">通用优化：去重、补齐相邻语境、控制 Token 预算</text>
+<text x="510" y="1618" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">Token 是输入长度单位，要为历史与输出预留空间</text>
+<rect x="1340" y="1410" width="380" height="245" rx="17" fill="#ffffff" stroke="#cfdee8" stroke-width="2"/>
+<text x="1360" y="1459" fill="#295fbd" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">生成大模型 · LLM</text>
+<text x="1360" y="1507" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">阅读问题与证据原文</text>
+<text x="1360" y="1544" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">进行解释、比较和归纳</text>
+<text x="1360" y="1581" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">生成回答并关联引用</text>
+<text x="1360" y="1618" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">有引用仍需核对事实与归纳</text>
+<polyline points="445,1530 490,1530" stroke="#295fbd" stroke-width="3" fill="none"/>
+<polygon points="490,1530 479,1524 479,1536" fill="#295fbd"/>
+<polyline points="1295,1530 1340,1530" stroke="#295fbd" stroke-width="3" fill="none"/>
+<polygon points="1340,1530 1329,1524 1329,1536" fill="#295fbd"/>
+<text x="65" y="1704" fill="#295fbd" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="24" font-weight="700">RAG = 检索 → 上下文组装 → 基于资料生成；不限于向量检索，也不等于把资料训练进模型参数。</text>
+<text x="65" y="1778" fill="#295fbd" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="31" font-weight="700">03</text>
+<text x="128" y="1778" fill="#295fbd" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="31" font-weight="700">成果与 Agent · 模型生成，工具执行</text>
+<text x="65" y="1819" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="24" font-weight="400">研究内容可以呈现为多种形式；Agent、API 与 MCP 组织外部能力的调用。</text>
+<rect x="65" y="1840" width="805" height="215" rx="17" fill="#ffffff" stroke="#cfdee8" stroke-width="2"/>
+<text x="85" y="1889" fill="#295fbd" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">内容生成与呈现</text>
+<text x="85" y="1937" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">引用问答 / 报告 / 文档 / 表格 / 演示等研究成果</text>
+<text x="85" y="1974" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">播客：资料与要求 → 脚本 → TTS 配音 → 音频</text>
+<text x="85" y="2011" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">不同成果走不同生成路径，不是一次问答的固定后处理</text>
+<rect x="915" y="1840" width="805" height="215" rx="17" fill="#ffffff" stroke="#cfdee8" stroke-width="2"/>
+<text x="935" y="1889" fill="#295fbd" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">研究控制与接入</text>
+<text x="935" y="1937" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">Agent 按任务调用检索、平台连接器或其他工具</text>
+<text x="935" y="1974" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">REST / MCP 对外提供能力，也可接入外部 MCP 工具</text>
+<text x="935" y="2011" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">定时或事件触发研究；权限与服务配置决定可用范围</text>
+<rect x="1790" y="285" width="550" height="220" rx="17" fill="#ffffff" stroke="#cfdee8" stroke-width="2"/>
+<text x="1810" y="334" fill="#087b76" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">Embedding · 表示内容</text>
+<text x="1810" y="382" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">输入：片段 / 问题文本</text>
+<text x="1810" y="419" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">输出：数值向量，帮助比较语义</text>
+<text x="1810" y="456" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">不是答案，也不能可靠还原原文</text>
+<text x="1810" y="493" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">编码空间必须兼容；语言与领域影响效果</text>
+<rect x="1790" y="530" width="550" height="220" rx="17" fill="#ffffff" stroke="#cfdee8" stroke-width="2"/>
+<text x="1810" y="579" fill="#087b76" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">索引 · 加速查找</text>
+<text x="1810" y="627" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">原文之外的查找结构</text>
+<text x="1810" y="664" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">倒排索引：词 → 出现位置 / 片段</text>
+<text x="1810" y="701" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">向量索引：加速查找相近向量</text>
+<text x="1810" y="738" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">数据库负责保存、过滤和查询</text>
+<rect x="1790" y="765" width="550" height="220" rx="17" fill="#ffffff" stroke="#cfdee8" stroke-width="2"/>
+<text x="1810" y="814" fill="#295fbd" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">RAG · 使用外部证据</text>
+<text x="1810" y="862" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">Retrieve：检索相关资料</text>
+<text x="1810" y="899" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">Augment：资料加入模型上下文</text>
+<text x="1810" y="936" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">Generate：模型据此生成</text>
+<text x="1810" y="973" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">通常不修改生成模型的参数</text>
+<rect x="1790" y="1000" width="550" height="330" rx="17" fill="#f8f5fc" stroke="#cfdee8" stroke-width="2"/>
+<text x="1810" y="1049" fill="#7851ac" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">常见扩展 · 不推断已启用</text>
+<text x="1810" y="1097" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">BM25：词项相关性排序</text>
+<text x="1810" y="1134" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">HNSW / IVF：向量搜索加速</text>
+<text x="1810" y="1171" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">查询改写 / 拆解：改善问题表达</text>
+<text x="1810" y="1208" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">父子块：小块定位，大块补语境</text>
+<text x="1810" y="1245" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">这里是技术选项，不是部署清单</text>
+<text x="1810" y="1282" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">SurfSense 路径用 ts_rank_cd，不能直接称为</text>
+<text x="1810" y="1319" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400"> BM25</text>
+<rect x="1790" y="1350" width="550" height="265" rx="17" fill="#ffffff" stroke="#cfdee8" stroke-width="2"/>
+<text x="1810" y="1399" fill="#295fbd" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">例子 · 措辞不同也能查找</text>
+<text x="1810" y="1447" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">问题：“植物如何用阳光制造养分？”</text>
+<text x="1810" y="1484" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">教材：“光合作用利用光能……”</text>
+<text x="1810" y="1521" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">Embedding 帮助判断语义相关</text>
+<text x="1810" y="1558" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">检索取回教材原文；LLM 再作解释</text>
+<text x="1810" y="1595" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">向量相近 ≠ 内容正确或证据充分</text>
+<rect x="1790" y="1640" width="550" height="255" rx="17" fill="#fffbf3" stroke="#cfdee8" stroke-width="2"/>
+<text x="1810" y="1689" fill="#9a651d" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">实现与数据边界</text>
+<text x="1810" y="1737" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">核对的全文路径使用 english 配置</text>
+<text x="1810" y="1774" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">中文分词与检索效果需实际验证</text>
+<text x="1810" y="1811" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">来源定位取决于解析与关联信息</text>
+<text x="1810" y="1848" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">不保证任何格式都无损保留</text>
+<text x="1810" y="1885" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">自部署的数据流向取决于服务配置</text>
+<rect x="1790" y="1905" width="550" height="150" rx="17" fill="#ffffff" stroke="#cfdee8" stroke-width="2"/>
+<text x="1810" y="1954" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">图的阅读范围</text>
+<text x="1810" y="2002" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">绿色 / 蓝色按代码概括主链路</text>
+<text x="1810" y="2039" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">紫色及“通用优化”为建议方案</text>
+<text x="65" y="2143" fill="#7851ac" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="31" font-weight="700">04</text>
+<text x="128" y="2143" fill="#7851ac" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="31" font-weight="700">更新与验证 · 让结果可持续使用</text>
+<text x="65" y="2184" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="24" font-weight="400">已有缓存 / 增量机制可以复用计算；下列评估方式建议使用真实资料执行。</text>
+<rect x="65" y="2200" width="710" height="200" rx="17" fill="#f8f5fc" stroke="#cfdee8" stroke-width="2"/>
+<text x="85" y="2249" fill="#7851ac" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">数据维护</text>
+<text x="85" y="2297" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">源内容变化 → 识别变化 → 更新片段与向量</text>
+<text x="85" y="2334" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">内容删除 / 权限变化 → 验证检索结果同步变化</text>
+<text x="85" y="2371" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">索引版本应与解析、切分、编码配置对应</text>
+<rect x="810" y="2200" width="710" height="200" rx="17" fill="#f8f5fc" stroke="#cfdee8" stroke-width="2"/>
+<text x="830" y="2249" fill="#7851ac" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">三段质量检查</text>
+<text x="830" y="2297" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">初步检索：正确证据是否进入候选集？</text>
+<text x="830" y="2334" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">上下文：证据是否保留、条件是否完整？</text>
+<text x="830" y="2371" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">生成：结论是否忠于证据，引用是否对应？</text>
+<rect x="1555" y="2200" width="785" height="200" rx="17" fill="#f8f5fc" stroke="#cfdee8" stroke-width="2"/>
+<text x="1575" y="2249" fill="#7851ac" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="29" font-weight="700">速度与成本</text>
+<text x="1575" y="2297" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">初次入库：OCR / 视觉 / 转写 / Embedding</text>
+<text x="1575" y="2334" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">每次提问：初步检索 / 可选重排 / LLM 生成</text>
+<text x="1575" y="2371" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="25" font-weight="400">分别观察耗时、调用成本与覆盖率，避免只换模型</text>
+<rect x="65" y="2430" width="2275" height="150" rx="17" fill="#eee8f7" stroke="#d6c8e8" stroke-width="2"/>
+<text x="88" y="2477" fill="#7851ac" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="28" font-weight="700">备考应用 · 建议扩展，尚未实现</text>
+<text x="88" y="2528" fill="#163449" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="31" font-weight="700">考纲拆解 → 逐项匹配资料与查漏 → 分层讲解 → 出题评分 → 错题反馈 → 复习安排</text>
+<text x="88" y="2566" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="24" font-weight="400">相关性检索不等于全量覆盖；备考系统还需要学习进度、题目质量与掌握程度的验证。</text>
+<text x="65" y="2626" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="21" font-weight="400">研究基线：SurfSense 3448772 · 2026-09-10 · 来源与解释见 notes/understanding.md</text>
+<text x="65" y="2663" fill="#526a7a" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="21" font-weight="400">本地展示未运行上游后端；本图是原理与能力分工说明，未声称已完成质量、速度或权限实测。</text>
+</svg>

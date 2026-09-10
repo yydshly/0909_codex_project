@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SurfSense · 研究与知识库实验室</title>
+  <meta name="description" content="一图理解 SurfSense 的 NotebookLM 式资料研究核心与后续扩展：RAG、引用、播客、实时连接器、Agent、MCP 和自动化。">
+  <link rel="stylesheet" href="./style.css"><script defer src="./app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要内容</a>
+<aside class="sidebar">
+  <a class="brand" href="#architecture"><span class="brand-icon">S</span><span>SurfSense<small>CAPABILITY LAB · 014</small></span></a>
+  <div class="nav-label">探索工作台</div>
+  <nav aria-label="展示内容">
+    <a href="#architecture" class="nav-item" data-view="architecture"><span>01</span>能力与技术架构</a>
+    <a href="#research" class="nav-item" data-view="research"><span>02</span>资料问答演示</a>
+    <a href="#connectors" class="nav-item" data-view="connectors"><span>03</span>数据连接器</a>
+    <a href="#scenarios" class="nav-item" data-view="scenarios"><span>04</span>应用与成果</a>
+    <a href="#boundaries" class="nav-item" data-view="boundaries"><span>05</span>接入与边界</a>
+  </nav>
+  <div class="side-note"><span class="tiny-label">这是什么？</span><p>以 NotebookLM 式资料研究为核心，扩展实时网络、Agent 工具和自动化。</p><a href="https://github.com/MODSetter/SurfSense" target="_blank" rel="noopener noreferrer">查看上游仓库 ↗</a></div>
+  <div class="sidebar-bottom">GitHub 项目研究室<small>源码核对 · 2026.09.09</small></div>
+</aside>
+<div class="app-shell">
+  <header class="topbar"><span>开源项目探索 <span class="slash">/</span> SurfSense</span><span class="demo-badge">交互教学演示</span></header>
+  <main id="main">
+    <section id="research" class="view" hidden>
+      <div class="page-heading"><div><p class="eyebrow">FROM SOURCES TO INSIGHT</p><h1>让答案有据可查。</h1><p class="subtitle">选择一组资料，观察问题如何变成可追溯的研究结果。</p></div><div class="heading-index">02 <span>/ 05</span></div></div>
+      <div class="notice"><span>演示范围</span> 使用内置虚构业务资料，在浏览器本地匹配关键词；未调用大模型、真实向量检索或平台采集。</div>
+      <div class="scenario-bar"><span>研究场景</span><div id="scenario-buttons" class="segmented" role="group" aria-label="选择研究场景"></div></div>
+      <div class="research-grid">
+        <section class="panel source-panel"><div class="panel-heading"><h2>资料来源</h2><span id="source-count" class="count"></span></div><p class="muted compact">勾选本次研究可使用的证据</p><div id="source-list"></div><div class="source-footer"><span class="tiny-label">真实 SurfSense</span><p>支持文件上传、网盘同步、本地文件夹与网页资料入库。</p></div></section>
+        <section class="panel research-panel"><div class="panel-heading"><h2>研究问题</h2><span class="pill">本地示例</span></div>
+          <form id="question-form"><label class="sr-only" for="question">输入研究问题</label><textarea id="question" rows="3" maxlength="500"></textarea><div class="form-bottom"><small>可编辑问题，试试“导出”“协作”“离线”等关键词</small><button class="primary" id="run-button" type="submit">运行演示 <span>↗</span></button></div></form>
+          <ol id="run-steps" class="run-steps" aria-label="处理流程"><li>解析问题</li><li>检索资料</li><li>整理证据</li><li>关联引用</li></ol>
+          <div id="result" aria-live="polite"></div>
+        </section>
+        <aside class="panel evidence-panel"><div class="panel-heading"><h2>证据索引</h2><span id="evidence-count" class="count"></span></div><p class="muted compact">点击引用，查看原文与来源</p><div id="evidence-list"></div><div class="evidence-note">真实系统会保留文档与片段 ID，让回答中的引用对应到检索内容。</div></aside>
+      </div>
+      <div class="bottom-insight"><span class="insight-symbol">↳</span><p><strong>为什么先找资料？</strong> 模型在回答时读取相关证据。资料更新后重新索引即可，不需要每次重新训练模型。</p><a href="#architecture">拆解检索链路 →</a></div>
+    </section>
+    <section id="connectors" class="view" hidden>
+      <div class="page-heading"><div><p class="eyebrow">LIVE DATA, ONE INTERFACE</p><h1>把网络变成可用资料。</h1><p class="subtitle">平台专用连接器返回结构化数据，供研究工作台或外部 Agent 使用。</p></div><div class="heading-index">03 <span>/ 05</span></div></div>
+      <div class="notice"><span>示意数据</span> 选择连接器查看典型输入、输出与实现说明。这里不会向目标平台发起请求。</div>
+      <div class="connector-layout"><div id="connector-grid" class="connector-grid"></div><section class="panel connector-detail" id="connector-detail" aria-live="polite"></section></div>
+      <div class="bottom-insight"><span class="insight-symbol">↳</span><p><strong>API 是调用入口，采集器负责取数。</strong> 统一的 SurfSense API 不等于各平台的官方 API，也不意味着每个请求都启动浏览器。</p></div>
+    </section>
+    <section id="architecture" class="view">
+      <div class="page-heading"><div><p class="eyebrow">NOTEBOOKLM-LIKE CORE · EXTENDED RESEARCH</p><h1>从技术组件理解研究能力。</h1><p class="subtitle">具体看哪些解析器处理格式、什么模型承担识别与生成、数据库怎样检索，以及 Agent 如何调用这些组件。</p></div><div class="heading-index">01 <span>/ 05</span></div></div>
+      <div class="capability-intro"><article><span class="tiny-label">原有核心 · 资料研究</span><h2>把你的资料，变成可提问的知识库。</h2><p>导入文档、网页等资料，跨文档问答、总结和对比，查看引用，再将研究内容转成播客。</p></article><article><span class="tiny-label">后续强化 · 实时研究与工具服务</span><h2>让新信息和外部工具进入研究过程。</h2><p>扩展平台数据采集、外部 MCP、定时与事件触发，并把检索和采集作为工具提供给其他 Agent。</p></article></div>
+      <figure class="overview-figure"><div class="figure-toolbar"><span>技术实现总图 · 解析器 / 数据结构 / 模型 / 检索算法 / Agent</span><div><a href="./assets/technical-architecture.svg" target="_blank" rel="noopener noreferrer">查看矢量大图 ↗</a><a href="./assets/technical-architecture.png" download="surfsense-technical-architecture.png">下载 PNG ↓</a></div></div><a href="./assets/technical-architecture.svg" target="_blank" rel="noopener noreferrer" aria-label="放大 SurfSense 技术实现架构图"><img src="./assets/technical-architecture.svg" width="2080" height="1740" alt="SurfSense 技术实现：多格式分类与解析器、EtlResult 统一接口、文本切分与 Embedding、pgvector 混合检索、大模型生成，以及 Agent、双向 MCP、缓存和增量处理。"></a><figcaption>左侧看内容处理与检索的数据结构，右侧看 Agent 控制、工具扩展和性能实现。青色标程序与数据库，蓝色标模型推理，紫色标扩展。 <a href="./assets/architecture.svg" target="_blank" rel="noopener noreferrer">查看此前的能力演进图 ↗</a></figcaption></figure>
+      <section class="capability-principles"><h2>每项能力，背后的技术是什么？</h2><div class="principle-table"><table><thead><tr><th>用户看到的能力</th><th>技术如何实现</th><th>需要理解的区别</th></tr></thead><tbody>
+      <tr><td>导入与理解资料</td><td>解析文件、语音转写、按配置识图 → 文本切分 → Embedding 向量化 → 保存片段与来源。</td><td>Embedding 表示内容的语义，用于搜索；它不负责写答案。</td></tr>
+      <tr><td>与资料对话</td><td>问题转成查询 → 语义与全文检索 → RRF 融合排名 → 可选重排序 → 将证据交给大模型。</td><td>这是 RAG：回答时读取资料，不是每次上传都训练模型。</td></tr>
+      <tr><td>总结、对比与引用</td><td>模型结合问题和命中片段组织回答，片段 ID 将引用关联回原文。</td><td>引用让结论可核查；证据遗漏或归纳错误仍可能发生。</td></tr>
+      <tr><td>播客与更多成果</td><td>播客：研究内容 → 对话脚本 → TTS 合成语音。报告、演示、视频再使用各自的生成和渲染工具。</td><td>问答模型、语音模型和渲染服务各司其职；不能只靠检索完成全部生成。</td></tr>
+      <tr><td>实时网络研究</td><td>Agent 调用平台采集器，按站点使用 HTTP、浏览器等路径，解析成结构化内容；可直接使用或再入库。</td><td>连接器负责获取数据，Agent 负责决定何时调用；不是每个页面都由模型点击。</td></tr>
+      <tr><td>自动化与 Agent 接入</td><td>时间 / 事件触发同一研究流程；对外 MCP 将 REST 能力包装为工具；外部 MCP 将第三方工具接进来。</td><td>“向外提供 MCP”和“接入别人的 MCP”是两个方向。</td></tr>
+      </tbody></table></div></section>
+      <div class="history-note"><strong>演进依据</strong><p>2025-08-29 的说明已列出资料问答、播客、层级 RAG、研究 Agent、连接器和 API；研究版本进一步强调平台实时数据、MCP 和自动化。图中具体组件按研究版本梳理，未将其全部视为旧版实现。</p><a href="https://github.com/MODSetter/SurfSense/blob/57d7c1c205fa9795bc8122a252a429c1d617528c/README.md" target="_blank" rel="noopener noreferrer">阅读旧版说明 ↗</a> <a href="https://github.com/MODSetter/SurfSense/blob/3448772bd3d5d439114f810ac5da8e5a86967917/README.md" target="_blank" rel="noopener noreferrer">阅读研究版本说明 ↗</a></div>
+      <details class="architecture-details"><summary>继续深入：逐步查看八个处理环节与对应源码</summary>
+      <div class="architecture-board"><div class="lane-label">资料准备 · 入库时执行</div><div class="flow-row" id="ingestion-flow"></div><div class="lane-label second">问题研究 · 查询时执行</div><div class="flow-row" id="query-flow"></div><div class="loop-line">Agent 可按任务需要多次调用检索、实时连接器或其他工具，再组织最终回答。</div></div>
+      <div id="step-detail" class="panel step-detail" aria-live="polite"></div>
+      <div class="stack-grid"><article><span class="tiny-label">交互界面</span><h3>Next.js / React</h3><p>研究工作台、资料管理与协作界面。</p></article><article><span class="tiny-label">服务与任务</span><h3>FastAPI / Celery</h3><p>处理请求、文档解析与后台任务；Redis 支撑消息与状态。</p></article><article><span class="tiny-label">知识存储</span><h3>PostgreSQL / pgvector</h3><p>保存资料与片段，支持全文匹配和向量相似度查询。</p></article><article><span class="tiny-label">研究编排</span><h3>LangChain / LangGraph</h3><p>结合 Deep Agents 组件组织工具、子 Agent、上下文与执行状态。</p></article></div>
+      </details>
+    </section>
+    <section id="scenarios" class="view" hidden>
+      <div class="page-heading"><div><p class="eyebrow">RESEARCH THAT GOES SOMEWHERE</p><h1>研究之后，还能做什么？</h1><p class="subtitle">从一次问答，延伸到团队知识、研究交付与持续跟踪。</p></div><div class="heading-index">04 <span>/ 05</span></div></div>
+      <div id="use-case-grid" class="use-case-grid"></div>
+      <div class="deliverables panel"><div><p class="eyebrow">DELIVERABLE STUDIO</p><h2>同一份证据，多种表达。</h2><p>上游提供报告、文档、表格、演示文稿、播客与视频概览等生成能力；质量和可用性取决于模型与服务配置。</p></div><div class="artifact-list"><span>研究报告</span><span>演示文稿</span><span>双人播客</span><span>视频概览</span><span>文档与表格</span></div></div>
+      <div class="automation-strip"><div><span class="tiny-label">持续跟踪 · 能力示意</span><h2>每周一，整理本周用户反馈。</h2><p>定时或事件触发 → 执行 Agent 研究 → 整理变化 → 通过已配置连接器写回。此页面不创建定时任务。</p></div><a href="#boundaries">了解接入要求 →</a></div>
+    </section>
+    <section id="boundaries" class="view" hidden>
+      <div class="page-heading"><div><p class="eyebrow">MAKE AN INFORMED CHOICE</p><h1>带着边界，理解能力。</h1><p class="subtitle">部署整个平台、使用云服务，或只给自己的 Agent 接入工具。</p></div><div class="heading-index">05 <span>/ 05</span></div></div>
+      <div class="integration-grid"><article class="panel"><span class="tiny-label">01 · 使用产品</span><h2>研究工作台</h2><p>通过网页或桌面端管理资料、研究和协作。自部署需要运行后端、数据库、后台任务等服务。</p></article><article class="panel"><span class="tiny-label">02 · 连接程序</span><h2>REST API</h2><p>业务程序向后端发送请求，接收结构化结果。需要后端地址、API Key 和工作区权限。</p></article><article class="panel"><span class="tiny-label">03 · 连接 Agent</span><h2>MCP 服务</h2><p>把检索、采集与文档管理暴露为模型工具。MCP 服务通过 REST API 访问后端。</p></article></div>
+      <div class="api-example panel"><div class="panel-heading"><h2>MCP 连接配置示例</h2><button class="text-button" id="copy-config">复制配置</button></div><pre id="mcp-config"></pre><p class="muted">这是上游托管 MCP 的配置示例；需替换占位 Key 并授权工作区。复制配置不会建立连接。</p></div>
+      <div class="limits-grid"><article><h3>中文需要验证</h3><p>核对的全文检索代码使用 english 配置。中文关键词搜索可能需要适配，语义检索还取决于 Embedding 模型。</p></article><article><h3>自部署仍有成本</h3><p>服务器、模型、解析和部分采集器的代理都可能产生开销。完全本地处理需要逐项确认依赖。</p></article><article><h3>引用帮助核查</h3><p>引用可以定位证据，但不保证模型的归纳准确。网页内容变化、采集失败或索引缺失都会影响结果。</p></article><article><h3>混合许可证</h3><p>主体使用 Apache 2.0；app/proprietary 下组件使用 BSL 1.1，对向第三方提供商业产品或托管服务有限制。</p></article></div>
+      <section class="sources-section"><h2>资料依据</h2><p>基于上游提交 <code>3448772bd3d5</code> 的文档与代码阅读。未部署上游系统、未验证平台采集成功率；README 仍注明尚未达到生产就绪状态。</p><div id="source-links"></div></section>
+    </section>
+    <footer>014 · SurfSense 研究与知识库实验室 <span>独立教学展示 · 非上游官方界面</span></footer>
+  </main>
+</div>
+<dialog id="citation-dialog"><div class="dialog-top"><span class="eyebrow">SOURCE EVIDENCE</span><button id="close-dialog" class="icon-button" aria-label="关闭引用原文">×</button></div><div id="citation-content"></div></dialog>
+<div id="toast" role="status" class="toast" hidden></div>
+<noscript><p>此展示需要启用 JavaScript。你也可以直接阅读子项目 README。</p></noscript>
+</body></html>
